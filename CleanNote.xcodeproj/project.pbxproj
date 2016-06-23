@@ -13,6 +13,10 @@
 		C818422A1D184F4100B8BE01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C81842291D184F4100B8BE01 /* Assets.xcassets */; };
 		C818422D1D184F4100B8BE01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C818422B1D184F4100B8BE01 /* LaunchScreen.storyboard */; };
 		C81842381D184F4100B8BE01 /* CleanNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81842371D184F4100B8BE01 /* CleanNoteTests.swift */; };
+		C81842461D18534A00B8BE01 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81842451D18534A00B8BE01 /* ListInteractor.swift */; };
+		C81842481D18538D00B8BE01 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81842471D18538D00B8BE01 /* ListPresenter.swift */; };
+		C818424C1D18549000B8BE01 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C818424B1D18549000B8BE01 /* Note.swift */; };
+		C818424E1D1854C800B8BE01 /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C818424D1D1854C800B8BE01 /* NoteService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		C81842331D184F4100B8BE01 /* CleanNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81842371D184F4100B8BE01 /* CleanNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanNoteTests.swift; sourceTree = "<group>"; };
 		C81842391D184F4100B8BE01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C81842451D18534A00B8BE01 /* ListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
+		C81842471D18538D00B8BE01 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		C818424B1D18549000B8BE01 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		C818424D1D1854C800B8BE01 /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				C81842431D18507A00B8BE01 /* Boilerplate */,
+				C81842491D18545000B8BE01 /* Entities */,
+				C818424A1D18545E00B8BE01 /* Gateways */,
 				C81842421D18505D00B8BE01 /* Modules */,
 			);
 			path = CleanNote;
@@ -116,8 +126,26 @@
 			isa = PBXGroup;
 			children = (
 				C81842241D184F4100B8BE01 /* ListViewController.swift */,
+				C81842451D18534A00B8BE01 /* ListInteractor.swift */,
+				C81842471D18538D00B8BE01 /* ListPresenter.swift */,
 			);
 			name = List;
+			sourceTree = "<group>";
+		};
+		C81842491D18545000B8BE01 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				C818424B1D18549000B8BE01 /* Note.swift */,
+			);
+			name = Entities;
+			sourceTree = "<group>";
+		};
+		C818424A1D18545E00B8BE01 /* Gateways */ = {
+			isa = PBXGroup;
+			children = (
+				C818424D1D1854C800B8BE01 /* NoteService.swift */,
+			);
+			name = Gateways;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,8 +255,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C818424C1D18549000B8BE01 /* Note.swift in Sources */,
+				C81842461D18534A00B8BE01 /* ListInteractor.swift in Sources */,
 				C81842251D184F4100B8BE01 /* ListViewController.swift in Sources */,
+				C81842481D18538D00B8BE01 /* ListPresenter.swift in Sources */,
 				C81842231D184F4100B8BE01 /* AppDelegate.swift in Sources */,
+				C818424E1D1854C800B8BE01 /* NoteService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
