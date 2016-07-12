@@ -6,10 +6,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
 
-        let listViewController = window?.rootViewController as! ListViewController
+        let navController = window?.rootViewController as! UINavigationController
+        let listViewController = navController.topViewController as! ListViewController
         let noteService = NoteService()
         let listPresenter = ListPresenter(interface: listViewController)
-        let listInteractor = ListInteractor(service: noteService, output: listPresenter)
+        let listInteractor = ListInteractor(output: listPresenter, service: noteService)
         listViewController.interactor = listInteractor
 
         return true

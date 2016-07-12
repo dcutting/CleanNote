@@ -1,23 +1,23 @@
 protocol ListInteractorInput {
-    func fetchNotes()
+  func fetchNotes()
 }
 
 protocol ListInteractorOutput {
-    func found(notes: [Note])
+  func didFetch(notes: [Note])
 }
 
 class ListInteractor: ListInteractorInput {
-    let output: ListInteractorOutput
-    let service: NoteService
+  let output: ListInteractorOutput
+  let service: NoteService
 
-    init(service: NoteService, output: ListInteractorOutput) {
-        self.service = service
-        self.output = output
-    }
+  init(output: ListInteractorOutput, service: NoteService) {
+    self.output = output
+    self.service = service
+  }
 
-    func fetchNotes() {
-        service.fetchNotes {
-            self.output.found(notes: $0)
-        }
+  func fetchNotes() {
+    service.fetchNotes {
+      self.output.didFetch(notes: $0)
     }
+  }
 }
