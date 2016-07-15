@@ -1,9 +1,9 @@
-struct ListViewNote {
+struct ListNote {
   var summary: String
 }
 
 protocol ListInterface {
-  func update(notes: [ListViewNote])
+  func update(notes: [ListNote])
 }
 
 class ListPresenter: ListInteractorOutput {
@@ -15,7 +15,7 @@ class ListPresenter: ListInteractorOutput {
 
   func didFetch(notes: [Note]) {
     let listNotes = notes.map {
-      return ListViewNote(summary: $0.text)
+      return ListNote(summary: $0.text)
     }
     interface.update(notes: listNotes)
   }
