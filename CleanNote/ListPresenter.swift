@@ -7,7 +7,7 @@ protocol ListViewInterface {
 }
 
 class ListPresenter: ListInteractorOutput {
-  var interface: ListViewInterface
+  let interface: ListViewInterface
 
   init(interface: ListViewInterface) {
     self.interface = interface

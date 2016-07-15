@@ -18,6 +18,9 @@
 		C818424C1D18549000B8BE01 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C818424B1D18549000B8BE01 /* Note.swift */; };
 		C818424E1D1854C800B8BE01 /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C818424D1D1854C800B8BE01 /* NoteService.swift */; };
 		C876A6E01D394D43009366FE /* ListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6DF1D394D43009366FE /* ListWireframe.swift */; };
+		C876A6E31D394ECF009366FE /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E21D394ECF009366FE /* EditorViewController.swift */; };
+		C876A6E51D394EFD009366FE /* EditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E41D394EFD009366FE /* EditorInteractor.swift */; };
+		C876A6E71D394F47009366FE /* EditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E61D394F47009366FE /* EditorPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		C818424B1D18549000B8BE01 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		C818424D1D1854C800B8BE01 /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
 		C876A6DF1D394D43009366FE /* ListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWireframe.swift; sourceTree = "<group>"; };
+		C876A6E21D394ECF009366FE /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		C876A6E41D394EFD009366FE /* EditorInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorInteractor.swift; sourceTree = "<group>"; };
+		C876A6E61D394F47009366FE /* EditorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,7 @@
 		C81842421D18505D00B8BE01 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				C876A6E11D394EBD009366FE /* Editor */,
 				C81842441D1850A300B8BE01 /* List */,
 			);
 			name = Modules;
@@ -149,6 +156,16 @@
 				C818424D1D1854C800B8BE01 /* NoteService.swift */,
 			);
 			name = Gateways;
+			sourceTree = "<group>";
+		};
+		C876A6E11D394EBD009366FE /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				C876A6E21D394ECF009366FE /* EditorViewController.swift */,
+				C876A6E41D394EFD009366FE /* EditorInteractor.swift */,
+				C876A6E61D394F47009366FE /* EditorPresenter.swift */,
+			);
+			name = Editor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,8 +278,11 @@
 				C818424C1D18549000B8BE01 /* Note.swift in Sources */,
 				C81842461D18534A00B8BE01 /* ListInteractor.swift in Sources */,
 				C81842251D184F4100B8BE01 /* ListViewController.swift in Sources */,
+				C876A6E71D394F47009366FE /* EditorPresenter.swift in Sources */,
+				C876A6E31D394ECF009366FE /* EditorViewController.swift in Sources */,
 				C876A6E01D394D43009366FE /* ListWireframe.swift in Sources */,
 				C81842481D18538D00B8BE01 /* ListPresenter.swift in Sources */,
+				C876A6E51D394EFD009366FE /* EditorInteractor.swift in Sources */,
 				C81842231D184F4100B8BE01 /* AppDelegate.swift in Sources */,
 				C818424E1D1854C800B8BE01 /* NoteService.swift in Sources */,
 			);
