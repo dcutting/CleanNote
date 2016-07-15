@@ -2,14 +2,14 @@ struct ListViewNote {
   var summary: String
 }
 
-protocol ListViewInterface {
+protocol ListInterface {
   func update(notes: [ListViewNote])
 }
 
 class ListPresenter: ListInteractorOutput {
-  let interface: ListViewInterface
+  let interface: ListInterface
 
-  init(interface: ListViewInterface) {
+  init(interface: ListInterface) {
     self.interface = interface
   }
 

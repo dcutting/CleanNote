@@ -1,6 +1,6 @@
 import UIKit
 
-class ListViewController: UIViewController, ListViewInterface, UITableViewDataSource, UITableViewDelegate {
+class ListViewController: UIViewController, ListInterface, UITableViewDataSource, UITableViewDelegate {
   var interactor: ListInteractorInput!
   var listViewNotes = [ListViewNote]()
   @IBOutlet weak var tableView: UITableView!
