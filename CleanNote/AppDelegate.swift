@@ -8,10 +8,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let navController = window?.rootViewController as! UINavigationController
     let listViewController = navController.topViewController as! ListViewController
-    let noteService = NoteService()
-    let listPresenter = ListPresenter(interface: listViewController)
-    let listInteractor = ListInteractor(output: listPresenter, service: noteService)
-    listViewController.interactor = listInteractor
+
+    ListWireframe().configure(listViewController: listViewController, noteService: NoteService())
 
     return true
   }

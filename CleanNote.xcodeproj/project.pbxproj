@@ -17,6 +17,7 @@
 		C81842481D18538D00B8BE01 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81842471D18538D00B8BE01 /* ListPresenter.swift */; };
 		C818424C1D18549000B8BE01 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C818424B1D18549000B8BE01 /* Note.swift */; };
 		C818424E1D1854C800B8BE01 /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C818424D1D1854C800B8BE01 /* NoteService.swift */; };
+		C876A6E01D394D43009366FE /* ListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6DF1D394D43009366FE /* ListWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		C81842471D18538D00B8BE01 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		C818424B1D18549000B8BE01 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		C818424D1D1854C800B8BE01 /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
+		C876A6DF1D394D43009366FE /* ListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWireframe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				C81842241D184F4100B8BE01 /* ListViewController.swift */,
 				C81842451D18534A00B8BE01 /* ListInteractor.swift */,
 				C81842471D18538D00B8BE01 /* ListPresenter.swift */,
+				C876A6DF1D394D43009366FE /* ListWireframe.swift */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				C818424C1D18549000B8BE01 /* Note.swift in Sources */,
 				C81842461D18534A00B8BE01 /* ListInteractor.swift in Sources */,
 				C81842251D184F4100B8BE01 /* ListViewController.swift in Sources */,
+				C876A6E01D394D43009366FE /* ListWireframe.swift in Sources */,
 				C81842481D18538D00B8BE01 /* ListPresenter.swift in Sources */,
 				C81842231D184F4100B8BE01 /* AppDelegate.swift in Sources */,
 				C818424E1D1854C800B8BE01 /* NoteService.swift in Sources */,
@@ -458,6 +462,7 @@
 				C818423E1D184F4100B8BE01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C818423F1D184F4100B8BE01 /* Build configuration list for PBXNativeTarget "CleanNoteTests" */ = {
 			isa = XCConfigurationList;
@@ -466,6 +471,7 @@
 				C81842411D184F4100B8BE01 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
