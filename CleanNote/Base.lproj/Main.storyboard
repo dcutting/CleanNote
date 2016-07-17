@@ -53,7 +53,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="ael-lY-5t0">
-                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="bss-Cf-jNm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="bss-Cf-jNm">
                             <connections>
                                 <segue destination="b9V-bN-tPH" kind="show" identifier="addNote" id="94i-Va-QhB"/>
                             </connections>
@@ -117,4 +117,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cl9-6c-uNe"/>
+    </inferredMetricsTieBreakers>
 </document>
