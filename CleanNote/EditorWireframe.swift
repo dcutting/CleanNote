@@ -1,13 +1,13 @@
 class EditorWireframe {
-  let noteService: NoteService
+  let noteGateway: NoteGateway
 
-  init(noteService: NoteService) {
-    self.noteService = noteService
+  init(noteGateway: NoteGateway) {
+    self.noteGateway = noteGateway
   }
 
   func configure(editorViewController: EditorViewController, noteID: NoteID) {
     let editorPresenter = EditorPresenter(interface: editorViewController)
-    let editorInteractor = EditorInteractor(output: editorPresenter, service: noteService, noteID: noteID)
+    let editorInteractor = EditorInteractor(output: editorPresenter, gateway: noteGateway, noteID: noteID)
     editorViewController.interactor = editorInteractor
   }
 }

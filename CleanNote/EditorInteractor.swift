@@ -9,23 +9,23 @@ protocol EditorInteractorOutput {
 
 class EditorInteractor: EditorInteractorInput {
   let output: EditorInteractorOutput
-  let service: NoteService
+  let gateway: NoteGateway
   let noteID: NoteID
 
-  init(output: EditorInteractorOutput, service: NoteService, noteID: NoteID) {
+  init(output: EditorInteractorOutput, gateway: NoteGateway, noteID: NoteID) {
     self.output = output
-    self.service = service
+    self.gateway = gateway
     self.noteID = noteID
   }
 
   func fetchText() {
-    service.fetchNote(with: noteID) {
+    gateway.fetchNote(with: noteID) {
       guard let note = $0 else { return }
       self.output.didFetch(text: note.text)
     }
   }
 
   func save(text: String) {
-    service.save(text: text, for: noteID)
+    gateway.save(text: text, for: noteID)
   }
 }

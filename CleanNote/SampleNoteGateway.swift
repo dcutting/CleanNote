@@ -1,4 +1,4 @@
-class NoteService {
+class SampleNoteGateway: NoteGateway {
   var notes: [NoteID: Note]
 
   init() {

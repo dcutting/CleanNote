@@ -15,10 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
 
   func configure(listViewController: ListViewController) {
-    let noteService = NoteService()
+    let noteGateway = SampleNoteGateway()
 
-    let editorWireframe = EditorWireframe(noteService: noteService)
+    let editorWireframe = EditorWireframe(noteGateway: noteGateway)
 
-    ListWireframe().configure(listViewController: listViewController, noteService: noteService, editorWireframe: editorWireframe)
+    ListWireframe().configure(listViewController: listViewController, noteGateway: noteGateway, editorWireframe: editorWireframe)
   }
 }

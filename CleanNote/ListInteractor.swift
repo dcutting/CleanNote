@@ -8,15 +8,15 @@ protocol ListInteractorOutput {
 
 class ListInteractor: ListInteractorInput {
   let output: ListInteractorOutput
-  let service: NoteService
+  let gateway: NoteGateway
 
-  init(output: ListInteractorOutput, service: NoteService) {
+  init(output: ListInteractorOutput, gateway: NoteGateway) {
     self.output = output
-    self.service = service
+    self.gateway = gateway
   }
 
   func fetchNotes() {
-    service.fetchNotes {
+    gateway.fetchNotes {
       self.output.didFetch(notes: $0)
     }
   }
