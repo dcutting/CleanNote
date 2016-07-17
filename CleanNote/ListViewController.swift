@@ -2,6 +2,7 @@ import UIKit
 
 class ListViewController: UIViewController, ListInterface, UITableViewDataSource, UITableViewDelegate {
   var interactor: ListInteractorInput!
+  var editorWireframe: EditorWireframe!
   var listNotes = [ListViewNote]()
   @IBOutlet weak var tableView: UITableView!
 
@@ -12,10 +13,14 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
   override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
     guard segue.identifier == "editNote" else { return }
     guard let editorViewController = segue.destinationViewController as? EditorViewController else { return }
-    guard let indexPath = tableView.indexPathForSelectedRow else { return }
+    guard let noteID = noteIDForSelectedRow() else { return }
+    editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
+  }
+
+  func noteIDForSelectedRow() -> NoteID? {
+    guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
     let listViewNote = listNotes[indexPath.row]
-    let noteID = listViewNote.id
-    EditorWireframe().configure(editorViewController: editorViewController, noteService: NoteService(), noteID: noteID)
+    return listViewNote.id
   }
 
   func update(notes: [ListViewNote]) {

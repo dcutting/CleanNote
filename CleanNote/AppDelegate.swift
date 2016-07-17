@@ -9,7 +9,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let navController = window?.rootViewController as! UINavigationController
     let listViewController = navController.topViewController as! ListViewController
 
-    ListWireframe().configure(listViewController: listViewController, noteService: NoteService())
+    let noteService = NoteService()
+    let editorWireframe = EditorWireframe(noteService: noteService)
+    ListWireframe().configure(listViewController: listViewController, noteService: noteService, editorWireframe: editorWireframe)
 
     return true
   }
