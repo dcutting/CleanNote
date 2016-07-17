@@ -1,8 +1,7 @@
 class EditorWireframe {
-  func configure(editorViewController: EditorViewController) {
+  func configure(editorViewController: EditorViewController, noteService: NoteService, noteID: NoteID) {
     let editorPresenter = EditorPresenter(interface: editorViewController)
-    let editorNote = EditorNote(noteID: nil, text: "Sample note")
-    let editorInteractor = EditorInteractor(output: editorPresenter, editorNote: editorNote)
+    let editorInteractor = EditorInteractor(output: editorPresenter, service: noteService, noteID: noteID)
     editorViewController.interactor = editorInteractor
   }
 }

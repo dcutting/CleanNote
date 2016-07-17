@@ -1,4 +1,5 @@
 struct ListViewNote {
+  let id: NoteID
   var summary: String
 }
 
@@ -15,7 +16,7 @@ class ListPresenter: ListInteractorOutput {
 
   func didFetch(notes: [Note]) {
     let listViewNotes = notes.map {
-      return ListViewNote(summary: $0.text)
+      return ListViewNote(id: $0.id, summary: $0.text)
     }
     interface.update(notes: listViewNotes)
   }

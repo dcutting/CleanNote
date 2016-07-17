@@ -1,26 +1,26 @@
-struct EditorNote {
-  var noteID: NoteID?
-  var text: String
-}
-
 protocol EditorInteractorInput {
   func prepareNote()
 }
 
 protocol EditorInteractorOutput {
-  func didPrepare(note: EditorNote)
+  func didPrepare(note: Note)
 }
 
 class EditorInteractor: EditorInteractorInput {
   let output: EditorInteractorOutput
-  var editorNote: EditorNote
+  let service: NoteService
+  let noteID: NoteID
 
-  init(output: EditorInteractorOutput, editorNote: EditorNote) {
+  init(output: EditorInteractorOutput, service: NoteService, noteID: NoteID) {
     self.output = output
-    self.editorNote = editorNote
+    self.service = service
+    self.noteID = noteID
   }
 
   func prepareNote() {
-    output.didPrepare(note: editorNote)
+    service.fetchNote(with: noteID) {
+      guard let note = $0 else { return }
+      self.output.didPrepare(note: note)
+    }
   }
 }

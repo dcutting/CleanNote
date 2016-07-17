@@ -13,7 +13,7 @@ class EditorPresenter: EditorInteractorOutput {
     self.interface = interface
   }
 
-  func didPrepare(note: EditorNote) {
+  func didPrepare(note: Note) {
     let editorViewNote = EditorViewNote(text: note.text)
     interface.update(note: editorViewNote)
   }
