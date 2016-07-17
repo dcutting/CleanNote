@@ -15,11 +15,13 @@ class ListPresenter: ListInteractorOutput {
   }
 
   func didFetch(notes: [Note]) {
-    let listViewNotes: [ListViewNote] = notes.map {
-      let summaryText = summary(for: $0.text)
-      return ListViewNote(id: $0.id, summary: summaryText)
-    }
+    let listViewNotes = notes.map(listViewNote)
     interface.update(notes: listViewNotes)
+  }
+
+  func listViewNote(for note: Note) -> ListViewNote {
+    let summaryText = summary(for: note.text)
+    return ListViewNote(id: note.id, summary: summaryText)
   }
 
   func summary(for text: String) -> String {
