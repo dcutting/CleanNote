@@ -29,7 +29,7 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection: NSInteger) -> NSInteger {
-    return listNotes.count;
+    return listNotes.count
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
