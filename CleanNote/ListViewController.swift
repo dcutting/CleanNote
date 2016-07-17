@@ -24,14 +24,14 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
     editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
   }
 
-  func prepareForAddSegue(to editorViewController: EditorViewController) {
-    editorWireframe.configure(editorViewController: editorViewController, noteID: nil)
-  }
-
   func noteIDForSelectedRow() -> NoteID? {
     guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
     let listViewNote = listNotes[indexPath.row]
     return listViewNote.id
+  }
+
+  func prepareForAddSegue(to editorViewController: EditorViewController) {
+    editorWireframe.configure(editorViewController: editorViewController, noteID: nil)
   }
 
   func update(notes: [ListViewNote]) {
