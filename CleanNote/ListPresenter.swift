@@ -25,9 +25,6 @@ class ListPresenter: ListInteractorOutput {
   }
 
   func summary(for text: String) -> String {
-    if "" ==  text {
-      return "<empty>"
-    }
-    return text
+    return "" == text ? "<empty>" : text
   }
 }
