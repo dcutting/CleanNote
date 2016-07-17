@@ -40,7 +40,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="b9V-bN-tPH" kind="show" id="cl9-6c-uNe"/>
+                                            <segue destination="b9V-bN-tPH" kind="show" identifier="editNote" id="cl9-6c-uNe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="1076" y="138.98050974512745"/>
         </scene>
-        <!--View Controller-->
+        <!--Editor View Controller-->
         <scene sceneID="apn-HL-VAN">
             <objects>
-                <viewController id="b9V-bN-tPH" sceneMemberID="viewController">
+                <viewController id="b9V-bN-tPH" customClass="EditorViewController" customModule="CleanNote" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RiI-Jy-Ye1"/>
                         <viewControllerLayoutGuide type="bottom" id="e3b-x3-TUz"/>
@@ -84,6 +84,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="Vei-3k-2hb" id="uAj-pS-gTW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihF-2N-VOX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
