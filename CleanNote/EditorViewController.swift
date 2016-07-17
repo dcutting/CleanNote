@@ -6,6 +6,7 @@ class EditorViewController: UIViewController, EditorInterface {
 
   override func viewDidLoad() {
     interactor.fetchText()
+    textView.becomeFirstResponder()
   }
 
   override func viewWillDisappear(_ animated: Bool) {

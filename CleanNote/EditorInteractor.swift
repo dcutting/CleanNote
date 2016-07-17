@@ -10,22 +10,38 @@ protocol EditorInteractorOutput {
 class EditorInteractor: EditorInteractorInput {
   let output: EditorInteractorOutput
   let gateway: NoteGateway
-  let noteID: NoteID
+  let noteID: NoteID?
 
-  init(output: EditorInteractorOutput, gateway: NoteGateway, noteID: NoteID) {
+  init(output: EditorInteractorOutput, gateway: NoteGateway, noteID: NoteID?) {
     self.output = output
     self.gateway = gateway
     self.noteID = noteID
   }
 
   func fetchText() {
+    if let noteID = noteID {
+      fetchTextForNoteID(noteID: noteID)
+    } else {
+      fetchTextForNewNote()
+    }
+  }
+
+  func fetchTextForNoteID(noteID: NoteID) {
     gateway.fetchNote(with: noteID) {
       guard let note = $0 else { return }
       self.output.didFetch(text: note.text)
     }
   }
 
+  func fetchTextForNewNote() {
+    output.didFetch(text: "")
+  }
+
   func save(text: String) {
-    gateway.save(text: text, for: noteID)
+    if let noteID = noteID {
+      gateway.save(text: text, for: noteID)
+    } else {
+      gateway.createNote(with: text)
+    }
   }
 }

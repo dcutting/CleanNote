@@ -1,4 +1,5 @@
 class SampleNoteGateway: NoteGateway {
+  var noteIDCounter: Int = 3
   var notes: [NoteID: Note]
 
   init() {
@@ -19,6 +20,13 @@ class SampleNoteGateway: NoteGateway {
   func fetchNote(with id: NoteID, completion: (Note?) -> Void) {
     let note = notes[id]
     completion(note)
+  }
+
+  func createNote(with text: String) {
+    let nextNoteID = String(noteIDCounter)
+    let note = Note(id: nextNoteID, text: text)
+    notes[nextNoteID] = note
+    noteIDCounter += 1
   }
 
   func save(text: String, for noteID: NoteID) {
