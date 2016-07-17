@@ -16,12 +16,13 @@
 		C81842461D18534A00B8BE01 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81842451D18534A00B8BE01 /* ListInteractor.swift */; };
 		C81842481D18538D00B8BE01 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81842471D18538D00B8BE01 /* ListPresenter.swift */; };
 		C818424C1D18549000B8BE01 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C818424B1D18549000B8BE01 /* Note.swift */; };
-		C818424E1D1854C800B8BE01 /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C818424D1D1854C800B8BE01 /* NoteService.swift */; };
 		C836BB1D1D3BB2DD002FBE21 /* EditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836BB1C1D3BB2DD002FBE21 /* EditorWireframe.swift */; };
 		C876A6E01D394D43009366FE /* ListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6DF1D394D43009366FE /* ListWireframe.swift */; };
 		C876A6E31D394ECF009366FE /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E21D394ECF009366FE /* EditorViewController.swift */; };
 		C876A6E51D394EFD009366FE /* EditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E41D394EFD009366FE /* EditorInteractor.swift */; };
 		C876A6E71D394F47009366FE /* EditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E61D394F47009366FE /* EditorPresenter.swift */; };
+		C89C92BA1D3C40870070C5E7 /* NoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C92B81D3C40870070C5E7 /* NoteGateway.swift */; };
+		C89C92BB1D3C40870070C5E7 /* SampleNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,12 +49,13 @@
 		C81842451D18534A00B8BE01 /* ListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
 		C81842471D18538D00B8BE01 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
 		C818424B1D18549000B8BE01 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		C818424D1D1854C800B8BE01 /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
 		C836BB1C1D3BB2DD002FBE21 /* EditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorWireframe.swift; sourceTree = "<group>"; };
 		C876A6DF1D394D43009366FE /* ListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWireframe.swift; sourceTree = "<group>"; };
 		C876A6E21D394ECF009366FE /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		C876A6E41D394EFD009366FE /* EditorInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorInteractor.swift; sourceTree = "<group>"; };
 		C876A6E61D394F47009366FE /* EditorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorPresenter.swift; sourceTree = "<group>"; };
+		C89C92B81D3C40870070C5E7 /* NoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteGateway.swift; sourceTree = "<group>"; };
+		C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleNoteGateway.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +157,8 @@
 		C818424A1D18545E00B8BE01 /* Gateways */ = {
 			isa = PBXGroup;
 			children = (
-				C818424D1D1854C800B8BE01 /* NoteService.swift */,
+				C89C92B81D3C40870070C5E7 /* NoteGateway.swift */,
+				C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */,
 			);
 			name = Gateways;
 			sourceTree = "<group>";
@@ -278,9 +281,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C89C92BB1D3C40870070C5E7 /* SampleNoteGateway.swift in Sources */,
 				C818424C1D18549000B8BE01 /* Note.swift in Sources */,
 				C81842461D18534A00B8BE01 /* ListInteractor.swift in Sources */,
 				C81842251D184F4100B8BE01 /* ListViewController.swift in Sources */,
+				C89C92BA1D3C40870070C5E7 /* NoteGateway.swift in Sources */,
 				C876A6E71D394F47009366FE /* EditorPresenter.swift in Sources */,
 				C836BB1D1D3BB2DD002FBE21 /* EditorWireframe.swift in Sources */,
 				C876A6E31D394ECF009366FE /* EditorViewController.swift in Sources */,
@@ -288,7 +293,6 @@
 				C81842481D18538D00B8BE01 /* ListPresenter.swift in Sources */,
 				C876A6E51D394EFD009366FE /* EditorInteractor.swift in Sources */,
 				C81842231D184F4100B8BE01 /* AppDelegate.swift in Sources */,
-				C818424E1D1854C800B8BE01 /* NoteService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
