@@ -6,7 +6,7 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
   var listNotes = [ListViewNote]()
   @IBOutlet weak var tableView: UITableView!
 
-  override func viewDidAppear(_ animated: Bool) {
+  override func viewWillAppear(_ animated: Bool) {
     interactor.fetchNotes()
   }
 

@@ -5,10 +5,14 @@ class EditorViewController: UIViewController, EditorInterface {
   @IBOutlet weak var textView: UITextView!
 
   override func viewDidLoad() {
-    interactor.prepareNote()
+    interactor.fetchText()
   }
 
-  func update(note: EditorViewNote) {
-    textView.text = note.text
+  override func viewWillDisappear(_ animated: Bool) {
+    interactor.save(text: textView.text)
+  }
+
+  func update(text: String) {
+    textView.text = text
   }
 }

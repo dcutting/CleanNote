@@ -1,9 +1,5 @@
-struct EditorViewNote {
-  var text: String
-}
-
 protocol EditorInterface {
-  func update(note: EditorViewNote)
+  func update(text: String)
 }
 
 class EditorPresenter: EditorInteractorOutput {
@@ -13,8 +9,7 @@ class EditorPresenter: EditorInteractorOutput {
     self.interface = interface
   }
 
-  func didPrepare(note: Note) {
-    let editorViewNote = EditorViewNote(text: note.text)
-    interface.update(note: editorViewNote)
+  func didFetch(text: String) {
+    interface.update(text: text)
   }
 }

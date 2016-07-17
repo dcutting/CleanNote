@@ -1,9 +1,10 @@
 protocol EditorInteractorInput {
-  func prepareNote()
+  func fetchText()
+  func save(text: String)
 }
 
 protocol EditorInteractorOutput {
-  func didPrepare(note: Note)
+  func didFetch(text: String)
 }
 
 class EditorInteractor: EditorInteractorInput {
@@ -17,10 +18,14 @@ class EditorInteractor: EditorInteractorInput {
     self.noteID = noteID
   }
 
-  func prepareNote() {
+  func fetchText() {
     service.fetchNote(with: noteID) {
       guard let note = $0 else { return }
-      self.output.didPrepare(note: note)
+      self.output.didFetch(text: note.text)
     }
+  }
+
+  func save(text: String) {
+    service.save(text: text, for: noteID)
   }
 }

@@ -1,5 +1,5 @@
 class NoteService {
-  let notes: [NoteID: Note]
+  var notes: [NoteID: Note]
 
   init() {
     let noteID1 = "1"
@@ -19,5 +19,11 @@ class NoteService {
   func fetchNote(with id: NoteID, completion: (Note?) -> Void) {
     let note = notes[id]
     completion(note)
+  }
+
+  func save(text: String, for noteID: NoteID) {
+    guard var note = notes[noteID] else { return }
+    note.text = text
+    notes[noteID] = note
   }
 }
