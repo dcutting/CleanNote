@@ -23,6 +23,7 @@
 		C876A6E71D394F47009366FE /* EditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E61D394F47009366FE /* EditorPresenter.swift */; };
 		C89C92BA1D3C40870070C5E7 /* NoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C92B81D3C40870070C5E7 /* NoteGateway.swift */; };
 		C89C92BB1D3C40870070C5E7 /* SampleNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */; };
+		C8A197361D3CC1DC004CE743 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A197351D3CC1DC004CE743 /* RootWireframe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		C876A6E61D394F47009366FE /* EditorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorPresenter.swift; sourceTree = "<group>"; };
 		C89C92B81D3C40870070C5E7 /* NoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteGateway.swift; sourceTree = "<group>"; };
 		C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleNoteGateway.swift; sourceTree = "<group>"; };
+		C8A197351D3CC1DC004CE743 /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				C81842221D184F4100B8BE01 /* AppDelegate.swift */,
+				C8A197351D3CC1DC004CE743 /* RootWireframe.swift */,
 				C81842261D184F4100B8BE01 /* Main.storyboard */,
 				C81842291D184F4100B8BE01 /* Assets.xcassets */,
 				C818422B1D184F4100B8BE01 /* LaunchScreen.storyboard */,
@@ -292,6 +295,7 @@
 				C876A6E01D394D43009366FE /* ListWireframe.swift in Sources */,
 				C81842481D18538D00B8BE01 /* ListPresenter.swift in Sources */,
 				C876A6E51D394EFD009366FE /* EditorInteractor.swift in Sources */,
+				C8A197361D3CC1DC004CE743 /* RootWireframe.swift in Sources */,
 				C81842231D184F4100B8BE01 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
