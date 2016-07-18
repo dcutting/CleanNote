@@ -38,8 +38,8 @@
 
 /* Begin PBXFileReference section */
 		C818421F1D184F4100B8BE01 /* CleanNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C81842221D184F4100B8BE01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C81842241D184F4100B8BE01 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		C81842221D184F4100B8BE01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Code/AppDelegate.swift; sourceTree = "<group>"; };
+		C81842241D184F4100B8BE01 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = Code/ListViewController.swift; sourceTree = "<group>"; };
 		C81842271D184F4100B8BE01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C81842291D184F4100B8BE01 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C818422C1D184F4100B8BE01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,17 +47,17 @@
 		C81842331D184F4100B8BE01 /* CleanNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81842371D184F4100B8BE01 /* CleanNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanNoteTests.swift; sourceTree = "<group>"; };
 		C81842391D184F4100B8BE01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C81842451D18534A00B8BE01 /* ListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInteractor.swift; sourceTree = "<group>"; };
-		C81842471D18538D00B8BE01 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
-		C818424B1D18549000B8BE01 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
-		C836BB1C1D3BB2DD002FBE21 /* EditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorWireframe.swift; sourceTree = "<group>"; };
-		C876A6DF1D394D43009366FE /* ListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListWireframe.swift; sourceTree = "<group>"; };
-		C876A6E21D394ECF009366FE /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
-		C876A6E41D394EFD009366FE /* EditorInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorInteractor.swift; sourceTree = "<group>"; };
-		C876A6E61D394F47009366FE /* EditorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorPresenter.swift; sourceTree = "<group>"; };
-		C89C92B81D3C40870070C5E7 /* NoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteGateway.swift; sourceTree = "<group>"; };
-		C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleNoteGateway.swift; sourceTree = "<group>"; };
-		C8A197351D3CC1DC004CE743 /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
+		C81842451D18534A00B8BE01 /* ListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListInteractor.swift; path = Code/ListInteractor.swift; sourceTree = "<group>"; };
+		C81842471D18538D00B8BE01 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListPresenter.swift; path = Code/ListPresenter.swift; sourceTree = "<group>"; };
+		C818424B1D18549000B8BE01 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Code/Note.swift; sourceTree = "<group>"; };
+		C836BB1C1D3BB2DD002FBE21 /* EditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorWireframe.swift; path = Code/EditorWireframe.swift; sourceTree = "<group>"; };
+		C876A6DF1D394D43009366FE /* ListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListWireframe.swift; path = Code/ListWireframe.swift; sourceTree = "<group>"; };
+		C876A6E21D394ECF009366FE /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorViewController.swift; path = Code/EditorViewController.swift; sourceTree = "<group>"; };
+		C876A6E41D394EFD009366FE /* EditorInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorInteractor.swift; path = Code/EditorInteractor.swift; sourceTree = "<group>"; };
+		C876A6E61D394F47009366FE /* EditorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorPresenter.swift; path = Code/EditorPresenter.swift; sourceTree = "<group>"; };
+		C89C92B81D3C40870070C5E7 /* NoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteGateway.swift; path = Code/NoteGateway.swift; sourceTree = "<group>"; };
+		C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SampleNoteGateway.swift; path = Code/SampleNoteGateway.swift; sourceTree = "<group>"; };
+		C8A197351D3CC1DC004CE743 /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootWireframe.swift; path = Code/RootWireframe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
