@@ -25,6 +25,10 @@ class ListPresenter: ListInteractorOutput {
   }
 
   func summary(for text: String) -> String {
-    return "" == text ? "<empty>" : text
+    if "" == text {
+      return "<empty>"
+    }
+    let trimIndex = text.index(text.startIndex, offsetBy: 100)
+    return text.substring(to: trimIndex)
   }
 }
