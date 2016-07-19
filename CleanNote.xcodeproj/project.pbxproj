@@ -27,6 +27,8 @@
 		C8A197361D3CC1DC004CE743 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A197351D3CC1DC004CE743 /* RootWireframe.swift */; };
 		C8A516C61D3E654300DC8D78 /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516C51D3E654300DC8D78 /* ListPresenterTests.swift */; };
 		C8A516C81D3E659A00DC8D78 /* MockListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516C71D3E659A00DC8D78 /* MockListInterface.swift */; };
+		C8A516CA1D3E71E100DC8D78 /* EditorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516C91D3E71E100DC8D78 /* EditorPresenterTests.swift */; };
+		C8A516CC1D3E72C000DC8D78 /* MockEditorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516CB1D3E72C000DC8D78 /* MockEditorInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		C8A197351D3CC1DC004CE743 /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootWireframe.swift; path = Code/RootWireframe.swift; sourceTree = "<group>"; };
 		C8A516C51D3E654300DC8D78 /* ListPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenterTests.swift; sourceTree = "<group>"; };
 		C8A516C71D3E659A00DC8D78 /* MockListInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockListInterface.swift; sourceTree = "<group>"; };
+		C8A516C91D3E71E100DC8D78 /* EditorPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorPresenterTests.swift; sourceTree = "<group>"; };
+		C8A516CB1D3E72C000DC8D78 /* MockEditorInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockEditorInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +123,10 @@
 				C82C11AD1D3E4E1B00035E3E /* Boilerplate */,
 				C82C11AB1D3E4E0700035E3E /* ListInteractorTests.swift */,
 				C8A516C51D3E654300DC8D78 /* ListPresenterTests.swift */,
+				C8A516C91D3E71E100DC8D78 /* EditorPresenterTests.swift */,
 				C82C11B01D3E502900035E3E /* MockListInteractorOutput.swift */,
 				C8A516C71D3E659A00DC8D78 /* MockListInterface.swift */,
+				C8A516CB1D3E72C000DC8D78 /* MockEditorInterface.swift */,
 			);
 			path = CleanNoteTests;
 			sourceTree = "<group>";
@@ -323,8 +329,10 @@
 			files = (
 				C82C11AC1D3E4E0700035E3E /* ListInteractorTests.swift in Sources */,
 				C8A516C81D3E659A00DC8D78 /* MockListInterface.swift in Sources */,
+				C8A516CC1D3E72C000DC8D78 /* MockEditorInterface.swift in Sources */,
 				C82C11B11D3E502900035E3E /* MockListInteractorOutput.swift in Sources */,
 				C8A516C61D3E654300DC8D78 /* ListPresenterTests.swift in Sources */,
+				C8A516CA1D3E71E100DC8D78 /* EditorPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
