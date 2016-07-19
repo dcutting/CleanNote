@@ -5,16 +5,15 @@ class EditorPresenterTests: XCTestCase {
 
   func test_didFetchText_updatesInterfaceWithText() {
     // Arrange.
-    let text = "my note text"
-
     let interface = MockEditorInterface()
+    
     let sut = EditorPresenter(interface: interface)
 
     // Act.
-    sut.didFetch(text: text)
+    sut.didFetch(text: "my note text")
 
     // Assert.
-    let expectedText = text
+    let expectedText = "my note text"
     XCTAssertEqual(expectedText, interface.actualText)
   }
 }

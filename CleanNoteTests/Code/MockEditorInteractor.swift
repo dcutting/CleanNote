@@ -10,20 +10,16 @@ class MockEditorInteractorInput: EditorInteractorInput {
     shouldExpectFetchText = true
   }
 
-  func expectSave(text: String) {
+  func expect(save text: String) {
     expectedSaveText = text
   }
 
   func assert() -> Bool {
-    if shouldExpectFetchText {
-      if !didCallFetchText {
-        return false
-      }
+    if shouldExpectFetchText && !didCallFetchText {
+      return false
     }
-    if let expectedSaveText = expectedSaveText {
-      if expectedSaveText != actualSaveText {
-        return false
-      }
+    if nil != expectedSaveText && expectedSaveText != actualSaveText {
+      return false
     }
     return true
   }

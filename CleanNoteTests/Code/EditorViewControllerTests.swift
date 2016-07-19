@@ -44,7 +44,7 @@ class EditorViewControllerTests: XCTestCase {
   func test_viewWillDisappear_savesText() {
     // Arrange.
     textView.text = "my edited text"
-    interactor.expectSave(text: "my edited text")
+    interactor.expect(save: "my edited text")
 
     // Act.
     sut.viewWillDisappear(true)

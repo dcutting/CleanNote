@@ -4,11 +4,11 @@ import XCTest
 class ListInteractorTests: XCTestCase {
 
   func test_fetchNotes_passesNotesFromGatewayToOutput() {
-
     // Arrange.
-    let note1 = Note(id: "1", text: "sample note")
-    let note2 = Note(id: "2", text: "another sample note")
-    let notes = [note1, note2]
+    let notes = [
+      Note(id: "1", text: "sample note"),
+      Note(id: "2", text: "another sample note")
+    ]
 
     let output = MockListInteractorOutput()
     output.expect(didFetch: notes)
