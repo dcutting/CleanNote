@@ -3,15 +3,23 @@ import XCTest
 
 class EditorViewControllerTests: XCTestCase {
 
-  func test_viewDidLoad_tellsInteractorToFetchText() {
-    // Arrange.
-    let textView = MockTextView()
-    let interactor = MockEditorInteractorInput()
-    interactor.expectFetchText()
+  var textView: MockTextView!
+  var interactor: MockEditorInteractorInput!
+  var sut: EditorViewController!
 
-    let sut = EditorViewController()
+  override func setUp() {
+    textView = MockTextView()
+    interactor = MockEditorInteractorInput()
+
+    sut = EditorViewController()
     sut.textView = textView
     sut.interactor = interactor
+  }
+
+
+  func test_viewDidLoad_tellsInteractorToFetchText() {
+    // Arrange.
+    interactor.expectFetchText()
 
     // Act.
     sut.viewDidLoad()
@@ -23,13 +31,7 @@ class EditorViewControllerTests: XCTestCase {
 
   func test_viewDidLoad_showsKeyboard() {
     // Arrange.
-    let interactor = MockEditorInteractorInput()
-    let textView = MockTextView()
     textView.expectBecomeFirstResponder()
-
-    let sut = EditorViewController()
-    sut.textView = textView
-    sut.interactor = interactor
 
     // Act.
     sut.viewDidLoad()
@@ -41,15 +43,8 @@ class EditorViewControllerTests: XCTestCase {
 
   func test_viewWillDisappear_savesText() {
     // Arrange.
-    let textView = MockTextView()
     textView.text = "my edited text"
-
-    let interactor = MockEditorInteractorInput()
     interactor.expectSave(text: "my edited text")
-
-    let sut = EditorViewController()
-    sut.textView = textView
-    sut.interactor = interactor
 
     // Act.
     sut.viewWillDisappear(true)
@@ -60,14 +55,6 @@ class EditorViewControllerTests: XCTestCase {
 
 
   func test_updateText_setsTextView() {
-    // Arrange.
-    let textView = MockTextView()
-    let interactor = MockEditorInteractorInput()
-
-    let sut = EditorViewController()
-    sut.textView = textView
-    sut.interactor = interactor
-
     // Act.
     sut.update(text: "sample text")
 
