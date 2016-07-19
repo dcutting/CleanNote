@@ -12,10 +12,11 @@
 		C81842281D184F4100B8BE01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C81842261D184F4100B8BE01 /* Main.storyboard */; };
 		C818422A1D184F4100B8BE01 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C81842291D184F4100B8BE01 /* Assets.xcassets */; };
 		C818422D1D184F4100B8BE01 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C818422B1D184F4100B8BE01 /* LaunchScreen.storyboard */; };
-		C81842381D184F4100B8BE01 /* CleanNoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81842371D184F4100B8BE01 /* CleanNoteTests.swift */; };
 		C81842461D18534A00B8BE01 /* ListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81842451D18534A00B8BE01 /* ListInteractor.swift */; };
 		C81842481D18538D00B8BE01 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81842471D18538D00B8BE01 /* ListPresenter.swift */; };
 		C818424C1D18549000B8BE01 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C818424B1D18549000B8BE01 /* Note.swift */; };
+		C82C11AC1D3E4E0700035E3E /* ListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82C11AB1D3E4E0700035E3E /* ListInteractorTests.swift */; };
+		C82C11B11D3E502900035E3E /* MockListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82C11B01D3E502900035E3E /* MockListInteractorOutput.swift */; };
 		C836BB1D1D3BB2DD002FBE21 /* EditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836BB1C1D3BB2DD002FBE21 /* EditorWireframe.swift */; };
 		C876A6E01D394D43009366FE /* ListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6DF1D394D43009366FE /* ListWireframe.swift */; };
 		C876A6E31D394ECF009366FE /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E21D394ECF009366FE /* EditorViewController.swift */; };
@@ -45,11 +46,12 @@
 		C818422C1D184F4100B8BE01 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C818422E1D184F4100B8BE01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C81842331D184F4100B8BE01 /* CleanNoteTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C81842371D184F4100B8BE01 /* CleanNoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanNoteTests.swift; sourceTree = "<group>"; };
 		C81842391D184F4100B8BE01 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C81842451D18534A00B8BE01 /* ListInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListInteractor.swift; path = Code/ListInteractor.swift; sourceTree = "<group>"; };
 		C81842471D18538D00B8BE01 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListPresenter.swift; path = Code/ListPresenter.swift; sourceTree = "<group>"; };
 		C818424B1D18549000B8BE01 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = Code/Note.swift; sourceTree = "<group>"; };
+		C82C11AB1D3E4E0700035E3E /* ListInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListInteractorTests.swift; sourceTree = "<group>"; };
+		C82C11B01D3E502900035E3E /* MockListInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockListInteractorOutput.swift; sourceTree = "<group>"; };
 		C836BB1C1D3BB2DD002FBE21 /* EditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorWireframe.swift; path = Code/EditorWireframe.swift; sourceTree = "<group>"; };
 		C876A6DF1D394D43009366FE /* ListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListWireframe.swift; path = Code/ListWireframe.swift; sourceTree = "<group>"; };
 		C876A6E21D394ECF009366FE /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorViewController.swift; path = Code/EditorViewController.swift; sourceTree = "<group>"; };
@@ -110,8 +112,9 @@
 		C81842361D184F4100B8BE01 /* CleanNoteTests */ = {
 			isa = PBXGroup;
 			children = (
-				C81842371D184F4100B8BE01 /* CleanNoteTests.swift */,
-				C81842391D184F4100B8BE01 /* Info.plist */,
+				C82C11AD1D3E4E1B00035E3E /* Boilerplate */,
+				C82C11AB1D3E4E0700035E3E /* ListInteractorTests.swift */,
+				C82C11B01D3E502900035E3E /* MockListInteractorOutput.swift */,
 			);
 			path = CleanNoteTests;
 			sourceTree = "<group>";
@@ -164,6 +167,14 @@
 				C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */,
 			);
 			name = Gateways;
+			sourceTree = "<group>";
+		};
+		C82C11AD1D3E4E1B00035E3E /* Boilerplate */ = {
+			isa = PBXGroup;
+			children = (
+				C81842391D184F4100B8BE01 /* Info.plist */,
+			);
+			name = Boilerplate;
 			sourceTree = "<group>";
 		};
 		C876A6E11D394EBD009366FE /* Editor */ = {
@@ -304,7 +315,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C81842381D184F4100B8BE01 /* CleanNoteTests.swift in Sources */,
+				C82C11AC1D3E4E0700035E3E /* ListInteractorTests.swift in Sources */,
+				C82C11B11D3E502900035E3E /* MockListInteractorOutput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,7 +388,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -417,7 +429,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
