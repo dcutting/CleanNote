@@ -1,9 +1,9 @@
 @testable import CleanNote
 
 class MockListInterface: ListInterface {
-  var notes: [ListViewNote]?
+  var actualNotes: [ListViewNote]?
 
   func update(notes: [ListViewNote]) {
-    self.notes = notes
+    actualNotes = notes
   }
 }
