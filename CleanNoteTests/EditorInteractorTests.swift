@@ -71,4 +71,24 @@ class EditorInteractorTests: XCTestCase {
     let actualText = gateway.textForCreateNote
     XCTAssertEqual(expectedText, actualText)
   }
+
+
+  func test_saveText_existingNote_updatesNote() {
+    // Arrange.
+    let gateway = MockNoteGateway()
+
+    let sut = EditorInteractor(output: output, gateway: gateway, noteID: "one")
+
+    // Act.
+    sut.save(text: "my note text")
+
+    // Assert.
+    let expectedText = "my note text"
+    let actualText = gateway.textForSaveNote
+    XCTAssertEqual(expectedText, actualText)
+    
+    let expectedNoteID = "one"
+    let actualNoteID = gateway.noteIDForSaveNote
+    XCTAssertEqual(expectedNoteID, actualNoteID)
+  }
 }

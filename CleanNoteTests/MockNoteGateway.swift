@@ -2,6 +2,8 @@
 
 class MockNoteGateway: NoteGateway {
   var textForCreateNote: String?
+  var noteIDForSaveNote: NoteID?
+  var textForSaveNote: String?
 
   func fetchNotes(completion: ([Note]) -> Void) {
   }
@@ -14,5 +16,7 @@ class MockNoteGateway: NoteGateway {
   }
 
   func save(text: String, for noteID: NoteID) {
+    noteIDForSaveNote = noteID
+    textForSaveNote = text
   }
 }
