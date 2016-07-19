@@ -57,4 +57,23 @@ class EditorViewControllerTests: XCTestCase {
     // Assert.
     XCTAssert(interactor.assert())
   }
+
+
+  func test_updateText_setsTextView() {
+    // Arrange.
+    let textView = MockTextView()
+    let interactor = MockEditorInteractorInput()
+
+    let sut = EditorViewController()
+    sut.textView = textView
+    sut.interactor = interactor
+
+    // Act.
+    sut.update(text: "sample text")
+
+    // Assert.
+    let expectedText = "sample text"
+    let actualText = textView.text
+    XCTAssertEqual(expectedText, actualText)
+  }
 }
