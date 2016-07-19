@@ -12,7 +12,7 @@ class ListPresenterTests: XCTestCase {
   }
 
 
-  func test_didFetch_convertsNotesToListViewNotes() {
+  func test_didFetch_notes_convertedToListViewNotes() {
     // Arrange.
     let notes = [
       Note(id: "1", text: "sample note"),
@@ -31,7 +31,7 @@ class ListPresenterTests: XCTestCase {
   }
 
 
-  func test_didFetch_insertsPlaceholderForEmptyNotes() {
+  func test_didFetch_notesWithoutText_insertsPlaceholderForSummary() {
     // Arrange.
     let notes = [
       Note(id: "1", text: "")
@@ -48,7 +48,7 @@ class ListPresenterTests: XCTestCase {
   }
 
 
-  func test_didFetch_joinsLinesForPresentation() {
+  func test_didFetch_notesWithMultipleLines_joinsForSummary() {
     // Arrange.
     let notes = [
       Note(id: "1", text: "sample\nnote")
