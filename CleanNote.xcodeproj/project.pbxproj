@@ -18,6 +18,8 @@
 		C82C11AC1D3E4E0700035E3E /* ListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82C11AB1D3E4E0700035E3E /* ListInteractorTests.swift */; };
 		C82C11B11D3E502900035E3E /* MockListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82C11B01D3E502900035E3E /* MockListInteractorOutput.swift */; };
 		C836BB1D1D3BB2DD002FBE21 /* EditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836BB1C1D3BB2DD002FBE21 /* EditorWireframe.swift */; };
+		C8371CEA1D3E892F00BD3844 /* EditorViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8371CE91D3E892F00BD3844 /* EditorViewControllerTests.swift */; };
+		C8371CEC1D3E8B3C00BD3844 /* MockEditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8371CEB1D3E8B3C00BD3844 /* MockEditorInteractor.swift */; };
 		C876A6E01D394D43009366FE /* ListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6DF1D394D43009366FE /* ListWireframe.swift */; };
 		C876A6E31D394ECF009366FE /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E21D394ECF009366FE /* EditorViewController.swift */; };
 		C876A6E51D394EFD009366FE /* EditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E41D394EFD009366FE /* EditorInteractor.swift */; };
@@ -61,6 +63,8 @@
 		C82C11AB1D3E4E0700035E3E /* ListInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListInteractorTests.swift; path = CleanNoteTests/Code/ListInteractorTests.swift; sourceTree = SOURCE_ROOT; };
 		C82C11B01D3E502900035E3E /* MockListInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockListInteractorOutput.swift; path = Code/MockListInteractorOutput.swift; sourceTree = "<group>"; };
 		C836BB1C1D3BB2DD002FBE21 /* EditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorWireframe.swift; path = Code/EditorWireframe.swift; sourceTree = "<group>"; };
+		C8371CE91D3E892F00BD3844 /* EditorViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorViewControllerTests.swift; path = CleanNoteTests/Code/EditorViewControllerTests.swift; sourceTree = SOURCE_ROOT; };
+		C8371CEB1D3E8B3C00BD3844 /* MockEditorInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockEditorInteractor.swift; path = Code/MockEditorInteractor.swift; sourceTree = "<group>"; };
 		C876A6DF1D394D43009366FE /* ListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListWireframe.swift; path = Code/ListWireframe.swift; sourceTree = "<group>"; };
 		C876A6E21D394ECF009366FE /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorViewController.swift; path = Code/EditorViewController.swift; sourceTree = "<group>"; };
 		C876A6E41D394EFD009366FE /* EditorInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorInteractor.swift; path = Code/EditorInteractor.swift; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 				C8A516CB1D3E72C000DC8D78 /* MockEditorInterface.swift */,
 				C8A516D11D3E776400DC8D78 /* MockEditorInteractorOutput.swift */,
 				C8A516D31D3E83A400DC8D78 /* MockNoteGateway.swift */,
+				C8371CEB1D3E8B3C00BD3844 /* MockEditorInteractor.swift */,
 			);
 			path = CleanNoteTests;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 				C876A6E41D394EFD009366FE /* EditorInteractor.swift */,
 				C876A6E61D394F47009366FE /* EditorPresenter.swift */,
 				C836BB1C1D3BB2DD002FBE21 /* EditorWireframe.swift */,
+				C8371CE91D3E892F00BD3844 /* EditorViewControllerTests.swift */,
 				C8A516CF1D3E767500DC8D78 /* EditorInteractorTests.swift */,
 				C8A516C91D3E71E100DC8D78 /* EditorPresenterTests.swift */,
 			);
@@ -340,9 +346,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C82C11AC1D3E4E0700035E3E /* ListInteractorTests.swift in Sources */,
+				C8371CEA1D3E892F00BD3844 /* EditorViewControllerTests.swift in Sources */,
 				C8A516C81D3E659A00DC8D78 /* MockListInterface.swift in Sources */,
 				C8A516CC1D3E72C000DC8D78 /* MockEditorInterface.swift in Sources */,
 				C8A516D01D3E767500DC8D78 /* EditorInteractorTests.swift in Sources */,
+				C8371CEC1D3E8B3C00BD3844 /* MockEditorInteractor.swift in Sources */,
 				C8A516D21D3E776400DC8D78 /* MockEditorInteractorOutput.swift in Sources */,
 				C82C11B11D3E502900035E3E /* MockListInteractorOutput.swift in Sources */,
 				C8A516D41D3E83A400DC8D78 /* MockNoteGateway.swift in Sources */,
