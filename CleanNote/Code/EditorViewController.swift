@@ -1,7 +1,7 @@
 import UIKit
 
 class EditorViewController: UIViewController, EditorInterface {
-  var interactor: EditorInteractor!
+  var interactor: EditorInteractorInput!
   @IBOutlet weak var textView: UITextView!
 
   override func viewDidLoad() {
