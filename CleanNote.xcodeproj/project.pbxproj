@@ -32,6 +32,7 @@
 		C8A516CE1D3E754A00DC8D78 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516CD1D3E754A00DC8D78 /* NoteTests.swift */; };
 		C8A516D01D3E767500DC8D78 /* EditorInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516CF1D3E767500DC8D78 /* EditorInteractorTests.swift */; };
 		C8A516D21D3E776400DC8D78 /* MockEditorInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516D11D3E776400DC8D78 /* MockEditorInteractorOutput.swift */; };
+		C8A516D41D3E83A400DC8D78 /* MockNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516D31D3E83A400DC8D78 /* MockNoteGateway.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		C8A516CD1D3E754A00DC8D78 /* NoteTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
 		C8A516CF1D3E767500DC8D78 /* EditorInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorInteractorTests.swift; sourceTree = "<group>"; };
 		C8A516D11D3E776400DC8D78 /* MockEditorInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockEditorInteractorOutput.swift; sourceTree = "<group>"; };
+		C8A516D31D3E83A400DC8D78 /* MockNoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockNoteGateway.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				C8A516C71D3E659A00DC8D78 /* MockListInterface.swift */,
 				C8A516CB1D3E72C000DC8D78 /* MockEditorInterface.swift */,
 				C8A516D11D3E776400DC8D78 /* MockEditorInteractorOutput.swift */,
+				C8A516D31D3E83A400DC8D78 /* MockNoteGateway.swift */,
 			);
 			path = CleanNoteTests;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				C8A516D01D3E767500DC8D78 /* EditorInteractorTests.swift in Sources */,
 				C8A516D21D3E776400DC8D78 /* MockEditorInteractorOutput.swift in Sources */,
 				C82C11B11D3E502900035E3E /* MockListInteractorOutput.swift in Sources */,
+				C8A516D41D3E83A400DC8D78 /* MockNoteGateway.swift in Sources */,
 				C8A516C61D3E654300DC8D78 /* ListPresenterTests.swift in Sources */,
 				C8A516CE1D3E754A00DC8D78 /* NoteTests.swift in Sources */,
 				C8A516CA1D3E71E100DC8D78 /* EditorPresenterTests.swift in Sources */,

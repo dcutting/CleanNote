@@ -9,6 +9,7 @@ class EditorInteractorTests: XCTestCase {
     output = MockEditorInteractorOutput()
   }
 
+
   func test_fetchText_newNote_emptyText() {
     // Arrange.
     let gateway = SampleNoteGateway(notes: [])
@@ -53,5 +54,21 @@ class EditorInteractorTests: XCTestCase {
     // Assert.
     let expectedText = ""
     XCTAssertEqual(expectedText, output.actualText)
+  }
+
+
+  func test_saveText_newNote_createsNote() {
+    // Arrange.
+    let gateway = MockNoteGateway()
+
+    let sut = EditorInteractor(output: output, gateway: gateway, noteID: nil)
+
+    // Act.
+    sut.save(text: "my note text")
+
+    // Assert.
+    let expectedText = "my note text"
+    let actualText = gateway.textForCreateNote
+    XCTAssertEqual(expectedText, actualText)
   }
 }
