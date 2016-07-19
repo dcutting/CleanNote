@@ -36,11 +36,6 @@ class ListPresenter: ListInteractorOutput {
   }
 
   func nonEmptySummary(for text: String) -> String {
-    let trimIndex = text.index(text.startIndex, offsetBy: 100, limitedBy: text.endIndex)
-    if let trimIndex = trimIndex {
-      return text.substring(to: trimIndex)
-    } else {
-      return text
-    }
+    return text.replacingOccurrences(of: "\n", with: " ")
   }
 }

@@ -46,4 +46,25 @@ class ListPresenterTests: XCTestCase {
 
     XCTAssertEqual(expectedNotes, actualNotes)
   }
+
+  func test_didFetch_joinsLinesForPresentation() {
+    // Arrange.
+    let note1 = Note(id: "1", text: "sample\nnote")
+    let notes = [note1]
+
+    let interface = MockListInterface()
+
+    let sut = ListPresenter(interface: interface)
+
+    // Act.
+    sut.didFetch(notes: notes)
+
+    // Assert.
+    let listViewNote1 = ListViewNote(id: "1", summary: "sample note")
+    let expectedNotes = [listViewNote1]
+
+    let actualNotes = interface.notes!
+
+    XCTAssertEqual(expectedNotes, actualNotes)
+  }
 }
