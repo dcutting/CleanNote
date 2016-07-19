@@ -12,7 +12,7 @@ class ListPresenterTests: XCTestCase {
   }
 
 
-  func test_didFetch_notes_convertedToListViewNotes() {
+  func test_didFetch_notes_convertsToListViewNotes() {
     // Arrange.
     let notes = [
       Note(id: "1", text: "sample note"),
