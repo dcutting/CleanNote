@@ -20,13 +20,13 @@ class EditorInteractor: EditorInteractorInput {
 
   func fetchText() {
     if let noteID = noteID {
-      fetchTextForNoteID(noteID: noteID)
+      fetchText(for: noteID)
     } else {
       fetchTextForNewNote()
     }
   }
 
-  func fetchTextForNoteID(noteID: NoteID) {
+  func fetchText(for noteID: NoteID) {
     gateway.fetchNote(with: noteID) {
       guard let note = $0 else { return }
       self.output.didFetch(text: note.text)
