@@ -1,29 +1,28 @@
 class SampleNoteGateway: NoteGateway {
   var noteIDCounter = 0
-  var notes = [NoteID: Note]()
+  var notes: [Note]
 
-  init(initialNotes: [Note]) {
-    initialNotes.forEach {
-      self.notes[$0.id] = $0
-    }
+  init(notes: [Note]) {
+    self.notes = notes
   }
 
   func fetchNotes(completion: ([Note]) -> Void) {
-    let sortedNotes = notes.values.sorted {
-      $0.id < $1.id
-    }
-    completion(Array(sortedNotes))
+    completion(notes)
   }
 
   func fetchNote(with id: NoteID, completion: (Note?) -> Void) {
-    let note = notes[id]
+    let note = findNote(with: id)
     completion(note)
+  }
+
+  func findNote(with id: NoteID) -> Note? {
+    return notes.filter { $0.id == id }.first
   }
 
   func createNote(with text: String) {
     let nextNoteID = nextID()
     let note = Note(id: nextNoteID, text: text)
-    notes[nextNoteID] = note
+    notes.append(note)
   }
 
   func nextID() -> NoteID {
@@ -31,9 +30,14 @@ class SampleNoteGateway: NoteGateway {
     return NoteID("SNG-NID:\(noteIDCounter)")
   }
 
-  func save(text: String, for noteID: NoteID) {
-    guard var note = notes[noteID] else { return }
+  func save(text: String, for id: NoteID) {
+    guard let index = findIndexForNote(with: id) else { return }
+    var note = notes[index]
     note.text = text
-    notes[noteID] = note
+    notes[index] = note
+  }
+
+  func findIndexForNote(with id: NoteID) -> Int? {
+    return notes.index { $0.id == id }
   }
 }

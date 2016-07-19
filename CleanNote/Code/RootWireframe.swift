@@ -1,7 +1,7 @@
 class RootWireframe {
   func configure(listViewController: ListViewController) {
     let sampleNotes = makeSampleNotes()
-    let noteGateway = SampleNoteGateway(initialNotes: sampleNotes)
+    let noteGateway = SampleNoteGateway(notes: sampleNotes)
 
     let editorWireframe = EditorWireframe(noteGateway: noteGateway)
 
