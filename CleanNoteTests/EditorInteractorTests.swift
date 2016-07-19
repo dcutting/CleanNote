@@ -3,9 +3,14 @@ import XCTest
 
 class EditorInteractorTests: XCTestCase {
 
+  var output: MockEditorInteractorOutput!
+
+  override func setUp() {
+    output = MockEditorInteractorOutput()
+  }
+
   func test_fetchText_newNote_emptyText() {
     // Arrange.
-    let output = MockEditorInteractorOutput()
     let gateway = SampleNoteGateway(notes: [])
 
     let sut = EditorInteractor(output: output, gateway: gateway, noteID: nil)
@@ -21,8 +26,6 @@ class EditorInteractorTests: XCTestCase {
 
   func test_fetchText_existingNote_verbatimText() {
     // Arrange.
-    let output = MockEditorInteractorOutput()
-
     let note = Note(id: "one", text: "sample text")
     let gateway = SampleNoteGateway(notes: [note])
 
