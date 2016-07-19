@@ -38,4 +38,20 @@ class EditorInteractorTests: XCTestCase {
     let expectedText = "sample text"
     XCTAssertEqual(expectedText, output.actualText)
   }
+
+
+  func test_fetchText_noteNotFound_emptyText() {
+    // Arrange.
+    let note = Note(id: "one", text: "sample text")
+    let gateway = SampleNoteGateway(notes: [note])
+
+    let sut = EditorInteractor(output: output, gateway: gateway, noteID: "zilch")
+
+    // Act.
+    sut.fetchText()
+
+    // Assert.
+    let expectedText = ""
+    XCTAssertEqual(expectedText, output.actualText)
+  }
 }

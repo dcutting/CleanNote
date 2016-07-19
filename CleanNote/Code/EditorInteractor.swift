@@ -28,8 +28,11 @@ class EditorInteractor: EditorInteractorInput {
 
   func fetchText(for noteID: NoteID) {
     gateway.fetchNote(with: noteID) {
-      guard let note = $0 else { return }
-      self.output.didFetch(text: note.text)
+      if let note = $0 {
+        self.output.didFetch(text: note.text)
+      } else {
+        self.fetchTextForNewNote()
+      }
     }
   }
 
