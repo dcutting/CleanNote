@@ -25,6 +25,8 @@
 		C89C92BA1D3C40870070C5E7 /* NoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C92B81D3C40870070C5E7 /* NoteGateway.swift */; };
 		C89C92BB1D3C40870070C5E7 /* SampleNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */; };
 		C8A197361D3CC1DC004CE743 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A197351D3CC1DC004CE743 /* RootWireframe.swift */; };
+		C8A516C61D3E654300DC8D78 /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516C51D3E654300DC8D78 /* ListPresenterTests.swift */; };
+		C8A516C81D3E659A00DC8D78 /* MockListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516C71D3E659A00DC8D78 /* MockListInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +62,8 @@
 		C89C92B81D3C40870070C5E7 /* NoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteGateway.swift; path = Code/NoteGateway.swift; sourceTree = "<group>"; };
 		C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SampleNoteGateway.swift; path = Code/SampleNoteGateway.swift; sourceTree = "<group>"; };
 		C8A197351D3CC1DC004CE743 /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootWireframe.swift; path = Code/RootWireframe.swift; sourceTree = "<group>"; };
+		C8A516C51D3E654300DC8D78 /* ListPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenterTests.swift; sourceTree = "<group>"; };
+		C8A516C71D3E659A00DC8D78 /* MockListInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockListInterface.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +118,9 @@
 			children = (
 				C82C11AD1D3E4E1B00035E3E /* Boilerplate */,
 				C82C11AB1D3E4E0700035E3E /* ListInteractorTests.swift */,
+				C8A516C51D3E654300DC8D78 /* ListPresenterTests.swift */,
 				C82C11B01D3E502900035E3E /* MockListInteractorOutput.swift */,
+				C8A516C71D3E659A00DC8D78 /* MockListInterface.swift */,
 			);
 			path = CleanNoteTests;
 			sourceTree = "<group>";
@@ -316,7 +322,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C82C11AC1D3E4E0700035E3E /* ListInteractorTests.swift in Sources */,
+				C8A516C81D3E659A00DC8D78 /* MockListInterface.swift in Sources */,
 				C82C11B11D3E502900035E3E /* MockListInteractorOutput.swift in Sources */,
+				C8A516C61D3E654300DC8D78 /* ListPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

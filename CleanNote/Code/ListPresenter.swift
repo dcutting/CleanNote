@@ -3,6 +3,12 @@ struct ListViewNote {
   var summary: String
 }
 
+extension ListViewNote: Equatable {}
+
+func ==(lhs: ListViewNote, rhs: ListViewNote) -> Bool {
+  return lhs.id == rhs.id && lhs.summary == rhs.summary
+}
+
 protocol ListInterface {
   func update(notes: [ListViewNote])
 }
