@@ -37,4 +37,24 @@ class EditorViewControllerTests: XCTestCase {
     // Assert.
     XCTAssert(textView.assert())
   }
+
+
+  func test_viewWillDisappear_savesText() {
+    // Arrange.
+    let textView = MockTextView()
+    textView.text = "my edited text"
+
+    let interactor = MockEditorInteractorInput()
+    interactor.expectSave(text: "my edited text")
+
+    let sut = EditorViewController()
+    sut.textView = textView
+    sut.interactor = interactor
+
+    // Act.
+    sut.viewWillDisappear(true)
+
+    // Assert.
+    XCTAssert(interactor.assert())
+  }
 }
