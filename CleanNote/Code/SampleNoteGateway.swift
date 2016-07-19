@@ -1,13 +1,11 @@
 class SampleNoteGateway: NoteGateway {
-  var noteIDCounter: Int = 3
-  var notes: [NoteID: Note]
+  var noteIDCounter = 0
+  var notes = [NoteID: Note]()
 
-  init() {
-    let noteID1 = "1"
-    let noteID2 = "2"
-    let note1 = Note(id: noteID1, text: "Hello world")
-    let note2 = Note(id: noteID2, text: "Goodbye cruel world")
-    notes = [noteID1: note1, noteID2: note2]
+  init(initialNotes: [Note]) {
+    initialNotes.forEach {
+      self.notes[$0.id] = $0
+    }
   }
 
   func fetchNotes(completion: ([Note]) -> Void) {
@@ -23,10 +21,14 @@ class SampleNoteGateway: NoteGateway {
   }
 
   func createNote(with text: String) {
-    let nextNoteID = String(noteIDCounter)
+    let nextNoteID = nextID()
     let note = Note(id: nextNoteID, text: text)
     notes[nextNoteID] = note
-    noteIDCounter += 1
+  }
+
+  func nextID() -> NoteID {
+    defer { noteIDCounter += 1 }
+    return NoteID("SNG-NID:\(noteIDCounter)")
   }
 
   func save(text: String, for noteID: NoteID) {
