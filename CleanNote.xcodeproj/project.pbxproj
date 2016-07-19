@@ -25,7 +25,7 @@
 		C876A6E51D394EFD009366FE /* EditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E41D394EFD009366FE /* EditorInteractor.swift */; };
 		C876A6E71D394F47009366FE /* EditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E61D394F47009366FE /* EditorPresenter.swift */; };
 		C89C92BA1D3C40870070C5E7 /* NoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C92B81D3C40870070C5E7 /* NoteGateway.swift */; };
-		C89C92BB1D3C40870070C5E7 /* SampleNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */; };
+		C89C92BB1D3C40870070C5E7 /* InMemoryNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89C92B91D3C40870070C5E7 /* InMemoryNoteGateway.swift */; };
 		C8A197361D3CC1DC004CE743 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A197351D3CC1DC004CE743 /* RootWireframe.swift */; };
 		C8A197381D3E933D004CE743 /* MockTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A197371D3E933D004CE743 /* MockTextView.swift */; };
 		C8A516C61D3E654300DC8D78 /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516C51D3E654300DC8D78 /* ListPresenterTests.swift */; };
@@ -71,7 +71,7 @@
 		C876A6E41D394EFD009366FE /* EditorInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorInteractor.swift; path = Code/EditorInteractor.swift; sourceTree = "<group>"; };
 		C876A6E61D394F47009366FE /* EditorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorPresenter.swift; path = Code/EditorPresenter.swift; sourceTree = "<group>"; };
 		C89C92B81D3C40870070C5E7 /* NoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoteGateway.swift; path = Code/NoteGateway.swift; sourceTree = "<group>"; };
-		C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SampleNoteGateway.swift; path = Code/SampleNoteGateway.swift; sourceTree = "<group>"; };
+		C89C92B91D3C40870070C5E7 /* InMemoryNoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InMemoryNoteGateway.swift; path = Code/InMemoryNoteGateway.swift; sourceTree = "<group>"; };
 		C8A197351D3CC1DC004CE743 /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootWireframe.swift; path = Code/RootWireframe.swift; sourceTree = "<group>"; };
 		C8A197371D3E933D004CE743 /* MockTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockTextView.swift; path = Code/MockTextView.swift; sourceTree = "<group>"; };
 		C8A516C51D3E654300DC8D78 /* ListPresenterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListPresenterTests.swift; path = CleanNoteTests/Code/ListPresenterTests.swift; sourceTree = SOURCE_ROOT; };
@@ -194,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				C89C92B81D3C40870070C5E7 /* NoteGateway.swift */,
-				C89C92B91D3C40870070C5E7 /* SampleNoteGateway.swift */,
+				C89C92B91D3C40870070C5E7 /* InMemoryNoteGateway.swift */,
 			);
 			name = Gateways;
 			sourceTree = "<group>";
@@ -328,7 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C89C92BB1D3C40870070C5E7 /* SampleNoteGateway.swift in Sources */,
+				C89C92BB1D3C40870070C5E7 /* InMemoryNoteGateway.swift in Sources */,
 				C818424C1D18549000B8BE01 /* Note.swift in Sources */,
 				C81842461D18534A00B8BE01 /* ListInteractor.swift in Sources */,
 				C81842251D184F4100B8BE01 /* ListViewController.swift in Sources */,
