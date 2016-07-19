@@ -1,4 +1,4 @@
-class SampleNoteGateway: NoteGateway {
+class InMemoryNoteGateway: NoteGateway {
   var noteIDCounter = 0
   var notes: [Note]
 

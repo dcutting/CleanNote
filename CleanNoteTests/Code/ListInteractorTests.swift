@@ -13,7 +13,7 @@ class ListInteractorTests: XCTestCase {
     let output = MockListInteractorOutput()
     output.expect(didFetch: notes)
 
-    let gateway = SampleNoteGateway(notes: notes)
+    let gateway = InMemoryNoteGateway(notes: notes)
 
     let sut = ListInteractor(output: output, gateway: gateway)
 

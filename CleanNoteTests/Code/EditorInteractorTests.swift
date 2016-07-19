@@ -12,7 +12,7 @@ class EditorInteractorTests: XCTestCase {
 
   func test_fetchText_newNote_emptyText() {
     // Arrange.
-    let gateway = SampleNoteGateway(notes: [])
+    let gateway = InMemoryNoteGateway(notes: [])
 
     let sut = EditorInteractor(output: output, gateway: gateway, noteID: nil)
 
@@ -28,7 +28,7 @@ class EditorInteractorTests: XCTestCase {
   func test_fetchText_existingNote_verbatimText() {
     // Arrange.
     let note = Note(id: "one", text: "sample text")
-    let gateway = SampleNoteGateway(notes: [note])
+    let gateway = InMemoryNoteGateway(notes: [note])
 
     let sut = EditorInteractor(output: output, gateway: gateway, noteID: "one")
 
@@ -44,7 +44,7 @@ class EditorInteractorTests: XCTestCase {
   func test_fetchText_noteNotFound_emptyText() {
     // Arrange.
     let note = Note(id: "one", text: "sample text")
-    let gateway = SampleNoteGateway(notes: [note])
+    let gateway = InMemoryNoteGateway(notes: [note])
 
     let sut = EditorInteractor(output: output, gateway: gateway, noteID: "zilch")
 
