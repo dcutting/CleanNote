@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C80820781D3F6365002E9CDE /* MockListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80820771D3F6365002E9CDE /* MockListInteractorInput.swift */; };
 		C81842231D184F4100B8BE01 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81842221D184F4100B8BE01 /* AppDelegate.swift */; };
 		C81842251D184F4100B8BE01 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81842241D184F4100B8BE01 /* ListViewController.swift */; };
 		C81842281D184F4100B8BE01 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C81842261D184F4100B8BE01 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		C8A516D01D3E767500DC8D78 /* EditorInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516CF1D3E767500DC8D78 /* EditorInteractorTests.swift */; };
 		C8A516D21D3E776400DC8D78 /* MockEditorInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516D11D3E776400DC8D78 /* MockEditorInteractorOutput.swift */; };
 		C8A516D41D3E83A400DC8D78 /* MockNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A516D31D3E83A400DC8D78 /* MockNoteGateway.swift */; };
+		C8FF3C0A1D3ED6870038F3E4 /* ListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FF3C091D3ED6870038F3E4 /* ListViewControllerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C80820771D3F6365002E9CDE /* MockListInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockListInteractorInput.swift; path = Code/MockListInteractorInput.swift; sourceTree = "<group>"; };
 		C818421F1D184F4100B8BE01 /* CleanNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C81842221D184F4100B8BE01 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Code/AppDelegate.swift; sourceTree = "<group>"; };
 		C81842241D184F4100B8BE01 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = Code/ListViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +85,7 @@
 		C8A516CF1D3E767500DC8D78 /* EditorInteractorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorInteractorTests.swift; path = CleanNoteTests/Code/EditorInteractorTests.swift; sourceTree = SOURCE_ROOT; };
 		C8A516D11D3E776400DC8D78 /* MockEditorInteractorOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockEditorInteractorOutput.swift; path = Code/MockEditorInteractorOutput.swift; sourceTree = "<group>"; };
 		C8A516D31D3E83A400DC8D78 /* MockNoteGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockNoteGateway.swift; path = Code/MockNoteGateway.swift; sourceTree = "<group>"; };
+		C8FF3C091D3ED6870038F3E4 /* ListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewControllerTests.swift; path = CleanNoteTests/Code/ListViewControllerTests.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,12 +139,13 @@
 			isa = PBXGroup;
 			children = (
 				C82C11AD1D3E4E1B00035E3E /* Boilerplate */,
+				C80820771D3F6365002E9CDE /* MockListInteractorInput.swift */,
 				C82C11B01D3E502900035E3E /* MockListInteractorOutput.swift */,
 				C8A516C71D3E659A00DC8D78 /* MockListInterface.swift */,
-				C8A516CB1D3E72C000DC8D78 /* MockEditorInterface.swift */,
-				C8A516D11D3E776400DC8D78 /* MockEditorInteractorOutput.swift */,
-				C8A516D31D3E83A400DC8D78 /* MockNoteGateway.swift */,
 				C8371CEB1D3E8B3C00BD3844 /* MockEditorInteractor.swift */,
+				C8A516D11D3E776400DC8D78 /* MockEditorInteractorOutput.swift */,
+				C8A516CB1D3E72C000DC8D78 /* MockEditorInterface.swift */,
+				C8A516D31D3E83A400DC8D78 /* MockNoteGateway.swift */,
 				C8A197371D3E933D004CE743 /* MockTextView.swift */,
 			);
 			path = CleanNoteTests;
@@ -175,6 +180,7 @@
 				C81842451D18534A00B8BE01 /* ListInteractor.swift */,
 				C81842471D18538D00B8BE01 /* ListPresenter.swift */,
 				C876A6DF1D394D43009366FE /* ListWireframe.swift */,
+				C8FF3C091D3ED6870038F3E4 /* ListViewControllerTests.swift */,
 				C82C11AB1D3E4E0700035E3E /* ListInteractorTests.swift */,
 				C8A516C51D3E654300DC8D78 /* ListPresenterTests.swift */,
 			);
@@ -352,12 +358,14 @@
 				C8371CEA1D3E892F00BD3844 /* EditorViewControllerTests.swift in Sources */,
 				C8A516C81D3E659A00DC8D78 /* MockListInterface.swift in Sources */,
 				C8A516CC1D3E72C000DC8D78 /* MockEditorInterface.swift in Sources */,
+				C8FF3C0A1D3ED6870038F3E4 /* ListViewControllerTests.swift in Sources */,
 				C8A516D01D3E767500DC8D78 /* EditorInteractorTests.swift in Sources */,
 				C8371CEC1D3E8B3C00BD3844 /* MockEditorInteractor.swift in Sources */,
 				C8A516D21D3E776400DC8D78 /* MockEditorInteractorOutput.swift in Sources */,
 				C82C11B11D3E502900035E3E /* MockListInteractorOutput.swift in Sources */,
 				C8A516D41D3E83A400DC8D78 /* MockNoteGateway.swift in Sources */,
 				C8A516C61D3E654300DC8D78 /* ListPresenterTests.swift in Sources */,
+				C80820781D3F6365002E9CDE /* MockListInteractorInput.swift in Sources */,
 				C8A516CE1D3E754A00DC8D78 /* NoteTests.swift in Sources */,
 				C8A516CA1D3E71E100DC8D78 /* EditorPresenterTests.swift in Sources */,
 				C8A197381D3E933D004CE743 /* MockTextView.swift in Sources */,
