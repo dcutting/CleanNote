@@ -21,6 +21,7 @@
 		C836BB1D1D3BB2DD002FBE21 /* EditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C836BB1C1D3BB2DD002FBE21 /* EditorWireframe.swift */; };
 		C8371CEA1D3E892F00BD3844 /* EditorViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8371CE91D3E892F00BD3844 /* EditorViewControllerTests.swift */; };
 		C8371CEC1D3E8B3C00BD3844 /* MockEditorInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8371CEB1D3E8B3C00BD3844 /* MockEditorInteractorInput.swift */; };
+		C84633791D3FE40C0023DB65 /* MockEditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84633781D3FE40C0023DB65 /* MockEditorWireframe.swift */; };
 		C84B9C0A1D3F6E1A0024D9D6 /* MockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84B9C091D3F6E1A0024D9D6 /* MockTableView.swift */; };
 		C876A6E01D394D43009366FE /* ListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6DF1D394D43009366FE /* ListWireframe.swift */; };
 		C876A6E31D394ECF009366FE /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C876A6E21D394ECF009366FE /* EditorViewController.swift */; };
@@ -70,6 +71,7 @@
 		C836BB1C1D3BB2DD002FBE21 /* EditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorWireframe.swift; path = Code/EditorWireframe.swift; sourceTree = "<group>"; };
 		C8371CE91D3E892F00BD3844 /* EditorViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorViewControllerTests.swift; path = CleanNoteTests/Code/EditorViewControllerTests.swift; sourceTree = SOURCE_ROOT; };
 		C8371CEB1D3E8B3C00BD3844 /* MockEditorInteractorInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockEditorInteractorInput.swift; path = Code/MockEditorInteractorInput.swift; sourceTree = "<group>"; };
+		C84633781D3FE40C0023DB65 /* MockEditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockEditorWireframe.swift; path = Code/MockEditorWireframe.swift; sourceTree = "<group>"; };
 		C84B9C091D3F6E1A0024D9D6 /* MockTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockTableView.swift; path = Code/MockTableView.swift; sourceTree = "<group>"; };
 		C876A6DF1D394D43009366FE /* ListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListWireframe.swift; path = Code/ListWireframe.swift; sourceTree = "<group>"; };
 		C876A6E21D394ECF009366FE /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorViewController.swift; path = Code/EditorViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				C8371CEB1D3E8B3C00BD3844 /* MockEditorInteractorInput.swift */,
 				C8A516D11D3E776400DC8D78 /* MockEditorInteractorOutput.swift */,
 				C8A516CB1D3E72C000DC8D78 /* MockEditorInterface.swift */,
+				C84633781D3FE40C0023DB65 /* MockEditorWireframe.swift */,
 				C8A516D31D3E83A400DC8D78 /* MockNoteGateway.swift */,
 				C8A197371D3E933D004CE743 /* MockTextView.swift */,
 				C84B9C091D3F6E1A0024D9D6 /* MockTableView.swift */,
@@ -369,6 +372,7 @@
 				C8A516D41D3E83A400DC8D78 /* MockNoteGateway.swift in Sources */,
 				C8A516C61D3E654300DC8D78 /* ListPresenterTests.swift in Sources */,
 				C84B9C0A1D3F6E1A0024D9D6 /* MockTableView.swift in Sources */,
+				C84633791D3FE40C0023DB65 /* MockEditorWireframe.swift in Sources */,
 				C80820781D3F6365002E9CDE /* MockListInteractorInput.swift in Sources */,
 				C8A516CE1D3E754A00DC8D78 /* NoteTests.swift in Sources */,
 				C8A516CA1D3E71E100DC8D78 /* EditorPresenterTests.swift in Sources */,

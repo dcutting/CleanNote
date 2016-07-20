@@ -4,17 +4,21 @@ import XCTest
 class ListViewControllerTests: XCTestCase {
 
   var interactor: MockListInteractorInput!
+  var editorWireframe: MockEditorWireframe!
   var tableView: MockTableView!
   var sut: ListViewController!
 
   override func setUp() {
     interactor = MockListInteractorInput()
-    tableView = MockTableView()
 
+    editorWireframe = MockEditorWireframe(noteGateway: MockNoteGateway())
+
+    tableView = MockTableView()
     tableView.stub(dequeueReusableCell: UITableViewCell(), with: "NoteCell")
 
     sut = ListViewController()
     sut.interactor = interactor
+    sut.editorWireframe = editorWireframe
     sut.tableView = tableView
   }
 
@@ -78,5 +82,19 @@ class ListViewControllerTests: XCTestCase {
       let actualCellText = cell.textLabel?.text
       XCTAssertEqual(expectedCellText, actualCellText)
     }
+  }
+
+
+  func test_prepareForSegue_addNote_configuresEditorModuleWithoutNoteID() {
+    // Arrange.
+    let editorViewController = EditorViewController()
+    let segue = UIStoryboardSegue(identifier: "addNote", source: sut, destination: editorViewController)
+    editorWireframe.expect(configureEditorViewController: editorViewController, noteID: nil)
+
+    // Act.
+    sut.prepare(for: segue, sender: nil)
+
+    // Assert.
+    XCTAssert(editorWireframe.assert())
   }
 }
