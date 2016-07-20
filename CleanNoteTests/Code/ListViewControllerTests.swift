@@ -31,6 +31,18 @@ class ListViewControllerTests: XCTestCase {
   }
 
 
+  func test_update_reloadsTableView() {
+    // Arrange.
+    tableView.expectReloadData()
+
+    // Act.
+    sut.update(notes: [])
+
+    // Assert.
+    XCTAssert(tableView.assert())
+  }
+
+
   func test_update_displaysCorrectNumberOfRowsInTable() {
     // Arrange.
     let notes = [

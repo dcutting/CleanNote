@@ -1,6 +1,8 @@
 import UIKit
 
 class MockTableView: UITableView {
+  var shouldReloadData = false
+  var didCallReloadData = false
   var cell: UITableViewCell?
   var identifier: String?
 
@@ -11,5 +13,20 @@ class MockTableView: UITableView {
 
   override func dequeueReusableCell(withIdentifier identifier: String) -> UITableViewCell? {
     return identifier == self.identifier ? cell : nil
+  }
+
+  func expectReloadData() {
+    shouldReloadData = true
+  }
+
+  override func reloadData() {
+    didCallReloadData = true
+  }
+
+  func assert() -> Bool {
+    if shouldReloadData && !didCallReloadData {
+      return false
+    }
+    return true
   }
 }
