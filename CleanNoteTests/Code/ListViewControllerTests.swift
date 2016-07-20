@@ -88,8 +88,33 @@ class ListViewControllerTests: XCTestCase {
   func test_prepareForSegue_addNote_configuresEditorModuleWithoutNoteID() {
     // Arrange.
     let editorViewController = EditorViewController()
-    let segue = UIStoryboardSegue(identifier: "addNote", source: sut, destination: editorViewController)
     editorWireframe.expect(configureEditorViewController: editorViewController, noteID: nil)
+
+    let segue = UIStoryboardSegue(identifier: "addNote", source: sut, destination: editorViewController)
+
+    // Act.
+    sut.prepare(for: segue, sender: nil)
+
+    // Assert.
+    XCTAssert(editorWireframe.assert())
+  }
+
+
+  func test_prepareForSegue_editNote_configuresEditorModuleWithSelectedNoteID() {
+    // Arrange.
+    let notes = [
+      ListViewNote(id: "zero", summary: "sample note"),
+      ListViewNote(id: "one", summary: "another sample note")
+    ]
+    sut.update(notes: notes)
+
+    let indexPath = IndexPath(row: 1, section: 0)
+    tableView.stub(indexPath: indexPath, forSelectedRow: 1)
+
+    let editorViewController = EditorViewController()
+    editorWireframe.expect(configureEditorViewController: editorViewController, noteID: "one")
+
+    let segue = UIStoryboardSegue(identifier: "editNote", source: sut, destination: editorViewController)
 
     // Act.
     sut.prepare(for: segue, sender: nil)
