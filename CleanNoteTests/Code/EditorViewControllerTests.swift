@@ -47,7 +47,7 @@ class EditorViewControllerTests: XCTestCase {
     interactor.expect(save: "my edited text")
 
     // Act.
-    sut.viewWillDisappear(true)
+    sut.viewWillDisappear(false)
 
     // Assert.
     XCTAssert(interactor.assert())
