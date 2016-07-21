@@ -42,7 +42,11 @@ class EditorInteractor: EditorInteractorInput {
 
   func save(text: String) {
     if let noteID = noteID {
-      gateway.save(text: text, for: noteID)
+      do {
+        try gateway.save(text: text, for: noteID)
+      } catch {
+        
+      }
     } else {
       let _ = gateway.createNote(with: text)
     }

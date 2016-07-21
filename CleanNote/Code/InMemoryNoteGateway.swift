@@ -31,8 +31,8 @@ class InMemoryNoteGateway: NoteGateway {
     return NoteID("SNG-NID:\(noteIDCounter)")
   }
 
-  func save(text: String, for id: NoteID) {
-    guard let index = findIndexForNote(with: id) else { return }
+  func save(text: String, for id: NoteID) throws {
+    guard let index = findIndexForNote(with: id) else { throw NoteGatewayError.notFound }
     var note = notes[index]
     note.text = text
     notes[index] = note
