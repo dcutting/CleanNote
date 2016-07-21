@@ -11,7 +11,7 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-    guard let editorViewController = segue.destinationViewController as? EditorViewController else { return }
+    let editorViewController = segue.destinationViewController as! EditorViewController
     if "editNote" == segue.identifier {
       prepareForEditSegue(to: editorViewController)
     } else if "addNote" == segue.identifier {
@@ -20,12 +20,12 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
   }
 
   func prepareForEditSegue(to editorViewController: EditorViewController) {
-    guard let noteID = noteIDForSelectedRow() else { return }
+    let noteID = noteIDForSelectedRow()
     editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
   }
 
-  func noteIDForSelectedRow() -> NoteID? {
-    guard let indexPath = tableView.indexPathForSelectedRow else { return nil }
+  func noteIDForSelectedRow() -> NoteID {
+    let indexPath = tableView.indexPathForSelectedRow!
     let listViewNote = listNotes[indexPath.row]
     return listViewNote.id
   }
