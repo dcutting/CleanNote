@@ -19,10 +19,11 @@ class InMemoryNoteGateway: NoteGateway {
     return notes.filter { $0.id == id }.first
   }
 
-  func createNote(with text: String) {
+  func createNote(with text: String) -> NoteID {
     let nextNoteID = nextID()
     let note = Note(id: nextNoteID, text: text)
     notes.append(note)
+    return nextNoteID
   }
 
   func nextID() -> NoteID {

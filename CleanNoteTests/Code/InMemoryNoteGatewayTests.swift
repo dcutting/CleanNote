@@ -51,4 +51,24 @@ class InMemoryNoteGatewayTests: XCTestCase {
       XCTAssertEqual(expectedNote, actualNote)
     }
   }
+
+
+  func test_createNote_addsNoteToStore() {
+    // Arrange.
+    let notes = [
+      Note(id: "0", text: "sample note"),
+      Note(id: "1", text: "another sample note")
+    ]
+
+    let sut = InMemoryNoteGateway(notes: notes)
+
+    // Act.
+    let actualNoteID = sut.createNote(with: "more text")
+
+    // Assert.
+    sut.fetchNote(with: actualNoteID) { actualNote in
+      let expectedNote = Note(id: actualNoteID, text: "more text")
+      XCTAssertEqual(expectedNote, actualNote)
+    }
+  }
 }

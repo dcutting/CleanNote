@@ -44,7 +44,7 @@ class EditorInteractor: EditorInteractorInput {
     if let noteID = noteID {
       gateway.save(text: text, for: noteID)
     } else {
-      gateway.createNote(with: text)
+      let _ = gateway.createNote(with: text)
     }
   }
 }

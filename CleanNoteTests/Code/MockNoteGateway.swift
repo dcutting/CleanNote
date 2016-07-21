@@ -11,8 +11,9 @@ class MockNoteGateway: NoteGateway {
   func fetchNote(with id: NoteID, completion: (Note?) -> Void) {
   }
 
-  func createNote(with text: String) {
+  func createNote(with text: String) -> NoteID {
     textForCreateNote = text
+    return ""
   }
 
   func save(text: String, for noteID: NoteID) {
