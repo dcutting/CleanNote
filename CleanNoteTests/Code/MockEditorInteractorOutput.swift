@@ -6,4 +6,7 @@ class MockEditorInteractorOutput: EditorInteractorOutput {
   func didFetch(text: String) {
     actualText = text
   }
+
+  func didFailToSave() {
+  }
 }

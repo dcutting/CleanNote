@@ -14,6 +14,6 @@ class EditorPresenterTests: XCTestCase {
 
     // Assert.
     let expectedText = "my note text"
-    XCTAssertEqual(expectedText, interface.actualText)
+    XCTAssertEqual(expectedText, interface.actualUpdateText)
   }
 }

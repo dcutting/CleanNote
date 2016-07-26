@@ -1,9 +1,14 @@
 @testable import CleanNote
 
 class MockEditorInterface: EditorInterface {
-  var actualText: String?
+  var actualUpdateText: String?
+  var actualErrorText: String?
 
   func update(text: String) {
-    actualText = text
+    actualUpdateText = text
+  }
+
+  func error(text: String) {
+    actualErrorText = text
   }
 }

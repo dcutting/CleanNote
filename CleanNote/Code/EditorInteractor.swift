@@ -5,6 +5,7 @@ protocol EditorInteractorInput {
 
 protocol EditorInteractorOutput {
   func didFetch(text: String)
+  func didFailToSave()
 }
 
 class EditorInteractor: EditorInteractorInput {
@@ -45,7 +46,7 @@ class EditorInteractor: EditorInteractorInput {
       do {
         try gateway.save(text: text, for: noteID)
       } catch {
-        
+        output.didFailToSave()
       }
     } else {
       let _ = gateway.createNote(with: text)
