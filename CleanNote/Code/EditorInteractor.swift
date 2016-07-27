@@ -49,7 +49,11 @@ class EditorInteractor: EditorInteractorInput {
         output.didFailToSave()
       }
     } else {
-      let _ = gateway.createNote(with: text)
+      do {
+        let _ = try gateway.createNote(with: text)
+      } catch {
+        output.didFailToSave()
+      }
     }
   }
 }
