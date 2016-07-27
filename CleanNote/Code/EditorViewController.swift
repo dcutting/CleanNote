@@ -19,7 +19,7 @@ class EditorViewController: UIViewController, EditorInterface {
 
   func error(text: String) {
     let alert = makeAlert(with: text)
-    self.navigationController?.present(alert, animated: true)
+    show(alert: alert)
   }
 
   private func makeAlert(with text: String) -> UIAlertController {
@@ -27,5 +27,18 @@ class EditorViewController: UIViewController, EditorInterface {
     let action = UIAlertAction(title: "OK", style: .default)
     alert.addAction(action)
     return alert
+  }
+
+  internal func show(alert: UIAlertController) {
+    self.navigationController?.present(alert, animated: true)
+  }
+}
+
+class TestableEditorViewController: EditorViewController {
+  var spiedAlertController: UIAlertController?
+
+  override func show(alert: UIAlertController) {
+    spiedAlertController = alert
+    super.show(alert: alert)
   }
 }
