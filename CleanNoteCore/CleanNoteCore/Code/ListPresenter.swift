@@ -36,6 +36,6 @@ class ListPresenter: ListInteractorOutput {
   }
 
   private func nonEmptySummary(for text: String) -> String {
-    return text.replacingOccurrences(of: "\n", with: " ")
+    return text// text.replacingOccurrences(of: "\n", with: " ")
   }
 }
