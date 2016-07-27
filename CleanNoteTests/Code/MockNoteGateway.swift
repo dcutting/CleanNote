@@ -17,7 +17,12 @@ class MockNoteGateway: NoteGateway {
   }
 
   func save(text: String, for noteID: NoteID) {
+    if shouldThrow { throw
     noteIDForSaveNote = noteID
     textForSaveNote = text
+  }
+
+    func stub(saveThrows: ) {
+    
   }
 }
