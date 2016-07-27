@@ -1,4 +1,4 @@
-@testable import CleanNote
+@testable import CleanNoteCore
 
 class MockEditorInteractorOutput: EditorInteractorOutput {
   var actualText: String?

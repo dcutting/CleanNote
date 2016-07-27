@@ -1,3 +1,5 @@
+import CleanNoteCore
+
 class ListWireframe {
   func configure(listViewController: ListViewController, noteGateway: NoteGateway, editorWireframe: EditorWireframe) {
     let listPresenter = ListPresenter(interface: listViewController)

@@ -1,5 +1,6 @@
 import UIKit
-@testable import CleanNote
+@testable import CleanNoteCore
+@testable import CleanNoteiOS
 
 class MockEditorWireframe: EditorWireframe {
   var expectConfiguration = false

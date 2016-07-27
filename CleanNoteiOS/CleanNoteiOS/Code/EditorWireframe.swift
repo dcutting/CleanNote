@@ -1,3 +1,5 @@
+import CleanNoteCore
+
 class EditorWireframe {
   let noteGateway: NoteGateway
 

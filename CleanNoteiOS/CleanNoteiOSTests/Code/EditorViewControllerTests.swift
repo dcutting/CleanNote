@@ -1,5 +1,6 @@
 import XCTest
-@testable import CleanNote
+@testable import CleanNoteCore
+@testable import CleanNoteiOS
 
 class EditorViewControllerTests: XCTestCase {
 

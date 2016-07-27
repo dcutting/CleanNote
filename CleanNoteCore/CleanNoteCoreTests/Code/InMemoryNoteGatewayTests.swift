@@ -1,5 +1,5 @@
 import XCTest
-@testable import CleanNote
+@testable import CleanNoteCore
 
 class InMemoryNoteGatewayTests: XCTestCase {
 

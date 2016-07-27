@@ -1,4 +1,5 @@
 import UIKit
+import CleanNoteCore
 
 class ListViewController: UIViewController, ListInterface, UITableViewDataSource, UITableViewDelegate {
   var interactor: ListInteractorInput!

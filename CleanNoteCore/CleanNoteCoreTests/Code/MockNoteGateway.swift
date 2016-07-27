@@ -1,4 +1,4 @@
-@testable import CleanNote
+@testable import CleanNoteCore
 
 class MockNoteGateway: NoteGateway {
   var textForCreateNote: String?

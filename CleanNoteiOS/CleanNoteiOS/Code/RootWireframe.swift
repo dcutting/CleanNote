@@ -1,3 +1,5 @@
+import CleanNoteCore
+
 class RootWireframe {
   func configure(listViewController: ListViewController) {
     let sampleNotes = makeSampleNotes()

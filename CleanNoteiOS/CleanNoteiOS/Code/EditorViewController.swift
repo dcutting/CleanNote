@@ -1,4 +1,5 @@
 import UIKit
+import CleanNoteCore
 
 class EditorViewController: UIViewController, EditorInterface {
   var interactor: EditorInteractorInput!
