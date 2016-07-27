@@ -12,6 +12,8 @@
 		C84547051D48FB750051BD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84547041D48FB750051BD61 /* Assets.xcassets */; };
 		C84547081D48FB750051BD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C84547061D48FB750051BD61 /* Main.storyboard */; };
 		C84547131D48FB760051BD61 /* CleanNoteMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */; };
+		C8DF78EC1D490C130070D75A /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8DF78EB1D490C130070D75A /* CleanNoteCore.framework */; };
+		C8DF78ED1D490C130070D75A /* CleanNoteCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8DF78EB1D490C130070D75A /* CleanNoteCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +33,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				C8DF78ED1D490C130070D75A /* CleanNoteCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,7 +50,7 @@
 		C845470E1D48FB760051BD61 /* CleanNoteMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CleanNoteMacTests.swift; path = CleanNoteMacTests/CleanNoteMacTests.swift; sourceTree = SOURCE_ROOT; };
 		C84547141D48FB760051BD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteMacTests/Info.plist; sourceTree = "<group>"; };
-		C84547261D48FF050051BD61 /* CleanNoteCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = CleanNoteCore.framework; path = "/Users/dcutting/Library/Developer/Xcode/DerivedData/CleanNote-fwpxytobbnpfxmdkmremzwiqcfku/Build/Products/Debug/CleanNoteCore.framework"; sourceTree = "<absolute>"; };
+		C8DF78EB1D490C130070D75A /* CleanNoteCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = CleanNoteCore.framework; path = "/Users/dcutting/Library/Developer/Xcode/DerivedData/CleanNote-bvyxlqtquqxohbhbjsokacccdtvy/Build/Products/Debug/CleanNoteCore.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8DF78EC1D490C130070D75A /* CleanNoteCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +75,7 @@
 		C84546F41D48FB750051BD61 = {
 			isa = PBXGroup;
 			children = (
+				C8DF78EB1D490C130070D75A /* CleanNoteCore.framework */,
 				C8DF78E71D490A9A0070D75A /* Boilerplate */,
 				C8DF78E91D490B940070D75A /* UI */,
 				C84546FF1D48FB750051BD61 /* Modules */,
@@ -101,7 +106,6 @@
 			children = (
 				C84547091D48FB750051BD61 /* Info.plist */,
 				C84547141D48FB760051BD61 /* Info.plist */,
-				C84547261D48FF050051BD61 /* CleanNoteCore.framework */,
 			);
 			name = Boilerplate;
 			sourceTree = "<group>";
