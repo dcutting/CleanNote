@@ -58,6 +58,7 @@
 		C83BAD501D48E9CA00180193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteiOS/Info.plist; sourceTree = "<group>"; };
 		C83BAD551D48E9CA00180193 /* CleanNoteiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD5B1D48E9CA00180193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteiOSTests/Info.plist; sourceTree = "<group>"; };
+		C8DE880E1D49151200D8D8AE /* CleanNoteCoreTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CleanNoteCoreTests.xctest; path = "../../../Library/Developer/Xcode/DerivedData/CleanNote-bvyxlqtquqxohbhbjsokacccdtvy/Build/Products/Debug/CleanNoteCoreTests.xctest"; sourceTree = "<group>"; };
 		C8DF78B61D4905770070D75A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8DF78B71D4905770070D75A /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		C8DF78B81D4905770070D75A /* EditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorWireframe.swift; sourceTree = "<group>"; };
@@ -100,6 +101,7 @@
 				C8DF78B51D4905770070D75A /* Modules */,
 				C8DF78C21D4905810070D75A /* Mocks */,
 				C83BAD421D48E9CA00180193 /* Products */,
+				C8DE880D1D49151200D8D8AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -110,6 +112,14 @@
 				C83BAD551D48E9CA00180193 /* CleanNoteiOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C8DE880D1D49151200D8D8AE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C8DE880E1D49151200D8D8AE /* CleanNoteCoreTests.xctest */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C8DF78B51D4905770070D75A /* Modules */ = {
