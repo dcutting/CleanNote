@@ -33,12 +33,3 @@ class EditorViewController: UIViewController, EditorInterface {
     self.navigationController?.present(alert, animated: true)
   }
 }
-
-class TestableEditorViewController: EditorViewController {
-  var spiedAlertController: UIAlertController?
-
-  override func show(alert: UIAlertController) {
-    spiedAlertController = alert
-    super.show(alert: alert)
-  }
-}
