@@ -19,18 +19,18 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
     }
   }
 
-  func prepareForEditSegue(to editorViewController: EditorViewController) {
+  private func prepareForEditSegue(to editorViewController: EditorViewController) {
     let noteID = noteIDForSelectedRow()
     editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
   }
 
-  func noteIDForSelectedRow() -> NoteID {
+  private func noteIDForSelectedRow() -> NoteID {
     let indexPath = tableView.indexPathForSelectedRow!
     let listViewNote = listNotes[indexPath.row]
     return listViewNote.id
   }
 
-  func prepareForAddSegue(to editorViewController: EditorViewController) {
+  private func prepareForAddSegue(to editorViewController: EditorViewController) {
     editorWireframe.configure(editorViewController: editorViewController, noteID: nil)
   }
 

@@ -27,7 +27,7 @@ class EditorInteractor: EditorInteractorInput {
     }
   }
 
-  func fetchText(for noteID: NoteID) {
+  private func fetchText(for noteID: NoteID) {
     gateway.fetchNote(with: noteID) {
       if let note = $0 {
         self.output.didFetch(text: note.text)
@@ -37,7 +37,7 @@ class EditorInteractor: EditorInteractorInput {
     }
   }
 
-  func fetchTextForNewNote() {
+  private func fetchTextForNewNote() {
     output.didFetch(text: "")
   }
 

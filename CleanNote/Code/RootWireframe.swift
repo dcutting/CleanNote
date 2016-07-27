@@ -8,7 +8,7 @@ class RootWireframe {
     ListWireframe().configure(listViewController: listViewController, noteGateway: noteGateway, editorWireframe: editorWireframe)
   }
 
-  func makeSampleNotes() -> [Note] {
+  private func makeSampleNotes() -> [Note] {
     let noteID1 = "1"
     let noteID2 = "2"
     let note1 = Note(id: noteID1, text: "Hello world")

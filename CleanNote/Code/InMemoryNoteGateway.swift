@@ -15,7 +15,7 @@ class InMemoryNoteGateway: NoteGateway {
     completion(note)
   }
 
-  func findNote(with id: NoteID) -> Note? {
+  private func findNote(with id: NoteID) -> Note? {
     return notes.filter { $0.id == id }.first
   }
 
@@ -26,7 +26,7 @@ class InMemoryNoteGateway: NoteGateway {
     return nextNoteID
   }
 
-  func nextID() -> NoteID {
+  private func nextID() -> NoteID {
     defer { noteIDCounter += 1 }
     return NoteID("SNG-NID:\(noteIDCounter)")
   }
@@ -38,7 +38,7 @@ class InMemoryNoteGateway: NoteGateway {
     notes[index] = note
   }
 
-  func findIndexForNote(with id: NoteID) -> Int? {
+  private func findIndexForNote(with id: NoteID) -> Int? {
     return notes.index { $0.id == id }
   }
 }

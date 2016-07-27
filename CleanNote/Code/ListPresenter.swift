@@ -25,17 +25,17 @@ class ListPresenter: ListInteractorOutput {
     interface.update(notes: listViewNotes)
   }
 
-  func makeListViewNote(for note: Note) -> ListViewNote {
+  private func makeListViewNote(for note: Note) -> ListViewNote {
     let summaryText = summary(for: note.text)
     return ListViewNote(id: note.id, summary: summaryText)
   }
 
-  func summary(for text: String) -> String {
+  private func summary(for text: String) -> String {
     if text.isEmpty { return "<empty>" }
     return nonEmptySummary(for: text)
   }
 
-  func nonEmptySummary(for text: String) -> String {
+  private func nonEmptySummary(for text: String) -> String {
     return text.replacingOccurrences(of: "\n", with: " ")
   }
 }
