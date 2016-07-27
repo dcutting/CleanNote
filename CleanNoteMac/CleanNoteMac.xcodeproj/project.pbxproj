@@ -1,0 +1,430 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C84547011D48FB750051BD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547001D48FB750051BD61 /* AppDelegate.swift */; };
+		C84547031D48FB750051BD61 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547021D48FB750051BD61 /* ViewController.swift */; };
+		C84547051D48FB750051BD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84547041D48FB750051BD61 /* Assets.xcassets */; };
+		C84547081D48FB750051BD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C84547061D48FB750051BD61 /* Main.storyboard */; };
+		C84547131D48FB760051BD61 /* CleanNoteMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */; };
+		C84547271D48FF050051BD61 /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84547261D48FF050051BD61 /* CleanNoteCore.framework */; };
+		C84547281D48FF050051BD61 /* CleanNoteCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C84547261D48FF050051BD61 /* CleanNoteCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C845470F1D48FB760051BD61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C84546F51D48FB750051BD61 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C84546FC1D48FB750051BD61;
+			remoteInfo = CleanNoteMac;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		C84547291D48FF050051BD61 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				C84547281D48FF050051BD61 /* CleanNoteCore.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		C84546FD1D48FB750051BD61 /* CleanNoteMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNoteMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C84547001D48FB750051BD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C84547021D48FB750051BD61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C84547041D48FB750051BD61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C84547071D48FB750051BD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C84547091D48FB750051BD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C845470E1D48FB760051BD61 /* CleanNoteMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanNoteMacTests.swift; sourceTree = "<group>"; };
+		C84547141D48FB760051BD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C84547261D48FF050051BD61 /* CleanNoteCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = CleanNoteCore.framework; path = "/Users/dcutting/Library/Developer/Xcode/DerivedData/CleanNote-fwpxytobbnpfxmdkmremzwiqcfku/Build/Products/Debug/CleanNoteCore.framework"; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C84546FA1D48FB750051BD61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C84547271D48FF050051BD61 /* CleanNoteCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C845470B1D48FB760051BD61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C84546F41D48FB750051BD61 = {
+			isa = PBXGroup;
+			children = (
+				C84547261D48FF050051BD61 /* CleanNoteCore.framework */,
+				C84546FF1D48FB750051BD61 /* CleanNoteMac */,
+				C84547111D48FB760051BD61 /* CleanNoteMacTests */,
+				C84546FE1D48FB750051BD61 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C84546FE1D48FB750051BD61 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C84546FD1D48FB750051BD61 /* CleanNoteMac.app */,
+				C845470E1D48FB760051BD61 /* CleanNoteMacTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C84546FF1D48FB750051BD61 /* CleanNoteMac */ = {
+			isa = PBXGroup;
+			children = (
+				C84547001D48FB750051BD61 /* AppDelegate.swift */,
+				C84547021D48FB750051BD61 /* ViewController.swift */,
+				C84547041D48FB750051BD61 /* Assets.xcassets */,
+				C84547061D48FB750051BD61 /* Main.storyboard */,
+				C84547091D48FB750051BD61 /* Info.plist */,
+			);
+			path = CleanNoteMac;
+			sourceTree = "<group>";
+		};
+		C84547111D48FB760051BD61 /* CleanNoteMacTests */ = {
+			isa = PBXGroup;
+			children = (
+				C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */,
+				C84547141D48FB760051BD61 /* Info.plist */,
+			);
+			path = CleanNoteMacTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C84546FC1D48FB750051BD61 /* CleanNoteMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C84547171D48FB760051BD61 /* Build configuration list for PBXNativeTarget "CleanNoteMac" */;
+			buildPhases = (
+				C84546F91D48FB750051BD61 /* Sources */,
+				C84546FA1D48FB750051BD61 /* Frameworks */,
+				C84546FB1D48FB750051BD61 /* Resources */,
+				C84547291D48FF050051BD61 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CleanNoteMac;
+			productName = CleanNoteMac;
+			productReference = C84546FD1D48FB750051BD61 /* CleanNoteMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C845470D1D48FB760051BD61 /* CleanNoteMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C845471A1D48FB760051BD61 /* Build configuration list for PBXNativeTarget "CleanNoteMacTests" */;
+			buildPhases = (
+				C845470A1D48FB760051BD61 /* Sources */,
+				C845470B1D48FB760051BD61 /* Frameworks */,
+				C845470C1D48FB760051BD61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C84547101D48FB760051BD61 /* PBXTargetDependency */,
+			);
+			name = CleanNoteMacTests;
+			productName = CleanNoteMacTests;
+			productReference = C845470E1D48FB760051BD61 /* CleanNoteMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C84546F51D48FB750051BD61 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0800;
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = cutting.io;
+				TargetAttributes = {
+					C84546FC1D48FB750051BD61 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 59GEB226V7;
+						DevelopmentTeamName = "Dan Cutting (Personal Team)";
+						ProvisioningStyle = Automatic;
+					};
+					C845470D1D48FB760051BD61 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 59GEB226V7;
+						DevelopmentTeamName = "Dan Cutting (Personal Team)";
+						ProvisioningStyle = Automatic;
+						TestTargetID = C84546FC1D48FB750051BD61;
+					};
+				};
+			};
+			buildConfigurationList = C84546F81D48FB750051BD61 /* Build configuration list for PBXProject "CleanNoteMac" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C84546F41D48FB750051BD61;
+			productRefGroup = C84546FE1D48FB750051BD61 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C84546FC1D48FB750051BD61 /* CleanNoteMac */,
+				C845470D1D48FB760051BD61 /* CleanNoteMacTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C84546FB1D48FB750051BD61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C84547051D48FB750051BD61 /* Assets.xcassets in Resources */,
+				C84547081D48FB750051BD61 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C845470C1D48FB760051BD61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C84546F91D48FB750051BD61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C84547031D48FB750051BD61 /* ViewController.swift in Sources */,
+				C84547011D48FB750051BD61 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C845470A1D48FB760051BD61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C84547131D48FB760051BD61 /* CleanNoteMacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C84547101D48FB760051BD61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C84546FC1D48FB750051BD61 /* CleanNoteMac */;
+			targetProxy = C845470F1D48FB760051BD61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C84547061D48FB750051BD61 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C84547071D48FB750051BD61 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C84547151D48FB760051BD61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C84547161D48FB760051BD61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		C84547181D48FB760051BD61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CleanNoteMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		C84547191D48FB760051BD61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CleanNoteMac/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		C845471B1D48FB760051BD61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CleanNoteMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanNoteMac.app/Contents/MacOS/CleanNoteMac";
+			};
+			name = Debug;
+		};
+		C845471C1D48FB760051BD61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CleanNoteMacTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanNoteMac.app/Contents/MacOS/CleanNoteMac";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C84546F81D48FB750051BD61 /* Build configuration list for PBXProject "CleanNoteMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C84547151D48FB760051BD61 /* Debug */,
+				C84547161D48FB760051BD61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C84547171D48FB760051BD61 /* Build configuration list for PBXNativeTarget "CleanNoteMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C84547181D48FB760051BD61 /* Debug */,
+				C84547191D48FB760051BD61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C845471A1D48FB760051BD61 /* Build configuration list for PBXNativeTarget "CleanNoteMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C845471B1D48FB760051BD61 /* Debug */,
+				C845471C1D48FB760051BD61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C84546F51D48FB750051BD61 /* Project object */;
+}
