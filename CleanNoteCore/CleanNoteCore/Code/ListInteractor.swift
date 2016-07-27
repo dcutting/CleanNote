@@ -1,21 +1,21 @@
-protocol ListInteractorInput {
+public protocol ListInteractorInput {
   func fetchNotes()
 }
 
-protocol ListInteractorOutput {
+public protocol ListInteractorOutput {
   func didFetch(notes: [Note])
 }
 
-class ListInteractor: ListInteractorInput {
+public class ListInteractor: ListInteractorInput {
   let output: ListInteractorOutput
   let gateway: NoteGateway
 
-  init(output: ListInteractorOutput, gateway: NoteGateway) {
+  public init(output: ListInteractorOutput, gateway: NoteGateway) {
     self.output = output
     self.gateway = gateway
   }
 
-  func fetchNotes() {
+  public func fetchNotes() {
     gateway.fetchNotes {
       self.output.didFetch(notes: $0)
     }

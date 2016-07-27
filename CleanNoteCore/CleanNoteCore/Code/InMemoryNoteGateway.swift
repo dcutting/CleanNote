@@ -1,16 +1,16 @@
-class InMemoryNoteGateway: NoteGateway {
+public class InMemoryNoteGateway: NoteGateway {
   var noteIDCounter = 0
   var notes: [Note]
 
-  init(notes: [Note]) {
+  public init(notes: [Note]) {
     self.notes = notes
   }
 
-  func fetchNotes(completion: ([Note]) -> Void) {
+  public func fetchNotes(completion: ([Note]) -> Void) {
     completion(notes)
   }
 
-  func fetchNote(with id: NoteID, completion: (Note?) -> Void) {
+  public func fetchNote(with id: NoteID, completion: (Note?) -> Void) {
     let note = findNote(with: id)
     completion(note)
   }
@@ -19,7 +19,7 @@ class InMemoryNoteGateway: NoteGateway {
     return notes.filter { $0.id == id }.first
   }
 
-  func createNote(with text: String) throws -> NoteID {
+  public func createNote(with text: String) throws -> NoteID {
     let nextNoteID = nextID()
     let note = Note(id: nextNoteID, text: text)
     notes.append(note)
@@ -31,7 +31,7 @@ class InMemoryNoteGateway: NoteGateway {
     return NoteID("SNG-NID:\(noteIDCounter)")
   }
 
-  func save(text: String, for id: NoteID) throws {
+  public func save(text: String, for id: NoteID) throws {
     guard let index = findIndexForNote(with: id) else { throw NoteGatewayError.notFound }
     var note = notes[index]
     note.text = text

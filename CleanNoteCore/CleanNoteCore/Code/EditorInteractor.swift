@@ -1,25 +1,25 @@
-protocol EditorInteractorInput {
+public protocol EditorInteractorInput {
   func fetchText()
   func save(text: String)
 }
 
-protocol EditorInteractorOutput {
+public protocol EditorInteractorOutput {
   func didFetch(text: String)
   func didFailToSave()
 }
 
-class EditorInteractor: EditorInteractorInput {
+public class EditorInteractor: EditorInteractorInput {
   let output: EditorInteractorOutput
   let gateway: NoteGateway
   let noteID: NoteID?
 
-  init(output: EditorInteractorOutput, gateway: NoteGateway, noteID: NoteID?) {
+  public init(output: EditorInteractorOutput, gateway: NoteGateway, noteID: NoteID?) {
     self.output = output
     self.gateway = gateway
     self.noteID = noteID
   }
 
-  func fetchText() {
+  public func fetchText() {
     if let noteID = noteID {
       fetchText(for: noteID)
     } else {
@@ -41,7 +41,7 @@ class EditorInteractor: EditorInteractorInput {
     output.didFetch(text: "")
   }
 
-  func save(text: String) {
+  public func save(text: String) {
     if let noteID = noteID {
       do {
         try gateway.save(text: text, for: noteID)

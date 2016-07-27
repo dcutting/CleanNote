@@ -1,12 +1,17 @@
-typealias NoteID = String
+public typealias NoteID = String
 
-struct Note {
+public struct Note {
   var id: NoteID
   var text: String
+
+  public init(id: NoteID, text: String) {
+    self.id = id
+    self.text = text
+  }
 }
 
 extension Note: Equatable {}
 
-func ==(lhs: Note, rhs: Note) -> Bool {
+public func ==(lhs: Note, rhs: Note) -> Bool {
   return lhs.id == rhs.id && lhs.text == rhs.text
 }

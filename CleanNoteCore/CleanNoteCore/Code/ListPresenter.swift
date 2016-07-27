@@ -1,26 +1,26 @@
-struct ListViewNote {
-  let id: NoteID
-  var summary: String
+public struct ListViewNote {
+  public let id: NoteID
+  public var summary: String
 }
 
 extension ListViewNote: Equatable {}
 
-func ==(lhs: ListViewNote, rhs: ListViewNote) -> Bool {
+public func ==(lhs: ListViewNote, rhs: ListViewNote) -> Bool {
   return lhs.id == rhs.id && lhs.summary == rhs.summary
 }
 
-protocol ListInterface {
+public protocol ListInterface {
   func update(notes: [ListViewNote])
 }
 
-class ListPresenter: ListInteractorOutput {
+public class ListPresenter: ListInteractorOutput {
   let interface: ListInterface
 
-  init(interface: ListInterface) {
+  public init(interface: ListInterface) {
     self.interface = interface
   }
 
-  func didFetch(notes: [Note]) {
+  public func didFetch(notes: [Note]) {
     let listViewNotes = notes.map(makeListViewNote)
     interface.update(notes: listViewNotes)
   }

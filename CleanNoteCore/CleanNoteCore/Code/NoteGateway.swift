@@ -1,9 +1,9 @@
-enum NoteGatewayError: ErrorProtocol {
+public enum NoteGatewayError: ErrorProtocol {
   case notFound
   case unknown
 }
 
-protocol NoteGateway {
+public protocol NoteGateway {
   func fetchNotes(completion: ([Note]) -> Void)
   func fetchNote(with id: NoteID, completion: (Note?) -> Void)
   func createNote(with text: String) throws -> NoteID
