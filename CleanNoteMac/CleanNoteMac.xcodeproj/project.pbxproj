@@ -75,7 +75,6 @@
 		C84546F41D48FB750051BD61 = {
 			isa = PBXGroup;
 			children = (
-				C8DF78EB1D490C130070D75A /* CleanNoteCore.framework */,
 				C8DF78E71D490A9A0070D75A /* Boilerplate */,
 				C8DF78E91D490B940070D75A /* UI */,
 				C84546FF1D48FB750051BD61 /* Modules */,
@@ -106,6 +105,7 @@
 			children = (
 				C84547091D48FB750051BD61 /* Info.plist */,
 				C84547141D48FB760051BD61 /* Info.plist */,
+				C8DF78EB1D490C130070D75A /* CleanNoteCore.framework */,
 			);
 			name = Boilerplate;
 			sourceTree = "<group>";
@@ -113,8 +113,8 @@
 		C8DF78E91D490B940070D75A /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				C84547041D48FB750051BD61 /* Assets.xcassets */,
 				C84547061D48FB750051BD61 /* Main.storyboard */,
+				C84547041D48FB750051BD61 /* Assets.xcassets */,
 			);
 			name = UI;
 			path = CleanNoteMac;
