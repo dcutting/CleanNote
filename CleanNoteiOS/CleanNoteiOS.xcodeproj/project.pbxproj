@@ -10,6 +10,7 @@
 		C83BAD4A1D48E9CA00180193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD481D48E9CA00180193 /* Main.storyboard */; };
 		C83BAD4C1D48E9CA00180193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD4B1D48E9CA00180193 /* Assets.xcassets */; };
 		C83BAD4F1D48E9CA00180193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD4D1D48E9CA00180193 /* LaunchScreen.storyboard */; };
+		C8DE88411D49187900D8D8AE /* CleanNoteCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE883C1D49186600D8D8AE /* CleanNoteCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C8DF78BC1D4905770070D75A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78B61D4905770070D75A /* AppDelegate.swift */; };
 		C8DF78BD1D4905770070D75A /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78B71D4905770070D75A /* EditorViewController.swift */; };
 		C8DF78BE1D4905770070D75A /* EditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78B81D4905770070D75A /* EditorWireframe.swift */; };
@@ -22,8 +23,6 @@
 		C8DF78CC1D4905810070D75A /* MockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C61D4905810070D75A /* MockTableView.swift */; };
 		C8DF78CD1D4905810070D75A /* MockTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C71D4905810070D75A /* MockTextView.swift */; };
 		C8DF78CE1D4905810070D75A /* TestableEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C81D4905810070D75A /* TestableEditorViewController.swift */; };
-		C8DF78DD1D49097D0070D75A /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8DF78DC1D49097D0070D75A /* CleanNoteCore.framework */; };
-		C8DF78DE1D49097D0070D75A /* CleanNoteCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8DF78DC1D49097D0070D75A /* CleanNoteCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +33,27 @@
 			remoteGlobalIDString = C83BAD401D48E9CA00180193;
 			remoteInfo = CleanNoteiOS;
 		};
+		C8DE883B1D49186600D8D8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8DE88361D49186600D8D8AE /* CleanNoteCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C83BAD1E1D48E9A200180193;
+			remoteInfo = CleanNoteCore;
+		};
+		C8DE883D1D49186600D8D8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8DE88361D49186600D8D8AE /* CleanNoteCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C83BAD271D48E9A200180193;
+			remoteInfo = CleanNoteCoreTests;
+		};
+		C8DE883F1D49186B00D8D8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8DE88361D49186600D8D8AE /* CleanNoteCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C83BAD1D1D48E9A200180193;
+			remoteInfo = CleanNoteCore;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,7 +63,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C8DF78DE1D49097D0070D75A /* CleanNoteCore.framework in Embed Frameworks */,
+				C8DE88411D49187900D8D8AE /* CleanNoteCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,6 +79,7 @@
 		C83BAD551D48E9CA00180193 /* CleanNoteiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD5B1D48E9CA00180193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteiOSTests/Info.plist; sourceTree = "<group>"; };
 		C8DE880E1D49151200D8D8AE /* CleanNoteCoreTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CleanNoteCoreTests.xctest; path = "../../../Library/Developer/Xcode/DerivedData/CleanNote-bvyxlqtquqxohbhbjsokacccdtvy/Build/Products/Debug/CleanNoteCoreTests.xctest"; sourceTree = "<group>"; };
+		C8DE88361D49186600D8D8AE /* CleanNoteCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanNoteCore.xcodeproj; path = ../CleanNoteCore/CleanNoteCore.xcodeproj; sourceTree = "<group>"; };
 		C8DF78B61D4905770070D75A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8DF78B71D4905770070D75A /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		C8DF78B81D4905770070D75A /* EditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorWireframe.swift; sourceTree = "<group>"; };
@@ -71,7 +92,6 @@
 		C8DF78C61D4905810070D75A /* MockTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTableView.swift; sourceTree = "<group>"; };
 		C8DF78C71D4905810070D75A /* MockTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTextView.swift; sourceTree = "<group>"; };
 		C8DF78C81D4905810070D75A /* TestableEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestableEditorViewController.swift; path = ../../CleanNoteiOSTests/Code/TestableEditorViewController.swift; sourceTree = "<group>"; };
-		C8DF78DC1D49097D0070D75A /* CleanNoteCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = CleanNoteCore.framework; path = "/Users/dcutting/Library/Developer/Xcode/DerivedData/CleanNote-bvyxlqtquqxohbhbjsokacccdtvy/Build/Products/Debug-iphonesimulator/CleanNoteCore.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,7 +99,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8DF78DD1D49097D0070D75A /* CleanNoteCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,6 +141,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C8DE88371D49186600D8D8AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8DE883C1D49186600D8D8AE /* CleanNoteCore.framework */,
+				C8DE883E1D49186600D8D8AE /* CleanNoteCoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C8DF78B51D4905770070D75A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,7 +178,7 @@
 				C83BAD4D1D48E9CA00180193 /* LaunchScreen.storyboard */,
 				C83BAD501D48E9CA00180193 /* Info.plist */,
 				C83BAD5B1D48E9CA00180193 /* Info.plist */,
-				C8DF78DC1D49097D0070D75A /* CleanNoteCore.framework */,
+				C8DE88361D49186600D8D8AE /* CleanNoteCore.xcodeproj */,
 			);
 			name = Boilerplate;
 			sourceTree = "<group>";
@@ -210,6 +238,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C8DE88401D49186B00D8D8AE /* PBXTargetDependency */,
 			);
 			name = CleanNoteiOS;
 			productName = CleanNoteiOS;
@@ -270,6 +299,12 @@
 			mainGroup = C83BAD381D48E9CA00180193;
 			productRefGroup = C83BAD421D48E9CA00180193 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C8DE88371D49186600D8D8AE /* Products */;
+					ProjectRef = C8DE88361D49186600D8D8AE /* CleanNoteCore.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C83BAD401D48E9CA00180193 /* CleanNoteiOS */,
@@ -277,6 +312,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C8DE883C1D49186600D8D8AE /* CleanNoteCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CleanNoteCore.framework;
+			remoteRef = C8DE883B1D49186600D8D8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C8DE883E1D49186600D8D8AE /* CleanNoteCoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CleanNoteCoreTests.xctest;
+			remoteRef = C8DE883D1D49186600D8D8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C83BAD3F1D48E9CA00180193 /* Resources */ = {
@@ -332,6 +384,11 @@
 			isa = PBXTargetDependency;
 			target = C83BAD401D48E9CA00180193 /* CleanNoteiOS */;
 			targetProxy = C83BAD561D48E9CA00180193 /* PBXContainerItemProxy */;
+		};
+		C8DE88401D49186B00D8D8AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CleanNoteCore;
+			targetProxy = C8DE883F1D49186B00D8D8AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

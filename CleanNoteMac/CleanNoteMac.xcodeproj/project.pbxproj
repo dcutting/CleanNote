@@ -12,8 +12,8 @@
 		C84547051D48FB750051BD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84547041D48FB750051BD61 /* Assets.xcassets */; };
 		C84547081D48FB750051BD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C84547061D48FB750051BD61 /* Main.storyboard */; };
 		C84547131D48FB760051BD61 /* CleanNoteMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */; };
-		C8DF78EC1D490C130070D75A /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8DF78EB1D490C130070D75A /* CleanNoteCore.framework */; };
-		C8DF78ED1D490C130070D75A /* CleanNoteCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8DF78EB1D490C130070D75A /* CleanNoteCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C8DE884B1D4918BD00D8D8AE /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE88481D4918AB00D8D8AE /* CleanNoteCore.framework */; };
+		C8DE884C1D4918BD00D8D8AE /* CleanNoteCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE88481D4918AB00D8D8AE /* CleanNoteCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +24,27 @@
 			remoteGlobalIDString = C84546FC1D48FB750051BD61;
 			remoteInfo = CleanNoteMac;
 		};
+		C8DE88471D4918AB00D8D8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8DE88421D4918AB00D8D8AE /* CleanNoteCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C83BAD1E1D48E9A200180193;
+			remoteInfo = CleanNoteCore;
+		};
+		C8DE88491D4918AB00D8D8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8DE88421D4918AB00D8D8AE /* CleanNoteCore.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C83BAD271D48E9A200180193;
+			remoteInfo = CleanNoteCoreTests;
+		};
+		C8DE884D1D4918BD00D8D8AE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8DE88421D4918AB00D8D8AE /* CleanNoteCore.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C83BAD1D1D48E9A200180193;
+			remoteInfo = CleanNoteCore;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,7 +54,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C8DF78ED1D490C130070D75A /* CleanNoteCore.framework in Embed Frameworks */,
+				C8DE884C1D4918BD00D8D8AE /* CleanNoteCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -50,7 +71,7 @@
 		C845470E1D48FB760051BD61 /* CleanNoteMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CleanNoteMacTests.swift; path = CleanNoteMacTests/CleanNoteMacTests.swift; sourceTree = SOURCE_ROOT; };
 		C84547141D48FB760051BD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteMacTests/Info.plist; sourceTree = "<group>"; };
-		C8DF78EB1D490C130070D75A /* CleanNoteCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = CleanNoteCore.framework; path = "/Users/dcutting/Library/Developer/Xcode/DerivedData/CleanNote-bvyxlqtquqxohbhbjsokacccdtvy/Build/Products/Debug/CleanNoteCore.framework"; sourceTree = "<absolute>"; };
+		C8DE88421D4918AB00D8D8AE /* CleanNoteCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanNoteCore.xcodeproj; path = ../CleanNoteCore/CleanNoteCore.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8DF78EC1D490C130070D75A /* CleanNoteCore.framework in Frameworks */,
+				C8DE884B1D4918BD00D8D8AE /* CleanNoteCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,12 +121,21 @@
 			path = CleanNoteMac;
 			sourceTree = "<group>";
 		};
+		C8DE88431D4918AB00D8D8AE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8DE88481D4918AB00D8D8AE /* CleanNoteCore.framework */,
+				C8DE884A1D4918AB00D8D8AE /* CleanNoteCoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C8DF78E71D490A9A0070D75A /* Boilerplate */ = {
 			isa = PBXGroup;
 			children = (
 				C84547091D48FB750051BD61 /* Info.plist */,
 				C84547141D48FB760051BD61 /* Info.plist */,
-				C8DF78EB1D490C130070D75A /* CleanNoteCore.framework */,
+				C8DE88421D4918AB00D8D8AE /* CleanNoteCore.xcodeproj */,
 			);
 			name = Boilerplate;
 			sourceTree = "<group>";
@@ -145,6 +175,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C8DE884E1D4918BD00D8D8AE /* PBXTargetDependency */,
 			);
 			name = CleanNoteMac;
 			productName = CleanNoteMac;
@@ -205,6 +236,12 @@
 			mainGroup = C84546F41D48FB750051BD61;
 			productRefGroup = C84546FE1D48FB750051BD61 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C8DE88431D4918AB00D8D8AE /* Products */;
+					ProjectRef = C8DE88421D4918AB00D8D8AE /* CleanNoteCore.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C84546FC1D48FB750051BD61 /* CleanNoteMac */,
@@ -212,6 +249,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C8DE88481D4918AB00D8D8AE /* CleanNoteCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CleanNoteCore.framework;
+			remoteRef = C8DE88471D4918AB00D8D8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C8DE884A1D4918AB00D8D8AE /* CleanNoteCoreTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CleanNoteCoreTests.xctest;
+			remoteRef = C8DE88491D4918AB00D8D8AE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C84546FB1D48FB750051BD61 /* Resources */ = {
@@ -257,6 +311,11 @@
 			isa = PBXTargetDependency;
 			target = C84546FC1D48FB750051BD61 /* CleanNoteMac */;
 			targetProxy = C845470F1D48FB760051BD61 /* PBXContainerItemProxy */;
+		};
+		C8DE884E1D4918BD00D8D8AE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CleanNoteCore;
+			targetProxy = C8DE884D1D4918BD00D8D8AE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -361,6 +420,7 @@
 		C84547181D48FB760051BD61 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = CleanNoteMac/Info.plist;
@@ -374,6 +434,7 @@
 		C84547191D48FB760051BD61 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = CleanNoteMac/Info.plist;
