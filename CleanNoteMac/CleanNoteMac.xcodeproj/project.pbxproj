@@ -12,8 +12,6 @@
 		C84547051D48FB750051BD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84547041D48FB750051BD61 /* Assets.xcassets */; };
 		C84547081D48FB750051BD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C84547061D48FB750051BD61 /* Main.storyboard */; };
 		C84547131D48FB760051BD61 /* CleanNoteMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */; };
-		C84547271D48FF050051BD61 /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C84547261D48FF050051BD61 /* CleanNoteCore.framework */; };
-		C84547281D48FF050051BD61 /* CleanNoteCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C84547261D48FF050051BD61 /* CleanNoteCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,13 +25,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		C84547291D48FF050051BD61 /* Embed Frameworks */ = {
+		C8DF78D71D4909360070D75A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C84547281D48FF050051BD61 /* CleanNoteCore.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,10 +43,10 @@
 		C84547021D48FB750051BD61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C84547041D48FB750051BD61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C84547071D48FB750051BD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		C84547091D48FB750051BD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C84547091D48FB750051BD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteMac/Info.plist; sourceTree = "<group>"; };
 		C845470E1D48FB760051BD61 /* CleanNoteMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanNoteMacTests.swift; sourceTree = "<group>"; };
-		C84547141D48FB760051BD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CleanNoteMacTests.swift; path = CleanNoteMacTests/CleanNoteMacTests.swift; sourceTree = SOURCE_ROOT; };
+		C84547141D48FB760051BD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteMacTests/Info.plist; sourceTree = "<group>"; };
 		C84547261D48FF050051BD61 /* CleanNoteCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = CleanNoteCore.framework; path = "/Users/dcutting/Library/Developer/Xcode/DerivedData/CleanNote-fwpxytobbnpfxmdkmremzwiqcfku/Build/Products/Debug/CleanNoteCore.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C84547271D48FF050051BD61 /* CleanNoteCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,9 +71,9 @@
 		C84546F41D48FB750051BD61 = {
 			isa = PBXGroup;
 			children = (
-				C84547261D48FF050051BD61 /* CleanNoteCore.framework */,
-				C84546FF1D48FB750051BD61 /* CleanNoteMac */,
-				C84547111D48FB760051BD61 /* CleanNoteMacTests */,
+				C8DF78E71D490A9A0070D75A /* Boilerplate */,
+				C8DF78E91D490B940070D75A /* UI */,
+				C84546FF1D48FB750051BD61 /* Modules */,
 				C84546FE1D48FB750051BD61 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,25 +87,43 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		C84546FF1D48FB750051BD61 /* CleanNoteMac */ = {
+		C84546FF1D48FB750051BD61 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C8DF78EA1D490BA70070D75A /* Root */,
+			);
+			name = Modules;
+			path = CleanNoteMac;
+			sourceTree = "<group>";
+		};
+		C8DF78E71D490A9A0070D75A /* Boilerplate */ = {
+			isa = PBXGroup;
+			children = (
+				C84547091D48FB750051BD61 /* Info.plist */,
+				C84547141D48FB760051BD61 /* Info.plist */,
+				C84547261D48FF050051BD61 /* CleanNoteCore.framework */,
+			);
+			name = Boilerplate;
+			sourceTree = "<group>";
+		};
+		C8DF78E91D490B940070D75A /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				C84547041D48FB750051BD61 /* Assets.xcassets */,
+				C84547061D48FB750051BD61 /* Main.storyboard */,
+			);
+			name = UI;
+			path = CleanNoteMac;
+			sourceTree = "<group>";
+		};
+		C8DF78EA1D490BA70070D75A /* Root */ = {
 			isa = PBXGroup;
 			children = (
 				C84547001D48FB750051BD61 /* AppDelegate.swift */,
 				C84547021D48FB750051BD61 /* ViewController.swift */,
-				C84547041D48FB750051BD61 /* Assets.xcassets */,
-				C84547061D48FB750051BD61 /* Main.storyboard */,
-				C84547091D48FB750051BD61 /* Info.plist */,
-			);
-			path = CleanNoteMac;
-			sourceTree = "<group>";
-		};
-		C84547111D48FB760051BD61 /* CleanNoteMacTests */ = {
-			isa = PBXGroup;
-			children = (
 				C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */,
-				C84547141D48FB760051BD61 /* Info.plist */,
 			);
-			path = CleanNoteMacTests;
+			name = Root;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,7 +136,7 @@
 				C84546F91D48FB750051BD61 /* Sources */,
 				C84546FA1D48FB750051BD61 /* Frameworks */,
 				C84546FB1D48FB750051BD61 /* Resources */,
-				C84547291D48FF050051BD61 /* Embed Frameworks */,
+				C8DF78D71D4909360070D75A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
