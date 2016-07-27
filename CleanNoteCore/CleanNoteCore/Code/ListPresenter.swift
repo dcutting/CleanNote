@@ -1,3 +1,5 @@
+import Foundation
+
 public struct ListViewNote {
   public let id: NoteID
   public var summary: String
@@ -36,6 +38,6 @@ public class ListPresenter: ListInteractorOutput {
   }
 
   private func nonEmptySummary(for text: String) -> String {
-    return text// text.replacingOccurrences(of: "\n", with: " ")
+    return text.replacingOccurrences(of: "\n", with: " ")
   }
 }
