@@ -78,7 +78,6 @@
 		C83BAD501D48E9CA00180193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteiOS/Info.plist; sourceTree = "<group>"; };
 		C83BAD551D48E9CA00180193 /* CleanNoteiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD5B1D48E9CA00180193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteiOSTests/Info.plist; sourceTree = "<group>"; };
-		C8DE880E1D49151200D8D8AE /* CleanNoteCoreTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CleanNoteCoreTests.xctest; path = "../../../Library/Developer/Xcode/DerivedData/CleanNote-bvyxlqtquqxohbhbjsokacccdtvy/Build/Products/Debug/CleanNoteCoreTests.xctest"; sourceTree = "<group>"; };
 		C8DE88361D49186600D8D8AE /* CleanNoteCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanNoteCore.xcodeproj; path = ../CleanNoteCore/CleanNoteCore.xcodeproj; sourceTree = "<group>"; };
 		C8DF78B61D4905770070D75A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8DF78B71D4905770070D75A /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -88,7 +87,7 @@
 		C8DF78BB1D4905770070D75A /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
 		C8DF78C31D4905810070D75A /* EditorViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorViewControllerTests.swift; path = ../../CleanNoteiOSTests/Code/EditorViewControllerTests.swift; sourceTree = "<group>"; };
 		C8DF78C41D4905810070D75A /* ListViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewControllerTests.swift; path = ../../CleanNoteiOSTests/Code/ListViewControllerTests.swift; sourceTree = "<group>"; };
-		C8DF78C51D4905810070D75A /* MockEditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockEditorWireframe.swift; sourceTree = "<group>"; };
+		C8DF78C51D4905810070D75A /* MockEditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockEditorWireframe.swift; path = ../../CleanNoteiOSTests/Code/MockEditorWireframe.swift; sourceTree = "<group>"; };
 		C8DF78C61D4905810070D75A /* MockTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTableView.swift; sourceTree = "<group>"; };
 		C8DF78C71D4905810070D75A /* MockTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTextView.swift; sourceTree = "<group>"; };
 		C8DF78C81D4905810070D75A /* TestableEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestableEditorViewController.swift; path = ../../CleanNoteiOSTests/Code/TestableEditorViewController.swift; sourceTree = "<group>"; };
@@ -120,7 +119,6 @@
 				C8DF78B51D4905770070D75A /* Modules */,
 				C8DF78C21D4905810070D75A /* Mocks */,
 				C83BAD421D48E9CA00180193 /* Products */,
-				C8DE880D1D49151200D8D8AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,14 +129,6 @@
 				C83BAD551D48E9CA00180193 /* CleanNoteiOSTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		C8DE880D1D49151200D8D8AE /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				C8DE880E1D49151200D8D8AE /* CleanNoteCoreTests.xctest */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C8DE88371D49186600D8D8AE /* Products */ = {
@@ -164,7 +154,6 @@
 		C8DF78C21D4905810070D75A /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				C8DF78C51D4905810070D75A /* MockEditorWireframe.swift */,
 				C8DF78C61D4905810070D75A /* MockTableView.swift */,
 				C8DF78C71D4905810070D75A /* MockTextView.swift */,
 			);
@@ -198,6 +187,7 @@
 			children = (
 				C8DF78B71D4905770070D75A /* EditorViewController.swift */,
 				C8DF78B81D4905770070D75A /* EditorWireframe.swift */,
+				C8DF78C51D4905810070D75A /* MockEditorWireframe.swift */,
 				C8DF78C31D4905810070D75A /* EditorViewControllerTests.swift */,
 				C8DF78C81D4905810070D75A /* TestableEditorViewController.swift */,
 			);
