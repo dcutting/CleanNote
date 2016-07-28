@@ -113,11 +113,11 @@
 			children = (
 				C8DF788C1D4904DA0070D75A /* EditorInteractor.swift */,
 				C8DF788D1D4904DA0070D75A /* EditorPresenter.swift */,
-				C8DF789B1D4905130070D75A /* EditorInteractorTests.swift */,
-				C8DF789C1D4905130070D75A /* EditorPresenterTests.swift */,
 				C8DF78A01D4905130070D75A /* MockEditorInteractorInput.swift */,
 				C8DF78A11D4905130070D75A /* MockEditorInteractorOutput.swift */,
 				C8DF78A21D4905130070D75A /* MockEditorInterface.swift */,
+				C8DF789B1D4905130070D75A /* EditorInteractorTests.swift */,
+				C8DF789C1D4905130070D75A /* EditorPresenterTests.swift */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -128,10 +128,10 @@
 				C8DF788F1D4904DA0070D75A /* ListInteractor.swift */,
 				C8DF789E1D4905130070D75A /* ListInteractorTests.swift */,
 				C8DF78901D4904DA0070D75A /* ListPresenter.swift */,
-				C8DF789F1D4905130070D75A /* ListPresenterTests.swift */,
 				C8DF78A31D4905130070D75A /* MockListInteractorInput.swift */,
 				C8DF78A41D4905130070D75A /* MockListInteractorOutput.swift */,
 				C8DF78A51D4905130070D75A /* MockListInterface.swift */,
+				C8DF789F1D4905130070D75A /* ListPresenterTests.swift */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -141,8 +141,8 @@
 			children = (
 				C8DF78921D4904DA0070D75A /* NoteGateway.swift */,
 				C8DF788E1D4904DA0070D75A /* InMemoryNoteGateway.swift */,
-				C8DF789D1D4905130070D75A /* InMemoryNoteGatewayTests.swift */,
 				C8DF78A61D4905130070D75A /* MockNoteGateway.swift */,
+				C8DF789D1D4905130070D75A /* InMemoryNoteGatewayTests.swift */,
 			);
 			name = Gateways;
 			path = CleanNoteCore/Code;
