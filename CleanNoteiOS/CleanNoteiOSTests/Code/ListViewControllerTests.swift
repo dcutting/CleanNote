@@ -1,6 +1,5 @@
 import XCTest
 @testable import CleanNoteCore
-//@testable import CleanNoteCoreTests
 @testable import CleanNoteiOS
 
 class ListViewControllerTests: XCTestCase {
