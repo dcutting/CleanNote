@@ -1,5 +1,3 @@
-@testable import CleanNoteCore
-
 class MockEditorInteractorOutput: EditorInteractorOutput {
   var actualText: String?
   var shouldExpectDidFailToSave: Bool = false

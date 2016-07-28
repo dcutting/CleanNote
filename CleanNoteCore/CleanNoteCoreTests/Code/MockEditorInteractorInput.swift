@@ -1,5 +1,3 @@
-@testable import CleanNoteCore
-
 class MockEditorInteractorInput: EditorInteractorInput {
   var shouldExpectFetchText = false
   var didCallFetchText = false

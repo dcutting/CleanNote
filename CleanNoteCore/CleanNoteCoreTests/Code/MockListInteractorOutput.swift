@@ -1,5 +1,3 @@
-@testable import CleanNoteCore
-
 class MockListInteractorOutput: ListInteractorOutput {
   var expectedNotes = [Note]()
   var actualNotes: [Note]?

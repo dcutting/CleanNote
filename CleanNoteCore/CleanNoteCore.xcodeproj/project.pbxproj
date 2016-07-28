@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C813FA291D49F4990017F09E /* MockEditorInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A01D4905130070D75A /* MockEditorInteractorInput.swift */; };
+		C813FA2A1D49F4990017F09E /* MockEditorInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A11D4905130070D75A /* MockEditorInteractorOutput.swift */; };
+		C813FA2B1D49F4990017F09E /* MockEditorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A21D4905130070D75A /* MockEditorInterface.swift */; };
+		C813FA2C1D49F4990017F09E /* MockListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A31D4905130070D75A /* MockListInteractorInput.swift */; };
+		C813FA2D1D49F4990017F09E /* MockListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A41D4905130070D75A /* MockListInteractorOutput.swift */; };
+		C813FA2E1D49F4990017F09E /* MockListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A51D4905130070D75A /* MockListInterface.swift */; };
+		C813FA2F1D49F4990017F09E /* MockNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A61D4905130070D75A /* MockNoteGateway.swift */; };
 		C83BAD281D48E9A200180193 /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83BAD1E1D48E9A200180193 /* CleanNoteCore.framework */; };
 		C83BAD2F1D48E9A200180193 /* CleanNoteCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C83BAD211D48E9A200180193 /* CleanNoteCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C8DE88121D4915F700D8D8AE /* MockEditorInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A01D4905130070D75A /* MockEditorInteractorInput.swift */; };
-		C8DE88131D4915F700D8D8AE /* MockEditorInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A11D4905130070D75A /* MockEditorInteractorOutput.swift */; };
-		C8DE88141D4915F700D8D8AE /* MockEditorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A21D4905130070D75A /* MockEditorInterface.swift */; };
-		C8DE88151D4915F700D8D8AE /* MockListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A31D4905130070D75A /* MockListInteractorInput.swift */; };
-		C8DE88161D4915F700D8D8AE /* MockListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A41D4905130070D75A /* MockListInteractorOutput.swift */; };
-		C8DE88171D4915F700D8D8AE /* MockListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A51D4905130070D75A /* MockListInterface.swift */; };
-		C8DE88181D4915F700D8D8AE /* MockNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A61D4905130070D75A /* MockNoteGateway.swift */; };
 		C8DF78931D4904DA0070D75A /* EditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF788C1D4904DA0070D75A /* EditorInteractor.swift */; };
 		C8DF78941D4904DA0070D75A /* EditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF788D1D4904DA0070D75A /* EditorPresenter.swift */; };
 		C8DF78951D4904DA0070D75A /* InMemoryNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF788E1D4904DA0070D75A /* InMemoryNoteGateway.swift */; };
@@ -28,13 +28,6 @@
 		C8DF78AA1D4905130070D75A /* InMemoryNoteGatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF789D1D4905130070D75A /* InMemoryNoteGatewayTests.swift */; };
 		C8DF78AB1D4905130070D75A /* ListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF789E1D4905130070D75A /* ListInteractorTests.swift */; };
 		C8DF78AC1D4905130070D75A /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF789F1D4905130070D75A /* ListPresenterTests.swift */; };
-		C8DF78AD1D4905130070D75A /* MockEditorInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A01D4905130070D75A /* MockEditorInteractorInput.swift */; };
-		C8DF78AE1D4905130070D75A /* MockEditorInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A11D4905130070D75A /* MockEditorInteractorOutput.swift */; };
-		C8DF78AF1D4905130070D75A /* MockEditorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A21D4905130070D75A /* MockEditorInterface.swift */; };
-		C8DF78B01D4905130070D75A /* MockListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A31D4905130070D75A /* MockListInteractorInput.swift */; };
-		C8DF78B11D4905130070D75A /* MockListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A41D4905130070D75A /* MockListInteractorOutput.swift */; };
-		C8DF78B21D4905130070D75A /* MockListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A51D4905130070D75A /* MockListInterface.swift */; };
-		C8DF78B31D4905130070D75A /* MockNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A61D4905130070D75A /* MockNoteGateway.swift */; };
 		C8DF78B41D4905130070D75A /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A71D4905130070D75A /* NoteTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -312,18 +305,18 @@
 			files = (
 				C8DF78971D4904DA0070D75A /* ListPresenter.swift in Sources */,
 				C8DF78931D4904DA0070D75A /* EditorInteractor.swift in Sources */,
-				C8DE88181D4915F700D8D8AE /* MockNoteGateway.swift in Sources */,
+				C813FA2F1D49F4990017F09E /* MockNoteGateway.swift in Sources */,
 				C8DF78951D4904DA0070D75A /* InMemoryNoteGateway.swift in Sources */,
 				C8DF78961D4904DA0070D75A /* ListInteractor.swift in Sources */,
-				C8DE88151D4915F700D8D8AE /* MockListInteractorInput.swift in Sources */,
-				C8DE88131D4915F700D8D8AE /* MockEditorInteractorOutput.swift in Sources */,
+				C813FA2C1D49F4990017F09E /* MockListInteractorInput.swift in Sources */,
+				C813FA2A1D49F4990017F09E /* MockEditorInteractorOutput.swift in Sources */,
 				C8DF78941D4904DA0070D75A /* EditorPresenter.swift in Sources */,
 				C8DF78991D4904DA0070D75A /* NoteGateway.swift in Sources */,
-				C8DE88121D4915F700D8D8AE /* MockEditorInteractorInput.swift in Sources */,
-				C8DE88141D4915F700D8D8AE /* MockEditorInterface.swift in Sources */,
-				C8DE88171D4915F700D8D8AE /* MockListInterface.swift in Sources */,
+				C813FA291D49F4990017F09E /* MockEditorInteractorInput.swift in Sources */,
+				C813FA2B1D49F4990017F09E /* MockEditorInterface.swift in Sources */,
+				C813FA2E1D49F4990017F09E /* MockListInterface.swift in Sources */,
 				C8DF78981D4904DA0070D75A /* Note.swift in Sources */,
-				C8DE88161D4915F700D8D8AE /* MockListInteractorOutput.swift in Sources */,
+				C813FA2D1D49F4990017F09E /* MockListInteractorOutput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,18 +324,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8DF78AD1D4905130070D75A /* MockEditorInteractorInput.swift in Sources */,
-				C8DF78AE1D4905130070D75A /* MockEditorInteractorOutput.swift in Sources */,
 				C8DF78AA1D4905130070D75A /* InMemoryNoteGatewayTests.swift in Sources */,
-				C8DF78B11D4905130070D75A /* MockListInteractorOutput.swift in Sources */,
 				C8DF78AC1D4905130070D75A /* ListPresenterTests.swift in Sources */,
 				C8DF78A81D4905130070D75A /* EditorInteractorTests.swift in Sources */,
-				C8DF78B31D4905130070D75A /* MockNoteGateway.swift in Sources */,
 				C8DF78AB1D4905130070D75A /* ListInteractorTests.swift in Sources */,
-				C8DF78AF1D4905130070D75A /* MockEditorInterface.swift in Sources */,
 				C8DF78A91D4905130070D75A /* EditorPresenterTests.swift in Sources */,
-				C8DF78B21D4905130070D75A /* MockListInterface.swift in Sources */,
-				C8DF78B01D4905130070D75A /* MockListInteractorInput.swift in Sources */,
 				C8DF78B41D4905130070D75A /* NoteTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

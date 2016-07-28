@@ -1,5 +1,3 @@
-@testable import CleanNoteCore
-
 class MockListInteractorInput: ListInteractorInput {
   var shouldExpectFetchNotes = false
   var didCallFetchNotes = false
