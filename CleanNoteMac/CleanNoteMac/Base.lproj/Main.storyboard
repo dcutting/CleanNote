@@ -386,10 +386,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="712"/>
         </scene>
-        <!--View Controller-->
+        <!--List View Controller-->
         <scene sceneID="KBP-mG-jdu">
             <objects>
-                <viewController id="JR9-eM-Pww" sceneMemberID="viewController">
+                <viewController id="JR9-eM-Pww" customClass="ListViewController" customModule="CleanNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="k7q-R9-j1m">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>

@@ -1,0 +1,4 @@
+class RootWireframe {
+  func configure() {
+  }
+}

@@ -1,0 +1,4 @@
+class ListWireframe {
+  func configure() {
+  }
+}
