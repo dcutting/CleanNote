@@ -71,7 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C83BAD411D48E9CA00180193 /* CleanNoteiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNoteiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C83BAD411D48E9CA00180193 /* CleanNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD491D48E9CA00180193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C83BAD4B1D48E9CA00180193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C83BAD4E1D48E9CA00180193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -125,7 +125,7 @@
 		C83BAD421D48E9CA00180193 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C83BAD411D48E9CA00180193 /* CleanNoteiOS.app */,
+				C83BAD411D48E9CA00180193 /* CleanNote.app */,
 				C83BAD551D48E9CA00180193 /* CleanNoteiOSTests.xctest */,
 			);
 			name = Products;
@@ -232,7 +232,7 @@
 			);
 			name = CleanNoteiOS;
 			productName = CleanNoteiOS;
-			productReference = C83BAD411D48E9CA00180193 /* CleanNoteiOS.app */;
+			productReference = C83BAD411D48E9CA00180193 /* CleanNote.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C83BAD541D48E9CA00180193 /* CleanNoteiOSTests */ = {
@@ -499,7 +499,7 @@
 				INFOPLIST_FILE = CleanNoteiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteiOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CleanNote;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -511,7 +511,7 @@
 				INFOPLIST_FILE = CleanNoteiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteiOS;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CleanNote;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

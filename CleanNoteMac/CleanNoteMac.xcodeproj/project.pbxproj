@@ -62,7 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C84546FD1D48FB750051BD61 /* CleanNoteMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNoteMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C84546FD1D48FB750051BD61 /* CleanNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84547001D48FB750051BD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C84547021D48FB750051BD61 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C84547041D48FB750051BD61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 		C84546FE1D48FB750051BD61 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C84546FD1D48FB750051BD61 /* CleanNoteMac.app */,
+				C84546FD1D48FB750051BD61 /* CleanNote.app */,
 				C845470E1D48FB760051BD61 /* CleanNoteMacTests.xctest */,
 			);
 			name = Products;
@@ -179,7 +179,7 @@
 			);
 			name = CleanNoteMac;
 			productName = CleanNoteMac;
-			productReference = C84546FD1D48FB750051BD61 /* CleanNoteMac.app */;
+			productReference = C84546FD1D48FB750051BD61 /* CleanNote.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C845470D1D48FB760051BD61 /* CleanNoteMacTests */ = {
@@ -426,7 +426,7 @@
 				INFOPLIST_FILE = CleanNoteMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteMac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CleanNote;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -440,7 +440,7 @@
 				INFOPLIST_FILE = CleanNoteMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteMac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CleanNote;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
