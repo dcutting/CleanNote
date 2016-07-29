@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "C83BAD401D48E9CA00180193"
-               BuildableName = "CleanNoteiOS.app"
+               BuildableName = "CleanNote.app"
                BlueprintName = "CleanNoteiOS"
                ReferencedContainer = "container:CleanNoteiOS.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C83BAD401D48E9CA00180193"
-            BuildableName = "CleanNoteiOS.app"
+            BuildableName = "CleanNote.app"
             BlueprintName = "CleanNoteiOS"
             ReferencedContainer = "container:CleanNoteiOS.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C83BAD401D48E9CA00180193"
-            BuildableName = "CleanNoteiOS.app"
+            BuildableName = "CleanNote.app"
             BlueprintName = "CleanNoteiOS"
             ReferencedContainer = "container:CleanNoteiOS.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "C83BAD401D48E9CA00180193"
-            BuildableName = "CleanNoteiOS.app"
+            BuildableName = "CleanNote.app"
             BlueprintName = "CleanNoteiOS"
             ReferencedContainer = "container:CleanNoteiOS.xcodeproj">
          </BuildableReference>
