@@ -1,4 +1,4 @@
-class ListWireframe {
+class ListWireframeMac {
   func configure() {
   }
 }

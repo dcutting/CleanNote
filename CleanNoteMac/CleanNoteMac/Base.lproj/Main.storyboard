@@ -386,10 +386,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="712"/>
         </scene>
-        <!--List View Controller-->
+        <!--List View Controller Mac-->
         <scene sceneID="KBP-mG-jdu">
             <objects>
-                <viewController id="JR9-eM-Pww" customClass="ListViewController" customModule="CleanNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JR9-eM-Pww" customClass="ListViewControllerMac" customModule="CleanNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="k7q-R9-j1m">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -442,6 +442,10 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="dataSource" destination="JR9-eM-Pww" id="Gg1-Jh-7sl"/>
+                                                <outlet property="delegate" destination="JR9-eM-Pww" id="2dk-lb-qr0"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -456,6 +460,9 @@
                             </scrollView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="RO0-mE-CWS" id="q8v-SL-aZ0"/>
+                    </connections>
                 </viewController>
                 <customObject id="YcL-RP-s9Y" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

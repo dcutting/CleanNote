@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C84547011D48FB750051BD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547001D48FB750051BD61 /* AppDelegate.swift */; };
-		C84547031D48FB750051BD61 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547021D48FB750051BD61 /* ListViewController.swift */; };
+		C84547031D48FB750051BD61 /* ListViewControllerMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547021D48FB750051BD61 /* ListViewControllerMac.swift */; };
 		C84547051D48FB750051BD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84547041D48FB750051BD61 /* Assets.xcassets */; };
 		C84547081D48FB750051BD61 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C84547061D48FB750051BD61 /* Main.storyboard */; };
 		C84547131D48FB760051BD61 /* CleanNoteMacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */; };
 		C86F857A1D4BB90F009EEBCC /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86F85791D4BB90F009EEBCC /* RootWireframe.swift */; };
-		C86F857E1D4BB9D9009EEBCC /* ListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86F857D1D4BB9D9009EEBCC /* ListWireframe.swift */; };
+		C86F857E1D4BB9D9009EEBCC /* ListWireframeMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86F857D1D4BB9D9009EEBCC /* ListWireframeMac.swift */; };
 		C8DE884B1D4918BD00D8D8AE /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE88481D4918AB00D8D8AE /* CleanNoteCore.framework */; };
 		C8DE884C1D4918BD00D8D8AE /* CleanNoteCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE88481D4918AB00D8D8AE /* CleanNoteCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -66,7 +66,7 @@
 /* Begin PBXFileReference section */
 		C84546FD1D48FB750051BD61 /* CleanNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84547001D48FB750051BD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Code/AppDelegate.swift; sourceTree = "<group>"; };
-		C84547021D48FB750051BD61 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = Code/ListViewController.swift; sourceTree = "<group>"; };
+		C84547021D48FB750051BD61 /* ListViewControllerMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListViewControllerMac.swift; path = Code/ListViewControllerMac.swift; sourceTree = "<group>"; };
 		C84547041D48FB750051BD61 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C84547071D48FB750051BD61 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C84547091D48FB750051BD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteMac/Info.plist; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CleanNoteMacTests.swift; path = CleanNoteMacTests/CleanNoteMacTests.swift; sourceTree = SOURCE_ROOT; };
 		C84547141D48FB760051BD61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteMacTests/Info.plist; sourceTree = "<group>"; };
 		C86F85791D4BB90F009EEBCC /* RootWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootWireframe.swift; path = Code/RootWireframe.swift; sourceTree = "<group>"; };
-		C86F857D1D4BB9D9009EEBCC /* ListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListWireframe.swift; path = Code/ListWireframe.swift; sourceTree = "<group>"; };
+		C86F857D1D4BB9D9009EEBCC /* ListWireframeMac.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListWireframeMac.swift; path = Code/ListWireframeMac.swift; sourceTree = "<group>"; };
 		C8DE88421D4918AB00D8D8AE /* CleanNoteCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanNoteCore.xcodeproj; path = ../CleanNoteCore/CleanNoteCore.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -129,8 +129,8 @@
 		C86F857C1D4BB95E009EEBCC /* List */ = {
 			isa = PBXGroup;
 			children = (
-				C84547021D48FB750051BD61 /* ListViewController.swift */,
-				C86F857D1D4BB9D9009EEBCC /* ListWireframe.swift */,
+				C84547021D48FB750051BD61 /* ListViewControllerMac.swift */,
+				C86F857D1D4BB9D9009EEBCC /* ListWireframeMac.swift */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -305,8 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C86F857E1D4BB9D9009EEBCC /* ListWireframe.swift in Sources */,
-				C84547031D48FB750051BD61 /* ListViewController.swift in Sources */,
+				C86F857E1D4BB9D9009EEBCC /* ListWireframeMac.swift in Sources */,
+				C84547031D48FB750051BD61 /* ListViewControllerMac.swift in Sources */,
 				C84547011D48FB750051BD61 /* AppDelegate.swift in Sources */,
 				C86F857A1D4BB90F009EEBCC /* RootWireframe.swift in Sources */,
 			);
