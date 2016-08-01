@@ -2,7 +2,8 @@ import Cocoa
 import CleanNoteCore
 
 class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSource, NSTableViewDelegate {
-  
+
+  var editorWireframe: EditorWireframeMac!
   @IBOutlet weak var tableView: NSTableView!
   weak var editorContainer: NSViewController!
 
@@ -28,6 +29,7 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
   private func prepareForEditSegue(to editorViewController: EditorViewControllerMac) {
     if let noteID = noteIDForSelectedRow() {
       print("configuring editor with \(noteID)")
+      editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
     } else {
       print("configuring editor with no note")
     }

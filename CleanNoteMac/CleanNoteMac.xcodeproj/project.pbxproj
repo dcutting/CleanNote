@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C800261F1D500EF600DDF4E2 /* EditorWireframeMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = C800261E1D500EF600DDF4E2 /* EditorWireframeMac.swift */; };
 		C84547011D48FB750051BD61 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547001D48FB750051BD61 /* AppDelegate.swift */; };
 		C84547031D48FB750051BD61 /* ListViewControllerMac.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84547021D48FB750051BD61 /* ListViewControllerMac.swift */; };
 		C84547051D48FB750051BD61 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C84547041D48FB750051BD61 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C800261E1D500EF600DDF4E2 /* EditorWireframeMac.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorWireframeMac.swift; path = Code/EditorWireframeMac.swift; sourceTree = "<group>"; };
 		C84546FD1D48FB750051BD61 /* CleanNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84547001D48FB750051BD61 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Code/AppDelegate.swift; sourceTree = "<group>"; };
 		C84547021D48FB750051BD61 /* ListViewControllerMac.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListViewControllerMac.swift; path = Code/ListViewControllerMac.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				C86BEC4F1D4F773700BB1CCE /* EditorViewControllerMac.swift */,
+				C800261E1D500EF600DDF4E2 /* EditorWireframeMac.swift */,
 				C8BD3C2D1D4FBAE000DDF114 /* EditorSegue.swift */,
 				C898F0A01D4FBC6000457419 /* FullViewAnimator.swift */,
 			);
@@ -327,6 +330,7 @@
 				C84547031D48FB750051BD61 /* ListViewControllerMac.swift in Sources */,
 				C84547011D48FB750051BD61 /* AppDelegate.swift in Sources */,
 				C8BD3C2E1D4FBAE000DDF114 /* EditorSegue.swift in Sources */,
+				C800261F1D500EF600DDF4E2 /* EditorWireframeMac.swift in Sources */,
 				C898F0A11D4FBC6000457419 /* FullViewAnimator.swift in Sources */,
 				C86F857A1D4BB90F009EEBCC /* RootWireframe.swift in Sources */,
 			);

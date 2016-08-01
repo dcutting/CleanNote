@@ -3,20 +3,15 @@ import CleanNoteCore
 
 class EditorViewControllerMac: NSViewController, EditorInterface {
   var interactor: EditorInteractorInput!
-  var count: Int = 0
   @IBOutlet var textView: NSTextView!
 
-  override func awakeFromNib() {
-    print("awaking editor")
-  }
-
   override func viewDidAppear() {
-    count += 1
-    print("appearing \(count)")
+    interactor.fetchText()
   }
 
-  func fetchText() {
-    interactor.fetchText()
+  override func viewWillDisappear() {
+    guard let text = textView.string else { return }
+    interactor.save(text: text)
   }
 
   func update(text: String) {

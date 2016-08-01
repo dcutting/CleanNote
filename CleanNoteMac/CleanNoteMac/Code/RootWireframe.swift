@@ -5,8 +5,9 @@ class RootWireframe {
   func configure(listViewController: ListViewControllerMac, editorContainer: NSViewController) {
     let sampleNotes = makeSampleNotes()
     let noteGateway = InMemoryNoteGateway(notes: sampleNotes)
+    let editorWireframe = EditorWireframeMac(noteGateway: noteGateway)
 
-    ListWireframeMac().configure(listViewController: listViewController, editorContainer: editorContainer, noteGateway: noteGateway)
+    ListWireframeMac().configure(listViewController: listViewController, editorWireframe: editorWireframe, editorContainer: editorContainer, noteGateway: noteGateway)
   }
 
   private func makeSampleNotes() -> [Note] {
