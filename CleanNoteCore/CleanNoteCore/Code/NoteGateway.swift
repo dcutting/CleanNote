@@ -1,4 +1,4 @@
-public enum NoteGatewayError: ErrorProtocol {
+public enum NoteGatewayError: Error {
   case notFound
   case unknown
 }
