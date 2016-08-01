@@ -8,8 +8,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let (_, controller) = getWindowAndController()
     let splitController = controller.contentViewController as! NSSplitViewController
     let listViewController = splitController.childViewControllers[0] as! ListViewControllerMac
+    let editorContainer = splitController.childViewControllers[1]
 
-    RootWireframe().configure(listViewController: listViewController)
+    RootWireframe().configure(listViewController: listViewController, editorContainer: editorContainer)
 
     listViewController.start()
   }

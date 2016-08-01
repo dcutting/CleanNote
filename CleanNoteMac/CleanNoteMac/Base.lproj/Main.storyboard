@@ -371,7 +371,7 @@
                 <splitViewController id="uhd-aY-JXA" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem holdingPriority="255" behavior="contentList" id="GKU-mt-FwG"/>
-                        <splitViewItem id="D2y-79-D7o"/>
+                        <splitViewItem id="wCI-Kb-dpJ"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="xTy-FJ-QYD">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -379,7 +379,7 @@
                     </splitView>
                     <connections>
                         <segue destination="JR9-eM-Pww" kind="relationship" relationship="splitItems" id="uMA-aE-Wma"/>
-                        <segue destination="Utn-X3-Rhs" kind="relationship" relationship="splitItems" id="LUX-zw-Pvk"/>
+                        <segue destination="s5H-SG-MMp" kind="relationship" relationship="splitItems" id="g3k-j3-4eG"/>
                     </connections>
                 </splitViewController>
                 <customObject id="6f6-Yk-FSH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -445,6 +445,7 @@
                                             <connections>
                                                 <outlet property="dataSource" destination="JR9-eM-Pww" id="Gg1-Jh-7sl"/>
                                                 <outlet property="delegate" destination="JR9-eM-Pww" id="2dk-lb-qr0"/>
+                                                <segue destination="Utn-X3-Rhs" kind="custom" identifier="editNote" customClass="EditorSegue" customModule="CleanNote" id="Y3M-Xb-vRp"/>
                                             </connections>
                                         </tableView>
                                     </subviews>
@@ -466,12 +467,25 @@
                 </viewController>
                 <customObject id="YcL-RP-s9Y" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="728" y="546"/>
+            <point key="canvasLocation" x="728" y="499"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="VwY-Q6-3wE">
+            <objects>
+                <viewController id="s5H-SG-MMp" sceneMemberID="viewController">
+                    <view key="view" id="h7j-P5-DPT">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="QL3-tp-bA4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="728" y="920"/>
+        </scene>
+        <!--Editor View Controller Mac-->
         <scene sceneID="iK9-Q3-xOa">
             <objects>
-                <viewController id="Utn-X3-Rhs" sceneMemberID="viewController">
+                <viewController id="Utn-X3-Rhs" customClass="EditorViewControllerMac" customModule="CleanNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="d8Y-7q-rzd">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -513,10 +527,13 @@
                             </scrollView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="textView" destination="XMn-Yx-861" id="c5A-Gp-6G4"/>
+                    </connections>
                 </viewController>
                 <customObject id="xmh-Ru-sgC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="728" y="907"/>
+            <point key="canvasLocation" x="1317" y="499"/>
         </scene>
     </scenes>
 </document>

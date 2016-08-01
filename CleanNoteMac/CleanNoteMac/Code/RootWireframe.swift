@@ -1,11 +1,12 @@
+import Cocoa
 import CleanNoteCore
 
 class RootWireframe {
-  func configure(listViewController: ListViewControllerMac) {
+  func configure(listViewController: ListViewControllerMac, editorContainer: NSViewController) {
     let sampleNotes = makeSampleNotes()
     let noteGateway = InMemoryNoteGateway(notes: sampleNotes)
 
-    ListWireframeMac().configure(listViewController: listViewController, noteGateway: noteGateway)
+    ListWireframeMac().configure(listViewController: listViewController, editorContainer: editorContainer, noteGateway: noteGateway)
   }
 
   private func makeSampleNotes() -> [Note] {
