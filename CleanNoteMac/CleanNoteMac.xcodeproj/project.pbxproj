@@ -188,8 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				C84547001D48FB750051BD61 /* AppDelegate.swift */,
-				C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */,
 				C86F85791D4BB90F009EEBCC /* RootWireframe.swift */,
+				C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */,
 			);
 			name = Root;
 			sourceTree = "<group>";
