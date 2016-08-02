@@ -11,12 +11,19 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
   var listNotes = [ListViewNote]()
 
   func start() {
-    interactor.fetchNotes()
+    showEmptyNote()
+  }
+
+  func showEmptyNote() {
+    tableView.deselectAll(nil)
+    performSegue(withIdentifier: "editNote", sender: nil)
   }
 
   func update(notes: [ListViewNote]) {
     listNotes = notes
+    let selectedRowIndexes = tableView.selectedRowIndexes
     tableView.reloadData()
+    tableView.selectRowIndexes(selectedRowIndexes, byExtendingSelection: false)
   }
 
   override func prepare(for segue: NSStoryboardSegue, sender: AnyObject?) {
@@ -24,6 +31,7 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
     if "editNote" == segue.identifier {
       prepareForEditSegue(to: editorViewController)
     }
+    interactor.fetchNotes()
   }
 
   private func prepareForEditSegue(to editorViewController: EditorViewControllerMac) {
