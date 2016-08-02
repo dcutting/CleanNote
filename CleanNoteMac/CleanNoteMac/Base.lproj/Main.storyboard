@@ -452,7 +452,7 @@
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="bA8-ct-fZR">
-                                    <rect key="frame" x="0.0" y="284" width="250" height="16"/>
+                                    <rect key="frame" x="0.0" y="-16" width="0.0" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Qdp-NF-SDJ">
@@ -489,7 +489,7 @@
                 <viewController id="Utn-X3-Rhs" customClass="EditorViewControllerMac" customModule="CleanNote" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="d8Y-7q-rzd">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqr-rz-kcH">
                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
@@ -507,7 +507,7 @@
                                             <attributedString key="textStorage">
                                                 <fragment content="No note">
                                                     <attributes>
-                                                        <font key="NSFont" size="18" name="Avenir-Book"/>
+                                                        <font key="NSFont" metaFont="system" size="16"/>
                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>

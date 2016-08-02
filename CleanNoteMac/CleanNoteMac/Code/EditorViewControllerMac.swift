@@ -5,6 +5,14 @@ class EditorViewControllerMac: NSViewController, EditorInterface {
   var interactor: EditorInteractorInput?
   @IBOutlet var textView: NSTextView!
 
+  override func viewDidLoad() {
+    configureTextInsets()
+  }
+
+  func configureTextInsets() {
+    textView.textContainerInset = CGSize.init(width: 15, height: 15)
+  }
+
   override func viewDidAppear() {
     interactor?.fetchText()
   }
