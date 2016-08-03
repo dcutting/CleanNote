@@ -61,7 +61,7 @@
                                     <items>
                                         <menuItem title="New Note" keyEquivalent="n" id="Was-JA-tGl">
                                             <connections>
-                                                <action selector="newDocument:" target="Ady-hI-5gd" id="4Si-XN-c54"/>
+                                                <action selector="newNote:" target="Ady-hI-5gd" id="EHE-7j-LJi"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -345,7 +345,7 @@
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CleanNote" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="56" y="-189"/>
+            <point key="canvasLocation" x="24" y="-13"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
