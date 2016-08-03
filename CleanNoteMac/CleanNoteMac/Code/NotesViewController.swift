@@ -32,6 +32,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
 
   func start() {
     configureList()
+    editorViewController.showNoNoteScreen()
     listInteractor?.fetchNotes()
   }
 
