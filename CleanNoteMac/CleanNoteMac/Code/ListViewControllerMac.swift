@@ -19,15 +19,6 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
     tableView.selectRowIndexes(selectedRowIndexes, byExtendingSelection: false)
   }
 
-  func noteIDForSelectedRow() -> NoteID? {
-    let row = tableView.selectedRow
-    if -1 == row {
-      return nil
-    } else {
-      return listNotes[row].id
-    }
-  }
-
   func numberOfRows(in tableView: NSTableView) -> Int {
     return listNotes.count
   }
@@ -50,5 +41,10 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
     } else {
       delegate?.didDeselectAllNotes()
     }
+  }
+
+  private func noteIDForSelectedRow() -> NoteID? {
+    let row = tableView.selectedRow
+    return -1 == row ? nil : listNotes[row].id
   }
 }

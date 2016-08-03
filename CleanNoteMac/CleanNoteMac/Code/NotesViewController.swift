@@ -14,8 +14,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
 
   override func viewDidLoad() {
     configureAppearance()
-    configureChildren()
-    configureDelegates()
+    configureChildrenControllers()
     super.viewDidLoad()
   }
   
@@ -23,12 +22,10 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
     view.wantsLayer = true   // To enable round window corners.
   }
 
-  func configureChildren() {
+  func configureChildrenControllers() {
     listViewController = childViewControllers[0] as! ListViewControllerMac
     editorViewController = childViewControllers[1] as! EditorViewControllerMac
-  }
 
-  func configureDelegates() {
     listViewController.delegate = self
     editorViewController.delegate = self
   }

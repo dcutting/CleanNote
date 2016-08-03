@@ -3,10 +3,13 @@ import CleanNoteCore
 
 class NotesWireframe {
   func configure(notesViewController: NotesViewController) {
+
     let sampleNotes = makeSampleNotes()
     let noteGateway = InMemoryNoteGateway(notes: sampleNotes)
+
     let listWireframe = ListWireframeMac(noteGateway: noteGateway)
     let editorWireframe = EditorWireframeMac(noteGateway: noteGateway)
+
     notesViewController.listWireframe = listWireframe
     notesViewController.editorWireframe = editorWireframe
   }
