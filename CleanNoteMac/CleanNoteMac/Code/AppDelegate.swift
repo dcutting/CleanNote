@@ -5,25 +5,15 @@ import CleanNoteCore
 class AppDelegate: NSObject, NSApplicationDelegate {
 
   func applicationDidFinishLaunching(_ aNotification: Notification) {
-    let controller = getWindowController()
-
-    let splitViewController = controller.contentViewController as! NSSplitViewController
-    let listViewController = splitViewController.childViewControllers[0] as! ListViewControllerMac
-    let editorContainer = splitViewController.childViewControllers[1]
-
-    RootWireframe().configure(listViewController: listViewController, editorContainer: editorContainer)
-
-    configure(splitViewController: splitViewController)
-
-    listViewController.start()
+    let notesViewController = getNotesViewController()
+    NotesWireframe().configure(notesViewController: notesViewController)
+    notesViewController.start()
   }
 
-  func getWindowController() -> NSWindowController {
+  func getNotesViewController() -> NotesViewController {
     let window = NSApplication.shared().windows[0] as NSWindow
-    return window.windowController!
-  }
-
-  func configure(splitViewController: NSSplitViewController) {
-    splitViewController.view.wantsLayer = true  // To enable round window corners.
+    let windowController = window.windowController!
+    let notesViewController = windowController.contentViewController as! NotesViewController
+    return notesViewController
   }
 }

@@ -1,9 +1,13 @@
 import Cocoa
 import CleanNoteCore
 
-class EditorViewControllerMac: NSViewController, EditorInterface {
-  var interactor: EditorInteractorInput?
+protocol EditorViewControllerMacDelegate: class {
+  func didModify(text: String)
+}
+
+class EditorViewControllerMac: NSViewController, EditorInterface, NSTextViewDelegate {
   @IBOutlet var textView: NSTextView!
+  weak var delegate: EditorViewControllerMacDelegate?
 
   override func viewDidLoad() {
     configureTextInsets()
@@ -13,20 +17,16 @@ class EditorViewControllerMac: NSViewController, EditorInterface {
     textView.textContainerInset = CGSize.init(width: 15, height: 15)
   }
 
-  override func viewDidAppear() {
-    interactor?.fetchText()
-  }
-
-  override func viewWillDisappear() {
-    guard let text = textView.string else { return }
-    interactor?.save(text: text)
-  }
-
   func update(text: String) {
     textView.string = text
   }
 
   func error(text: String) {
     textView.string = "Error: \(text)"
+  }
+
+  func textDidChange(_ obj: Notification) {
+    guard let text = textView.string else { return }
+    delegate?.didModify(text: text)
   }
 }

@@ -7,9 +7,9 @@ class EditorWireframeMac {
     self.noteGateway = noteGateway
   }
 
-  func configure(editorViewController: EditorViewControllerMac, noteID: NoteID?) {
+  func configure(editorViewController: EditorViewControllerMac, noteID: NoteID?) -> EditorInteractor {
     let editorPresenter = EditorPresenter(interface: editorViewController)
     let editorInteractor = EditorInteractor(output: editorPresenter, gateway: noteGateway, noteID: noteID)
-    editorViewController.interactor = editorInteractor
+    return editorInteractor
   }
 }

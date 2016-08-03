@@ -1,23 +1,16 @@
 import Cocoa
 import CleanNoteCore
 
+protocol ListViewControllerMacDelegate: class {
+  func didSelect(noteID: NoteID)
+  func didDeselectAllNotes()
+}
+
 class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSource, NSTableViewDelegate {
 
-  var editorWireframe: EditorWireframeMac!
   @IBOutlet weak var tableView: NSTableView!
-  weak var editorContainer: NSViewController!
-
-  var interactor: ListInteractorInput!
+  weak var delegate: ListViewControllerMacDelegate?
   var listNotes = [ListViewNote]()
-
-  func start() {
-    showEmptyNote()
-  }
-
-  func showEmptyNote() {
-    tableView.deselectAll(nil)
-    performSegue(withIdentifier: "editNote", sender: nil)
-  }
 
   func update(notes: [ListViewNote]) {
     listNotes = notes
@@ -26,21 +19,7 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
     tableView.selectRowIndexes(selectedRowIndexes, byExtendingSelection: false)
   }
 
-  override func prepare(for segue: NSStoryboardSegue, sender: AnyObject?) {
-    let editorViewController = segue.destinationController as! EditorViewControllerMac
-    if "editNote" == segue.identifier {
-      prepareForEditSegue(to: editorViewController)
-    }
-    interactor.fetchNotes()
-  }
-
-  private func prepareForEditSegue(to editorViewController: EditorViewControllerMac) {
-    if let noteID = noteIDForSelectedRow() {
-      editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
-    }
-  }
-
-  private func noteIDForSelectedRow() -> NoteID? {
+  func noteIDForSelectedRow() -> NoteID? {
     let row = tableView.selectedRow
     if -1 == row {
       return nil
@@ -63,5 +42,13 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
     }
 
     return cellView
+  }
+
+  func tableViewSelectionDidChange(_ notification: Notification) {
+    if let noteID = noteIDForSelectedRow() {
+      delegate?.didSelect(noteID: noteID)
+    } else {
+      delegate?.didDeselectAllNotes()
+    }
   }
 }
