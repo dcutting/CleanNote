@@ -499,6 +499,7 @@
 				INFOPLIST_FILE = CleanNoteiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteiOS;
+				PRODUCT_MODULE_NAME = CleanNoteiOS;
 				PRODUCT_NAME = CleanNote;
 				SWIFT_VERSION = 3.0;
 			};
@@ -511,6 +512,7 @@
 				INFOPLIST_FILE = CleanNoteiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteiOS;
+				PRODUCT_MODULE_NAME = CleanNoteiOS;
 				PRODUCT_NAME = CleanNote;
 				SWIFT_VERSION = 3.0;
 			};
@@ -523,7 +525,6 @@
 				INFOPLIST_FILE = CleanNoteiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteiOSTests;
-				PRODUCT_MODULE_NAME = CleanNoteiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanNote.app/CleanNote";
@@ -537,7 +538,6 @@
 				INFOPLIST_FILE = CleanNoteiOSTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteiOSTests;
-				PRODUCT_MODULE_NAME = CleanNoteiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CleanNote.app/CleanNote";
