@@ -11,7 +11,7 @@ public protocol EditorInteractorOutput {
 public class EditorInteractor: EditorInteractorInput {
   let output: EditorInteractorOutput
   let gateway: NoteGateway
-  let noteID: NoteID?
+  var noteID: NoteID?
 
   public init(output: EditorInteractorOutput, gateway: NoteGateway, noteID: NoteID?) {
     self.output = output
@@ -50,7 +50,7 @@ public class EditorInteractor: EditorInteractorInput {
       }
     } else {
       do {
-        let _ = try gateway.createNote(with: text)
+        noteID = try gateway.createNote(with: text)
       } catch {
         output.didFailToSave()
       }
