@@ -12,7 +12,7 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-    let editorViewController = segue.destinationViewController as! EditorViewController
+    let editorViewController = segue.destination as! EditorViewController
     if "editNote" == segue.identifier {
       prepareForEditSegue(to: editorViewController)
     } else if "addNote" == segue.identifier {
