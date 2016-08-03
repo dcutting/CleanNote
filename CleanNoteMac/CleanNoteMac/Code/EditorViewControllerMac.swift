@@ -21,10 +21,12 @@ class EditorViewControllerMac: NSViewController, EditorInterface, NSTextViewDele
   }
 
   func update(text: String) {
+    textView.isEditable = true
     textView.string = text
   }
 
   func error(text: String) {
+    textView.isEditable = false
     textView.string = "Error: \(text)"
   }
 
