@@ -6,7 +6,10 @@ protocol EditorViewControllerMacDelegate: class {
 }
 
 class EditorViewControllerMac: NSViewController, EditorInterface, NSTextViewDelegate {
+
+  @IBOutlet weak var textContainerView: NSScrollView!
   @IBOutlet var textView: NSTextView!
+
   weak var delegate: EditorViewControllerMacDelegate?
 
   override func viewDidLoad() {
@@ -29,4 +32,13 @@ class EditorViewControllerMac: NSViewController, EditorInterface, NSTextViewDele
     guard let text = textView.string else { return }
     delegate?.didModify(text: text)
   }
+
+  func showNoteScreen() {
+    textContainerView.isHidden = false
+  }
+
+  func showNoNoteScreen() {
+    textContainerView.isHidden = true
+  }
 }
+

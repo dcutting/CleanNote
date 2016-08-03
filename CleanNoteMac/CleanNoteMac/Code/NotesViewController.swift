@@ -41,8 +41,8 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
 
   func didSelect(noteID: NoteID) {
     configureEditor(noteID: noteID)
+    editorViewController.showNoteScreen()
     editorInteractor?.fetchText()
-//    listInteractor?.fetchNotes()
   }
 
   func configureEditor(noteID: NoteID) {
@@ -51,10 +51,11 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
 
   func didDeselectAllNotes() {
     editorInteractor = nil
-    listInteractor?.fetchNotes()
+    editorViewController.showNoNoteScreen()
   }
 
   func didModify(text: String) {
     editorInteractor?.save(text: text)
+    listInteractor?.fetchNotes()
   }
 }
