@@ -462,6 +462,7 @@
 				INFOPLIST_FILE = CleanNoteMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteMac;
+				PRODUCT_MODULE_NAME = CleanNoteMac;
 				PRODUCT_NAME = CleanNote;
 				SWIFT_VERSION = 3.0;
 			};
@@ -476,6 +477,7 @@
 				INFOPLIST_FILE = CleanNoteMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteMac;
+				PRODUCT_MODULE_NAME = CleanNoteMac;
 				PRODUCT_NAME = CleanNote;
 				SWIFT_VERSION = 3.0;
 			};
