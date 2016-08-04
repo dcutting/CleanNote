@@ -16,7 +16,7 @@ class EditorViewControllerMac: NSViewController, EditorInterface, NSTextViewDele
     configureTextInsets()
   }
 
-  func configureTextInsets() {
+  private func configureTextInsets() {
     textView.textContainerInset = CGSize.init(width: 15, height: 15)
   }
 

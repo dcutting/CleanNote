@@ -10,7 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     notesViewController.start()
   }
 
-  func getNotesViewController() -> NotesViewController {
+  private func getNotesViewController() -> NotesViewController {
     let window = NSApplication.shared().windows[0] as NSWindow
     let windowController = window.windowController!
     let notesViewController = windowController.contentViewController as! NotesViewController

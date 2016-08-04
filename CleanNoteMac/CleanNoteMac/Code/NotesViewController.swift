@@ -18,11 +18,11 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
     super.viewDidLoad()
   }
   
-  func configureAppearance() {
+  private func configureAppearance() {
     view.wantsLayer = true   // To enable round window corners.
   }
 
-  func configureChildrenControllers() {
+  private func configureChildrenControllers() {
     listViewController = childViewControllers[0] as! ListViewControllerMac
     editorViewController = childViewControllers[1] as! EditorViewControllerMac
 
@@ -36,7 +36,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
     listInteractor?.fetchNotes()
   }
 
-  func configureList() {
+  private func configureList() {
     listInteractor = listWireframe?.configure(listViewController: listViewController)
   }
 
@@ -46,7 +46,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
     editorInteractor?.fetchText()
   }
 
-  func configureEditor(noteID: NoteID) {
+  private func configureEditor(noteID: NoteID) {
     editorInteractor = editorWireframe?.configure(editorViewController: editorViewController, noteID: noteID)
   }
 
