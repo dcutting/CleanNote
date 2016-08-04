@@ -2,6 +2,7 @@ import UIKit
 import CleanNoteCore
 
 class ListViewController: UIViewController, ListInterface, UITableViewDataSource, UITableViewDelegate {
+  var noteGateway: NoteGateway!
   var interactor: ListInteractorInput!
   var editorWireframe: EditorWireframe!
   var listNotes = [ListViewNote]()
@@ -32,8 +33,12 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
   }
 
   private func prepareForAddSegue(to editorViewController: EditorViewController) {
-    // TODO: create note first
-//    editorWireframe.configure(editorViewController: editorViewController, noteID: nil)
+    do {
+      let noteID = try noteGateway.createNote()
+      editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
+    } catch {
+      // TODO
+    }
   }
 
   func update(notes: [ListViewNote]) {
