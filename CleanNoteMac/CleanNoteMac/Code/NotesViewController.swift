@@ -65,7 +65,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
 
   @IBAction func newNote(_ sender: AnyObject) {
     do {
-      guard let noteID = try noteGateway?.createNote(with: "") else { return }
+      guard let noteID = try noteGateway?.createNote() else { return }
       listInteractor?.fetchNotes()
       listViewController.select(noteID: noteID)
       editorViewController.prepareForEditing()
