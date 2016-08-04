@@ -1,4 +1,5 @@
 public protocol EditorInteractorInput {
+  var noteID: NoteID? { get }
   func fetchText()
   func save(text: String)
 }
@@ -11,7 +12,8 @@ public protocol EditorInteractorOutput {
 public class EditorInteractor: EditorInteractorInput {
   let output: EditorInteractorOutput
   let gateway: NoteGateway
-  var noteID: NoteID?
+
+  public var noteID: NoteID?
 
   public init(output: EditorInteractorOutput, gateway: NoteGateway, noteID: NoteID?) {
     self.output = output
@@ -50,7 +52,7 @@ public class EditorInteractor: EditorInteractorInput {
       }
     } else {
       do {
-        noteID = try gateway.createNote(with: text)
+        self.noteID = try gateway.createNote(with: text)
       } catch {
         output.didFailToSave()
       }

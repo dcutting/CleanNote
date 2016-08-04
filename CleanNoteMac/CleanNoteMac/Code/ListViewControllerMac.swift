@@ -14,9 +14,26 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
 
   func update(notes: [ListViewNote]) {
     listNotes = notes
-//    let selectedRowIndexes = tableView.selectedRowIndexes
     tableView.reloadData()
-//    tableView.selectRowIndexes(selectedRowIndexes, byExtendingSelection: false)
+  }
+
+  func update(note: ListViewNote) {
+    listNotes.append(note)
+    if let index = indexForListNote(with: note.id) {
+      listNotes[index] = note
+      let rowIndexes = IndexSet(integer: index)
+      let columnIndexes = IndexSet(integer: 0)
+      tableView.reloadData(forRowIndexes: rowIndexes, columnIndexes: columnIndexes)
+    }
+  }
+
+  func indexForListNote(with noteID: NoteID) -> Int? {
+    for i in 0..<listNotes.count {
+      if listNotes[i].id == noteID {
+        return i
+      }
+    }
+    return nil
   }
 
   func numberOfRows(in tableView: NSTableView) -> Int {

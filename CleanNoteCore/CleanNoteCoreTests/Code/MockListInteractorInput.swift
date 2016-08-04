@@ -16,4 +16,7 @@ class MockListInteractorInput: ListInteractorInput {
   func fetchNotes() {
     didCallFetchNotes = true
   }
+
+  func fetch(noteID: NoteID) {
+  }
 }

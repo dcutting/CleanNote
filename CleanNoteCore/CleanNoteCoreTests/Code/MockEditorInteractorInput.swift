@@ -4,6 +4,8 @@ class MockEditorInteractorInput: EditorInteractorInput {
   var expectedSaveText: String?
   var actualSaveText: String?
 
+  var noteID: NoteID?
+
   func expectFetchText() {
     shouldExpectFetchText = true
   }

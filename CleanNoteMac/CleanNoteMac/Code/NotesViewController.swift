@@ -57,12 +57,15 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
 
   func didModify(text: String) {
     editorInteractor?.save(text: text)
-    listInteractor?.fetchNotes()
+    if let noteID = editorInteractor?.noteID {
+      listInteractor?.fetch(noteID: noteID)
+    }
   }
 
   @IBAction func newNote(_ sender: AnyObject) {
     configureEditor(noteID: nil)
     editorViewController.showNoteScreen()
+    editorInteractor?.save(text: text)
     editorInteractor?.fetchText()
   }
 }

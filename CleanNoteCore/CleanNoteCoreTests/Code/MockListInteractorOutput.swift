@@ -14,4 +14,7 @@ class MockListInteractorOutput: ListInteractorOutput {
   func didFetch(notes: [Note]) {
     actualNotes = notes
   }
+
+  func didFetch(note: Note) {
+  }
 }

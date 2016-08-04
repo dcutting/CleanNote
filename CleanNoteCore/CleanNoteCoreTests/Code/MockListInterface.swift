@@ -4,4 +4,7 @@ class MockListInterface: ListInterface {
   func update(notes: [ListViewNote]) {
     actualNotes = notes
   }
+
+  func update(note: ListViewNote) {
+  }
 }
