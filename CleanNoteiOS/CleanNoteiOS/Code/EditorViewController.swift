@@ -18,8 +18,8 @@ class EditorViewController: UIViewController, EditorInterface {
     textView.text = text
   }
 
-  func error(text: String) {
-    let alert = makeAlert(with: text)
+  func show(error: String) {
+    let alert = makeAlert(with: error)
     show(alert: alert)
   }
 

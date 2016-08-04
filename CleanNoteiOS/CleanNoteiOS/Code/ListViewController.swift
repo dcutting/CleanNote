@@ -32,12 +32,16 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
   }
 
   private func prepareForAddSegue(to editorViewController: EditorViewController) {
-    editorWireframe.configure(editorViewController: editorViewController, noteID: nil)
+    // TODO: create note first
+//    editorWireframe.configure(editorViewController: editorViewController, noteID: nil)
   }
 
   func update(notes: [ListViewNote]) {
     listNotes = notes
     tableView.reloadData()
+  }
+
+  func update(note: ListViewNote) {
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection: NSInteger) -> NSInteger {
