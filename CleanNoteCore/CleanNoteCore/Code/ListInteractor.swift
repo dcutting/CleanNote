@@ -24,9 +24,11 @@ public class ListInteractor: ListInteractorInput {
   }
 
   public func fetch(noteID: NoteID) {
-    gateway.fetchNote(with: noteID) {
-      guard let note = $0 else { return }
-      self.output.didFetch(note: note)
+    do {
+      try gateway.fetchNote(with: noteID) {
+        self.output.didFetch(note: $0)
+      }
+    } catch {
     }
   }
 }

@@ -23,12 +23,12 @@ public class EditorInteractor: EditorInteractorInput {
   }
 
   public func fetchText() {
-    gateway.fetchNote(with: noteID) {
-      if let note = $0 {
-        self.output.didFetch(text: note.text)
-      } else {
-        self.output.didFailToFetchText()
+    do {
+      try gateway.fetchNote(with: noteID) {
+        self.output.didFetch(text: $0.text)
       }
+    } catch {
+      self.output.didFailToFetchText()
     }
   }
 

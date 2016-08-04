@@ -10,8 +10,8 @@ public class InMemoryNoteGateway: NoteGateway {
     completion(notes)
   }
 
-  public func fetchNote(with id: NoteID, completion: (Note?) -> Void) {
-    let note = findNote(with: id)
+  public func fetchNote(with id: NoteID, completion: (Note) -> Void) throws {
+    guard let note = findNote(with: id) else { throw NoteGatewayError.notFound }
     completion(note)
   }
 
