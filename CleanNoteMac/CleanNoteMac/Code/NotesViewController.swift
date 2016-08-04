@@ -65,10 +65,23 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
 
   @IBAction func newNote(_ sender: AnyObject) {
     do {
-      let noteID = try noteGateway.createNote()
-      listInteractor?.fetchNotes()
-      listViewController.select(noteID: noteID)
-      editorViewController.prepareForEditing()
-    } catch {}
+      try createAndEditNote()
+    } catch {
+      show(error: "Could not create note")
+    }
+  }
+
+  func createAndEditNote() throws {
+    let noteID = try noteGateway.createNote()
+    listInteractor?.fetchNotes()
+    listViewController.select(noteID: noteID)
+    editorViewController.prepareForEditing()
+  }
+
+  func show(error: String) {
+    guard let window = view.window else { return }
+    let alert = NSAlert()
+    alert.messageText = error
+    alert.beginSheetModal(for: window)
   }
 }
