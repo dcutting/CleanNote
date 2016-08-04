@@ -86,21 +86,6 @@ class ListViewControllerTests: XCTestCase {
   }
 
 
-  func test_prepareForSegue_addNote_configuresEditorModuleWithoutNoteID() {
-    // Arrange.
-    let editorViewController = EditorViewController()
-    editorWireframe.expect(configureEditorViewController: editorViewController, noteID: nil)
-
-    let segue = UIStoryboardSegue(identifier: "addNote", source: sut, destination: editorViewController)
-
-    // Act.
-    sut.prepare(for: segue, sender: nil)
-
-    // Assert.
-    XCTAssert(editorWireframe.assert())
-  }
-
-
   func test_prepareForSegue_editNote_configuresEditorModuleWithSelectedNoteID() {
     // Arrange.
     let notes = [

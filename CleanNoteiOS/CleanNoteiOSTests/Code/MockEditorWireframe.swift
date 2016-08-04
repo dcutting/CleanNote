@@ -9,7 +9,7 @@ class MockEditorWireframe: EditorWireframe {
   var configuredEditorViewController: UIViewController?
   var configuredNoteID: NoteID?
 
-  func expect(configureEditorViewController editorViewController: UIViewController, noteID: NoteID?) {
+  func expect(configureEditorViewController editorViewController: UIViewController, noteID: NoteID) {
     expectConfiguration = true
     expectedEditorViewController = editorViewController
     expectedNoteID = noteID

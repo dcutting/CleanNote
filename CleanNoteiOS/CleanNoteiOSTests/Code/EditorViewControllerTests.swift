@@ -10,7 +10,7 @@ class EditorViewControllerTests: XCTestCase {
 
   override func setUp() {
     textView = MockTextView()
-    interactor = MockEditorInteractorInput()
+    interactor = MockEditorInteractorInput(noteID: NoteID())
 
     sut = TestableEditorViewController()
     sut.textView = textView
@@ -68,7 +68,7 @@ class EditorViewControllerTests: XCTestCase {
 
   func test_errorText_presentsAlert() {
     // Act.
-    sut.error(text: "sample error")
+    sut.show(error: "sample error")
 
     // Assert.
     let expectedText = "sample error"
