@@ -11,7 +11,7 @@ class MockEditorInterface: EditorInterface {
     actualUpdateText = text
   }
 
-  func error(text: String) {
+  func show(error: String) {
     didCallError = true
   }
 

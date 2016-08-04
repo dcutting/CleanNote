@@ -46,7 +46,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
     editorInteractor?.fetchText()
   }
 
-  func configureEditor(noteID: NoteID?) {
+  func configureEditor(noteID: NoteID) {
     editorInteractor = editorWireframe?.configure(editorViewController: editorViewController, noteID: noteID)
   }
 
@@ -63,9 +63,10 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
   }
 
   @IBAction func newNote(_ sender: AnyObject) {
-    configureEditor(noteID: nil)
-    editorViewController.showNoteScreen()
-    editorInteractor?.save(text: text)
-    editorInteractor?.fetchText()
+    // TODO: create a new note
+//    configureEditor(noteID: nil)
+//    editorViewController.showNoteScreen()
+//    editorInteractor?.save(text: text)
+//    editorInteractor?.fetchText()
   }
 }

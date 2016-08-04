@@ -1,6 +1,6 @@
 public protocol EditorInterface {
   func update(text: String)
-  func error(text: String)
+  func show(error: String)
 }
 
 public class EditorPresenter: EditorInteractorOutput {
@@ -14,7 +14,11 @@ public class EditorPresenter: EditorInteractorOutput {
     interface.update(text: text)
   }
 
-  public func didFailToSave() {
-    interface.error(text: "Failed to save note")
+  public func didFailToFetchText() {
+    interface.show(error: "Failed to fetch note")
+  }
+
+  public func didFailToSaveText() {
+    interface.show(error: "Failed to save note")
   }
 }

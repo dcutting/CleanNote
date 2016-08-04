@@ -11,8 +11,11 @@ class MockEditorInteractorOutput: EditorInteractorOutput {
     shouldExpectDidFailToSave = true
   }
 
-  func didFailToSave() {
+  func didFailToSaveText() {
     didCallDidFailToSave = true
+  }
+
+  func didFailToFetchText() {
   }
 
   func assert() -> Bool {

@@ -25,9 +25,9 @@ class EditorViewControllerMac: NSViewController, EditorInterface, NSTextViewDele
     textView.string = text
   }
 
-  func error(text: String) {
+  func show(error: String) {
     textView.isEditable = false
-    textView.string = "Error: \(text)"
+    textView.string = "Error: \(error)"
   }
 
   func textDidChange(_ obj: Notification) {
