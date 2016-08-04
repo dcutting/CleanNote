@@ -28,7 +28,7 @@ public class EditorInteractor: EditorInteractorInput {
         self.output.didFetch(text: $0.text)
       }
     } catch {
-      self.output.didFailToFetchText()
+      output.didFailToFetchText()
     }
   }
 

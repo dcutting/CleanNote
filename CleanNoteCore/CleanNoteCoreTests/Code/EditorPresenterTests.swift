@@ -27,7 +27,7 @@ class EditorPresenterTests: XCTestCase {
     interface.expectError()
 
     // Act.
-    sut.didFailToSave()
+    sut.didFailToSaveText()
 
     // Assert.
     XCTAssertTrue(interface.assert())

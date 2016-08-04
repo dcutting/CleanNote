@@ -1,24 +1,37 @@
 class MockEditorInteractorOutput: EditorInteractorOutput {
   var actualText: String?
-  var shouldExpectDidFailToSave: Bool = false
-  var didCallDidFailToSave: Bool = false
+  var shouldExpectDidFailToFetchText = false
+  var shouldExpectDidFailToSaveText = false
+  var didCallDidFailToFetchText = false
+  var didCallDidFailToSaveText = false
 
   func didFetch(text: String) {
     actualText = text
   }
 
-  func expectDidFailToSave() {
-    shouldExpectDidFailToSave = true
+  func expectDidFailToFetchText() {
+    shouldExpectDidFailToFetchText = true
   }
 
-  func didFailToSaveText() {
-    didCallDidFailToSave = true
+  func expectDidFailToSaveText() {
+    shouldExpectDidFailToSaveText = true
   }
 
   func didFailToFetchText() {
+    didCallDidFailToFetchText = true
+  }
+
+  func didFailToSaveText() {
+    didCallDidFailToSaveText = true
   }
 
   func assert() -> Bool {
-    return shouldExpectDidFailToSave && didCallDidFailToSave
+    if shouldExpectDidFailToFetchText {
+      return didCallDidFailToFetchText
+    }
+    if shouldExpectDidFailToSaveText {
+      return didCallDidFailToSaveText
+    }
+    return true
   }
 }

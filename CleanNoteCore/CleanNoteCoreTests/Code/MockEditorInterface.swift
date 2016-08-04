@@ -1,7 +1,7 @@
 class MockEditorInterface: EditorInterface {
   var actualUpdateText: String?
-  var shouldExpectError: Bool = false
-  var didCallError: Bool = false
+  var shouldExpectError = false
+  var didCallError = false
 
   func expectError() {
     shouldExpectError = true

@@ -20,7 +20,7 @@ class InMemoryNoteGatewayTests: XCTestCase {
   }
 
 
-  func test_fetchNoteWithID_noteNotFound_returnsNil() {
+  func test_fetchNoteWithID_noteNotFound_throwsError() {
     // Arrange.
     let notes = [
       Note(id: "0", text: "sample note"),
@@ -29,10 +29,17 @@ class InMemoryNoteGatewayTests: XCTestCase {
 
     let sut = InMemoryNoteGateway(notes: notes)
 
-    // Act and assert.
-    sut.fetchNote(with: "2") { actualNote in
-      XCTAssertNil(actualNote)
+    // Act.
+    var actualError: NoteGatewayError?
+    do {
+      try sut.fetchNote(with: "2") { _ in }
+    } catch {
+      actualError = error as? NoteGatewayError
     }
+
+    // Assert.
+    let expectedError = NoteGatewayError.notFound
+    XCTAssertEqual(expectedError, actualError)
   }
 
 
@@ -47,13 +54,13 @@ class InMemoryNoteGatewayTests: XCTestCase {
 
     // Act and assert.
     let expectedNote = notes[1]
-    sut.fetchNote(with: "1") { actualNote in
+    try! sut.fetchNote(with: "1") { actualNote in
       XCTAssertEqual(expectedNote, actualNote)
     }
   }
 
 
-  func test_createNote_addsNoteToStore() {
+  func test_createNote_addsEmptyNoteToStore() {
     // Arrange.
     let notes = [
       Note(id: "0", text: "sample note"),
@@ -63,11 +70,11 @@ class InMemoryNoteGatewayTests: XCTestCase {
     let sut = InMemoryNoteGateway(notes: notes)
 
     // Act.
-    let actualNoteID = try! sut.createNote(with: "more text")
+    let actualNoteID = try! sut.createNote()
 
     // Assert.
-    sut.fetchNote(with: actualNoteID) { actualNote in
-      let expectedNote = Note(id: actualNoteID, text: "more text")
+    try! sut.fetchNote(with: actualNoteID) { actualNote in
+      let expectedNote = Note(id: actualNoteID, text: "")
       XCTAssertEqual(expectedNote, actualNote)
     }
   }
@@ -86,7 +93,7 @@ class InMemoryNoteGatewayTests: XCTestCase {
     try! sut.save(text: "new text", for: "1")
 
     // Assert.
-    sut.fetchNote(with: "1") { actualNote in
+    try! sut.fetchNote(with: "1") { actualNote in
       let expectedNote = Note(id: "1", text: "new text")
       XCTAssertEqual(expectedNote, actualNote)
     }

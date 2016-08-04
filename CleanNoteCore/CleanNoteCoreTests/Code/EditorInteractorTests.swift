@@ -10,21 +10,6 @@ class EditorInteractorTests: XCTestCase {
   }
 
 
-  func test_fetchText_newNote_emptyText() {
-    // Arrange.
-    let gateway = InMemoryNoteGateway(notes: [])
-
-    let sut = EditorInteractor(output: output, gateway: gateway, noteID: nil)
-
-    // Act.
-    sut.fetchText()
-
-    // Assert.
-    let expectedText = ""
-    XCTAssertEqual(expectedText, output.actualText)
-  }
-  
-
   func test_fetchText_existingNote_verbatimText() {
     // Arrange.
     let note = Note(id: "one", text: "sample text")
@@ -41,54 +26,23 @@ class EditorInteractorTests: XCTestCase {
   }
 
 
-  func test_fetchText_noteNotFound_emptyText() {
+  func test_fetchText_noteNotFound_failsToFetch_informsOutput() {
     // Arrange.
     let note = Note(id: "one", text: "sample text")
     let gateway = InMemoryNoteGateway(notes: [note])
 
     let sut = EditorInteractor(output: output, gateway: gateway, noteID: "zilch")
 
+    output.expectDidFailToFetchText()
+
     // Act.
     sut.fetchText()
 
     // Assert.
-    let expectedText = ""
-    XCTAssertEqual(expectedText, output.actualText)
+    XCTAssert(output.assert())
   }
 
 
-  func test_saveText_newNote_createsNote() {
-    // Arrange.
-    let gateway = MockNoteGateway()
-
-    let sut = EditorInteractor(output: output, gateway: gateway, noteID: nil)
-
-    // Act.
-    sut.save(text: "my note text")
-
-    // Assert.
-    let expectedText = "my note text"
-    let actualText = gateway.textForCreateNote
-    XCTAssertEqual(expectedText, actualText)
-  }
-  
-  
-  func test_saveText_newNote_failsToSave_informsOutput() {
-    // Arrange.
-    let gateway = MockNoteGateway()
-    gateway.stub(createNoteThrows: .unknown)
-    output.expectDidFailToSave()
-
-    let sut = EditorInteractor(output: output, gateway: gateway, noteID: nil)
-
-    // Act.
-    sut.save(text: "my note text")
-
-    // Assert.
-    XCTAssertTrue(output.assert())
-  }
-  
-  
   func test_saveText_existingNote_updatesNote() {
     // Arrange.
     let gateway = MockNoteGateway()
@@ -113,7 +67,7 @@ class EditorInteractorTests: XCTestCase {
     // Arrange.
     let gateway = MockNoteGateway()
     gateway.stub(saveThrows: .notFound)
-    output.expectDidFailToSave()
+    output.expectDidFailToSaveText()
 
     let sut = EditorInteractor(output: output, gateway: gateway, noteID: "one")
 
