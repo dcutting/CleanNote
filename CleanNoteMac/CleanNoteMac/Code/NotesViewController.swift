@@ -6,6 +6,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
   var listViewController: ListViewControllerMac!
   var editorViewController: EditorViewControllerMac!
 
+  var noteGateway: NoteGateway?
   var listInteractor: ListInteractorInput?
   var editorInteractor: EditorInteractorInput?
 
@@ -63,10 +64,11 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
   }
 
   @IBAction func newNote(_ sender: AnyObject) {
-    // TODO: create a new note
-//    configureEditor(noteID: nil)
-//    editorViewController.showNoteScreen()
-//    editorInteractor?.save(text: text)
-//    editorInteractor?.fetchText()
+    do {
+      guard let noteID = try noteGateway?.createNote(with: "") else { return }
+      listInteractor?.fetchNotes()
+      listViewController.select(noteID: noteID)
+      editorViewController.prepareForEditing()
+    } catch {}
   }
 }

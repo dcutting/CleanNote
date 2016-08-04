@@ -1,4 +1,3 @@
-import Cocoa
 import CleanNoteCore
 
 class ListWireframeMac {

@@ -10,6 +10,7 @@ class NotesWireframe {
     let listWireframe = ListWireframeMac(noteGateway: noteGateway)
     let editorWireframe = EditorWireframeMac(noteGateway: noteGateway)
 
+    notesViewController.noteGateway = noteGateway
     notesViewController.listWireframe = listWireframe
     notesViewController.editorWireframe = editorWireframe
   }

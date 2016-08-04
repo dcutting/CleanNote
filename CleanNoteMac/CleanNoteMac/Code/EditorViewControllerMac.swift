@@ -42,5 +42,8 @@ class EditorViewControllerMac: NSViewController, EditorInterface, NSTextViewDele
   func showNoNoteScreen() {
     textContainerView.isHidden = true
   }
-}
 
+  func prepareForEditing() {
+    view.window?.makeFirstResponder(self.textView)
+  }
+}

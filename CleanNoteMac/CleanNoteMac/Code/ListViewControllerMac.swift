@@ -10,6 +10,7 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
 
   @IBOutlet weak var tableView: NSTableView!
   weak var delegate: ListViewControllerMacDelegate?
+
   var listNotes = [ListViewNote]()
 
   func update(notes: [ListViewNote]) {
@@ -65,5 +66,12 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
   private func noteIDForSelectedRow() -> NoteID? {
     let row = tableView.selectedRow
     return -1 == row ? nil : listNotes[row].id
+  }
+
+  func select(noteID: NoteID) {
+    guard let row = indexForListNote(with: noteID) else { return }
+    let rowIndexes = IndexSet(integer: row)
+    tableView.selectRowIndexes(rowIndexes, byExtendingSelection: false)
+    tableView.scrollRowToVisible(row)
   }
 }
