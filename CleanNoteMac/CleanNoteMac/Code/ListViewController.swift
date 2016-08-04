@@ -1,15 +1,15 @@
 import Cocoa
 import CleanNoteCore
 
-protocol ListViewControllerMacDelegate: class {
+protocol ListViewControllerDelegate: class {
   func didSelect(noteID: NoteID)
   func didDeselectAllNotes()
 }
 
-class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSource, NSTableViewDelegate {
+class ListViewController: NSViewController, ListInterface, NSTableViewDataSource, NSTableViewDelegate {
 
   @IBOutlet weak var tableView: NSTableView!
-  weak var delegate: ListViewControllerMacDelegate?
+  weak var delegate: ListViewControllerDelegate?
 
   var listNotes = [ListViewNote]()
 

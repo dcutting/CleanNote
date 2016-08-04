@@ -7,8 +7,8 @@ class NotesWireframe {
     let sampleNotes = makeSampleNotes()
     let noteGateway = InMemoryNoteGateway(notes: sampleNotes)
 
-    let listWireframe = ListWireframeMac(noteGateway: noteGateway)
-    let editorWireframe = EditorWireframeMac(noteGateway: noteGateway)
+    let listWireframe = ListWireframe(noteGateway: noteGateway)
+    let editorWireframe = EditorWireframe(noteGateway: noteGateway)
 
     notesViewController.noteGateway = noteGateway
     notesViewController.listWireframe = listWireframe

@@ -1,16 +1,16 @@
 import Cocoa
 import CleanNoteCore
 
-protocol EditorViewControllerMacDelegate: class {
+protocol EditorViewControllerDelegate: class {
   func didModify(text: String)
 }
 
-class EditorViewControllerMac: NSViewController, EditorInterface, NSTextViewDelegate {
+class EditorViewController: NSViewController, EditorInterface, NSTextViewDelegate {
 
   @IBOutlet weak var textContainerView: NSScrollView!
   @IBOutlet var textView: NSTextView!
 
-  weak var delegate: EditorViewControllerMacDelegate?
+  weak var delegate: EditorViewControllerDelegate?
 
   override func viewDidLoad() {
     configureTextInsets()

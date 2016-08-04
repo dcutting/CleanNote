@@ -1,14 +1,14 @@
 import Cocoa
 import CleanNoteCore
 
-class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate, EditorViewControllerMacDelegate {
+class NotesViewController: NSSplitViewController, ListViewControllerDelegate, EditorViewControllerDelegate {
 
   var noteGateway: NoteGateway!
-  var listWireframe: ListWireframeMac!
-  var editorWireframe: EditorWireframeMac!
+  var listWireframe: ListWireframe!
+  var editorWireframe: EditorWireframe!
 
-  var listViewController: ListViewControllerMac!
-  var editorViewController: EditorViewControllerMac!
+  var listViewController: ListViewController!
+  var editorViewController: EditorViewController!
 
   var listInteractor: ListInteractorInput?
   var editorInteractor: EditorInteractorInput?
@@ -24,8 +24,8 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
   }
 
   private func configureChildrenControllers() {
-    listViewController = childViewControllers[0] as! ListViewControllerMac
-    editorViewController = childViewControllers[1] as! EditorViewControllerMac
+    listViewController = childViewControllers[0] as! ListViewController
+    editorViewController = childViewControllers[1] as! EditorViewController
 
     listViewController.delegate = self
     editorViewController.delegate = self

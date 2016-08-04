@@ -342,7 +342,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CleanNote" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="CleanNoteMac" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="24" y="-13"/>
@@ -368,7 +368,7 @@
         <!--Notes View Controller-->
         <scene sceneID="peI-mB-7KF">
             <objects>
-                <splitViewController id="uhd-aY-JXA" customClass="NotesViewController" customModule="CleanNote" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="uhd-aY-JXA" customClass="NotesViewController" customModule="CleanNoteMac" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem holdingPriority="255" behavior="contentList" id="GKU-mt-FwG"/>
                         <splitViewItem id="xrZ-Nr-i05"/>
@@ -386,10 +386,10 @@
             </objects>
             <point key="canvasLocation" x="75" y="712"/>
         </scene>
-        <!--List View Controller Mac-->
+        <!--List View Controller-->
         <scene sceneID="KBP-mG-jdu">
             <objects>
-                <viewController id="JR9-eM-Pww" customClass="ListViewControllerMac" customModule="CleanNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JR9-eM-Pww" customClass="ListViewController" customModule="CleanNoteMac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="k7q-R9-j1m">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -469,10 +469,10 @@
             </objects>
             <point key="canvasLocation" x="668" y="522"/>
         </scene>
-        <!--Editor View Controller Mac-->
+        <!--Editor View Controller-->
         <scene sceneID="iK9-Q3-xOa">
             <objects>
-                <viewController id="Utn-X3-Rhs" customClass="EditorViewControllerMac" customModule="CleanNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Utn-X3-Rhs" customClass="EditorViewController" customModule="CleanNoteMac" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="d8Y-7q-rzd">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
