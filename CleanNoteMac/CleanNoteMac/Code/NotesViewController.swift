@@ -3,15 +3,15 @@ import CleanNoteCore
 
 class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate, EditorViewControllerMacDelegate {
 
+  var noteGateway: NoteGateway!
+  var listWireframe: ListWireframeMac!
+  var editorWireframe: EditorWireframeMac!
+
   var listViewController: ListViewControllerMac!
   var editorViewController: EditorViewControllerMac!
 
-  var noteGateway: NoteGateway?
   var listInteractor: ListInteractorInput?
   var editorInteractor: EditorInteractorInput?
-
-  var listWireframe: ListWireframeMac?
-  var editorWireframe: EditorWireframeMac?
 
   override func viewDidLoad() {
     configureAppearance()
@@ -38,7 +38,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
   }
 
   private func configureList() {
-    listInteractor = listWireframe?.configure(listViewController: listViewController)
+    listInteractor = listWireframe.configure(listViewController: listViewController)
   }
 
   func didSelect(noteID: NoteID) {
@@ -48,7 +48,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
   }
 
   private func configureEditor(noteID: NoteID) {
-    editorInteractor = editorWireframe?.configure(editorViewController: editorViewController, noteID: noteID)
+    editorInteractor = editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
   }
 
   func didDeselectAllNotes() {
@@ -65,7 +65,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerMacDelegate,
 
   @IBAction func newNote(_ sender: AnyObject) {
     do {
-      guard let noteID = try noteGateway?.createNote() else { return }
+      let noteID = try noteGateway.createNote()
       listInteractor?.fetchNotes()
       listViewController.select(noteID: noteID)
       editorViewController.prepareForEditing()
