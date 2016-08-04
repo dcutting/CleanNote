@@ -25,12 +25,7 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
   }
 
   private func indexForListNote(with noteID: NoteID) -> Int? {
-    for i in 0..<listNotes.count {
-      if listNotes[i].id == noteID {
-        return i
-      }
-    }
-    return nil
+    return listNotes.index { $0.id == noteID }
   }
 
   private func reload(row: Int) {
@@ -71,6 +66,7 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
   func select(noteID: NoteID) {
     guard let row = indexForListNote(with: noteID) else { return }
     let rowIndexes = IndexSet(integer: row)
+    
     tableView.selectRowIndexes(rowIndexes, byExtendingSelection: false)
     tableView.scrollRowToVisible(row)
   }
