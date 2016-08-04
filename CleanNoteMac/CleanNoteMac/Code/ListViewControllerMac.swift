@@ -18,22 +18,24 @@ class ListViewControllerMac: NSViewController, ListInterface, NSTableViewDataSou
   }
 
   func update(note: ListViewNote) {
-    listNotes.append(note)
-    if let index = indexForListNote(with: note.id) {
-      listNotes[index] = note
-      let rowIndexes = IndexSet(integer: index)
-      let columnIndexes = IndexSet(integer: 0)
-      tableView.reloadData(forRowIndexes: rowIndexes, columnIndexes: columnIndexes)
-    }
+    guard let index = indexForListNote(with: note.id) else { return }
+    listNotes[index] = note
+    reload(row: index)
   }
 
-  func indexForListNote(with noteID: NoteID) -> Int? {
+  private func indexForListNote(with noteID: NoteID) -> Int? {
     for i in 0..<listNotes.count {
       if listNotes[i].id == noteID {
         return i
       }
     }
     return nil
+  }
+
+  private func reload(row: Int) {
+    let rowIndexes = IndexSet(integer: row)
+    let columnIndexes = IndexSet(integer: 0)
+    tableView.reloadData(forRowIndexes: rowIndexes, columnIndexes: columnIndexes)
   }
 
   func numberOfRows(in tableView: NSTableView) -> Int {
