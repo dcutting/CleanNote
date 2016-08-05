@@ -130,6 +130,7 @@
 				C8DF78EA1D490BA70070D75A /* Root */,
 				C86F857C1D4BB95E009EEBCC /* List */,
 				C86BEC521D4F774700BB1CCE /* Editor */,
+				C89571F31D55004A00AA3BB4 /* Maker */,
 			);
 			name = Modules;
 			path = CleanNoteMac;
@@ -151,6 +152,14 @@
 				C86F857D1D4BB9D9009EEBCC /* ListWireframe.swift */,
 			);
 			name = List;
+			sourceTree = "<group>";
+		};
+		C89571F31D55004A00AA3BB4 /* Maker */ = {
+			isa = PBXGroup;
+			children = (
+				C89571F01D54FF9300AA3BB4 /* MakerWireframe.swift */,
+			);
+			name = Maker;
 			sourceTree = "<group>";
 		};
 		C8DE88431D4918AB00D8D8AE /* Products */ = {
@@ -189,7 +198,6 @@
 				C86478E61D51426800023881 /* NotesViewController.swift */,
 				C86F85791D4BB90F009EEBCC /* NotesWireframe.swift */,
 				C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */,
-				C89571F01D54FF9300AA3BB4 /* MakerWireframe.swift */,
 			);
 			name = Root;
 			sourceTree = "<group>";
