@@ -6,6 +6,6 @@ public enum NoteGatewayError: Error {
 public protocol NoteGateway {
   func fetchNotes(completion: ([Note]) -> Void)
   func fetchNote(with id: NoteID, completion: (Note) -> Void) throws
-  func createNote() throws -> NoteID
+  func createNote() throws -> Note
   func save(text: String, for id: NoteID) throws
 }

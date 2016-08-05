@@ -10,11 +10,11 @@ class MockNoteGateway: NoteGateway {
   func fetchNote(with id: NoteID, completion: (Note) -> Void) throws {
   }
 
-  func createNote() throws -> NoteID {
+  func createNote() throws -> Note {
     if let error = shouldThrowCreateNoteError {
       throw error
     }
-    return NoteID()
+    return Note(id: NoteID(), text: "")
   }
 
   func save(text: String, for noteID: NoteID) throws {

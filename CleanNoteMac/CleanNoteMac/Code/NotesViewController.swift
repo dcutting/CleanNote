@@ -1,14 +1,14 @@
 import Cocoa
 import CleanNoteCore
 
-class NotesViewController: NSSplitViewController, ListViewControllerDelegate, EditorViewControllerDelegate {
+class NotesViewController: NSSplitViewController, MakerInterface, ListViewControllerDelegate, EditorViewControllerDelegate {
 
-  var noteGateway: NoteGateway!
   var listWireframe: ListWireframe!
   var editorWireframe: EditorWireframe!
 
   var listViewController: ListViewController!
   var editorViewController: EditorViewController!
+  var makerInteractor: MakerInteractorInput!
 
   var listInteractor: ListInteractorInput?
   var editorInteractor: EditorInteractorInput?
@@ -64,24 +64,12 @@ class NotesViewController: NSSplitViewController, ListViewControllerDelegate, Ed
   }
 
   @IBAction func newNote(_ sender: AnyObject) {
-    do {
-      try createAndEditNote()
-    } catch {
-      show(error: "Could not create note")
-    }
+    makerInteractor?.makeNote()
   }
 
-  func createAndEditNote() throws {
-    let noteID = try noteGateway.createNote()
+  func didMake(note: Note) {
     listInteractor?.fetchNotes()
-    listViewController.select(noteID: noteID)
+    listViewController.select(noteID: note.id)
     editorViewController.prepareForEditing()
-  }
-
-  func show(error: String) {
-    guard let window = view.window else { return }
-    let alert = NSAlert()
-    alert.messageText = error
-    alert.beginSheetModal(for: window)
   }
 }
