@@ -1,29 +1,40 @@
 import UIKit
 import CleanNoteCore
 
-class ListViewController: UIViewController, ListInterface, UITableViewDataSource, UITableViewDelegate {
-  var noteGateway: NoteGateway!
-  var interactor: ListInteractorInput!
+let EditNoteSegueIdentifier = "editNote"
+
+class NoteIDObject: NSObject {
+  let id: NoteID
+
+  init(id: NoteID) {
+    self.id = id
+  }
+}
+
+class ListViewController: UIViewController, ListInterface, MakerInterface, UITableViewDataSource, UITableViewDelegate {
+
+  var listInteractor: ListInteractorInput!
+  var makerInteractor: MakerInteractorInput!
   var editorWireframe: EditorWireframe!
+
   var listNotes = [ListViewNote]()
+
   @IBOutlet weak var tableView: UITableView!
 
   override func viewWillAppear(_ animated: Bool) {
-    interactor.fetchNotes()
+    listInteractor.fetchNotes()
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    guard EditNoteSegueIdentifier == segue.identifier else { return }
     let editorViewController = segue.destination as! EditorViewController
-    if "editNote" == segue.identifier {
-      prepareForEditSegue(to: editorViewController)
-    } else if "addNote" == segue.identifier {
-      prepareForAddSegue(to: editorViewController)
-    }
+    let noteID = noteIDFrom(object: sender) ?? noteIDForSelectedRow()
+    editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
   }
 
-  private func prepareForEditSegue(to editorViewController: EditorViewController) {
-    let noteID = noteIDForSelectedRow()
-    editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
+  private func noteIDFrom(object: AnyObject?) -> NoteID? {
+    guard let noteIDObject = object as? NoteIDObject else { return nil }
+    return noteIDObject.id
   }
 
   private func noteIDForSelectedRow() -> NoteID {
@@ -32,13 +43,13 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
     return listViewNote.id
   }
 
-  private func prepareForAddSegue(to editorViewController: EditorViewController) {
-    do {
-      let note = try noteGateway.createNote()
-      editorWireframe.configure(editorViewController: editorViewController, noteID: note.id)
-    } catch {
-      // TODO
-    }
+  @IBAction func addNote(_ sender: AnyObject) {
+    makerInteractor.makeNote()
+  }
+
+  func didMake(note: Note) {
+    let noteIDObject = NoteIDObject(id: note.id)
+    performSegue(withIdentifier: EditNoteSegueIdentifier, sender: noteIDObject)
   }
 
   func update(notes: [ListViewNote]) {
@@ -47,6 +58,18 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
   }
 
   func update(note: ListViewNote) {
+    guard let row = findRow(for: note) else { return }
+    listNotes[row] = note
+    reloadTableView(row: row)
+  }
+
+  private func findRow(for note: ListViewNote) -> Int? {
+    return listNotes.index { $0.id == note.id }
+  }
+
+  private func reloadTableView(row: Int) {
+    let rowIndexes = [IndexPath(row: row, section: 0)]
+    tableView.reloadRows(at: rowIndexes, with: .automatic)
   }
 
   func tableView(_ tableView: UITableView, numberOfRowsInSection: NSInteger) -> NSInteger {

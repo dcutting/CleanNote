@@ -2,10 +2,14 @@ import CleanNoteCore
 
 class ListWireframe {
   func configure(listViewController: ListViewController, noteGateway: NoteGateway, editorWireframe: EditorWireframe) {
+
     let listPresenter = ListPresenter(interface: listViewController)
     let listInteractor = ListInteractor(output: listPresenter, gateway: noteGateway)
-    listViewController.noteGateway = noteGateway
-    listViewController.interactor = listInteractor
+
+    let makerInteractor = MakerWireframe().configure(listViewController: listViewController, noteGateway: noteGateway)
+
+    listViewController.listInteractor = listInteractor
+    listViewController.makerInteractor = makerInteractor
     listViewController.editorWireframe = editorWireframe
   }
 }

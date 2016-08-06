@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11129.15" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rMo-e1-bzg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11185.3" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rMo-e1-bzg">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11103.10"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11151.4"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="CleanNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ListViewController" customModule="CleanNoteiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,6 +24,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NoteCell" textLabel="ibq-lb-n79" style="IBUITableViewCellStyleDefault" id="hSH-wJ-GQx">
+                                        <frame key="frameInset" minY="92" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hSH-wJ-GQx" id="uFg-jk-Tz9">
                                             <frame key="frameInset" width="375" height="43.5"/>
@@ -54,7 +55,7 @@
                     <navigationItem key="navigationItem" id="ael-lY-5t0">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="bss-Cf-jNm">
                             <connections>
-                                <segue destination="b9V-bN-tPH" kind="show" identifier="addNote" id="94i-Va-QhB"/>
+                                <action selector="addNote:" destination="BYZ-38-t0r" id="N9F-cY-PrU"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -69,7 +70,7 @@
         <!--Editor View Controller-->
         <scene sceneID="apn-HL-VAN">
             <objects>
-                <viewController id="b9V-bN-tPH" customClass="EditorViewController" customModule="CleanNote" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="b9V-bN-tPH" customClass="EditorViewController" customModule="CleanNoteiOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RiI-Jy-Ye1"/>
                         <viewControllerLayoutGuide type="bottom" id="e3b-x3-TUz"/>
@@ -116,7 +117,4 @@
             <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="cl9-6c-uNe"/>
-    </inferredMetricsTieBreakers>
 </document>

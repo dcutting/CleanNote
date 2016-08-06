@@ -10,6 +10,7 @@
 		C83BAD4A1D48E9CA00180193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD481D48E9CA00180193 /* Main.storyboard */; };
 		C83BAD4C1D48E9CA00180193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD4B1D48E9CA00180193 /* Assets.xcassets */; };
 		C83BAD4F1D48E9CA00180193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD4D1D48E9CA00180193 /* LaunchScreen.storyboard */; };
+		C89571F51D5695F600AA3BB4 /* MakerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89571F41D5695F600AA3BB4 /* MakerWireframe.swift */; };
 		C8DE88411D49187900D8D8AE /* CleanNoteCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE883C1D49186600D8D8AE /* CleanNoteCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C8DF78BC1D4905770070D75A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78B61D4905770070D75A /* AppDelegate.swift */; };
 		C8DF78BD1D4905770070D75A /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78B71D4905770070D75A /* EditorViewController.swift */; };
@@ -78,6 +79,7 @@
 		C83BAD501D48E9CA00180193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteiOS/Info.plist; sourceTree = "<group>"; };
 		C83BAD551D48E9CA00180193 /* CleanNoteiOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteiOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD5B1D48E9CA00180193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteiOSTests/Info.plist; sourceTree = "<group>"; };
+		C89571F41D5695F600AA3BB4 /* MakerWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MakerWireframe.swift; sourceTree = "<group>"; };
 		C8DE88361D49186600D8D8AE /* CleanNoteCore.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CleanNoteCore.xcodeproj; path = ../CleanNoteCore/CleanNoteCore.xcodeproj; sourceTree = "<group>"; };
 		C8DF78B61D4905770070D75A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8DF78B71D4905770070D75A /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				C8DF78E51D490A620070D75A /* Root */,
 				C8DF78E41D490A550070D75A /* List */,
 				C8DF78E31D490A500070D75A /* Editor */,
+				C89571F41D5695F600AA3BB4 /* MakerWireframe.swift */,
 			);
 			name = Modules;
 			path = CleanNoteiOS/Code;
@@ -345,6 +348,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C89571F51D5695F600AA3BB4 /* MakerWireframe.swift in Sources */,
 				C8DF78C01D4905770070D75A /* ListWireframe.swift in Sources */,
 				C8DF78BC1D4905770070D75A /* AppDelegate.swift in Sources */,
 				C8DF78C11D4905770070D75A /* RootWireframe.swift in Sources */,
