@@ -34,8 +34,8 @@ class ListViewController: UIViewController, ListInterface, UITableViewDataSource
 
   private func prepareForAddSegue(to editorViewController: EditorViewController) {
     do {
-      let noteID = try noteGateway.createNote()
-      editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
+      let note = try noteGateway.createNote()
+      editorWireframe.configure(editorViewController: editorViewController, noteID: note.id)
     } catch {
       // TODO
     }
