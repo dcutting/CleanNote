@@ -10,10 +10,9 @@ public protocol EditorInteractorOutput {
   func didFailToSaveText()
 }
 
-public class EditorInteractor: EditorInteractorInput {
+public class EditorInteractor {
   let output: EditorInteractorOutput
   let gateway: NoteGateway
-
   let noteID: NoteID
 
   public init(output: EditorInteractorOutput, gateway: NoteGateway, noteID: NoteID) {
@@ -21,7 +20,9 @@ public class EditorInteractor: EditorInteractorInput {
     self.gateway = gateway
     self.noteID = noteID
   }
+}
 
+extension EditorInteractor: EditorInteractorInput {
   public func fetchText() {
     do {
       try gateway.fetchNote(with: noteID) {

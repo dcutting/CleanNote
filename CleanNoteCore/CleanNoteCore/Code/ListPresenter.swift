@@ -18,13 +18,15 @@ public protocol ListInterface {
   func show(error: String)
 }
 
-public class ListPresenter: ListInteractorOutput {
+public class ListPresenter {
   let interface: ListInterface
 
   public init(interface: ListInterface) {
     self.interface = interface
   }
+}
 
+extension ListPresenter: ListInteractorOutput {
   public func update(list: List) {
     let listViewNotes = list.notes.map(makeListViewNote)
     interface.update(notes: listViewNotes)

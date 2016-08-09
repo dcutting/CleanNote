@@ -1,7 +1,7 @@
 public typealias NoteID = String
 
 public struct Note {
-  public let id: NoteID
+  let id: NoteID
   var text: String
 
   public init(id: NoteID, text: String) {

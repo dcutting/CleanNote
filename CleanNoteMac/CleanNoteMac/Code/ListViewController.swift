@@ -6,45 +6,46 @@ protocol ListViewControllerDelegate: class {
   func didDeselectAllNotes()
 }
 
-class ListViewController: NSViewController, ListInterface, NSTableViewDataSource, NSTableViewDelegate {
-
+class ListViewController: NSViewController {
   @IBOutlet weak var tableView: NSTableView!
   weak var delegate: ListViewControllerDelegate?
-
   var listNotes = [ListViewNote]()
+}
 
+extension ListViewController: ListInterface {
   func update(notes: [ListViewNote]) {
     listNotes = notes
     tableView.reloadData()
   }
 
-  public func select(row: Int) {
+  func select(row: Int) {
     let rowIndexes = IndexSet(integer: row)
     tableView.selectRowIndexes(rowIndexes, byExtendingSelection: false)
     tableView.scrollRowToVisible(row)
   }
 
-  public func deselectAllRows() {
+  func deselectAllRows() {
     tableView.deselectAll(nil)
   }
 
-  public func show(error: String) {
+  func show(error: String) {
     // TODO - show error
   }
+}
 
+extension ListViewController: NSTableViewDataSource {
   func numberOfRows(in tableView: NSTableView) -> Int {
     return listNotes.count
   }
+}
 
+extension ListViewController: NSTableViewDelegate {
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-
     let cellView = tableView.make(withIdentifier: tableColumn!.identifier, owner: self) as! NSTableCellView
-
     if let label = cellView.textField {
       let listViewNote = listNotes[row]
       label.stringValue = listViewNote.summary
     }
-
     return cellView
   }
 

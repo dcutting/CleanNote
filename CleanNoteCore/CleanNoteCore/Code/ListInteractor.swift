@@ -8,7 +8,7 @@ public protocol ListInteractorOutput {
   func didFailToMakeNote()
 }
 
-public class ListInteractor: ListInteractorInput {
+public class ListInteractor {
   let output: ListInteractorOutput
   let gateway: NoteGateway
 
@@ -16,7 +16,9 @@ public class ListInteractor: ListInteractorInput {
     self.output = output
     self.gateway = gateway
   }
+}
 
+extension ListInteractor: ListInteractorInput {
   public func fetchNotesAndSelect(noteID: NoteID?) {
     gateway.fetchNotes { notes in
       let row = self.rowFor(noteID: noteID, in: notes)

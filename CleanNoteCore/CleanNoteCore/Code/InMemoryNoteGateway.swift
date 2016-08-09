@@ -28,17 +28,17 @@ public class InMemoryNoteGateway: NoteGateway {
 
   private func nextID() -> NoteID {
     defer { noteIDCounter += 1 }
-    return NoteID("SNG-NID:\(noteIDCounter)")
+    return NoteID("NID:\(noteIDCounter)")
   }
 
   public func save(text: String, for id: NoteID) throws {
-    guard let index = findIndexForNote(with: id) else { throw NoteGatewayError.notFound }
+    guard let index = indexFor(noteID: id) else { throw NoteGatewayError.notFound }
     var note = notes[index]
     note.text = text
     notes[index] = note
   }
 
-  private func findIndexForNote(with id: NoteID) -> Int? {
-    return notes.index { $0.id == id }
+  private func indexFor(noteID: NoteID) -> Int? {
+    return notes.index { $0.id == noteID }
   }
 }
