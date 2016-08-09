@@ -63,6 +63,10 @@ class ListViewController: UIViewController, ListInterface, MakerInterface, UITab
     reloadTableView(row: row)
   }
 
+  func focus(noteID: NoteID) {
+    
+  }
+
   private func findRow(for note: ListViewNote) -> Int? {
     return listNotes.index { $0.id == note.id }
   }

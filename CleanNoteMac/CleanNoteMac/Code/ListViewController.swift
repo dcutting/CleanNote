@@ -18,10 +18,18 @@ class ListViewController: NSViewController, ListInterface, NSTableViewDataSource
     tableView.reloadData()
   }
 
-  func update(note: ListViewNote) {
-    guard let index = indexForListNote(with: note.id) else { return }
-    listNotes[index] = note
-    reload(row: index)
+  func update(note: ListViewNote, shouldFocus: Bool) {
+    if let index = indexForListNote(with: note.id) {
+      listNotes[index] = note
+      reload(row: index)
+    } else {
+      listNotes.append(note)
+      tableView.reloadData()
+    }
+  }
+
+  func focus(noteID: NoteID) {
+    select(noteID: noteID)
   }
 
   private func indexForListNote(with noteID: NoteID) -> Int? {

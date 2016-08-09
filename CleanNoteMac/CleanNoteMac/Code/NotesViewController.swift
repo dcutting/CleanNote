@@ -1,14 +1,13 @@
 import Cocoa
 import CleanNoteCore
 
-class NotesViewController: NSSplitViewController, MakerInterface, ListViewControllerDelegate, EditorViewControllerDelegate {
+class NotesViewController: NSSplitViewController, ListViewControllerDelegate, EditorViewControllerDelegate {
 
   var listWireframe: ListWireframe!
   var editorWireframe: EditorWireframe!
 
   var listViewController: ListViewController!
   var editorViewController: EditorViewController!
-  var makerInteractor: MakerInteractorInput!
 
   var listInteractor: ListInteractorInput?
   var editorInteractor: EditorInteractorInput?
@@ -58,13 +57,14 @@ class NotesViewController: NSSplitViewController, MakerInterface, ListViewContro
 
   func didModify(text: String) {
     editorInteractor?.save(text: text)
-    if let noteID = editorInteractor?.noteID {
-      listInteractor?.fetch(noteID: noteID)
-    }
+  }
+
+  func didSaveText(for noteID: NoteID) {
+    listInteractor?.fetch(noteID: noteID)
   }
 
   @IBAction func newNote(_ sender: AnyObject) {
-    makerInteractor?.makeNote()
+    listInteractor?.makeNote()
   }
 
   func didMake(note: Note) {

@@ -3,6 +3,7 @@ import CleanNoteCore
 
 protocol EditorViewControllerDelegate: class {
   func didModify(text: String)
+  func didSaveText(for noteID: NoteID)
 }
 
 class EditorViewController: NSViewController, EditorInterface, NSTextViewDelegate {
@@ -33,6 +34,10 @@ class EditorViewController: NSViewController, EditorInterface, NSTextViewDelegat
   func textDidChange(_ obj: Notification) {
     guard let text = textView.string else { return }
     delegate?.didModify(text: text)
+  }
+
+  func didSaveText(for noteID: NoteID) {
+    delegate?.didSaveText(for: noteID)
   }
 
   func showNoteScreen() {

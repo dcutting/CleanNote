@@ -10,11 +10,8 @@ class NotesWireframe {
     let listWireframe = ListWireframe(noteGateway: noteGateway)
     let editorWireframe = EditorWireframe(noteGateway: noteGateway)
 
-    let makerInteractor = MakerWireframe().configure(notesViewController: notesViewController, noteGateway: noteGateway)
-
     notesViewController.listWireframe = listWireframe
     notesViewController.editorWireframe = editorWireframe
-    notesViewController.makerInteractor = makerInteractor
   }
 
   private func makeSampleNotes() -> [Note] {

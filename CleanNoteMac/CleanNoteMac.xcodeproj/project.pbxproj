@@ -17,7 +17,6 @@
 		C86BEC501D4F773700BB1CCE /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86BEC4F1D4F773700BB1CCE /* EditorViewController.swift */; };
 		C86F857A1D4BB90F009EEBCC /* NotesWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86F85791D4BB90F009EEBCC /* NotesWireframe.swift */; };
 		C86F857E1D4BB9D9009EEBCC /* ListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86F857D1D4BB9D9009EEBCC /* ListWireframe.swift */; };
-		C89571F11D54FF9300AA3BB4 /* MakerWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89571F01D54FF9300AA3BB4 /* MakerWireframe.swift */; };
 		C8DE884B1D4918BD00D8D8AE /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE88481D4918AB00D8D8AE /* CleanNoteCore.framework */; };
 		C8DE884C1D4918BD00D8D8AE /* CleanNoteCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE88481D4918AB00D8D8AE /* CleanNoteCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -334,7 +333,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C86F857E1D4BB9D9009EEBCC /* ListWireframe.swift in Sources */,
-				C89571F11D54FF9300AA3BB4 /* MakerWireframe.swift in Sources */,
 				C86BEC501D4F773700BB1CCE /* EditorViewController.swift in Sources */,
 				C84547031D48FB750051BD61 /* ListViewController.swift in Sources */,
 				C84547011D48FB750051BD61 /* AppDelegate.swift in Sources */,

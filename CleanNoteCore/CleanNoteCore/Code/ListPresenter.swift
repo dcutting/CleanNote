@@ -13,7 +13,7 @@ public func ==(lhs: ListViewNote, rhs: ListViewNote) -> Bool {
 
 public protocol ListInterface {
   func update(notes: [ListViewNote])
-  func update(note: ListViewNote)
+  func update(note: ListViewNote, shouldFocus: Bool)
 }
 
 public class ListPresenter: ListInteractorOutput {
@@ -30,7 +30,12 @@ public class ListPresenter: ListInteractorOutput {
 
   public func didFetch(note: Note) {
     let listViewNote = makeListViewNote(for: note)
-    interface.update(note: listViewNote)
+    interface.update(note: listViewNote, shouldFocus: false)
+  }
+
+  public func didMake(note: Note) {
+    let listViewNote = makeListViewNote(for: note)
+    interface.update(note: listViewNote, shouldFocus: true)
   }
 
   private func makeListViewNote(for note: Note) -> ListViewNote {
