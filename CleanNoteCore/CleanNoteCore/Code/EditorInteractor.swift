@@ -4,7 +4,7 @@ public protocol EditorInteractorInput {
 }
 
 public protocol EditorInteractorOutput {
-  func didFetch(text: String)
+  func update(text: String)
   func didFailToFetchText()
   func didSaveText(for noteID: NoteID)
   func didFailToSaveText()
@@ -25,7 +25,7 @@ public class EditorInteractor: EditorInteractorInput {
   public func fetchText() {
     do {
       try gateway.fetchNote(with: noteID) {
-        self.output.didFetch(text: $0.text)
+        self.output.update(text: $0.text)
       }
     } catch {
       output.didFailToFetchText()

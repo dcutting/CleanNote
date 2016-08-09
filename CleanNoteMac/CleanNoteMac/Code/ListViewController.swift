@@ -2,8 +2,8 @@ import Cocoa
 import CleanNoteCore
 
 protocol ListViewControllerDelegate: class {
-  func didSelect(row: Int)
-  func didDeselectAllRows()
+  func didSelect(noteID: NoteID)
+  func didDeselectAllNotes()
 }
 
 class ListViewController: NSViewController, ListInterface, NSTableViewDataSource, NSTableViewDelegate {
@@ -28,7 +28,7 @@ class ListViewController: NSViewController, ListInterface, NSTableViewDataSource
     tableView.deselectAll(nil)
   }
 
-  public func didFailToMakeNote() {
+  public func show(error: String) {
     // TODO - show error
   }
 
@@ -56,9 +56,10 @@ class ListViewController: NSViewController, ListInterface, NSTableViewDataSource
 
   func tableViewSelectionDidChange(_ notification: Notification) {
     if let row = selectedRow() {
-      delegate?.didSelect(row: row)
+      let noteID = listNotes[row].id
+      delegate?.didSelect(noteID: noteID)
     } else {
-      delegate?.didDeselectAllRows()
+      delegate?.didDeselectAllNotes()
     }
   }
 

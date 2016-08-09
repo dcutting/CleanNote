@@ -15,7 +15,7 @@ public protocol ListInterface {
   func update(notes: [ListViewNote])
   func select(row: Int)
   func deselectAllRows()
-  func didFailToMakeNote()
+  func show(error: String)
 }
 
 public class ListPresenter: ListInteractorOutput {
@@ -54,6 +54,6 @@ public class ListPresenter: ListInteractorOutput {
   }
 
   public func didFailToMakeNote() {
-    interface.didFailToMakeNote()
+    interface.show(error: "Could not make note")
   }
 }

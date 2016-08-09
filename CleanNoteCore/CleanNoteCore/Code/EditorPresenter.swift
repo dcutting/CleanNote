@@ -11,7 +11,7 @@ public class EditorPresenter: EditorInteractorOutput {
     self.interface = interface
   }
 
-  public func didFetch(text: String) {
+  public func update(text: String) {
     interface.update(text: text)
   }
 
