@@ -40,17 +40,19 @@ class NotesViewController: NSSplitViewController, ListViewControllerDelegate, Ed
     listInteractor = listWireframe.configure(listViewController: listViewController)
   }
 
-  func didSelect(noteID: NoteID) {
-    configureEditor(noteID: noteID)
-    editorViewController.showNoteScreen()
-    editorInteractor?.fetchText()
+  func didSelect(row: Int) {
+//    configureEditor(noteID: noteID)
+//    editorViewController.showNoteScreen()
+//    editorInteractor?.fetchText()
+    print("Selected row \(row)")
   }
 
-  private func configureEditor(noteID: NoteID) {
-    editorInteractor = editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
-  }
+//  private func configureEditor(noteID: NoteID) {
+//    editorInteractor = editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
+//  }
 
-  func didDeselectAllNotes() {
+  func didDeselectAllRows() {
+    print("Deselected all rows")
     editorInteractor = nil
     editorViewController.showNoNoteScreen()
   }
@@ -60,16 +62,16 @@ class NotesViewController: NSSplitViewController, ListViewControllerDelegate, Ed
   }
 
   func didSaveText(for noteID: NoteID) {
-    listInteractor?.fetch(noteID: noteID)
+    listInteractor?.fetchNotes()
   }
 
   @IBAction func newNote(_ sender: AnyObject) {
     listInteractor?.makeNote()
   }
 
-  func didMake(note: Note) {
-    listInteractor?.fetchNotes()
-    listViewController.select(noteID: note.id)
-    editorViewController.prepareForEditing()
-  }
+//  func didMake(note: Note) {
+//    listInteractor?.fetchNotes()
+//    listViewController.select(noteID: note.id)
+//    editorViewController.prepareForEditing()
+//  }
 }

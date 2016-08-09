@@ -1,21 +1,16 @@
 public protocol ListInteractorInput {
   func fetchNotes()
-  func fetch(noteID: NoteID)
   func makeNote()
-//  func focus(noteID: NoteID)
 }
 
 public protocol ListInteractorOutput {
-  func didFetch(notes: [Note])
-  func didFetch(note: Note)
-  func didMake(note: Note)
-//  func didFocus(noteID: NoteID)
+  func update(list: List)
+  func didFailToMakeNote()
 }
 
 public class ListInteractor: ListInteractorInput {
   let output: ListInteractorOutput
   let gateway: NoteGateway
-//  var focussedNoteID: NoteID?
 
   public init(output: ListInteractorOutput, gateway: NoteGateway) {
     self.output = output
@@ -23,33 +18,28 @@ public class ListInteractor: ListInteractorInput {
   }
 
   public func fetchNotes() {
-    gateway.fetchNotes {
-      self.output.didFetch(notes: $0)
-    }
+    fetchNotesAndSelect(note: nil)
   }
-
-  public func fetch(noteID: NoteID) {
-    do {
-      try gateway.fetchNote(with: noteID) {
-        self.output.didFetch(note: $0)
-      }
-    } catch {
-    }
-  }
-
-//  public func focus(noteID: NoteID) {
-//    output.didFocus(noteID: noteID)
-//  }
 
   public func makeNote() {
     do {
-      let note = try gateway.createNote()
-      output.didMake(note: note)
-//      output.didFocus(noteID: note.id)
-    } catch {}
+      let note = try gateway.makeNote()
+      fetchNotesAndSelect(note: note)
+    } catch {
+      output.didFailToMakeNote()
+    }
   }
 
-  private func newNoteText() -> String {
-    return ""
+  private func fetchNotesAndSelect(note: Note?) {
+    gateway.fetchNotes { notes in
+      let row = self.rowFor(note: note, in: notes)
+      let list = List(notes: notes, selectedRow: row)
+      self.output.update(list: list)
+    }
+  }
+
+  private func rowFor(note: Note?, in notes: [Note]) -> Int? {
+    guard let note = note else { return nil }
+    return notes.index(of: note)
   }
 }

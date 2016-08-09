@@ -2,8 +2,8 @@ import Cocoa
 import CleanNoteCore
 
 protocol ListViewControllerDelegate: class {
-  func didSelect(noteID: NoteID)
-  func didDeselectAllNotes()
+  func didSelect(row: Int)
+  func didDeselectAllRows()
 }
 
 class ListViewController: NSViewController, ListInterface, NSTableViewDataSource, NSTableViewDelegate {
@@ -18,29 +18,25 @@ class ListViewController: NSViewController, ListInterface, NSTableViewDataSource
     tableView.reloadData()
   }
 
-  func update(note: ListViewNote, shouldFocus: Bool) {
-    if let index = indexForListNote(with: note.id) {
-      listNotes[index] = note
-      reload(row: index)
-    } else {
-      listNotes.append(note)
-      tableView.reloadData()
-    }
-  }
-
-  func focus(noteID: NoteID) {
-    select(noteID: noteID)
-  }
-
-  private func indexForListNote(with noteID: NoteID) -> Int? {
-    return listNotes.index { $0.id == noteID }
-  }
-
-  private func reload(row: Int) {
+  public func select(row: Int) {
     let rowIndexes = IndexSet(integer: row)
-    let columnIndexes = IndexSet(integer: 0)
-    tableView.reloadData(forRowIndexes: rowIndexes, columnIndexes: columnIndexes)
+    tableView.selectRowIndexes(rowIndexes, byExtendingSelection: false)
+    tableView.scrollRowToVisible(row)
   }
+
+  public func deselectAllRows() {
+    tableView.deselectAll(nil)
+  }
+
+  public func didFailToMakeNote() {
+    // TODO - show error
+  }
+
+//  private func reload(row: Int) {
+//    let rowIndexes = IndexSet(integer: row)
+//    let columnIndexes = IndexSet(integer: 0)
+//    tableView.reloadData(forRowIndexes: rowIndexes, columnIndexes: columnIndexes)
+//  }
 
   func numberOfRows(in tableView: NSTableView) -> Int {
     return listNotes.count
@@ -59,23 +55,15 @@ class ListViewController: NSViewController, ListInterface, NSTableViewDataSource
   }
 
   func tableViewSelectionDidChange(_ notification: Notification) {
-    if let noteID = noteIDForSelectedRow() {
-      delegate?.didSelect(noteID: noteID)
+    if let row = selectedRow() {
+      delegate?.didSelect(row: row)
     } else {
-      delegate?.didDeselectAllNotes()
+      delegate?.didDeselectAllRows()
     }
   }
 
-  private func noteIDForSelectedRow() -> NoteID? {
+  private func selectedRow() -> Int? {
     let row = tableView.selectedRow
-    return -1 == row ? nil : listNotes[row].id
-  }
-
-  func select(noteID: NoteID) {
-    guard let row = indexForListNote(with: noteID) else { return }
-    let rowIndexes = IndexSet(integer: row)
-    
-    tableView.selectRowIndexes(rowIndexes, byExtendingSelection: false)
-    tableView.scrollRowToVisible(row)
+    return -1 == row ? nil : row
   }
 }

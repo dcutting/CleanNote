@@ -70,7 +70,7 @@ class InMemoryNoteGatewayTests: XCTestCase {
     let sut = InMemoryNoteGateway(notes: notes)
 
     // Act.
-    let actualNoteID = try! sut.createNote()
+    let actualNoteID = try! sut.makeNote()
 
     // Assert.
     try! sut.fetchNote(with: actualNoteID) { actualNote in

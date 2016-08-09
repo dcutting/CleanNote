@@ -13,7 +13,9 @@ public func ==(lhs: ListViewNote, rhs: ListViewNote) -> Bool {
 
 public protocol ListInterface {
   func update(notes: [ListViewNote])
-  func update(note: ListViewNote, shouldFocus: Bool)
+  func select(row: Int)
+  func deselectAllRows()
+  func didFailToMakeNote()
 }
 
 public class ListPresenter: ListInteractorOutput {
@@ -23,19 +25,10 @@ public class ListPresenter: ListInteractorOutput {
     self.interface = interface
   }
 
-  public func didFetch(notes: [Note]) {
-    let listViewNotes = notes.map(makeListViewNote)
+  public func update(list: List) {
+    let listViewNotes = list.notes.map(makeListViewNote)
     interface.update(notes: listViewNotes)
-  }
-
-  public func didFetch(note: Note) {
-    let listViewNote = makeListViewNote(for: note)
-    interface.update(note: listViewNote, shouldFocus: false)
-  }
-
-  public func didMake(note: Note) {
-    let listViewNote = makeListViewNote(for: note)
-    interface.update(note: listViewNote, shouldFocus: true)
+    updateSelection(for: list)
   }
 
   private func makeListViewNote(for note: Note) -> ListViewNote {
@@ -50,5 +43,17 @@ public class ListPresenter: ListInteractorOutput {
 
   private func nonEmptySummary(for text: String) -> String {
     return text.replacingOccurrences(of: "\n", with: " ")
+  }
+
+  private func updateSelection(for list: List) {
+    if let row = list.selectedRow {
+      interface.select(row: row)
+    } else {
+      interface.deselectAllRows()
+    }
+  }
+
+  public func didFailToMakeNote() {
+    interface.didFailToMakeNote()
   }
 }
