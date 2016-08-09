@@ -64,6 +64,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerDelegate, Ed
   }
 
   @IBAction func newNote(_ sender: AnyObject) {
+    editorViewController.prepareForEditing()
     listInteractor?.makeNote()
   }
 }
