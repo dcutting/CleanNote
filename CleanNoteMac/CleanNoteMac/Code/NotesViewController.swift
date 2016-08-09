@@ -1,7 +1,7 @@
 import Cocoa
 import CleanNoteCore
 
-class NotesViewController: NSSplitViewController, ListViewControllerDelegate, EditorViewControllerDelegate {
+class NotesViewController: NSSplitViewController {
 
   var listWireframe: ListWireframe!
   var editorWireframe: EditorWireframe!
@@ -43,6 +43,13 @@ class NotesViewController: NSSplitViewController, ListViewControllerDelegate, Ed
     listInteractor = listWireframe.configure(listViewController: listViewController)
   }
 
+  @IBAction func newNote(_ sender: AnyObject) {
+    editorViewController.prepareForEditing()
+    listInteractor?.makeNote()
+  }
+}
+
+extension NotesViewController: ListViewControllerDelegate {
   func didSelect(noteID: NoteID) {
     configureEditor(noteID: noteID)
     editorViewController.showNoteScreen()
@@ -57,17 +64,14 @@ class NotesViewController: NSSplitViewController, ListViewControllerDelegate, Ed
     editorInteractor = nil
     editorViewController.showNoNoteScreen()
   }
+}
 
+extension NotesViewController: EditorViewControllerDelegate {
   func didModify(text: String) {
     editorInteractor?.save(text: text)
   }
 
   func didSaveText(for noteID: NoteID) {
     listInteractor?.fetchNotesAndSelect(noteID: noteID)
-  }
-
-  @IBAction func newNote(_ sender: AnyObject) {
-    editorViewController.prepareForEditing()
-    listInteractor?.makeNote()
   }
 }
