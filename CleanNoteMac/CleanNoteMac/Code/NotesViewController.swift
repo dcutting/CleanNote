@@ -33,7 +33,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerDelegate, Ed
   func start() {
     configureList()
     editorViewController.showNoNoteScreen()
-    listInteractor?.fetchNotes()
+    listInteractor?.fetchNotesAndSelect(noteID: nil)
   }
 
   private func configureList() {
@@ -60,7 +60,7 @@ class NotesViewController: NSSplitViewController, ListViewControllerDelegate, Ed
   }
 
   func didSaveText(for noteID: NoteID) {
-    listInteractor?.fetchNotes()
+    listInteractor?.fetchNotesAndSelect(noteID: noteID)
   }
 
   @IBAction func newNote(_ sender: AnyObject) {
