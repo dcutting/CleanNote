@@ -13,19 +13,22 @@ class NotesViewController: NSSplitViewController, ListViewControllerDelegate, Ed
   var editorInteractor: EditorInteractorInput?
 
   override func viewDidLoad() {
-    configureAppearance()
+    enableRoundWindowCorners()
     configureChildrenControllers()
+    configureDelegates()
     super.viewDidLoad()
   }
   
-  private func configureAppearance() {
-    view.wantsLayer = true   // To enable round window corners.
+  private func enableRoundWindowCorners() {
+    view.wantsLayer = true
   }
 
   private func configureChildrenControllers() {
     listViewController = childViewControllers[0] as! ListViewController
     editorViewController = childViewControllers[1] as! EditorViewController
+  }
 
+  private func configureDelegates() {
     listViewController.delegate = self
     editorViewController.delegate = self
   }
