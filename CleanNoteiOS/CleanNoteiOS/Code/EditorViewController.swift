@@ -1,7 +1,7 @@
 import UIKit
 import CleanNoteCore
 
-class EditorViewController: UIViewController, EditorInterface {
+class EditorViewController: UIViewController {
   var interactor: EditorInteractorInput!
   @IBOutlet weak var textView: UITextView!
 
@@ -13,7 +13,9 @@ class EditorViewController: UIViewController, EditorInterface {
   override func viewWillDisappear(_ animated: Bool) {
     interactor.save(text: textView.text)
   }
+}
 
+extension EditorViewController: EditorInterface {
   func update(text: String) {
     textView.text = text
   }
@@ -30,7 +32,10 @@ class EditorViewController: UIViewController, EditorInterface {
     return alert
   }
 
-  internal func show(alert: UIAlertController) {
-    self.navigationController?.present(alert, animated: true)
+  private func show(alert: UIAlertController) {
+    navigationController?.present(alert, animated: true)
+  }
+
+  func didSaveText(for noteID: NoteID) {
   }
 }

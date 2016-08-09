@@ -6,10 +6,7 @@ class ListWireframe {
     let listPresenter = ListPresenter(interface: listViewController)
     let listInteractor = ListInteractor(output: listPresenter, gateway: noteGateway)
 
-    let makerInteractor = MakerWireframe().configure(listViewController: listViewController, noteGateway: noteGateway)
-
-    listViewController.listInteractor = listInteractor
-    listViewController.makerInteractor = makerInteractor
+    listViewController.interactor = listInteractor
     listViewController.editorWireframe = editorWireframe
   }
 }

@@ -11,10 +11,9 @@ class NoteIDObject: NSObject {
   }
 }
 
-class ListViewController: UIViewController, ListInterface, MakerInterface, UITableViewDataSource, UITableViewDelegate {
+class ListViewController: UIViewController {
 
-  var listInteractor: ListInteractorInput!
-  var makerInteractor: MakerInteractorInput!
+  var interactor: ListInteractorInput!
   var editorWireframe: EditorWireframe!
 
   var listNotes = [ListViewNote]()
@@ -22,7 +21,7 @@ class ListViewController: UIViewController, ListInterface, MakerInterface, UITab
   @IBOutlet weak var tableView: UITableView!
 
   override func viewWillAppear(_ animated: Bool) {
-    listInteractor.fetchNotes()
+    interactor.fetchNotesAndSelect(noteID: nil)
   }
 
   override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -44,38 +43,30 @@ class ListViewController: UIViewController, ListInterface, MakerInterface, UITab
   }
 
   @IBAction func addNote(_ sender: AnyObject) {
-    makerInteractor.makeNote()
+    interactor.makeNote()
   }
+}
 
-  func didMake(note: Note) {
-    let noteIDObject = NoteIDObject(id: note.id)
-    performSegue(withIdentifier: EditNoteSegueIdentifier, sender: noteIDObject)
-  }
-
+extension ListViewController: ListInterface {
   func update(notes: [ListViewNote]) {
     listNotes = notes
     tableView.reloadData()
   }
 
-  func update(note: ListViewNote) {
-    guard let row = findRow(for: note) else { return }
-    listNotes[row] = note
-    reloadTableView(row: row)
+  func select(row: Int) {
+    let indexPath = IndexPath(row: row, section: 0)
+    tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
   }
 
-  func focus(noteID: NoteID) {
-    
+  func deselectAllRows() {
   }
 
-  private func findRow(for note: ListViewNote) -> Int? {
-    return listNotes.index { $0.id == note.id }
+  func show(error: String) {
+    // TODO.
   }
+}
 
-  private func reloadTableView(row: Int) {
-    let rowIndexes = [IndexPath(row: row, section: 0)]
-    tableView.reloadRows(at: rowIndexes, with: .automatic)
-  }
-
+extension ListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection: NSInteger) -> NSInteger {
     return listNotes.count
   }
