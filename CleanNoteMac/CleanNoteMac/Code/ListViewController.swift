@@ -32,12 +32,6 @@ class ListViewController: NSViewController, ListInterface, NSTableViewDataSource
     // TODO - show error
   }
 
-//  private func reload(row: Int) {
-//    let rowIndexes = IndexSet(integer: row)
-//    let columnIndexes = IndexSet(integer: 0)
-//    tableView.reloadData(forRowIndexes: rowIndexes, columnIndexes: columnIndexes)
-//  }
-
   func numberOfRows(in tableView: NSTableView) -> Int {
     return listNotes.count
   }
