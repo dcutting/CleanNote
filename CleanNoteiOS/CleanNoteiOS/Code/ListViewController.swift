@@ -38,7 +38,12 @@ class ListViewController: UIViewController {
 
   private func noteIDForSelectedRow() -> NoteID {
     let indexPath = tableView.indexPathForSelectedRow!
-    let listViewNote = listNotes[indexPath.row]
+    let selectedRow = indexPath.row
+    return noteIDFor(row: selectedRow)
+  }
+
+  private func noteIDFor(row: Int) -> NoteID {
+    let listViewNote = listNotes[row]
     return listViewNote.id
   }
 
@@ -54,8 +59,19 @@ extension ListViewController: ListInterface {
   }
 
   func select(row: Int) {
+    scrollTo(row: row)
+    segueToNote(at: row)
+  }
+
+  private func scrollTo(row: Int) {
     let indexPath = IndexPath(row: row, section: 0)
-    tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
+    tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: false)
+  }
+
+  private func segueToNote(at row: Int) {
+    let noteID = noteIDFor(row: row)
+    let noteIDObject = NoteIDObject(id: noteID)
+    performSegue(withIdentifier: EditNoteSegueIdentifier, sender: noteIDObject)
   }
 
   func deselectAllRows() {
