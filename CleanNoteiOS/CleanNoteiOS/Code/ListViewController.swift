@@ -3,7 +3,7 @@ import CleanNoteCore
 
 let EditNoteSegueIdentifier = "editNote"
 
-class NoteIDObject: NSObject {
+class NoteIDWrapperObject: NSObject {
   let id: NoteID
 
   init(id: NoteID) {
@@ -12,12 +12,9 @@ class NoteIDObject: NSObject {
 }
 
 class ListViewController: UIViewController {
-
   var interactor: ListInteractorInput!
   var editorWireframe: EditorWireframe!
-
   var listNotes = [ListViewNote]()
-
   @IBOutlet weak var tableView: UITableView!
 
   override func viewWillAppear(_ animated: Bool) {
@@ -32,8 +29,8 @@ class ListViewController: UIViewController {
   }
 
   private func noteIDFrom(object: AnyObject?) -> NoteID? {
-    guard let noteIDObject = object as? NoteIDObject else { return nil }
-    return noteIDObject.id
+    guard let noteIDWrapperObject = object as? NoteIDWrapperObject else { return nil }
+    return noteIDWrapperObject.id
   }
 
   private func noteIDForSelectedRow() -> NoteID {
@@ -70,8 +67,8 @@ extension ListViewController: ListInterface {
 
   private func segueToNote(at row: Int) {
     let noteID = noteIDFor(row: row)
-    let noteIDObject = NoteIDObject(id: noteID)
-    performSegue(withIdentifier: EditNoteSegueIdentifier, sender: noteIDObject)
+    let noteIDWrapperObject = NoteIDWrapperObject(id: noteID)
+    performSegue(withIdentifier: EditNoteSegueIdentifier, sender: noteIDWrapperObject)
   }
 
   func deselectAllRows() {

@@ -7,9 +7,9 @@ protocol EditorViewControllerDelegate: class {
 }
 
 class EditorViewController: NSViewController {
+  weak var delegate: EditorViewControllerDelegate?
   @IBOutlet weak var textContainerView: NSScrollView!
   @IBOutlet var textView: NSTextView!
-  weak var delegate: EditorViewControllerDelegate?
 
   override func viewDidLoad() {
     configureTextInsets()

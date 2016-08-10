@@ -7,9 +7,9 @@ protocol ListViewControllerDelegate: class {
 }
 
 class ListViewController: NSViewController {
-  @IBOutlet weak var tableView: NSTableView!
-  weak var delegate: ListViewControllerDelegate?
   var listNotes = [ListViewNote]()
+  weak var delegate: ListViewControllerDelegate?
+  @IBOutlet weak var tableView: NSTableView!
 }
 
 extension ListViewController: ListInterface {
