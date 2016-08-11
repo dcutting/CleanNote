@@ -7,15 +7,20 @@ protocol ListViewControllerDelegate: class {
 }
 
 class ListViewController: NSViewController {
-  var listNotes = [ListViewNote]()
+  var list: ListViewList?
   weak var delegate: ListViewControllerDelegate?
   @IBOutlet weak var tableView: NSTableView!
 }
 
 extension ListViewController: ListInterface {
-  func update(notes: [ListViewNote]) {
-    listNotes = notes
+  func update(list: ListViewList) {
+    self.list = list
     tableView.reloadData()
+    if let row = list.selectedRow {
+      select(row: row)
+    } else {
+      deselectAllRows()
+    }
   }
 
   func select(row: Int) {
@@ -35,23 +40,24 @@ extension ListViewController: ListInterface {
 
 extension ListViewController: NSTableViewDataSource {
   func numberOfRows(in tableView: NSTableView) -> Int {
-    return listNotes.count
+    guard let notes = list?.notes else { return 0 }
+    return notes.count
   }
 }
 
 extension ListViewController: NSTableViewDelegate {
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let cellView = tableView.make(withIdentifier: tableColumn!.identifier, owner: self) as! NSTableCellView
-    if let label = cellView.textField {
-      let listViewNote = listNotes[row]
-      label.stringValue = listViewNote.summary
-    }
+    guard let notes = list?.notes else { return cellView }
+    guard let label = cellView.textField else { return cellView }
+    let listViewNote = notes[row]
+    label.stringValue = listViewNote.summary
     return cellView
   }
 
   func tableViewSelectionDidChange(_ notification: Notification) {
     if let row = selectedRow() {
-      let noteID = listNotes[row].id
+      let noteID = list!.notes[row].id
       delegate?.didSelect(noteID: noteID)
     } else {
       delegate?.didDeselectAllNotes()

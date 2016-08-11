@@ -5,6 +5,11 @@ public struct ListViewNote {
   public var summary: String
 }
 
+public struct ListViewList {
+  public let notes: [ListViewNote]
+  public let selectedRow: Int?
+}
+
 extension ListViewNote: Equatable {}
 
 public func ==(lhs: ListViewNote, rhs: ListViewNote) -> Bool {
@@ -12,9 +17,7 @@ public func ==(lhs: ListViewNote, rhs: ListViewNote) -> Bool {
 }
 
 public protocol ListInterface {
-  func update(notes: [ListViewNote])
-  func select(row: Int)
-  func deselectAllRows()
+  func update(list: ListViewList)
   func show(error: String)
 }
 
@@ -29,8 +32,8 @@ public class ListPresenter {
 extension ListPresenter: ListInteractorOutput {
   public func update(list: List) {
     let listViewNotes = list.notes.map(makeListViewNote)
-    interface.update(notes: listViewNotes)
-    updateSelection(for: list)
+    let listViewList = ListViewList(notes: listViewNotes, selectedRow: list.selectedRow)
+    interface.update(list: listViewList)
   }
 
   private func makeListViewNote(for note: Note) -> ListViewNote {
@@ -45,14 +48,6 @@ extension ListPresenter: ListInteractorOutput {
 
   private func nonEmptySummary(for text: String) -> String {
     return text.replacingOccurrences(of: "\n", with: " ")
-  }
-
-  private func updateSelection(for list: List) {
-    if let row = list.selectedRow {
-      interface.select(row: row)
-    } else {
-      interface.deselectAllRows()
-    }
   }
 
   public func didFailToMakeNote() {
