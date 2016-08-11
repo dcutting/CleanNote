@@ -12,6 +12,8 @@ class NotesViewController: NSSplitViewController {
   var listInteractor: ListInteractorInput?
   var editorInteractor: EditorInteractorInput?
 
+  var selectedNoteID: NoteID?
+
   override func viewDidLoad() {
     enableRoundWindowCorners()
     configureChildrenControllers()
@@ -51,6 +53,8 @@ class NotesViewController: NSSplitViewController {
 
 extension NotesViewController: ListViewControllerDelegate {
   func didSelect(noteID: NoteID) {
+    guard selectedNoteID != noteID else { return }
+    selectedNoteID = noteID
     configureEditor(noteID: noteID)
     editorViewController.showNoteScreen()
     editorInteractor?.fetchText()
