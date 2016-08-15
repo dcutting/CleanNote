@@ -8,6 +8,7 @@ protocol ListViewControllerDelegate: class {
 
 class ListViewController: NSViewController {
   var list: ListViewList?
+  var currentlySelectedRow: Int?
   weak var delegate: ListViewControllerDelegate?
   @IBOutlet weak var tableView: NSTableView!
 }
@@ -23,13 +24,13 @@ extension ListViewController: ListInterface {
     }
   }
 
-  func select(row: Int) {
+  private func select(row: Int) {
     let rowIndexes = IndexSet(integer: row)
     tableView.selectRowIndexes(rowIndexes, byExtendingSelection: false)
     tableView.scrollRowToVisible(row)
   }
 
-  func deselectAllRows() {
+  private func deselectAllRows() {
     tableView.deselectAll(nil)
   }
 
@@ -57,15 +58,27 @@ extension ListViewController: NSTableViewDelegate {
 
   func tableViewSelectionDidChange(_ notification: Notification) {
     if let row = selectedRow() {
-      let noteID = list!.notes[row].id
-      delegate?.didSelect(noteID: noteID)
+      notifyDelegateOfSelection(row: row)
     } else {
-      delegate?.didDeselectAllNotes()
+      notifyDelegateOfDeselection()
     }
   }
 
   private func selectedRow() -> Int? {
     let row = tableView.selectedRow
     return -1 == row ? nil : row
+  }
+
+  private func notifyDelegateOfSelection(row: Int) {
+    guard currentlySelectedRow != row else { return }
+    currentlySelectedRow = row
+    guard let noteID = list?.notes[row].id else { return }
+    delegate?.didSelect(noteID: noteID)
+  }
+
+  private func notifyDelegateOfDeselection() {
+    guard currentlySelectedRow != nil else { return }
+    currentlySelectedRow = nil
+    delegate?.didDeselectAllNotes()
   }
 }
