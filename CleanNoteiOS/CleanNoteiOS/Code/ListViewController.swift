@@ -58,7 +58,7 @@ extension ListViewController: ListInterface {
     }
   }
 
-  func select(row: Int) {
+  private func select(row: Int) {
     scrollTo(row: row)
     segueToNote(at: row)
   }
@@ -72,9 +72,6 @@ extension ListViewController: ListInterface {
     let noteID = noteIDFor(row: row)
     let noteIDWrapperObject = NoteIDWrapperObject(id: noteID)
     performSegue(withIdentifier: EditNoteSegueIdentifier, sender: noteIDWrapperObject)
-  }
-
-  func deselectAllRows() {
   }
 
   func show(error: String) {
