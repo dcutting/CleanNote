@@ -50,9 +50,12 @@ class ListViewController: UIViewController {
 }
 
 extension ListViewController: ListInterface {
-  func update(notes: [ListViewNote]) {
-    listNotes = notes
+  func update(list: ListViewList) {
+    listNotes = list.notes
     tableView.reloadData()
+    if let row = list.selectedRow {
+      select(row: row)
+    }
   }
 
   func select(row: Int) {
