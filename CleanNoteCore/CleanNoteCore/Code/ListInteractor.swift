@@ -21,15 +21,9 @@ public class ListInteractor {
 extension ListInteractor: ListInteractorInput {
   public func fetchNotesAndSelect(noteID: NoteID?) {
     gateway.fetchNotes { notes in
-      let row = self.rowFor(noteID: noteID, in: notes)
-      let list = List(notes: notes, selectedRow: row)
+      let list = List(notes: notes, selected: noteID)
       self.output.update(list: list)
     }
-  }
-
-  private func rowFor(noteID: NoteID?, in notes: [Note]) -> Int? {
-    guard let noteID = noteID else { return nil }
-    return notes.index { $0.id == noteID }
   }
 
   public func makeNote() {

@@ -7,7 +7,7 @@ public struct ListViewNote {
 
 public struct ListViewList {
   public let notes: [ListViewNote]
-  public let selectedRow: Int?
+  public let selected: NoteID?
 }
 
 extension ListViewNote: Equatable {}
@@ -32,7 +32,7 @@ public class ListPresenter {
 extension ListPresenter: ListInteractorOutput {
   public func update(list: List) {
     let listViewNotes = list.notes.map(makeListViewNote)
-    let listViewList = ListViewList(notes: listViewNotes, selectedRow: list.selectedRow)
+    let listViewList = ListViewList(notes: listViewNotes, selected: list.selected)
     interface.update(list: listViewList)
   }
 

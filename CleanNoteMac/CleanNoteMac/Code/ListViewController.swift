@@ -8,29 +8,40 @@ protocol ListViewControllerDelegate: class {
 
 class ListViewController: NSViewController {
   var list: ListViewList?
-  var currentlySelectedRow: Int?
   weak var delegate: ListViewControllerDelegate?
   @IBOutlet weak var tableView: NSTableView!
 }
 
 extension ListViewController: ListInterface {
   func update(list: ListViewList) {
+    let previousList = self.list
     self.list = list
-    tableView.reloadData()
-    if let row = list.selectedRow {
-      select(row: row)
+    if previousList == nil || list.notes != previousList!.notes {
+      tableView.reloadData()
+    }
+    if let noteID = list.selected {
+      guard previousList?.selected != noteID else { return }
+      select(noteID: noteID)
     } else {
-      deselectAllRows()
+      deselectAll()
     }
   }
 
-  private func select(row: Int) {
+  private func select(noteID: NoteID) {
+    guard let row = rowFor(noteID: noteID, in: list?.notes) else { return }
+//    guard tableView.selectedRow != row else { return }
     let rowIndexes = IndexSet(integer: row)
     tableView.selectRowIndexes(rowIndexes, byExtendingSelection: false)
     tableView.scrollRowToVisible(row)
   }
 
-  private func deselectAllRows() {
+  private func rowFor(noteID: NoteID?, in notes: [ListViewNote]?) -> Int? {
+    guard let notes = notes else { return nil }
+    guard let noteID = noteID else { return nil }
+    return notes.index { $0.id == noteID }
+  }
+
+  private func deselectAll() {
     tableView.deselectAll(nil)
   }
 
@@ -70,15 +81,13 @@ extension ListViewController: NSTableViewDelegate {
   }
 
   private func notifyDelegateOfSelection(row: Int) {
-    guard currentlySelectedRow != row else { return }
-    currentlySelectedRow = row
     guard let noteID = list?.notes[row].id else { return }
+//    guard noteID != list?.selected else { return }
     delegate?.didSelect(noteID: noteID)
   }
 
   private func notifyDelegateOfDeselection() {
-    guard currentlySelectedRow != nil else { return }
-    currentlySelectedRow = nil
+    guard nil != list?.selected else { return }
     delegate?.didDeselectAllNotes()
   }
 }
