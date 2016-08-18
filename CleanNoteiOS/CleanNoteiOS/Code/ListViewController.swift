@@ -14,7 +14,7 @@ class NoteIDWrapperObject: NSObject {
 class ListViewController: UIViewController {
   var interactor: ListInteractorInput!
   var editorWireframe: EditorWireframe!
-  var listNotes = [ListViewNote]()
+  var list: ListViewList?
   @IBOutlet weak var tableView: UITableView!
 
   override func viewWillAppear(_ animated: Bool) {
@@ -24,7 +24,7 @@ class ListViewController: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
     guard EditNoteSegueIdentifier == segue.identifier else { return }
     let editorViewController = segue.destination as! EditorViewController
-    let noteID = noteIDFrom(object: sender) ?? noteIDForSelectedRow()
+    let noteID = noteIDFrom(object: sender) ?? noteIDForSelectedRow()!
     editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
   }
 
@@ -33,14 +33,14 @@ class ListViewController: UIViewController {
     return noteIDWrapperObject.id
   }
 
-  private func noteIDForSelectedRow() -> NoteID {
-    let indexPath = tableView.indexPathForSelectedRow!
-    let selectedRow = indexPath.row
+  private func noteIDForSelectedRow() -> NoteID? {
+    let indexPath = tableView.indexPathForSelectedRow
+    guard let selectedRow = indexPath?.row else { return nil }
     return noteIDFor(row: selectedRow)
   }
 
-  private func noteIDFor(row: Int) -> NoteID {
-    let listViewNote = listNotes[row]
+  private func noteIDFor(row: Int) -> NoteID? {
+    guard let listViewNote = list?.notes[row] else { return nil }
     return listViewNote.id
   }
 
@@ -51,17 +51,22 @@ class ListViewController: UIViewController {
 
 extension ListViewController: ListInterface {
   func update(list: ListViewList) {
-    listNotes = list.notes
-    tableView.reloadData()
-    if let row = rowFor(noteID: list.selected, in: listNotes) {
-      select(row: row)
-    }
+    self.list = list
+    updateData()
+    updateSelection()
   }
 
-  private func rowFor(noteID: NoteID?, in notes: [ListViewNote]?) -> Int? {
-    guard let notes = notes else { return nil }
-    guard let noteID = noteID else { return nil }
-    return notes.index { $0.id == noteID }
+  private func updateData() {
+    tableView.reloadData()
+  }
+
+  private func updateSelection() {
+    guard let row = rowForSelectedNote() else { return }
+    select(row: row)
+  }
+
+  private func rowForSelectedNote() -> Int? {
+    return list?.notes.index { $0.id == list?.selected }
   }
 
   private func select(row: Int) {
@@ -71,11 +76,11 @@ extension ListViewController: ListInterface {
 
   private func scrollTo(row: Int) {
     let indexPath = IndexPath(row: row, section: 0)
-    tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: false)
+    tableView.scrollToRow(at: indexPath, at: UITableViewScrollPosition.middle, animated: true)
   }
 
   private func segueToNote(at row: Int) {
-    let noteID = noteIDFor(row: row)
+    guard let noteID = noteIDFor(row: row) else { return }
     let noteIDWrapperObject = NoteIDWrapperObject(id: noteID)
     performSegue(withIdentifier: EditNoteSegueIdentifier, sender: noteIDWrapperObject)
   }
@@ -88,12 +93,12 @@ extension ListViewController: ListInterface {
 
 extension ListViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, numberOfRowsInSection: NSInteger) -> NSInteger {
-    return listNotes.count
+    return list?.notes.count ?? 0
   }
 
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "NoteCell")!
-    cell.textLabel?.text = listNotes[indexPath.row].summary
+    cell.textLabel?.text = list?.notes[indexPath.row].summary
     return cell
   }
 }
