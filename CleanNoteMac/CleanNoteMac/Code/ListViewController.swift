@@ -10,17 +10,31 @@ class ListViewController: NSViewController {
   var list: ListViewList?
   weak var delegate: ListViewControllerDelegate?
   @IBOutlet weak var tableView: NSTableView!
+  var shouldNotifyDelegate = true
 }
 
 extension ListViewController: ListInterface {
-  func update(list: ListViewList) {
-    let previousList = self.list
-    self.list = list
-    if previousList == nil || list.notes != previousList!.notes {
-      tableView.reloadData()
-    }
-    if let noteID = list.selected {
-      guard previousList?.selected != noteID else { return }
+  func update(list nextList: ListViewList) {
+    prepareShouldNotifyDelegate(previousSelection: self.list?.selected, nextSelection: nextList.selected)
+
+    self.list = nextList
+
+    updateTableData()
+    updateTableSelection()
+
+    resetShouldNotifyDelegate()
+  }
+
+  private func prepareShouldNotifyDelegate(previousSelection: NoteID?, nextSelection: NoteID?) {
+    shouldNotifyDelegate = previousSelection != nextSelection
+  }
+
+  private func updateTableData() {
+    tableView.reloadData()
+  }
+
+  private func updateTableSelection() {
+    if let noteID = list?.selected {
       select(noteID: noteID)
     } else {
       deselectAll()
@@ -29,7 +43,6 @@ extension ListViewController: ListInterface {
 
   private func select(noteID: NoteID) {
     guard let row = rowFor(noteID: noteID, in: list?.notes) else { return }
-//    guard tableView.selectedRow != row else { return }
     let rowIndexes = IndexSet(integer: row)
     tableView.selectRowIndexes(rowIndexes, byExtendingSelection: false)
     tableView.scrollRowToVisible(row)
@@ -43,6 +56,10 @@ extension ListViewController: ListInterface {
 
   private func deselectAll() {
     tableView.deselectAll(nil)
+  }
+
+  private func resetShouldNotifyDelegate() {
+    shouldNotifyDelegate = true
   }
 
   func show(error: String) {
@@ -68,6 +85,7 @@ extension ListViewController: NSTableViewDelegate {
   }
 
   func tableViewSelectionDidChange(_ notification: Notification) {
+    guard shouldNotifyDelegate else { return }
     if let row = selectedRow() {
       notifyDelegateOfSelection(row: row)
     } else {
@@ -82,12 +100,10 @@ extension ListViewController: NSTableViewDelegate {
 
   private func notifyDelegateOfSelection(row: Int) {
     guard let noteID = list?.notes[row].id else { return }
-//    guard noteID != list?.selected else { return }
     delegate?.didSelect(noteID: noteID)
   }
 
   private func notifyDelegateOfDeselection() {
-    guard nil != list?.selected else { return }
     delegate?.didDeselectAllNotes()
   }
 }
