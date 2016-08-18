@@ -53,9 +53,15 @@ extension ListViewController: ListInterface {
   func update(list: ListViewList) {
     listNotes = list.notes
     tableView.reloadData()
-    if let row = list.selectedRow {
+    if let row = rowFor(noteID: list.selected, in: listNotes) {
       select(row: row)
     }
+  }
+
+  private func rowFor(noteID: NoteID?, in notes: [ListViewNote]?) -> Int? {
+    guard let notes = notes else { return nil }
+    guard let noteID = noteID else { return nil }
+    return notes.index { $0.id == noteID }
   }
 
   private func select(row: Int) {
