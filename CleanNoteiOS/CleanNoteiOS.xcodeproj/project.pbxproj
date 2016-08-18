@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C8296D4A1D665FE800E5DA44 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8296D491D665FE800E5DA44 /* AlertHelper.swift */; };
 		C83BAD4A1D48E9CA00180193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD481D48E9CA00180193 /* Main.storyboard */; };
 		C83BAD4C1D48E9CA00180193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD4B1D48E9CA00180193 /* Assets.xcassets */; };
 		C83BAD4F1D48E9CA00180193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD4D1D48E9CA00180193 /* LaunchScreen.storyboard */; };
@@ -71,6 +72,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C8296D491D665FE800E5DA44 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		C83BAD411D48E9CA00180193 /* CleanNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD491D48E9CA00180193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C83BAD4B1D48E9CA00180193 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C8296D4C1D6660E500E5DA44 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C8296D491D665FE800E5DA44 /* AlertHelper.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		C83BAD381D48E9CA00180193 = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 				C8DF78E51D490A620070D75A /* Root */,
 				C8DF78E41D490A550070D75A /* List */,
 				C8DF78E31D490A500070D75A /* Editor */,
+				C8296D4C1D6660E500E5DA44 /* Common */,
 			);
 			name = Modules;
 			path = CleanNoteiOS/Code;
@@ -349,6 +360,7 @@
 				C8DF78BC1D4905770070D75A /* AppDelegate.swift in Sources */,
 				C8DF78C11D4905770070D75A /* RootWireframe.swift in Sources */,
 				C8DF78BD1D4905770070D75A /* EditorViewController.swift in Sources */,
+				C8296D4A1D665FE800E5DA44 /* AlertHelper.swift in Sources */,
 				C8DF78BF1D4905770070D75A /* ListViewController.swift in Sources */,
 				C8DF78BE1D4905770070D75A /* EditorWireframe.swift in Sources */,
 			);

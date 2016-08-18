@@ -81,7 +81,8 @@ extension ListViewController: ListInterface {
   }
 
   func show(error: String) {
-    // TODO.
+    guard let controller = navigationController else { return }
+    AlertHelper().show(title: "Error", text: error, controller: controller)
   }
 }
 

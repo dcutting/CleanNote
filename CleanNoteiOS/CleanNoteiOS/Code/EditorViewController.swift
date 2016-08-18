@@ -21,19 +21,8 @@ extension EditorViewController: EditorInterface {
   }
 
   func show(error: String) {
-    let alert = makeAlert(with: error)
-    show(alert: alert)
-  }
-
-  private func makeAlert(with text: String) -> UIAlertController {
-    let alert = UIAlertController(title: "Error", message: text, preferredStyle: .alert)
-    let action = UIAlertAction(title: "OK", style: .default)
-    alert.addAction(action)
-    return alert
-  }
-
-  private func show(alert: UIAlertController) {
-    navigationController?.present(alert, animated: true)
+    guard let controller = navigationController else { return }
+    AlertHelper().show(title: "Error", text: error, controller: controller)
   }
 
   func didSaveText(for noteID: NoteID) {
