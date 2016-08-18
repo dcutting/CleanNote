@@ -6,11 +6,13 @@ class EditorViewController: UIViewController {
   @IBOutlet weak var textView: UITextView!
 
   override func viewDidLoad() {
+    super.viewDidLoad()
     interactor.fetchText()
     textView.becomeFirstResponder()
   }
 
   override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
     interactor.save(text: textView.text)
   }
 }

@@ -12,6 +12,7 @@ class EditorViewController: NSViewController {
   @IBOutlet var textView: NSTextView!
 
   override func viewDidLoad() {
+    super.viewDidLoad()
     configureTextInsets()
   }
 

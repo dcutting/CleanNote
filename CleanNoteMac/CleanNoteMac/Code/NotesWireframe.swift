@@ -12,8 +12,21 @@ class NotesWireframe {
 
     notesViewController.listWireframe = listWireframe
     notesViewController.editorWireframe = editorWireframe
+
+    configureChildrenViewControllers()
+    configureDelegates()
   }
 
+  private func configureChildrenControllers() {
+    notesViewController.listViewController = notesViewController.childViewControllers[0] as! ListViewController
+    notesViewController.editorViewController = notesViewController.childViewControllers[1] as! EditorViewController
+  }
+
+  private func configureDelegates() {
+    notesViewController.listViewController.delegate = notesViewController
+    notesViewController.editorViewController.delegate = notesViewController
+  }
+  
   private func makeSampleNotes() -> [Note] {
     let noteID1 = "1"
     let noteID2 = "2"
