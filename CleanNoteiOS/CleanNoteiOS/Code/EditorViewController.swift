@@ -22,9 +22,9 @@ extension EditorViewController: EditorInterface {
     textView.text = text
   }
 
-  func show(error: String) {
+  func show(error: NSError) {
     guard let controller = navigationController else { return }
-    AlertHelper().show(title: "Error", text: error, controller: controller)
+    AlertHelper().show(title: "Error", text: error.localizedDescription, controller: controller)
   }
 
   func didSaveText(for noteID: NoteID) {

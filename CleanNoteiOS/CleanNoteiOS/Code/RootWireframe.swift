@@ -3,7 +3,7 @@ import CleanNoteCore
 class RootWireframe {
   func configure(listViewController: ListViewController) {
     let sampleNotes = makeSampleNotes()
-    let noteGateway = InMemoryNoteGateway(notes: sampleNotes)
+    let noteGateway = InMemoryNoteGateway(notes: sampleNotes, shouldFailRandomly: false)
 
     let editorWireframe = EditorWireframe(noteGateway: noteGateway)
 
