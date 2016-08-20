@@ -32,17 +32,17 @@ extension ListInteractor: ListInteractorInput {
   }
 
   public func makeNote() {
-//    do {
-//      let note = try gateway.makeNote()
-//      fetchNotesAndSelect(noteID: note.id)
-//    } catch {
+    do {
+      let note = try gateway.makeNote()
+      fetchNotesAndSelect(noteID: note.id)
+    } catch {
       let error = makeError()
       output.didFailToMakeNote(error: error)
-//    }
+    }
   }
 
   private func makeError() -> NSError {
-    let recoveryAttempter = MakeNoteRecovery()
+    let recoveryAttempter = MakeNoteRecovery(interactor: self)
     let userInfo = [
       NSLocalizedDescriptionKey: "Could not make a new note",
       NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem making a new note.",
@@ -55,7 +55,14 @@ extension ListInteractor: ListInteractorInput {
 
 class MakeNoteRecovery: NSObject {
 
+  let interactor: ListInteractor
+
+  init(interactor: ListInteractor) {
+    self.interactor = interactor
+  }
+
   override func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector?, contextInfo: UnsafeMutablePointer<Void>?) {
-    print("attempting")
+    guard recoveryOptionIndex == 0 else { return }
+    interactor.makeNote()
   }
 }
