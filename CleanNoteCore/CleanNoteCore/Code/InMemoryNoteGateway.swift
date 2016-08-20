@@ -1,9 +1,13 @@
+import Foundation
+
 public class InMemoryNoteGateway: NoteGateway {
   var noteIDCounter = 0
   var notes: [Note]
+  let shouldFailRandomly: Bool
 
-  public init(notes: [Note]) {
+  public init(notes: [Note], shouldFailRandomly: Bool) {
     self.notes = notes
+    self.shouldFailRandomly = shouldFailRandomly
   }
 
   public func fetchNotes(completion: ([Note]) -> Void) {
@@ -20,10 +24,17 @@ public class InMemoryNoteGateway: NoteGateway {
   }
 
   public func makeNote() throws -> Note {
+    guard hasRandomError() == false else { throw NoteGatewayError.unknown }
     let nextNoteID = nextID()
     let note = Note(id: nextNoteID, text: "")
     notes.append(note)
     return note
+  }
+
+  private func hasRandomError() -> Bool {
+    guard shouldFailRandomly else { return false }
+    let random = arc4random_uniform(2)
+    return random == 0
   }
 
   private func nextID() -> NoteID {
