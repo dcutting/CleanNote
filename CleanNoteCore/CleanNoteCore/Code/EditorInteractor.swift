@@ -34,7 +34,7 @@ extension EditorInteractor: EditorInteractorInput {
         self.output.update(text: $0.text)
       }
     } catch {
-      let error = makeSaveError()
+      let error = makeSaveError(text: "wuh?")
       output.didFailToFetchText(error: error)
     }
   }
@@ -44,33 +44,35 @@ extension EditorInteractor: EditorInteractorInput {
       try gateway.save(text: text, for: noteID)
       output.didSaveText(for: noteID)
     } catch {
-      let error = makeSaveError()
+      let error = makeSaveError(text: text)
       output.didFailToSaveText(error: error)
     }
   }
 
-  private func makeSaveError() -> NSError {
-//    let recoveryAttempter = MakeNoteRecovery(interactor: self)
+  private func makeSaveError(text: String) -> NSError {
+    let recoveryAttempter = SaveRecovery(interactor: self, text: text)
     let userInfo = [
       NSLocalizedDescriptionKey: "Could not save the note",
       NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem saving the note.",
       NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
-//      NSRecoveryAttempterErrorKey: recoveryAttempter
+      NSRecoveryAttempterErrorKey: recoveryAttempter
     ]
     return NSError(domain: EditorErrorDomain, code: EditorErrorFailToSaveNote, userInfo: userInfo)
   }
 }
 
-//class MakeNoteRecovery: NSObject {
-//
-//  let interactor: ListInteractor
-//
-//  init(interactor: ListInteractor) {
-//    self.interactor = interactor
-//  }
-//
-//  override func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector?, contextInfo: UnsafeMutablePointer<Void>?) {
-//    guard recoveryOptionIndex == 0 else { return }
-//    interactor.makeNote()
-//  }
-//}
+class SaveRecovery: NSObject {
+
+  let interactor: EditorInteractor
+  let text: String
+
+  init(interactor: EditorInteractor, text: String) {
+    self.interactor = interactor
+    self.text = text
+  }
+
+  override func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector?, contextInfo: UnsafeMutablePointer<Void>?) {
+    guard recoveryOptionIndex == 0 else { return }
+    interactor.save(text: text)
+  }
+}
