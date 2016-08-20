@@ -40,8 +40,7 @@ extension EditorViewController: EditorInterface {
   }
 
   func show(error: String) {
-    textView.isEditable = false
-    textView.string = "Error: \(error)"
+    // TODO - show error
   }
 
   func didSaveText(for noteID: NoteID) {

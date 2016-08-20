@@ -1,3 +1,8 @@
+import Foundation
+
+public let ListErrorDomain = "ListErrorDomain"
+public let ListErrorFailToMakeNote = 1
+
 public protocol ListInteractorInput {
   func fetchNotesAndSelect(noteID: NoteID?)
   func makeNote()
@@ -5,7 +10,7 @@ public protocol ListInteractorInput {
 
 public protocol ListInteractorOutput {
   func update(list: List)
-  func didFailToMakeNote()
+  func didFailToMakeNote(error: NSError)
 }
 
 public class ListInteractor {
@@ -31,7 +36,29 @@ extension ListInteractor: ListInteractorInput {
       let note = try gateway.makeNote()
       fetchNotesAndSelect(noteID: note.id)
     } catch {
-      output.didFailToMakeNote()
+      let error = makeError()
+      output.didFailToMakeNote(error: error)
     }
+  }
+
+  private func makeError() -> NSError {
+    let recoveryAttempter = MakeNoteRecovery()
+    let userInfo = [
+      NSLocalizedDescriptionKey: "Could not make a new note",
+      NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem making a new note.",
+      NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
+      NSRecoveryAttempterErrorKey: recoveryAttempter
+    ]
+    return NSError(domain: ListErrorDomain, code: ListErrorFailToMakeNote, userInfo: userInfo)
+  }
+}
+
+public class MakeNoteRecovery: NSObject {
+
+  public func attemptRecoveryFromError(error: NSError, optionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) {
+  }
+
+  public func attemptRecoveryFromError(error: NSError, optionIndex: Int) -> Bool {
+    return false
   }
 }
