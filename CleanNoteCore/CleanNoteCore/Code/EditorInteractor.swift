@@ -2,6 +2,7 @@ import Foundation
 
 let EditorErrorDomain = "EditorErrorDomain"
 let EditorErrorFailToSaveNote = 1
+let EditorErrorFailToFetchNote = 2
 
 public protocol EditorInteractorInput {
   func fetchText()
@@ -34,9 +35,20 @@ extension EditorInteractor: EditorInteractorInput {
         self.output.update(text: $0.text)
       }
     } catch {
-      let error = makeSaveError(text: "wuh?")
+      let error = makeFetchError()
       output.didFailToFetchText(error: error)
     }
+  }
+
+  private func makeFetchError() -> NSError {
+    let recoveryAttempter = FetchRecovery(interactor: self)
+    let userInfo = [
+      NSLocalizedDescriptionKey: "Could not fetch the note",
+      NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem fetching the note.",
+      NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
+      NSRecoveryAttempterErrorKey: recoveryAttempter
+    ]
+    return NSError(domain: EditorErrorDomain, code: EditorErrorFailToFetchNote, userInfo: userInfo)
   }
 
   public func save(text: String) {
@@ -58,6 +70,20 @@ extension EditorInteractor: EditorInteractorInput {
       NSRecoveryAttempterErrorKey: recoveryAttempter
     ]
     return NSError(domain: EditorErrorDomain, code: EditorErrorFailToSaveNote, userInfo: userInfo)
+  }
+}
+
+class FetchRecovery: NSObject {
+
+  let interactor: EditorInteractor
+
+  init(interactor: EditorInteractor) {
+    self.interactor = interactor
+  }
+
+  override func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector?, contextInfo: UnsafeMutablePointer<Void>?) {
+    guard recoveryOptionIndex == 0 else { return }
+    interactor.fetchText()
   }
 }
 
