@@ -15,6 +15,7 @@ public class InMemoryNoteGateway: NoteGateway {
   }
 
   public func fetchNote(with id: NoteID, completion: (Note) -> Void) throws {
+    guard hasRandomError() == false else { throw NoteGatewayError.unknown }
     guard let note = findNote(with: id) else { throw NoteGatewayError.notFound }
     completion(note)
   }
@@ -33,7 +34,7 @@ public class InMemoryNoteGateway: NoteGateway {
 
   private func hasRandomError() -> Bool {
     guard shouldFailRandomly else { return false }
-    let random = arc4random_uniform(2)
+    let random = arc4random_uniform(10)
     return random == 0
   }
 
@@ -43,6 +44,7 @@ public class InMemoryNoteGateway: NoteGateway {
   }
 
   public func save(text: String, for id: NoteID) throws {
+    guard hasRandomError() == false else { throw NoteGatewayError.unknown }
     guard let index = indexFor(noteID: id) else { throw NoteGatewayError.notFound }
     var note = notes[index]
     note.text = text

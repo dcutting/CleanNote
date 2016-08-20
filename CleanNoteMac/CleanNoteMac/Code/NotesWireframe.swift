@@ -4,7 +4,7 @@ import CleanNoteCore
 class NotesWireframe {
   func configure(notesViewController: NotesViewController) {
 
-    let shouldFailRandomly = false
+    let shouldFailRandomly = true
 
     let sampleNotes = makeSampleNotes()
     let noteGateway = InMemoryNoteGateway(notes: sampleNotes, shouldFailRandomly: shouldFailRandomly)

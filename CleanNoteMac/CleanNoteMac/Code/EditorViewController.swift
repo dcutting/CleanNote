@@ -39,8 +39,12 @@ extension EditorViewController: EditorInterface {
     textView.string = text
   }
 
-  func show(error: String) {
-    // TODO - show error
+  func show(error: NSError) {
+    guard let window = view.window else {
+      print("\(error)")
+      return
+    }
+    presentError(error, modalFor: window, delegate: nil, didPresent: nil, contextInfo: nil)
   }
 
   func didSaveText(for noteID: NoteID) {
