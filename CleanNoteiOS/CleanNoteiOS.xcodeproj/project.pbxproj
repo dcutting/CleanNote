@@ -119,6 +119,7 @@
 				C8296D491D665FE800E5DA44 /* AlertHelper.swift */,
 			);
 			name = Common;
+			path = CleanNoteiOS/Code;
 			sourceTree = "<group>";
 		};
 		C83BAD381D48E9CA00180193 = {
@@ -127,6 +128,7 @@
 				C8DF78E11D490A1B0070D75A /* Boilerplate */,
 				C8DF78E21D490A3D0070D75A /* UI */,
 				C8DF78B51D4905770070D75A /* Modules */,
+				C8296D4C1D6660E500E5DA44 /* Common */,
 				C8DF78C21D4905810070D75A /* Mocks */,
 				C83BAD421D48E9CA00180193 /* Products */,
 			);
@@ -156,7 +158,6 @@
 				C8DF78E51D490A620070D75A /* Root */,
 				C8DF78E41D490A550070D75A /* List */,
 				C8DF78E31D490A500070D75A /* Editor */,
-				C8296D4C1D6660E500E5DA44 /* Common */,
 			);
 			name = Modules;
 			path = CleanNoteiOS/Code;
