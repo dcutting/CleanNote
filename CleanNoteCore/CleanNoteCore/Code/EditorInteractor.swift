@@ -41,12 +41,11 @@ extension EditorInteractor: EditorInteractorInput {
   }
 
   private func makeFetchError() -> NSError {
-    let recoveryAttempter = FetchRecovery(interactor: self)
     let userInfo = [
       NSLocalizedDescriptionKey: "Could not fetch the note",
       NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem fetching the note.",
       NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
-      NSRecoveryAttempterErrorKey: recoveryAttempter
+      NSRecoveryAttempterErrorKey: RecoveryAttempter() { self.fetchText() }
     ]
     return NSError(domain: EditorErrorDomain, code: EditorErrorFailToFetchNote, userInfo: userInfo)
   }
@@ -62,43 +61,25 @@ extension EditorInteractor: EditorInteractorInput {
   }
 
   private func makeSaveError(text: String) -> NSError {
-    let recoveryAttempter = SaveRecovery(interactor: self, text: text)
     let userInfo = [
       NSLocalizedDescriptionKey: "Could not save the note",
       NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem saving the note.",
       NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
-      NSRecoveryAttempterErrorKey: recoveryAttempter
+      NSRecoveryAttempterErrorKey: RecoveryAttempter() { self.save(text: text) }
     ]
     return NSError(domain: EditorErrorDomain, code: EditorErrorFailToSaveNote, userInfo: userInfo)
   }
 }
 
-class FetchRecovery: NSObject {
+class RecoveryAttempter: NSObject {
+  let handler: (Void) -> Void
 
-  let interactor: EditorInteractor
-
-  init(interactor: EditorInteractor) {
-    self.interactor = interactor
+  init(handler: (Void) -> Void) {
+    self.handler = handler
   }
 
   override func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector?, contextInfo: UnsafeMutablePointer<Void>?) {
     guard recoveryOptionIndex == 0 else { return }
-    interactor.fetchText()
-  }
-}
-
-class SaveRecovery: NSObject {
-
-  let interactor: EditorInteractor
-  let text: String
-
-  init(interactor: EditorInteractor, text: String) {
-    self.interactor = interactor
-    self.text = text
-  }
-
-  override func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector?, contextInfo: UnsafeMutablePointer<Void>?) {
-    guard recoveryOptionIndex == 0 else { return }
-    interactor.save(text: text)
+    handler()
   }
 }
