@@ -42,27 +42,12 @@ extension ListInteractor: ListInteractorInput {
   }
 
   private func makeError() -> NSError {
-    let recoveryAttempter = MakeNoteRecovery(interactor: self)
     let userInfo = [
       NSLocalizedDescriptionKey: "Could not make a new note",
       NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem making a new note.",
       NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
-      NSRecoveryAttempterErrorKey: recoveryAttempter
+      NSRecoveryAttempterErrorKey: RecoveryAttempter(index: 0) { self.makeNote() }
     ]
     return NSError(domain: ListErrorDomain, code: ListErrorFailToMakeNote, userInfo: userInfo)
-  }
-}
-
-class MakeNoteRecovery: NSObject {
-
-  let interactor: ListInteractor
-
-  init(interactor: ListInteractor) {
-    self.interactor = interactor
-  }
-
-  override func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector?, contextInfo: UnsafeMutablePointer<Void>?) {
-    guard recoveryOptionIndex == 0 else { return }
-    interactor.makeNote()
   }
 }

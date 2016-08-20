@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C82E0EC11D6915E400066F55 /* RecoveryAttempter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E0EC01D6915E400066F55 /* RecoveryAttempter.swift */; };
 		C83BAD281D48E9A200180193 /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83BAD1E1D48E9A200180193 /* CleanNoteCore.framework */; };
 		C83BAD2F1D48E9A200180193 /* CleanNoteCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C83BAD211D48E9A200180193 /* CleanNoteCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C89356921D5A10DB001752A5 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89356911D5A10DB001752A5 /* List.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C82E0EC01D6915E400066F55 /* RecoveryAttempter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecoveryAttempter.swift; path = CleanNoteCore/Code/RecoveryAttempter.swift; sourceTree = "<group>"; };
 		C83BAD1E1D48E9A200180193 /* CleanNoteCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanNoteCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD211D48E9A200180193 /* CleanNoteCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CleanNoteCore.h; sourceTree = "<group>"; };
 		C83BAD221D48E9A200180193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C82E0EC21D6915E800066F55 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C82E0EC01D6915E400066F55 /* RecoveryAttempter.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
 		C83BAD141D48E9A200180193 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +100,7 @@
 				C8DF78D21D4908D30070D75A /* Entities */,
 				C8DF78D11D4908CC0070D75A /* Gateways */,
 				C8DF78D31D4908DB0070D75A /* Modules */,
+				C82E0EC21D6915E800066F55 /* Common */,
 				C83BAD1F1D48E9A200180193 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -294,6 +305,7 @@
 				C89356921D5A10DB001752A5 /* List.swift in Sources */,
 				C8DF78931D4904DA0070D75A /* EditorInteractor.swift in Sources */,
 				C8DF78951D4904DA0070D75A /* InMemoryNoteGateway.swift in Sources */,
+				C82E0EC11D6915E400066F55 /* RecoveryAttempter.swift in Sources */,
 				C8DF78961D4904DA0070D75A /* ListInteractor.swift in Sources */,
 				C8DF78941D4904DA0070D75A /* EditorPresenter.swift in Sources */,
 				C8DF78991D4904DA0070D75A /* NoteGateway.swift in Sources */,

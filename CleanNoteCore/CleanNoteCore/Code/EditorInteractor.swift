@@ -45,7 +45,7 @@ extension EditorInteractor: EditorInteractorInput {
       NSLocalizedDescriptionKey: "Could not fetch the note",
       NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem fetching the note.",
       NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
-      NSRecoveryAttempterErrorKey: RecoveryAttempter() { self.fetchText() }
+      NSRecoveryAttempterErrorKey: RecoveryAttempter(index: 0) { self.fetchText() }
     ]
     return NSError(domain: EditorErrorDomain, code: EditorErrorFailToFetchNote, userInfo: userInfo)
   }
@@ -65,21 +65,8 @@ extension EditorInteractor: EditorInteractorInput {
       NSLocalizedDescriptionKey: "Could not save the note",
       NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem saving the note.",
       NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
-      NSRecoveryAttempterErrorKey: RecoveryAttempter() { self.save(text: text) }
+      NSRecoveryAttempterErrorKey: RecoveryAttempter(index: 0) { self.save(text: text) }
     ]
     return NSError(domain: EditorErrorDomain, code: EditorErrorFailToSaveNote, userInfo: userInfo)
-  }
-}
-
-class RecoveryAttempter: NSObject {
-  let handler: (Void) -> Void
-
-  init(handler: (Void) -> Void) {
-    self.handler = handler
-  }
-
-  override func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector?, contextInfo: UnsafeMutablePointer<Void>?) {
-    guard recoveryOptionIndex == 0 else { return }
-    handler()
   }
 }
