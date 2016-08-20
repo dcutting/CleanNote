@@ -23,6 +23,7 @@ extension EditorViewController: EditorInterface {
   }
 
   func show(error: NSError) {
+    // TODO: don't permit editing.
     guard let controller = navigationController else { return }
     AlertHelper().show(title: "Error", text: error.localizedDescription, controller: controller)
   }

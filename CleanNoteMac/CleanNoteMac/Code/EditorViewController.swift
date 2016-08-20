@@ -40,6 +40,7 @@ extension EditorViewController: EditorInterface {
   }
 
   func show(error: NSError) {
+    // TODO: don't permit editing.
     guard let window = view.window else {
       print("\(error)")
       return
