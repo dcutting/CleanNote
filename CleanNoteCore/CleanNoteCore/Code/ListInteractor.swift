@@ -32,13 +32,13 @@ extension ListInteractor: ListInteractorInput {
   }
 
   public func makeNote() {
-    do {
-      let note = try gateway.makeNote()
-      fetchNotesAndSelect(noteID: note.id)
-    } catch {
+//    do {
+//      let note = try gateway.makeNote()
+//      fetchNotesAndSelect(noteID: note.id)
+//    } catch {
       let error = makeError()
       output.didFailToMakeNote(error: error)
-    }
+//    }
   }
 
   private func makeError() -> NSError {
@@ -53,12 +53,9 @@ extension ListInteractor: ListInteractorInput {
   }
 }
 
-public class MakeNoteRecovery: NSObject {
+class MakeNoteRecovery: NSObject {
 
-  public func attemptRecoveryFromError(error: NSError, optionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector, contextInfo: UnsafeMutablePointer<Void>) {
-  }
-
-  public func attemptRecoveryFromError(error: NSError, optionIndex: Int) -> Bool {
-    return false
+  override func attemptRecovery(fromError error: Error, optionIndex recoveryOptionIndex: Int, delegate: AnyObject?, didRecoverSelector: Selector?, contextInfo: UnsafeMutablePointer<Void>?) {
+    print("attempting")
   }
 }
