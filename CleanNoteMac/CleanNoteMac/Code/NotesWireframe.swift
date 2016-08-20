@@ -30,10 +30,8 @@ class NotesWireframe {
   }
   
   private func makeSampleNotes() -> [Note] {
-    let noteID1 = "1"
-    let noteID2 = "2"
-    let note1 = Note(id: noteID1, text: "Hello world")
-    let note2 = Note(id: noteID2, text: "Goodbye cruel world")
+    let note1 = Note(id: "1", text: "Hello world")
+    let note2 = Note(id: "2", text: "Goodbye cruel world")
     return [note1, note2]
   }
 }
