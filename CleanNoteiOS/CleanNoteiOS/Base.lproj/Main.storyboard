@@ -78,9 +78,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vei-3k-2hb">
-                                <frame key="frameInset" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vei-3k-2hb">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -88,6 +86,12 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Vei-3k-2hb" firstAttribute="leading" secondItem="vyK-38-0Kr" secondAttribute="leading" id="0AA-4Y-YQX"/>
+                            <constraint firstItem="Vei-3k-2hb" firstAttribute="bottom" secondItem="e3b-x3-TUz" secondAttribute="top" id="0bi-EV-VTT"/>
+                            <constraint firstAttribute="trailing" secondItem="Vei-3k-2hb" secondAttribute="trailing" id="e2z-Oh-Dm9"/>
+                            <constraint firstItem="Vei-3k-2hb" firstAttribute="top" secondItem="vyK-38-0Kr" secondAttribute="top" id="gTP-2n-o09"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="textView" destination="Vei-3k-2hb" id="uAj-pS-gTW"/>
