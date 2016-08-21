@@ -14,10 +14,14 @@ public class InMemoryNoteGateway: NoteGateway {
     completion(notes)
   }
 
-  public func fetchNote(with id: NoteID, completion: (Note) -> Void) throws {
-    guard hasRandomError() == false else { throw NoteGatewayError.unknown }
-    guard let note = findNote(with: id) else { throw NoteGatewayError.notFound }
-    completion(note)
+  public func fetchNote(with id: NoteID, completion: ((Void) throws -> Note) -> Void) {
+    if hasRandomError() {
+      completion { throw NoteGatewayError.unknown }
+    } else if let note = findNote(with: id) {
+      completion { return note }
+    } else {
+      completion { throw NoteGatewayError.notFound }
+    }
   }
 
   private func findNote(with id: NoteID) -> Note? {

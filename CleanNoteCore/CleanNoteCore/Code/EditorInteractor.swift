@@ -30,13 +30,14 @@ public class EditorInteractor {
 
 extension EditorInteractor: EditorInteractorInput {
   public func fetchText() {
-    do {
-      try gateway.fetchNote(with: noteID) {
-        self.output.update(text: $0.text)
+    gateway.fetchNote(with: noteID) { result in
+      do {
+        let note = try result()
+        self.output.update(text: note.text)
+      } catch {
+        let error = self.makeFetchError()
+        self.output.didFailToFetchText(error: error)
       }
-    } catch {
-      let error = makeFetchError()
-      output.didFailToFetchText(error: error)
     }
   }
 
