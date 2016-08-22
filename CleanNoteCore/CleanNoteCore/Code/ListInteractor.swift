@@ -42,7 +42,7 @@ extension ListInteractor: ListInteractorInput {
   }
 
   private func makeError() -> NSError {
-    let userInfo = [
+    let userInfo: [String: Any] = [
       NSLocalizedDescriptionKey: "Could not make a new note",
       NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem making a new note.",
       NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],

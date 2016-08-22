@@ -42,7 +42,7 @@ extension EditorInteractor: EditorInteractorInput {
   }
 
   private func makeFetchError() -> NSError {
-    let userInfo = [
+    let userInfo: [String: Any] = [
       NSLocalizedDescriptionKey: "Could not fetch the note",
       NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem fetching the note.",
       NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
@@ -62,7 +62,7 @@ extension EditorInteractor: EditorInteractorInput {
   }
 
   private func makeSaveError(text: String) -> NSError {
-    let userInfo = [
+    let userInfo: [String: Any] = [
       NSLocalizedDescriptionKey: "Could not save the note",
       NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem saving the note.",
       NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
