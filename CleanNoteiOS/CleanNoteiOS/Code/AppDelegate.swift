@@ -5,7 +5,7 @@ import CleanNoteCore
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
 
-  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
 
     let navController = window?.rootViewController as! UINavigationController
     let listViewController = navController.topViewController as! ListViewController
