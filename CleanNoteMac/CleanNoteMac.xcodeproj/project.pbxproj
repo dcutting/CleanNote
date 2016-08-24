@@ -245,12 +245,14 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 59GEB226V7;
 						DevelopmentTeamName = "Dan Cutting (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					C845470D1D48FB760051BD61 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 59GEB226V7;
 						DevelopmentTeamName = "Dan Cutting (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = C84546FC1D48FB750051BD61;
 					};
