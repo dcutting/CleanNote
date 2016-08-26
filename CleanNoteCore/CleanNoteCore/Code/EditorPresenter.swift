@@ -2,7 +2,7 @@ import Foundation
 
 public protocol EditorInterface {
   func update(text: String)
-  func show(error: NSError)
+  func present(error: NSError)
   func didSaveText(for noteID: NoteID)
 }
 
@@ -19,15 +19,11 @@ extension EditorPresenter: EditorInteractorOutput {
     interface.update(text: text)
   }
 
-  public func didFailToFetchText(error: NSError) {
-    interface.show(error: error)
-  }
-
   public func didSaveText(for noteID: NoteID) {
     interface.didSaveText(for: noteID)
   }
 
-  public func didFailToSaveText(error: NSError) {
-    interface.show(error: error)
+  public func didFail(error: NSError) {
+    interface.present(error: error)
   }
 }

@@ -11,9 +11,8 @@ public protocol EditorInteractorInput {
 
 public protocol EditorInteractorOutput {
   func update(text: String)
-  func didFailToFetchText(error: NSError)
   func didSaveText(for noteID: NoteID)
-  func didFailToSaveText(error: NSError)
+  func didFail(error: NSError)
 }
 
 public class EditorInteractor {
@@ -36,7 +35,7 @@ extension EditorInteractor: EditorInteractorInput {
         self.output.update(text: note.text)
       } catch {
         let error = self.makeFetchError()
-        self.output.didFailToFetchText(error: error)
+        self.output.didFail(error: error)
       }
     }
   }
@@ -58,7 +57,7 @@ extension EditorInteractor: EditorInteractorInput {
         self.output.didSaveText(for: self.noteID)
       } catch {
         let error = self.makeSaveError(text: text)
-        self.output.didFailToSaveText(error: error)
+        self.output.didFail(error: error)
       }
     }
   }

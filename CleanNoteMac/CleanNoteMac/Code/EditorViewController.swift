@@ -39,7 +39,7 @@ extension EditorViewController: EditorInterface {
     textView.string = text
   }
 
-  func show(error: NSError) {
+  func present(error: NSError) {
     // TODO: don't permit editing.
     guard let window = view.window else {
       print("\(error)")

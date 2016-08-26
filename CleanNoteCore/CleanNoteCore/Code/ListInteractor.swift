@@ -11,8 +11,7 @@ public protocol ListInteractorInput {
 
 public protocol ListInteractorOutput {
   func update(list: List)
-  func didFailToFetchNotes(error: NSError)
-  func didFailToMakeNote(error: NSError)
+  func didFail(error: NSError)
 }
 
 public class ListInteractor {
@@ -34,7 +33,7 @@ extension ListInteractor: ListInteractorInput {
         self.output.update(list: list)
       } catch {
         let error = self.makeFetchError(noteID: noteID)
-        self.output.didFailToFetchNotes(error: error)
+        self.output.didFail(error: error)
       }
     }
   }
@@ -56,7 +55,7 @@ extension ListInteractor: ListInteractorInput {
         self.fetchNotesAndSelect(noteID: note.id)
       } catch {
         let error = self.makeMakeNoteError()
-        self.output.didFailToMakeNote(error: error)
+        self.output.didFail(error: error)
       }
     }
   }

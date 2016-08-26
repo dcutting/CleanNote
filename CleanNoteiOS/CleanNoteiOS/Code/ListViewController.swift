@@ -86,7 +86,7 @@ extension ListViewController: ListInterface {
     performSegue(withIdentifier: EditNoteSegueIdentifier, sender: noteIDWrapperObject)
   }
 
-  func show(error: NSError) {
+  func present(error: NSError) {
     guard let controller = navigationController else { return }
     AlertHelper().show(title: "Error", text: error.localizedDescription, controller: controller)
   }

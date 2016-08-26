@@ -62,7 +62,7 @@ extension ListViewController: ListInterface {
     shouldNotifyDelegate = true
   }
 
-  func show(error: NSError) {
+  func present(error: NSError) {
     guard let window = view.window else {
       print("\(error)")
       return

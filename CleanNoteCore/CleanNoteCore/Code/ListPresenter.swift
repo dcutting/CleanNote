@@ -18,7 +18,7 @@ public func ==(lhs: ListViewNote, rhs: ListViewNote) -> Bool {
 
 public protocol ListInterface {
   func update(list: ListViewList)
-  func show(error: NSError)
+  func present(error: NSError)
 }
 
 public class ListPresenter {
@@ -50,11 +50,7 @@ extension ListPresenter: ListInteractorOutput {
     return text.replacingOccurrences(of: "\n", with: " ")
   }
 
-  public func didFailToFetchNotes(error: NSError) {
-    interface.show(error: error)
-  }
-
-  public func didFailToMakeNote(error: NSError) {
-    interface.show(error: error)
+  public func didFail(error: NSError) {
+    interface.present(error: error)
   }
 }
