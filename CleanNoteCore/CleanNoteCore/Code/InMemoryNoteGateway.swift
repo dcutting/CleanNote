@@ -10,7 +10,7 @@ public class InMemoryNoteGateway: NoteGateway {
     self.shouldFailRandomly = shouldFailRandomly
   }
 
-  public func fetchNotes(completion: ((Void) throws -> [Note]) -> Void) {
+  public func fetchNotes(completion: AsyncThrowable<[Note]>) {
     if hasRandomError() {
       completion { throw NoteGatewayError.unknown }
     } else {
@@ -18,7 +18,7 @@ public class InMemoryNoteGateway: NoteGateway {
     }
   }
 
-  public func fetchNote(with id: NoteID, completion: ((Void) throws -> Note) -> Void) {
+  public func fetchNote(with id: NoteID, completion: AsyncThrowable<Note>) {
     if hasRandomError() {
       completion { throw NoteGatewayError.unknown }
     } else if let note = findNote(with: id) {
