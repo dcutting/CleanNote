@@ -23,7 +23,7 @@ class NotesViewController: NSSplitViewController {
 
   func start() {
     configureList()
-    editorViewController.showNoNoteScreen()
+    editorViewController.showNoNoteSelected()
     listInteractor?.fetchNotesAndSelect(noteID: nil)
   }
 
@@ -40,7 +40,7 @@ class NotesViewController: NSSplitViewController {
 extension NotesViewController: ListViewControllerDelegate {
   func didSelect(noteID: NoteID) {
     configureEditor(noteID: noteID)
-    editorViewController.showNoteScreen()
+    editorViewController.showNote()
     editorInteractor?.fetchText()
     listInteractor?.fetchNotesAndSelect(noteID: noteID)
   }
@@ -52,7 +52,7 @@ extension NotesViewController: ListViewControllerDelegate {
   func didDeselectAllNotes() {
     listInteractor?.fetchNotesAndSelect(noteID: nil)
     editorInteractor = nil
-    editorViewController.showNoNoteScreen()
+    editorViewController.showNoNoteSelected()
   }
 }
 

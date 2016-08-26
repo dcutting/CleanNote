@@ -10,6 +10,7 @@ class EditorViewController: NSViewController {
   weak var delegate: EditorViewControllerDelegate?
   @IBOutlet weak var textContainerView: NSScrollView!
   @IBOutlet var textView: NSTextView!
+  @IBOutlet var errorTextField: NSTextField!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,11 +21,16 @@ class EditorViewController: NSViewController {
     textView.textContainerInset = CGSize.init(width: 15, height: 15)
   }
 
-  func showNoteScreen() {
+  func showNote() {
     textContainerView.isHidden = false
   }
 
-  func showNoNoteScreen() {
+  func showNoNoteSelected() {
+    show(text: "No note selected")
+  }
+
+  fileprivate func show(text: String) {
+    errorTextField.stringValue = text
     textContainerView.isHidden = true
   }
 
@@ -35,14 +41,11 @@ class EditorViewController: NSViewController {
 
 extension EditorViewController: EditorInterface {
   func update(text: String) {
-    textView.isEditable = true
     textView.string = text
   }
 
   func present(error: NSError) {
-    // TODO: don't permit editing.
-    guard let window = view.window else { return }
-    presentError(error, modalFor: window, delegate: nil, didPresent: nil, contextInfo: nil)
+    show(text: error.localizedDescription)
   }
 
   func didSaveText(for noteID: NoteID) {
