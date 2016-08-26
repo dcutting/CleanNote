@@ -49,9 +49,7 @@ extension ListViewController: ListInterface {
   }
 
   private func rowFor(noteID: NoteID?, in notes: [ListViewNote]?) -> Int? {
-    guard let notes = notes else { return nil }
-    guard let noteID = noteID else { return nil }
-    return notes.index { $0.id == noteID }
+    return notes?.index { $0.id == noteID }
   }
 
   private func deselectAll() {
@@ -63,28 +61,22 @@ extension ListViewController: ListInterface {
   }
 
   func present(error: NSError) {
-    guard let window = view.window else {
-      print("\(error)")
-      return
-    }
+    guard let window = view.window else { return }
     presentError(error, modalFor: window, delegate: nil, didPresent: nil, contextInfo: nil)
   }
 }
 
 extension ListViewController: NSTableViewDataSource {
   func numberOfRows(in tableView: NSTableView) -> Int {
-    guard let notes = list?.notes else { return 0 }
-    return notes.count
+    return list?.notes.count ?? 0
   }
 }
 
 extension ListViewController: NSTableViewDelegate {
   func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
     let cellView = tableView.make(withIdentifier: tableColumn!.identifier, owner: self) as! NSTableCellView
-    guard let notes = list?.notes else { return cellView }
-    guard let label = cellView.textField else { return cellView }
-    let listViewNote = notes[row]
-    label.stringValue = listViewNote.summary
+    let listViewNote = list?.notes[row]
+    cellView.textField?.stringValue = listViewNote?.summary ?? ""
     return cellView
   }
 
