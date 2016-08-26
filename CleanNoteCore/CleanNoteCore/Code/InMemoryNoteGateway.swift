@@ -10,8 +10,12 @@ public class InMemoryNoteGateway: NoteGateway {
     self.shouldFailRandomly = shouldFailRandomly
   }
 
-  public func fetchNotes(completion: ([Note]) -> Void) {
-    completion(notes)
+  public func fetchNotes(completion: ((Void) throws -> [Note]) -> Void) {
+    if hasRandomError() {
+      completion { throw NoteGatewayError.unknown }
+    } else {
+      completion { return notes }
+    }
   }
 
   public func fetchNote(with id: NoteID, completion: ((Void) throws -> Note) -> Void) {
@@ -38,7 +42,7 @@ public class InMemoryNoteGateway: NoteGateway {
 
   private func hasRandomError() -> Bool {
     guard shouldFailRandomly else { return false }
-    let random = arc4random_uniform(10)
+    let random = arc4random_uniform(1)
     return random == 0
   }
 

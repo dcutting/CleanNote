@@ -50,6 +50,10 @@ extension ListPresenter: ListInteractorOutput {
     return text.replacingOccurrences(of: "\n", with: " ")
   }
 
+  public func didFailToFetchNotes(error: NSError) {
+    interface.show(error: error)
+  }
+
   public func didFailToMakeNote(error: NSError) {
     interface.show(error: error)
   }
