@@ -52,12 +52,14 @@ extension EditorInteractor: EditorInteractorInput {
   }
 
   public func save(text: String) {
-    do {
-      try gateway.save(text: text, for: noteID)
-      output.didSaveText(for: noteID)
-    } catch {
-      let error = makeSaveError(text: text)
-      output.didFailToSaveText(error: error)
+    gateway.save(text: text, for: noteID) { result in
+      do {
+        try result()
+        self.output.didSaveText(for: self.noteID)
+      } catch {
+        let error = self.makeSaveError(text: text)
+        self.output.didFailToSaveText(error: error)
+      }
     }
   }
 
