@@ -32,12 +32,15 @@ public class InMemoryNoteGateway: NoteGateway {
     return notes.filter { $0.id == id }.first
   }
 
-  public func makeNote() throws -> Note {
-    guard hasRandomError() == false else { throw NoteGatewayError.unknown }
-    let nextNoteID = nextID()
-    let note = Note(id: nextNoteID, text: "")
-    notes.append(note)
-    return note
+  public func makeNote(completion: AsyncThrowable<Note>) {
+    if hasRandomError() {
+      completion { throw NoteGatewayError.unknown }
+    } else {
+      let nextNoteID = nextID()
+      let note = Note(id: nextNoteID, text: "")
+      notes.append(note)
+      completion { return note }
+    }
   }
 
   private func hasRandomError() -> Bool {

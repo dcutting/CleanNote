@@ -50,12 +50,14 @@ extension ListInteractor: ListInteractorInput {
   }
 
   public func makeNote() {
-    do {
-      let note = try gateway.makeNote()
-      fetchNotesAndSelect(noteID: note.id)
-    } catch {
-      let error = makeMakeNoteError()
-      output.didFailToMakeNote(error: error)
+    gateway.makeNote() { result in
+      do {
+        let note = try result()
+        self.fetchNotesAndSelect(noteID: note.id)
+      } catch {
+        let error = self.makeMakeNoteError()
+        self.output.didFailToMakeNote(error: error)
+      }
     }
   }
 
