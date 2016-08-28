@@ -4,10 +4,11 @@ import CleanNoteCore
 class NotesWireframe {
   func configure(notesViewController: NotesViewController) {
 
-    let shouldFailRandomly = true
-
     let sampleNotes = makeSampleNotes()
-    let noteGateway = InMemoryNoteGateway(notes: sampleNotes, shouldFailRandomly: shouldFailRandomly)
+    let inMemoryNoteGateway = InMemoryNoteGateway(notes: sampleNotes)
+
+    let failureRate = 0
+    let noteGateway = RandomlyFailingNoteGatewayDecorator(noteGateway: inMemoryNoteGateway, failOneIn: failureRate)
 
     let listWireframe = ListWireframe(noteGateway: noteGateway)
     let editorWireframe = EditorWireframe(noteGateway: noteGateway)

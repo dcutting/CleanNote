@@ -10,6 +10,7 @@
 		C82E0EC11D6915E400066F55 /* RecoveryAttempter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E0EC01D6915E400066F55 /* RecoveryAttempter.swift */; };
 		C83BAD281D48E9A200180193 /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83BAD1E1D48E9A200180193 /* CleanNoteCore.framework */; };
 		C83BAD2F1D48E9A200180193 /* CleanNoteCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C83BAD211D48E9A200180193 /* CleanNoteCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C88E03471D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88E03461D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift */; };
 		C89356921D5A10DB001752A5 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89356911D5A10DB001752A5 /* List.swift */; };
 		C8DF78931D4904DA0070D75A /* EditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF788C1D4904DA0070D75A /* EditorInteractor.swift */; };
 		C8DF78941D4904DA0070D75A /* EditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF788D1D4904DA0070D75A /* EditorPresenter.swift */; };
@@ -43,6 +44,7 @@
 		C83BAD221D48E9A200180193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C83BAD271D48E9A200180193 /* CleanNoteCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CleanNoteCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD2E1D48E9A200180193 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = CleanNoteCoreTests/Info.plist; sourceTree = SOURCE_ROOT; };
+		C88E03461D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomlyFailingNoteGatewayDecorator.swift; sourceTree = "<group>"; };
 		C89356911D5A10DB001752A5 /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		C8DF788C1D4904DA0070D75A /* EditorInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorInteractor.swift; sourceTree = "<group>"; };
 		C8DF788D1D4904DA0070D75A /* EditorPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorPresenter.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				C8DF788E1D4904DA0070D75A /* InMemoryNoteGateway.swift */,
 				C8DF789D1D4905130070D75A /* InMemoryNoteGatewayTests.swift */,
 				C8DF78A61D4905130070D75A /* MockNoteGateway.swift */,
+				C88E03461D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift */,
 			);
 			name = Gateways;
 			path = CleanNoteCore/Code;
@@ -307,6 +310,7 @@
 				C8DF78931D4904DA0070D75A /* EditorInteractor.swift in Sources */,
 				C8DF78951D4904DA0070D75A /* InMemoryNoteGateway.swift in Sources */,
 				C82E0EC11D6915E400066F55 /* RecoveryAttempter.swift in Sources */,
+				C88E03471D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift in Sources */,
 				C8DF78961D4904DA0070D75A /* ListInteractor.swift in Sources */,
 				C8DF78941D4904DA0070D75A /* EditorPresenter.swift in Sources */,
 				C8DF78991D4904DA0070D75A /* NoteGateway.swift in Sources */,
