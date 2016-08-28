@@ -45,7 +45,12 @@ extension EditorViewController: EditorInterface {
   }
 
   func present(error: NSError) {
-    show(text: error.localizedDescription)
+    if error.domain == EditorErrorDomain && error.code == EditorErrorFailToFetchNote {
+      show(text: error.localizedDescription)
+    } else {
+      guard let window = view.window else { return }
+      presentError(error, modalFor: window, delegate: nil, didPresent: nil, contextInfo: nil)
+    }
   }
 
   func didSaveText(for noteID: NoteID) {

@@ -1,8 +1,8 @@
 import Foundation
 
-let EditorErrorDomain = "EditorErrorDomain"
-let EditorErrorFailToSaveNote = 1
-let EditorErrorFailToFetchNote = 2
+public let EditorErrorDomain = "EditorErrorDomain"
+public let EditorErrorFailToSaveNote = 1
+public let EditorErrorFailToFetchNote = 2
 
 public protocol EditorInteractorInput {
   func fetchText()

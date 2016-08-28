@@ -40,7 +40,7 @@ extension ListInteractor: ListInteractorInput {
 
   private func makeFetchError(noteID: NoteID?) -> NSError {
     let userInfo: [String: Any] = [
-      NSLocalizedDescriptionKey: "Could not fetch notes",
+      NSLocalizedDescriptionKey: "Could not fetch the list of notes",
       NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem fetching the notes.",
       NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
       NSRecoveryAttempterErrorKey: RecoveryAttempter(index: 0) { self.fetchNotesAndSelect(noteID: noteID) }
