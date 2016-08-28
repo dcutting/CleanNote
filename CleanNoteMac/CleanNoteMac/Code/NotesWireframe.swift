@@ -7,7 +7,7 @@ class NotesWireframe {
     let sampleNotes = makeSampleNotes()
     let inMemoryNoteGateway = InMemoryNoteGateway(notes: sampleNotes)
 
-    let failureRate = 0
+    let failureRate = 7
     let noteGateway = RandomlyFailingNoteGatewayDecorator(noteGateway: inMemoryNoteGateway, failOneIn: failureRate)
 
     let listWireframe = ListWireframe(noteGateway: noteGateway)
