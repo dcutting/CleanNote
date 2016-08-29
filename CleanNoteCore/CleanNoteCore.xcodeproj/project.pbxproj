@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C82687D91D7468900071D2A6 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82687D81D7468900071D2A6 /* ErrorHelper.swift */; };
 		C82E0EC11D6915E400066F55 /* RecoveryAttempter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82E0EC01D6915E400066F55 /* RecoveryAttempter.swift */; };
 		C83BAD281D48E9A200180193 /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83BAD1E1D48E9A200180193 /* CleanNoteCore.framework */; };
 		C83BAD2F1D48E9A200180193 /* CleanNoteCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C83BAD211D48E9A200180193 /* CleanNoteCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C82687D81D7468900071D2A6 /* ErrorHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorHelper.swift; path = CleanNoteCore/Code/ErrorHelper.swift; sourceTree = "<group>"; };
 		C82E0EC01D6915E400066F55 /* RecoveryAttempter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecoveryAttempter.swift; path = CleanNoteCore/Code/RecoveryAttempter.swift; sourceTree = "<group>"; };
 		C83BAD1E1D48E9A200180193 /* CleanNoteCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanNoteCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD211D48E9A200180193 /* CleanNoteCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CleanNoteCore.h; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				C82E0EC01D6915E400066F55 /* RecoveryAttempter.swift */,
+				C82687D81D7468900071D2A6 /* ErrorHelper.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				C88E03471D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift in Sources */,
 				C8DF78961D4904DA0070D75A /* ListInteractor.swift in Sources */,
 				C8DF78941D4904DA0070D75A /* EditorPresenter.swift in Sources */,
+				C82687D91D7468900071D2A6 /* ErrorHelper.swift in Sources */,
 				C8DF78991D4904DA0070D75A /* NoteGateway.swift in Sources */,
 				C8DF78981D4904DA0070D75A /* Note.swift in Sources */,
 			);

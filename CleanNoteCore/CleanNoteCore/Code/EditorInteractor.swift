@@ -41,13 +41,9 @@ extension EditorInteractor: EditorInteractorInput {
   }
 
   private func makeFetchError() -> NSError {
-    let userInfo: [String: Any] = [
-      NSLocalizedDescriptionKey: "Could not fetch the note",
-      NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem fetching the note.",
-      NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
-      NSRecoveryAttempterErrorKey: RecoveryAttempter(index: 0) { self.fetchText() }
-    ]
-    return NSError(domain: EditorErrorDomain, code: EditorErrorFailToFetchNote, userInfo: userInfo)
+    return makeEditorError(description: "Could not fetch the note", suggestion: "There was a temporary problem fetching the note.") {
+      self.fetchText()
+    }
   }
 
   public func save(text: String) {
@@ -63,12 +59,17 @@ extension EditorInteractor: EditorInteractorInput {
   }
 
   private func makeSaveError(text: String) -> NSError {
-    let userInfo: [String: Any] = [
-      NSLocalizedDescriptionKey: "Could not save the note",
-      NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem saving the note.",
-      NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
-      NSRecoveryAttempterErrorKey: RecoveryAttempter(index: 0) { self.save(text: text) }
-    ]
-    return NSError(domain: EditorErrorDomain, code: EditorErrorFailToSaveNote, userInfo: userInfo)
+    return makeEditorError(description: "Could not save the note", suggestion: "There was a temporary problem saving the note.") {
+      self.save(text: text)
+    }
+  }
+
+  private func makeEditorError(description: String, suggestion: String, retry: @escaping (Void) -> Void) -> NSError {
+    return makeError(domain: EditorErrorDomain,
+                     code: EditorErrorFailToSaveNote,
+                     description: description,
+                     suggestion: suggestion,
+                     options: ["Try again", "Cancel"],
+                     recovery: RecoveryAttempter(index: 0, handler: retry))
   }
 }
