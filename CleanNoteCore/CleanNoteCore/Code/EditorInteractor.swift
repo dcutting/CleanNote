@@ -40,12 +40,6 @@ extension EditorInteractor: EditorInteractorInput {
     }
   }
 
-  private func makeFetchError() -> NSError {
-    return makeEditorError(description: "Could not fetch the note", suggestion: "There was a temporary problem fetching the note.") {
-      self.fetchText()
-    }
-  }
-
   public func save(text: String) {
     gateway.save(text: text, for: noteID) { result in
       do {
@@ -58,18 +52,19 @@ extension EditorInteractor: EditorInteractorInput {
     }
   }
 
+  private func makeFetchError() -> NSError {
+    return makeEditorError(code: EditorErrorFailToFetchNote, description: "Could not fetch the note") {
+      self.fetchText()
+    }
+  }
+
   private func makeSaveError(text: String) -> NSError {
-    return makeEditorError(description: "Could not save the note", suggestion: "There was a temporary problem saving the note.") {
+    return makeEditorError(code: EditorErrorFailToSaveNote, description: "Could not save the note") {
       self.save(text: text)
     }
   }
 
-  private func makeEditorError(description: String, suggestion: String, retry: @escaping (Void) -> Void) -> NSError {
-    return makeError(domain: EditorErrorDomain,
-                     code: EditorErrorFailToSaveNote,
-                     description: description,
-                     suggestion: suggestion,
-                     options: ["Try again", "Cancel"],
-                     recovery: RecoveryAttempter(index: 0, handler: retry))
+  private func makeEditorError(code: Int, description: String, retry: @escaping (Void) -> Void) -> NSError {
+    return makeRetryableError(domain: EditorErrorDomain, code: code, description: description, retry: retry)
   }
 }

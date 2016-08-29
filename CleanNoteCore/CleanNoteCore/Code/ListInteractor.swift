@@ -38,16 +38,6 @@ extension ListInteractor: ListInteractorInput {
     }
   }
 
-  private func makeFetchError(noteID: NoteID?) -> NSError {
-    let userInfo: [String: Any] = [
-      NSLocalizedDescriptionKey: "Could not fetch the list of notes",
-      NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem fetching the notes.",
-      NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
-      NSRecoveryAttempterErrorKey: RecoveryAttempter(index: 0) { self.fetchNotesAndSelect(noteID: noteID) }
-    ]
-    return NSError(domain: ListErrorDomain, code: ListErrorFailToFetchNotes, userInfo: userInfo)
-  }
-
   public func makeNote() {
     gateway.makeNote() { result in
       do {
@@ -60,13 +50,19 @@ extension ListInteractor: ListInteractorInput {
     }
   }
 
+  private func makeFetchError(noteID: NoteID?) -> NSError {
+    return makeListError(code: ListErrorFailToFetchNotes, description: "Could not fetch the list of notes") {
+      self.fetchNotesAndSelect(noteID: noteID)
+    }
+  }
+
   private func makeMakeNoteError() -> NSError {
-    let userInfo: [String: Any] = [
-      NSLocalizedDescriptionKey: "Could not make a new note",
-      NSLocalizedRecoverySuggestionErrorKey: "There was a temporary problem making a new note.",
-      NSLocalizedRecoveryOptionsErrorKey: ["Try again", "Cancel"],
-      NSRecoveryAttempterErrorKey: RecoveryAttempter(index: 0) { self.makeNote() }
-    ]
-    return NSError(domain: ListErrorDomain, code: ListErrorFailToMakeNote, userInfo: userInfo)
+    return makeListError(code: ListErrorFailToMakeNote, description: "Could not make a new note") {
+      self.makeNote()
+    }
+  }
+
+  private func makeListError(code: Int, description: String, retry: @escaping (Void) -> Void) -> NSError {
+    return makeRetryableError(domain: ListErrorDomain, code: code, description: description, retry: retry)
   }
 }
