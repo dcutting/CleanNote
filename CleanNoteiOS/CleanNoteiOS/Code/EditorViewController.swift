@@ -10,11 +10,6 @@ class EditorViewController: UIViewController {
     interactor.fetchText()
     textView.becomeFirstResponder()
   }
-
-  override func viewWillDisappear(_ animated: Bool) {
-    super.viewWillDisappear(animated)
-    interactor.save(text: textView.text)
-  }
 }
 
 extension EditorViewController: EditorInterface {
@@ -23,11 +18,19 @@ extension EditorViewController: EditorInterface {
   }
 
   func present(error: NSError) {
-    // TODO: don't permit editing.
     guard let controller = navigationController else { return }
+    if error.domain == EditorErrorDomain && error.code == EditorErrorFailToFetchNote {
+      controller.popViewController(animated: true)
+    }
     AlertHelper().show(title: "Error", text: error.localizedDescription, controller: controller)
   }
 
   func didSaveText(for noteID: NoteID) {
+  }
+}
+
+extension EditorViewController: UITextViewDelegate {
+  func textViewDidChange(_ textView: UITextView) {
+    interactor.save(text: textView.text)
   }
 }

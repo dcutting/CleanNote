@@ -2,8 +2,14 @@ import CleanNoteCore
 
 class RootWireframe {
   func configure(listViewController: ListViewController) {
+
     let sampleNotes = makeSampleNotes()
-    let noteGateway = InMemoryNoteGateway(notes: sampleNotes, shouldFailRandomly: true)
+    let inMemoryNoteGateway = InMemoryNoteGateway(notes: sampleNotes)
+
+    let failureRate = 20
+    let randomlyFailingGateway = RandomlyFailingNoteGatewayDecorator(noteGateway: inMemoryNoteGateway, failOneIn: failureRate)
+
+    let noteGateway = randomlyFailingGateway
 
     let editorWireframe = EditorWireframe(noteGateway: noteGateway)
 
