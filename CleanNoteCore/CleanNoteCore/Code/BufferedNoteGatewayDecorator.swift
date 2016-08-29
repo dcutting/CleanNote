@@ -3,6 +3,7 @@ import Foundation
 public class BufferedNoteGatewayDecorator: NoteGateway {
   let noteGateway: NoteGateway
   var cachedNotes: [Note]?
+  var dirty = false
 
   public init(noteGateway: NoteGateway) {
     self.noteGateway = noteGateway
@@ -28,7 +29,6 @@ public class BufferedNoteGatewayDecorator: NoteGateway {
     if let note = find(noteID: id, in: cachedNotes) {
       completion { return note }
     } else {
-      clearCache()
       noteGateway.fetchNote(with: id, completion: completion)
     }
   }
@@ -43,22 +43,28 @@ public class BufferedNoteGatewayDecorator: NoteGateway {
   }
 
   public func save(text: String, for id: NoteID, completion: AsyncThrowable<Void>) {
-    noteGateway.save(text: text, for: id) { result in
-      do {
-        try result()
-        self.clearCache()
-        completion {}
-      } catch {
-        completion { throw error }
-      }
+    if let index = indexFor(noteID: id, in: cachedNotes) {
+      var note = cachedNotes![index]
+      note.text = text
+      cachedNotes![index] = note
+      dirty = true
+      completion {}
+    } else {
+      noteGateway.save(text: text, for: id, completion: completion)
     }
+  }
+
+  private func indexFor(noteID: NoteID, in notes: [Note]?) -> Int? {
+    return notes?.index { $0.id == noteID }
   }
 
   private func cache(notes: [Note]) {
     cachedNotes = notes
+    dirty = false
   }
 
   private func clearCache() {
     cachedNotes = nil
+    dirty = false
   }
 }
