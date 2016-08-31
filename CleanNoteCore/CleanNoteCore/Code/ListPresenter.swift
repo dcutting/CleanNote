@@ -1,5 +1,3 @@
-import Foundation
-
 public struct ListViewNote {
   public let id: NoteID
   public var summary: String
@@ -18,7 +16,7 @@ public func ==(lhs: ListViewNote, rhs: ListViewNote) -> Bool {
 
 public protocol ListInterface {
   func update(list: ListViewList)
-  func present(error: NSError)
+  func present(error: Error)
 }
 
 public class ListPresenter {
@@ -50,7 +48,7 @@ extension ListPresenter: ListInteractorOutput {
     return text.replacingOccurrences(of: "\n", with: " ")
   }
 
-  public func didFail(error: NSError) {
+  public func didFail(error: Error) {
     interface.present(error: error)
   }
 }

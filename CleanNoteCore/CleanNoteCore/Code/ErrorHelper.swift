@@ -1,6 +1,6 @@
 import Foundation
 
-func makeRetryableError(domain: String, code: Int, description: String, retry: @escaping (Void) -> Void) -> NSError {
+func makeRetryableError(domain: String, code: Int, description: String, retry: @escaping (Void) -> Void) -> Error {
   return makeError(domain: domain,
                    code: code,
                    description: description,
@@ -8,7 +8,7 @@ func makeRetryableError(domain: String, code: Int, description: String, retry: @
                    recovery: RecoveryAttempter(index: 0, handler: retry))
 }
 
-func makeError(domain: String, code: Int, description: String, options: [String], recovery: RecoveryAttempter) -> NSError {
+func makeError(domain: String, code: Int, description: String, options: [String], recovery: RecoveryAttempter) -> Error {
   let userInfo: [String: Any] = [
     NSLocalizedDescriptionKey: description,
     NSLocalizedRecoveryOptionsErrorKey: options,

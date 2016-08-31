@@ -17,7 +17,7 @@ extension EditorViewController: EditorInterface {
     textView.text = text
   }
 
-  func present(error: NSError) {
+  func present(error: Error) {
     guard let controller = navigationController else { return }
     if error.domain == EditorErrorDomain && error.code == EditorErrorFailToFetchNote {
       controller.popViewController(animated: true)

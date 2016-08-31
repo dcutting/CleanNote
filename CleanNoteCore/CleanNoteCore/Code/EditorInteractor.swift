@@ -1,5 +1,3 @@
-import Foundation
-
 public let EditorErrorDomain = "EditorErrorDomain"
 public let EditorErrorFailToSaveNote = 1
 public let EditorErrorFailToFetchNote = 2
@@ -12,7 +10,7 @@ public protocol EditorInteractorInput {
 public protocol EditorInteractorOutput {
   func update(text: String)
   func didSaveText(for noteID: NoteID)
-  func didFail(error: NSError)
+  func didFail(error: Error)
 }
 
 public class EditorInteractor {
@@ -52,19 +50,19 @@ extension EditorInteractor: EditorInteractorInput {
     }
   }
 
-  private func makeFetchError() -> NSError {
+  private func makeFetchError() -> Error {
     return makeEditorError(code: EditorErrorFailToFetchNote, description: "Could not fetch the note") {
       self.fetchText()
     }
   }
 
-  private func makeSaveError(text: String) -> NSError {
+  private func makeSaveError(text: String) -> Error {
     return makeEditorError(code: EditorErrorFailToSaveNote, description: "Could not save the note") {
       self.save(text: text)
     }
   }
 
-  private func makeEditorError(code: Int, description: String, retry: @escaping (Void) -> Void) -> NSError {
+  private func makeEditorError(code: Int, description: String, retry: @escaping (Void) -> Void) -> Error {
     return makeRetryableError(domain: EditorErrorDomain, code: code, description: description, retry: retry)
   }
 }

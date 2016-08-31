@@ -1,5 +1,3 @@
-import Foundation
-
 public let ListErrorDomain = "ListErrorDomain"
 public let ListErrorFailToFetchNotes = 1
 public let ListErrorFailToMakeNote = 2
@@ -11,7 +9,7 @@ public protocol ListInteractorInput {
 
 public protocol ListInteractorOutput {
   func update(list: List)
-  func didFail(error: NSError)
+  func didFail(error: Error)
 }
 
 public class ListInteractor {
@@ -50,19 +48,19 @@ extension ListInteractor: ListInteractorInput {
     }
   }
 
-  private func makeFetchError(noteID: NoteID?) -> NSError {
+  private func makeFetchError(noteID: NoteID?) -> Error {
     return makeListError(code: ListErrorFailToFetchNotes, description: "Could not fetch the list of notes") {
       self.fetchNotesAndSelect(noteID: noteID)
     }
   }
 
-  private func makeMakeNoteError() -> NSError {
+  private func makeMakeNoteError() -> Error {
     return makeListError(code: ListErrorFailToMakeNote, description: "Could not make a new note") {
       self.makeNote()
     }
   }
 
-  private func makeListError(code: Int, description: String, retry: @escaping (Void) -> Void) -> NSError {
+  private func makeListError(code: Int, description: String, retry: @escaping (Void) -> Void) -> Error {
     return makeRetryableError(domain: ListErrorDomain, code: code, description: description, retry: retry)
   }
 }

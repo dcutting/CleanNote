@@ -44,7 +44,8 @@ extension EditorViewController: EditorInterface {
     textView.string = text
   }
 
-  func present(error: NSError) {
+  func present(error: Error) {
+    let error = error as NSError
     if error.domain == EditorErrorDomain && error.code == EditorErrorFailToFetchNote {
       show(text: error.localizedDescription)
     } else {
