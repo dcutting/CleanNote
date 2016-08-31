@@ -1,11 +1,17 @@
 import Foundation
 
-public enum ListError: LocalizedError, RecoverableError {
-  case failToFetchNotes((Void) -> Void)
-  case failToMakeNote((Void) -> Void)
+public struct ListError: LocalizedError, RecoverableError {
+
+  public enum ListErrorCode {
+    case failToFetchNotes
+    case failToMakeNote
+  }
+
+  let code: ListErrorCode
+  let recovery: (Void) -> Void
 
   public var errorDescription: String? {
-    switch self {
+    switch code {
     case .failToFetchNotes: return "Could not fetch the list of notes"
     case .failToMakeNote: return "Could not make a new note"
     }
@@ -17,11 +23,7 @@ public enum ListError: LocalizedError, RecoverableError {
 
   public func attemptRecovery(optionIndex recoveryOptionIndex: Int) -> Bool {
     guard 0 == recoveryOptionIndex else { return false }
-
-    switch self {
-    case let .failToFetchNotes(recovery), let .failToMakeNote(recovery):
-      recovery()
-    }
+    recovery()
     return true
   }
 }
@@ -54,7 +56,7 @@ extension ListInteractor: ListInteractorInput {
         let list = List(notes: notes, selected: noteID)
         self.output.update(list: list)
       } catch {
-        let error = ListError.failToFetchNotes { self.fetchNotesAndSelect(noteID: noteID) }
+        let error = ListError(code: .failToFetchNotes) { self.fetchNotesAndSelect(noteID: noteID) }
         self.output.didFail(error: error)
       }
     }
@@ -66,7 +68,7 @@ extension ListInteractor: ListInteractorInput {
         let note = try result()
         self.fetchNotesAndSelect(noteID: note.id)
       } catch {
-        let error = ListError.failToMakeNote { self.makeNote() }
+        let error = ListError(code: .failToMakeNote) { self.makeNote() }
         self.output.didFail(error: error)
       }
     }
