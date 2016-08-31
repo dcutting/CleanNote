@@ -1,6 +1,30 @@
-public let ListErrorDomain = "ListErrorDomain"
-public let ListErrorFailToFetchNotes = 1
-public let ListErrorFailToMakeNote = 2
+import Foundation
+
+public enum ListError: LocalizedError, RecoverableError {
+  case failToFetchNotes((Void) -> Void)
+  case failToMakeNote((Void) -> Void)
+
+  public var errorDescription: String? {
+    switch self {
+    case .failToFetchNotes: return "Could not fetch the list of notes"
+    case .failToMakeNote: return "Could not make a new note"
+    }
+  }
+
+  public var recoveryOptions: [String] {
+    get { return ["Try again", "Cancel"] }
+  }
+
+  public func attemptRecovery(optionIndex recoveryOptionIndex: Int) -> Bool {
+    guard 0 == recoveryOptionIndex else { return false }
+
+    switch self {
+    case let .failToFetchNotes(recovery), let .failToMakeNote(recovery):
+      recovery()
+    }
+    return true
+  }
+}
 
 public protocol ListInteractorInput {
   func fetchNotesAndSelect(noteID: NoteID?)
@@ -9,7 +33,7 @@ public protocol ListInteractorInput {
 
 public protocol ListInteractorOutput {
   func update(list: List)
-  func didFail(error: Error)
+  func didFail(error: ListError)
 }
 
 public class ListInteractor {
@@ -30,7 +54,7 @@ extension ListInteractor: ListInteractorInput {
         let list = List(notes: notes, selected: noteID)
         self.output.update(list: list)
       } catch {
-        let error = self.makeFetchError(noteID: noteID)
+        let error = ListError.failToFetchNotes { self.fetchNotesAndSelect(noteID: noteID) }
         self.output.didFail(error: error)
       }
     }
@@ -42,25 +66,9 @@ extension ListInteractor: ListInteractorInput {
         let note = try result()
         self.fetchNotesAndSelect(noteID: note.id)
       } catch {
-        let error = self.makeMakeNoteError()
+        let error = ListError.failToMakeNote { self.makeNote() }
         self.output.didFail(error: error)
       }
     }
-  }
-
-  private func makeFetchError(noteID: NoteID?) -> Error {
-    return makeListError(code: ListErrorFailToFetchNotes, description: "Could not fetch the list of notes") {
-      self.fetchNotesAndSelect(noteID: noteID)
-    }
-  }
-
-  private func makeMakeNoteError() -> Error {
-    return makeListError(code: ListErrorFailToMakeNote, description: "Could not make a new note") {
-      self.makeNote()
-    }
-  }
-
-  private func makeListError(code: Int, description: String, retry: @escaping (Void) -> Void) -> Error {
-    return makeRetryableError(domain: ListErrorDomain, code: code, description: description, retry: retry)
   }
 }
