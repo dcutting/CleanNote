@@ -1,6 +1,6 @@
 public protocol EditorInterface {
   func update(text: String)
-  func present(error: EditorError)
+  func present(error: RetryableError<EditorError>)
   func didSaveText(for noteID: NoteID)
 }
 
@@ -21,7 +21,7 @@ extension EditorPresenter: EditorInteractorOutput {
     interface.didSaveText(for: noteID)
   }
 
-  public func didFail(error: EditorError) {
+  public func didFail(error: RetryableError<EditorError>) {
     interface.present(error: error)
   }
 }

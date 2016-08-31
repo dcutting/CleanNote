@@ -1,28 +1,14 @@
 import Foundation
 
-public enum EditorError: LocalizedError, RecoverableError {
-  case failToFetchNote((Void) -> Void)
-  case failToSaveNote((Void) -> Void)
+public enum EditorError: LocalizedError {
+  case failToFetchNote
+  case failToSaveNote
 
   public var errorDescription: String? {
     switch self {
     case .failToFetchNote: return "Could not fetch the note"
     case .failToSaveNote: return "Could not save the note"
     }
-  }
-
-  public var recoveryOptions: [String] {
-    get { return ["Try again", "Cancel"] }
-  }
-
-  public func attemptRecovery(optionIndex recoveryOptionIndex: Int) -> Bool {
-    guard 0 == recoveryOptionIndex else { return false }
-
-    switch self {
-    case let .failToFetchNote(recovery), let .failToSaveNote(recovery):
-      recovery()
-    }
-    return true
   }
 }
 
@@ -34,7 +20,7 @@ public protocol EditorInteractorInput {
 public protocol EditorInteractorOutput {
   func update(text: String)
   func didSaveText(for noteID: NoteID)
-  func didFail(error: EditorError)
+  func didFail(error: RetryableError<EditorError>)
 }
 
 public class EditorInteractor {
@@ -56,7 +42,7 @@ extension EditorInteractor: EditorInteractorInput {
         let note = try result()
         self.output.update(text: note.text)
       } catch {
-        let error = EditorError.failToFetchNote { self.fetchText() }
+        let error = RetryableError(code: EditorError.failToFetchNote) { self.fetchText() }
         self.output.didFail(error: error)
       }
     }
@@ -68,7 +54,7 @@ extension EditorInteractor: EditorInteractorInput {
         try result()
         self.output.didSaveText(for: self.noteID)
       } catch {
-        let error = EditorError.failToSaveNote { self.save(text: text) }
+        let error = RetryableError(code: EditorError.failToSaveNote) { self.save(text: text) }
         self.output.didFail(error: error)
       }
     }

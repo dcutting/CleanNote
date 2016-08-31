@@ -44,8 +44,8 @@ extension EditorViewController: EditorInterface {
     textView.string = text
   }
 
-  func present(error: EditorError) {
-    switch error {
+  func present(error: RetryableError<EditorError>) {
+    switch error.code {
     case .failToFetchNote:
       show(text: error.localizedDescription)
     case .failToSaveNote:

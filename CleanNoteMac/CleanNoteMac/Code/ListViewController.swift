@@ -60,7 +60,7 @@ extension ListViewController: ListInterface {
     shouldNotifyDelegate = true
   }
 
-  func present(error: ListError) {
+  func present(error: RetryableError<ListError>) {
     guard let window = view.window else { return }
     presentError(error, modalFor: window, delegate: nil, didPresent: nil, contextInfo: nil)
   }
