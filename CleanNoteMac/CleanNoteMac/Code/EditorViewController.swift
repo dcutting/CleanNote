@@ -44,11 +44,11 @@ extension EditorViewController: EditorInterface {
     textView.string = text
   }
 
-  func present(error: Error) {
-    let error = error as NSError
-    if error.domain == EditorErrorDomain && error.code == EditorErrorFailToFetchNote {
+  func present(error: EditorError) {
+    switch error {
+    case .failToFetchNote:
       show(text: error.localizedDescription)
-    } else {
+    case .failToSaveNote:
       guard let window = view.window else { return }
       presentError(error, modalFor: window, delegate: nil, didPresent: nil, contextInfo: nil)
     }
