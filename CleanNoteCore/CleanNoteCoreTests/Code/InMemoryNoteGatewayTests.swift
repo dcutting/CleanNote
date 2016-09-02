@@ -113,7 +113,9 @@ class InMemoryNoteGatewayTests: XCTestCase {
     let sut = InMemoryNoteGateway(notes: notes)
 
     // Act.
-    sut.save(text: "new text", for: "1") { _ in }
+    sut.save(text: "new text", for: "1") { result in
+      try! result()
+    }
 
     // Assert.
     sut.fetchNote(with: "1") { result in
