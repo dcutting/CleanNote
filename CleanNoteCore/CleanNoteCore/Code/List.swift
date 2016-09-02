@@ -6,5 +6,5 @@ public struct List {
 extension List: Equatable {}
 
 public func ==(lhs: List, rhs: List) -> Bool {
-  return true
+  return lhs.notes == rhs.notes
 }
