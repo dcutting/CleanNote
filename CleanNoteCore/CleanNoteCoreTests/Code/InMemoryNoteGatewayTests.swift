@@ -14,7 +14,8 @@ class InMemoryNoteGatewayTests: XCTestCase {
 
     // Act and assert.
     let expectedNotes = notes
-    sut.fetchNotes { actualNotes in
+    sut.fetchNotes { result in
+      let actualNotes = try! result()
       XCTAssertEqual(expectedNotes, actualNotes)
     }
   }
@@ -31,10 +32,12 @@ class InMemoryNoteGatewayTests: XCTestCase {
 
     // Act.
     var actualError: NoteGatewayError?
-    do {
-      try sut.fetchNote(with: "2") { _ in }
-    } catch {
-      actualError = error as? NoteGatewayError
+    sut.fetchNote(with: "2") { result in
+      do {
+        let _ = try result()
+      } catch {
+        actualError = error as? NoteGatewayError
+      }
     }
 
     // Assert.
@@ -54,13 +57,14 @@ class InMemoryNoteGatewayTests: XCTestCase {
 
     // Act and assert.
     let expectedNote = notes[1]
-    try! sut.fetchNote(with: "1") { actualNote in
+    sut.fetchNote(with: "1") { result in
+      let actualNote = try! result()
       XCTAssertEqual(expectedNote, actualNote)
     }
   }
 
 
-  func test_createNote_addsEmptyNoteToStore() {
+  func test_makeNote_addsEmptyNoteToStore() {
     // Arrange.
     let notes = [
       Note(id: "0", text: "sample note"),
@@ -70,55 +74,74 @@ class InMemoryNoteGatewayTests: XCTestCase {
     let sut = InMemoryNoteGateway(notes: notes)
 
     // Act.
-    let actualNoteID = try! sut.makeNote()
+    var actualNote: Note?
+    sut.makeNote() { result in
+      actualNote = try! result()
+    }
 
     // Assert.
-    try! sut.fetchNote(with: actualNoteID) { actualNote in
-      let expectedNote = Note(id: actualNoteID, text: "")
-      XCTAssertEqual(expectedNote, actualNote)
-    }
+    let expectedNote = Note(id: "NID:0", text: "")
+    XCTAssertEqual(expectedNote, actualNote)
   }
-
-
-  func test_saveTextForID_noteFound_updatesNote() {
+  
+  
+  func test_makeNoteTwice_incrementsNoteID() {
     // Arrange.
-    let notes = [
-      Note(id: "0", text: "sample note"),
-      Note(id: "1", text: "another sample note")
-    ]
-
-    let sut = InMemoryNoteGateway(notes: notes)
+    let sut = InMemoryNoteGateway(notes: [])
 
     // Act.
-    try! sut.save(text: "new text", for: "1")
+    sut.makeNote() { _ in }
 
-    // Assert.
-    try! sut.fetchNote(with: "1") { actualNote in
-      let expectedNote = Note(id: "1", text: "new text")
-      XCTAssertEqual(expectedNote, actualNote)
-    }
-  }
-
-
-  func test_saveTextForID_noteNotFound_throwsError() {
-    // Arrange.
-    let notes = [
-      Note(id: "0", text: "sample note"),
-      Note(id: "1", text: "another sample note")
-    ]
-
-    let sut = InMemoryNoteGateway(notes: notes)
-
-    // Act.
-    var actualError: NoteGatewayError?
-    do {
-      try sut.save(text: "new text", for: "2")
-    } catch {
-      actualError = error as? NoteGatewayError
+    var actualNote: Note?
+    sut.makeNote() { result in
+      actualNote = try! result()
     }
 
     // Assert.
-    let expectedError = NoteGatewayError.notFound
-    XCTAssertEqual(expectedError, actualError)
+    let expectedNote = Note(id: "NID:1", text: "")
+    XCTAssertEqual(expectedNote, actualNote)
   }
+  
+  
+//  func test_saveTextForID_noteFound_updatesNote() {
+//    // Arrange.
+//    let notes = [
+//      Note(id: "0", text: "sample note"),
+//      Note(id: "1", text: "another sample note")
+//    ]
+//
+//    let sut = InMemoryNoteGateway(notes: notes)
+//
+//    // Act.
+//    try! sut.save(text: "new text", for: "1")
+//
+//    // Assert.
+//    try! sut.fetchNote(with: "1") { actualNote in
+//      let expectedNote = Note(id: "1", text: "new text")
+//      XCTAssertEqual(expectedNote, actualNote)
+//    }
+//  }
+//
+//
+//  func test_saveTextForID_noteNotFound_throwsError() {
+//    // Arrange.
+//    let notes = [
+//      Note(id: "0", text: "sample note"),
+//      Note(id: "1", text: "another sample note")
+//    ]
+//
+//    let sut = InMemoryNoteGateway(notes: notes)
+//
+//    // Act.
+//    var actualError: NoteGatewayError?
+//    do {
+//      try sut.save(text: "new text", for: "2")
+//    } catch {
+//      actualError = error as? NoteGatewayError
+//    }
+//
+//    // Assert.
+//    let expectedError = NoteGatewayError.notFound
+//    XCTAssertEqual(expectedError, actualError)
+//  }
 }

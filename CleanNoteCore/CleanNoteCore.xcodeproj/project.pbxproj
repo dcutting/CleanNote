@@ -13,6 +13,7 @@
 		C88E03471D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88E03461D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift */; };
 		C89356921D5A10DB001752A5 /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = C89356911D5A10DB001752A5 /* List.swift */; };
 		C8AC072F1D781E52008DA49A /* ListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8AC072E1D781E52008DA49A /* ListTests.swift */; };
+		C8AC07301D796DC8008DA49A /* InMemoryNoteGatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF789D1D4905130070D75A /* InMemoryNoteGatewayTests.swift */; };
 		C8DF78931D4904DA0070D75A /* EditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF788C1D4904DA0070D75A /* EditorInteractor.swift */; };
 		C8DF78941D4904DA0070D75A /* EditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF788D1D4904DA0070D75A /* EditorPresenter.swift */; };
 		C8DF78951D4904DA0070D75A /* InMemoryNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF788E1D4904DA0070D75A /* InMemoryNoteGateway.swift */; };
@@ -320,6 +321,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8AC07301D796DC8008DA49A /* InMemoryNoteGatewayTests.swift in Sources */,
 				C8DF78B41D4905130070D75A /* NoteTests.swift in Sources */,
 				C8AC072F1D781E52008DA49A /* ListTests.swift in Sources */,
 			);
