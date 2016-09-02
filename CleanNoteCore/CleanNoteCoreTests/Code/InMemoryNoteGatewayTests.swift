@@ -124,25 +124,27 @@ class InMemoryNoteGatewayTests: XCTestCase {
   }
 
 
-//  func test_saveTextForID_noteNotFound_throwsError() {
-//    // Arrange.
-//    let notes = [
-//      Note(id: "0", text: "sample note"),
-//      Note(id: "1", text: "another sample note")
-//    ]
-//
-//    let sut = InMemoryNoteGateway(notes: notes)
-//
-//    // Act.
-//    var actualError: NoteGatewayError?
-//    do {
-//      try sut.save(text: "new text", for: "2")
-//    } catch {
-//      actualError = error as? NoteGatewayError
-//    }
-//
-//    // Assert.
-//    let expectedError = NoteGatewayError.notFound
-//    XCTAssertEqual(expectedError, actualError)
-//  }
+  func test_saveTextForID_noteNotFound_throwsError() {
+    // Arrange.
+    let notes = [
+      Note(id: "0", text: "sample note"),
+      Note(id: "1", text: "another sample note")
+    ]
+
+    let sut = InMemoryNoteGateway(notes: notes)
+
+    // Act.
+    var actualError: NoteGatewayError?
+    sut.save(text: "new text", for: "2") { result in
+      do {
+        try result()
+      } catch {
+        actualError = error as? NoteGatewayError
+      }
+    }
+
+    // Assert.
+    let expectedError = NoteGatewayError.notFound
+    XCTAssertEqual(expectedError, actualError)
+  }
 }
