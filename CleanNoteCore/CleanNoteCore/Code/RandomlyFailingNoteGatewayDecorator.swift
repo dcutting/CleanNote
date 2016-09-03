@@ -1,49 +1,52 @@
-import Foundation
+public protocol ErrorGenerator {
+  func hasError() -> Bool
+}
 
 public class RandomlyFailingNoteGatewayDecorator: NoteGateway {
   let noteGateway: NoteGateway
-  let failureRate: UInt32
+  let errorGenerator: ErrorGenerator
 
-  public init(noteGateway: NoteGateway, failOneIn: Int) {
+  public init(noteGateway: NoteGateway, errorGenerator: ErrorGenerator) {
     self.noteGateway = noteGateway
-    self.failureRate = UInt32(failOneIn)
+    self.errorGenerator = errorGenerator
   }
 
   public func fetchNotes(completion: AsyncThrowable<[Note]>) {
-    if hasRandomError() {
-      completion { throw NoteGatewayError.unknown }
-    } else {
+    run(completion: completion) {
       noteGateway.fetchNotes(completion: completion)
     }
   }
 
   public func fetchNote(with id: NoteID, completion: AsyncThrowable<Note>) {
-    if hasRandomError() {
-      completion { throw NoteGatewayError.unknown }
-    } else {
+    run(completion: completion) {
       noteGateway.fetchNote(with: id, completion: completion)
     }
   }
 
   public func makeNote(completion: AsyncThrowable<Note>) {
-    if hasRandomError() {
-      completion { throw NoteGatewayError.unknown }
-    } else {
+    run(completion: completion) {
       noteGateway.makeNote(completion: completion)
     }
   }
 
   public func save(text: String, for id: NoteID, completion: AsyncThrowable<Void>) {
-    if hasRandomError() {
-      completion { throw NoteGatewayError.unknown }
-    } else {
+    run(completion: completion) {
       noteGateway.save(text: text, for: id, completion: completion)
     }
   }
 
-  private func hasRandomError() -> Bool {
-    guard failureRate > 0 else { return false }
-    let random = arc4random_uniform(failureRate)
-    return random == 0
+  private func run<T>(completion: AsyncThrowable<T>, operation: (Void) -> Void) {
+    do {
+      try maybeError()
+      operation()
+    } catch {
+      completion { throw error }
+    }
+  }
+
+  private func maybeError() throws {
+    if errorGenerator.hasError() {
+      throw NoteGatewayError.unknown
+    }
   }
 }
