@@ -3,12 +3,18 @@ import XCTest
 
 class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
 
+  var stubGenerator: StubErrorGenerator!
+
+
+  override func setUp() {
+    stubGenerator = StubErrorGenerator()
+  }
+
+
   func test_fetchNotes_hasError_throws() {
     // Arrange.
-    let mockGateway = MockNoteGateway()
-    let stubGenerator = StubErrorGenerator()
     stubGenerator.stub(hasError: true)
-    let sut = RandomlyFailingNoteGatewayDecorator(noteGateway: mockGateway, errorGenerator: stubGenerator)
+    let sut = RandomlyFailingNoteGatewayDecorator(noteGateway: MockNoteGateway(), errorGenerator: stubGenerator)
 
     // Act.
     var actualError: NoteGatewayError?
@@ -30,7 +36,6 @@ class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
     // Arrange.
     let notes = [Note(id: "1", text: "sample note")]
     let stubGateway = InMemoryNoteGateway(notes: notes)
-    let stubGenerator = StubErrorGenerator()
     stubGenerator.stub(hasError: false)
     let sut = RandomlyFailingNoteGatewayDecorator(noteGateway: stubGateway, errorGenerator: stubGenerator)
 
