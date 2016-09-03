@@ -24,4 +24,29 @@ class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
     let expectedError = NoteGatewayError.unknown
     XCTAssertEqual(expectedError, actualError)
   }
+
+
+  func test_fetchNotes_noError_delegatesToDecoratedGateway() {
+    // Arrange.
+    let notes = [Note(id: "1", text: "sample note")]
+    let stubGateway = InMemoryNoteGateway(notes: notes)
+    let stubGenerator = StubErrorGenerator()
+    stubGenerator.stub(hasError: false)
+    let sut = RandomlyFailingNoteGatewayDecorator(noteGateway: stubGateway, errorGenerator: stubGenerator)
+
+    // Act.
+    var actualNotes: [Note]?
+    sut.fetchNotes() { result in
+      actualNotes = try! result()
+    }
+
+    // Assert.
+    let expectedNotes = notes
+    XCTAssertTrue(areEqual(expectedNotes, actualNotes))
+  }
+
+  func areEqual(_ expectedNotes: [Note], _ actualNotes: [Note]?) -> Bool {
+    guard let actualNotes = actualNotes else { return false }
+    return expectedNotes == actualNotes
+  }
 }
