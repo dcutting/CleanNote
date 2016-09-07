@@ -23,4 +23,11 @@ class NoteTests: XCTestCase {
 
     XCTAssertNotEqual(note1, note2)
   }
+
+  func test_nullNote() {
+    let actualNote = Note.null
+
+    let expectedNote = Note(id: "", text: "")
+    XCTAssertEqual(expectedNote, actualNote)
+  }
 }
