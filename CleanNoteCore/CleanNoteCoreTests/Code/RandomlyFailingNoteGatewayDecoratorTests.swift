@@ -45,7 +45,7 @@ class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
     }
 
     // Assert.
-    let actualCompletion = mockNoteGateway.spiedFetchNotes!
+    guard let actualCompletion = mockNoteGateway.spiedFetchNotes else { XCTAssert(false); return }
     actualCompletion { return [] }
     XCTAssertTrue(didPassCompletionBlockToDecoratedNoteGateway)
   }
@@ -57,7 +57,7 @@ class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
 
     // Act.
     var actualError: NoteGatewayError?
-    sut.fetchNote(with: "anyID") { result in
+    sut.fetchNote(with: "any ID") { result in
       do {
         let _ = try result()
       } catch {
@@ -77,14 +77,14 @@ class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
 
     // Act.
     var didPassCompletionBlockToDecoratedNoteGateway = false
-    sut.fetchNote(with: "1") { _ in
+    sut.fetchNote(with: "dummy ID") { _ in
       didPassCompletionBlockToDecoratedNoteGateway = true
     }
 
     // Assert.
-    let (actualNoteID, actualCompletion) = mockNoteGateway.spiedFetchNoteWithID!
+    guard let (actualNoteID, actualCompletion) = mockNoteGateway.spiedFetchNoteWithID else { XCTAssert(false); return }
     actualCompletion { return Note.null }
-    let expectedNoteID = "1"
+    let expectedNoteID = "dummy ID"
     XCTAssertEqual(expectedNoteID, actualNoteID)
     XCTAssertTrue(didPassCompletionBlockToDecoratedNoteGateway)
   }
@@ -133,7 +133,7 @@ class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
 
     // Act.
     var actualError: NoteGatewayError?
-    sut.save(text: "anyText", for: "anyID") { result in
+    sut.save(text: "any text", for: "any ID") { result in
       do {
         let _ = try result()
       } catch {
