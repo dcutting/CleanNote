@@ -7,6 +7,7 @@ class MockNoteGateway: NoteGateway {
   var shouldThrowCreateNoteError: NoteGatewayError?
   var spiedFetchNotes: AsyncThrowable<[Note]>?
   var spiedFetchNoteWithID: (NoteID, AsyncThrowable<Note>)?
+  var spiedMakeNotes: AsyncThrowable<Note>?
 
   func fetchNotes(completion: AsyncThrowable<[Note]>) {
     spiedFetchNotes = completion
@@ -17,6 +18,7 @@ class MockNoteGateway: NoteGateway {
   }
 
   func makeNote(completion: AsyncThrowable<Note>) {
+    spiedMakeNotes = completion
   }
 
   func save(text: String, for id: NoteID, completion: AsyncThrowable<Void>) {

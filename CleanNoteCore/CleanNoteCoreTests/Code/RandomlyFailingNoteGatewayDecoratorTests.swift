@@ -88,4 +88,41 @@ class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
     XCTAssertEqual(expectedNoteID, actualNoteID)
     XCTAssertTrue(didPassCompletionBlockToDecoratedNoteGateway)
   }
+
+
+  func test_makeNote_hasError_throws() {
+    // Arrange.
+    stubErrorGenerator.stub(hasError: true)
+
+    // Act.
+    var actualError: NoteGatewayError?
+    sut.makeNote() { result in
+      do {
+        let _ = try result()
+      } catch {
+        actualError = error as? NoteGatewayError
+      }
+    }
+
+    // Assert.
+    let expectedError = NoteGatewayError.unknown
+    XCTAssertEqual(expectedError, actualError)
+  }
+
+
+  func test_makeNote_noError_delegatesToDecoratedGateway() {
+    // Arrange.
+    stubErrorGenerator.stub(hasError: false)
+
+    // Act.
+    var didPassCompletionBlockToDecoratedNoteGateway = false
+    sut.makeNote() { _ in
+      didPassCompletionBlockToDecoratedNoteGateway = true
+    }
+
+    // Assert.
+    guard let actualCompletion = mockNoteGateway.spiedMakeNotes else { XCTAssert(false); return }
+    actualCompletion { return Note.null }
+    XCTAssertTrue(didPassCompletionBlockToDecoratedNoteGateway)
+  }
 }
