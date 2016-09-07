@@ -125,4 +125,45 @@ class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
     actualCompletion { return Note.null }
     XCTAssertTrue(didPassCompletionBlockToDecoratedNoteGateway)
   }
+
+
+  func test_saveTextForNoteID_hasError_throws() {
+    // Arrange.
+    stubErrorGenerator.stub(hasError: true)
+
+    // Act.
+    var actualError: NoteGatewayError?
+    sut.save(text: "anyText", for: "anyID") { result in
+      do {
+        let _ = try result()
+      } catch {
+        actualError = error as? NoteGatewayError
+      }
+    }
+
+    // Assert.
+    let expectedError = NoteGatewayError.unknown
+    XCTAssertEqual(expectedError, actualError)
+  }
+
+
+  func test_saveTextForNoteID_noError_delegatesToDecoratedGateway() {
+    // Arrange.
+    stubErrorGenerator.stub(hasError: false)
+
+    // Act.
+    var didPassCompletionBlockToDecoratedNoteGateway = false
+    sut.save(text: "dummy text", for: "dummy ID") { _ in
+      didPassCompletionBlockToDecoratedNoteGateway = true
+    }
+
+    // Assert.
+    guard let (actualText, actualNoteID, actualCompletion) = mockNoteGateway.spiedSaveTextForNoteID else { XCTAssert(false); return }
+    actualCompletion {}
+    let expectedText = "dummy text"
+    let expectedNoteID = "dummy ID"
+    XCTAssertEqual(expectedText, actualText)
+    XCTAssertEqual(expectedNoteID, actualNoteID)
+    XCTAssertTrue(didPassCompletionBlockToDecoratedNoteGateway)
+  }
 }
