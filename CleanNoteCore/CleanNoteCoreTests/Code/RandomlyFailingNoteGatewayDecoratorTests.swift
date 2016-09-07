@@ -51,6 +51,26 @@ class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
   }
 
 
+  func test_fetchNoteWithID_hasError_throws() {
+    // Arrange.
+    stubErrorGenerator.stub(hasError: true)
+
+    // Act.
+    var actualError: NoteGatewayError?
+    sut.fetchNote(with: "anyID") { result in
+      do {
+        let _ = try result()
+      } catch {
+        actualError = error as? NoteGatewayError
+      }
+    }
+
+    // Assert.
+    let expectedError = NoteGatewayError.unknown
+    XCTAssertEqual(expectedError, actualError)
+  }
+  
+
   func test_fetchNoteWithID_noError_delegatesToDecoratedGateway() {
     // Arrange.
     stubErrorGenerator.stub(hasError: false)
