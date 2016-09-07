@@ -3,20 +3,20 @@ import XCTest
 
 class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
 
-  var mockGateway: MockNoteGateway!
-  var stubGenerator: StubErrorGenerator!
+  var mockNoteGateway: MockNoteGateway!
+  var stubErrorGenerator: StubErrorGenerator!
   var sut: RandomlyFailingNoteGatewayDecorator!
 
   override func setUp() {
-    mockGateway = MockNoteGateway()
-    stubGenerator = StubErrorGenerator()
-    sut = RandomlyFailingNoteGatewayDecorator(noteGateway: mockGateway, errorGenerator: stubGenerator)
+    mockNoteGateway = MockNoteGateway()
+    stubErrorGenerator = StubErrorGenerator()
+    sut = RandomlyFailingNoteGatewayDecorator(noteGateway: mockNoteGateway, errorGenerator: stubErrorGenerator)
   }
 
 
   func test_fetchNotes_hasError_throws() {
     // Arrange.
-    stubGenerator.stub(hasError: true)
+    stubErrorGenerator.stub(hasError: true)
 
     // Act.
     var actualError: NoteGatewayError?
@@ -36,17 +36,36 @@ class RandomlyFailingNoteGatewayDecoratorTests: XCTestCase {
 
   func test_fetchNotes_noError_delegatesToDecoratedGateway() {
     // Arrange.
-    stubGenerator.stub(hasError: false)
+    stubErrorGenerator.stub(hasError: false)
 
     // Act.
-    var didCallDecoratedNoteGateway = false
+    var didPassCompletionBlockToDecoratedNoteGateway = false
     sut.fetchNotes() { _ in
-      didCallDecoratedNoteGateway = true
+      didPassCompletionBlockToDecoratedNoteGateway = true
     }
 
     // Assert.
-    let actualCompletion = mockGateway.completionForFetchNotes!
+    let actualCompletion = mockNoteGateway.spiedFetchNotes!
     actualCompletion { return [] }
-    XCTAssertTrue(didCallDecoratedNoteGateway)
+    XCTAssertTrue(didPassCompletionBlockToDecoratedNoteGateway)
+  }
+
+
+  func test_fetchNoteWithID_noError_delegatesToDecoratedGateway() {
+    // Arrange.
+    stubErrorGenerator.stub(hasError: false)
+
+    // Act.
+    var didPassCompletionBlockToDecoratedNoteGateway = false
+    sut.fetchNote(with: "1") { _ in
+      didPassCompletionBlockToDecoratedNoteGateway = true
+    }
+
+    // Assert.
+    let (actualNoteID, actualCompletion) = mockNoteGateway.spiedFetchNoteWithID!
+    actualCompletion { return Note.null }
+    let expectedNoteID = "1"
+    XCTAssertEqual(expectedNoteID, actualNoteID)
+    XCTAssertTrue(didPassCompletionBlockToDecoratedNoteGateway)
   }
 }

@@ -8,6 +8,12 @@ public struct Note {
     self.id = id
     self.text = text
   }
+
+  static var null: Note {
+    get {
+      return Note(id: "", text: "")
+    }
+  }
 }
 
 extension Note: Equatable {}
