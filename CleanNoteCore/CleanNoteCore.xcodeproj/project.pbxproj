@@ -98,6 +98,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C82215221D81D15300AB5A68 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C8DF78A71D4905130070D75A /* NoteTests.swift */,
+				C8AC072E1D781E52008DA49A /* ListTests.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		C82215231D81D16500AB5A68 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C8DF789D1D4905130070D75A /* InMemoryNoteGatewayTests.swift */,
+				C8DF78A61D4905130070D75A /* MockNoteGateway.swift */,
+				C84B242A1D79E6E40041BD0E /* RandomlyFailingNoteGatewayDecoratorTests.swift */,
+				C8DC55061D7AF439002CC948 /* StubErrorGenerator.swift */,
+				C822151C1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift */,
+				C822151E1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		C82E0EC21D6915E800066F55 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,15 +182,10 @@
 			children = (
 				C8DF78921D4904DA0070D75A /* NoteGateway.swift */,
 				C8DF788E1D4904DA0070D75A /* InMemoryNoteGateway.swift */,
-				C8DF789D1D4905130070D75A /* InMemoryNoteGatewayTests.swift */,
-				C8DF78A61D4905130070D75A /* MockNoteGateway.swift */,
 				C88E03461D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift */,
-				C84B242A1D79E6E40041BD0E /* RandomlyFailingNoteGatewayDecoratorTests.swift */,
 				C8DC55041D7AF25A002CC948 /* RandomErrorGenerator.swift */,
-				C8DC55061D7AF439002CC948 /* StubErrorGenerator.swift */,
-				C822151C1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift */,
-				C822151E1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift */,
 				C82215201D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift */,
+				C82215231D81D16500AB5A68 /* Tests */,
 			);
 			name = Gateways;
 			path = CleanNoteCore/Code;
@@ -178,9 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				C8DF78911D4904DA0070D75A /* Note.swift */,
-				C8DF78A71D4905130070D75A /* NoteTests.swift */,
 				C89356911D5A10DB001752A5 /* List.swift */,
-				C8AC072E1D781E52008DA49A /* ListTests.swift */,
+				C82215221D81D15300AB5A68 /* Tests */,
 			);
 			name = Entities;
 			path = CleanNoteCore/Code;

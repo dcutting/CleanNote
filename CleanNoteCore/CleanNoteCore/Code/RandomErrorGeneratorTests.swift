@@ -16,4 +16,19 @@ class RandomErrorGeneratorTests: XCTestCase {
     let expectedLimit = UInt32(10)
     XCTAssertEqual(expectedLimit, actualLimit)
   }
+
+
+  func test_randomNumberGeneratorReturns0_errorIsGenerated() {
+    // Arrange.
+    let stubRNG = StubRandomNumberGenerator()
+    stubRNG.stubRandom(returns: 0)
+    let sut = RandomErrorGenerator(failOneIn: 10, randomNumberGenerator: stubRNG)
+
+    // Act.
+    let actual = sut.hasError()
+
+    // Assert.
+    let expected = true
+    XCTAssertEqual(expected, actual)
+  }
 }

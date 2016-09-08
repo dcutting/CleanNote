@@ -1,5 +1,3 @@
-import Foundation
-
 public protocol RandomNumberGenerator {
   func random(limit: UInt32) -> UInt32
 }
