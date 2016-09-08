@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C822151D1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C822151C1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift */; };
+		C822151F1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C822151E1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift */; };
+		C82215211D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82215201D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift */; };
 		C82687D91D7468900071D2A6 /* RetryableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82687D81D7468900071D2A6 /* RetryableError.swift */; };
 		C83BAD281D48E9A200180193 /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83BAD1E1D48E9A200180193 /* CleanNoteCore.framework */; };
 		C83BAD2F1D48E9A200180193 /* CleanNoteCore.h in Headers */ = {isa = PBXBuildFile; fileRef = C83BAD211D48E9A200180193 /* CleanNoteCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +42,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C822151C1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RandomErrorGeneratorTests.swift; sourceTree = "<group>"; };
+		C822151E1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StubRandomNumberGenerator.swift; sourceTree = "<group>"; };
+		C82215201D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniformRandomNumberGenerator.swift; sourceTree = "<group>"; };
 		C82687D81D7468900071D2A6 /* RetryableError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RetryableError.swift; path = CleanNoteCore/Code/RetryableError.swift; sourceTree = "<group>"; };
 		C83BAD1E1D48E9A200180193 /* CleanNoteCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CleanNoteCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD211D48E9A200180193 /* CleanNoteCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CleanNoteCore.h; sourceTree = "<group>"; };
@@ -160,6 +166,9 @@
 				C84B242A1D79E6E40041BD0E /* RandomlyFailingNoteGatewayDecoratorTests.swift */,
 				C8DC55041D7AF25A002CC948 /* RandomErrorGenerator.swift */,
 				C8DC55061D7AF439002CC948 /* StubErrorGenerator.swift */,
+				C822151C1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift */,
+				C822151E1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift */,
+				C82215201D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift */,
 			);
 			name = Gateways;
 			path = CleanNoteCore/Code;
@@ -320,6 +329,7 @@
 				C8DF78951D4904DA0070D75A /* InMemoryNoteGateway.swift in Sources */,
 				C88E03471D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift in Sources */,
 				C8DF78961D4904DA0070D75A /* ListInteractor.swift in Sources */,
+				C82215211D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift in Sources */,
 				C8DF78941D4904DA0070D75A /* EditorPresenter.swift in Sources */,
 				C82687D91D7468900071D2A6 /* RetryableError.swift in Sources */,
 				C8DF78991D4904DA0070D75A /* NoteGateway.swift in Sources */,
@@ -333,6 +343,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8DC55091D7AF9D5002CC948 /* MockNoteGateway.swift in Sources */,
+				C822151F1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift in Sources */,
+				C822151D1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift in Sources */,
 				C8AC07301D796DC8008DA49A /* InMemoryNoteGatewayTests.swift in Sources */,
 				C8DF78B41D4905130070D75A /* NoteTests.swift in Sources */,
 				C8AC072F1D781E52008DA49A /* ListTests.swift in Sources */,
