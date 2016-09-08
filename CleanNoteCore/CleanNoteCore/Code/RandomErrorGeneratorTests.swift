@@ -31,4 +31,18 @@ class RandomErrorGeneratorTests: XCTestCase {
     let expected = true
     XCTAssertEqual(expected, actual)
   }
+
+
+  func test_failOneIn0_noErrorIsGenerated() {
+    // Arrange.
+    let stubRNG = StubRandomNumberGenerator()
+    let sut = RandomErrorGenerator(failOneIn: 0, randomNumberGenerator: stubRNG)
+
+    // Act.
+    let actual = sut.hasError()
+
+    // Assert.
+    let expected = false
+    XCTAssertEqual(expected, actual)
+  }
 }
