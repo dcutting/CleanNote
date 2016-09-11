@@ -1,8 +1,9 @@
 import CleanNoteCore
 
 class MockNoteGateway: NoteGateway {
-  var noteIDForSaveNote: NoteID?
-  var textForSaveNote: String?
+//  var noteIDForSaveNote: NoteID?
+//  var textForSaveNote: String?
+  var shouldThrowFetchNotes: NoteGatewayError?
   var shouldThrowSaveError: NoteGatewayError?
   var shouldThrowCreateNoteError: NoteGatewayError?
   var spiedFetchNotes: AsyncThrowable<[Note]>?
@@ -12,6 +13,9 @@ class MockNoteGateway: NoteGateway {
 
   func fetchNotes(completion: AsyncThrowable<[Note]>) {
     spiedFetchNotes = completion
+    if let error = shouldThrowFetchNotes {
+      completion { throw error }
+    }
   }
 
   func fetchNote(with id: NoteID, completion: AsyncThrowable<Note>) {
@@ -40,6 +44,10 @@ class MockNoteGateway: NoteGateway {
 //    noteIDForSaveNote = noteID
 //    textForSaveNote = text
 //  }
+
+  func stub(fetchNotesThrows error: NoteGatewayError) {
+    shouldThrowFetchNotes = error
+  }
 
   func stub(saveThrows error: NoteGatewayError) {
     shouldThrowSaveError = error

@@ -24,4 +24,21 @@ class ListInteractorTests: XCTestCase {
     // Assert.
     XCTAssert(output.assert())
   }
+
+
+  func test_fetchNotes_hasError_createsErrorForOutput() {
+    // Arrange.
+    let output = MockListInteractorOutput()
+    let gateway = MockNoteGateway()
+    gateway.stub(fetchNotesThrows: NoteGatewayError.unknown)
+    let sut = ListInteractor(output: output, gateway: gateway)
+
+    // Act.
+    sut.fetchNotesAndSelect(noteID: "1")
+
+    // Assert.
+    guard let actualError = output.spiedDidFail else { XCTAssert(false); return }
+    XCTAssertEqual(ListError.failToFetchNotes, actualError.code)
+    //TODO: this doesn't yet test that the recovery closure calls the SUT again.
+  }
 }

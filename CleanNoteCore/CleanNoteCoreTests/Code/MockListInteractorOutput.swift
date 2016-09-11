@@ -3,6 +3,7 @@ import CleanNoteCore
 class MockListInteractorOutput: ListInteractorOutput {
   var expectedList: List?
   var actualList: List?
+  var spiedDidFail: RetryableError<ListError>?
 
   func expect(update list: List) {
     expectedList = list
@@ -18,5 +19,6 @@ class MockListInteractorOutput: ListInteractorOutput {
   }
 
   func didFail(error: RetryableError<ListError>) {
+    spiedDidFail = error
   }
 }
