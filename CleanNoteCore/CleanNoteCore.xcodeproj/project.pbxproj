@@ -222,11 +222,11 @@
 		C8F8BBFF1D857D8C00465509 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C8DF789E1D4905130070D75A /* ListInteractorTests.swift */,
 				C8DF78A31D4905130070D75A /* MockListInteractorInput.swift */,
 				C8DF78A41D4905130070D75A /* MockListInteractorOutput.swift */,
-				C8DF789F1D4905130070D75A /* ListPresenterTests.swift */,
 				C8DF78A51D4905130070D75A /* MockListInterface.swift */,
+				C8DF789E1D4905130070D75A /* ListInteractorTests.swift */,
+				C8DF789F1D4905130070D75A /* ListPresenterTests.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
