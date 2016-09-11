@@ -11,6 +11,7 @@
 		C83BAD4A1D48E9CA00180193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD481D48E9CA00180193 /* Main.storyboard */; };
 		C83BAD4C1D48E9CA00180193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD4B1D48E9CA00180193 /* Assets.xcassets */; };
 		C83BAD4F1D48E9CA00180193 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD4D1D48E9CA00180193 /* LaunchScreen.storyboard */; };
+		C88DE6431D861082008BC81B /* TestableEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C81D4905810070D75A /* TestableEditorViewController.swift */; };
 		C8DE88411D49187900D8D8AE /* CleanNoteCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C8DE883C1D49186600D8D8AE /* CleanNoteCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C8DF78BC1D4905770070D75A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78B61D4905770070D75A /* AppDelegate.swift */; };
 		C8DF78BD1D4905770070D75A /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78B71D4905770070D75A /* EditorViewController.swift */; };
@@ -23,7 +24,6 @@
 		C8DF78CB1D4905810070D75A /* MockEditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C51D4905810070D75A /* MockEditorWireframe.swift */; };
 		C8DF78CC1D4905810070D75A /* MockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C61D4905810070D75A /* MockTableView.swift */; };
 		C8DF78CD1D4905810070D75A /* MockTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C71D4905810070D75A /* MockTextView.swift */; };
-		C8DF78CE1D4905810070D75A /* TestableEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C81D4905810070D75A /* TestableEditorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -376,7 +376,7 @@
 				C8DF78CA1D4905810070D75A /* ListViewControllerTests.swift in Sources */,
 				C8DF78C91D4905810070D75A /* EditorViewControllerTests.swift in Sources */,
 				C8DF78CB1D4905810070D75A /* MockEditorWireframe.swift in Sources */,
-				C8DF78CE1D4905810070D75A /* TestableEditorViewController.swift in Sources */,
+				C88DE6431D861082008BC81B /* TestableEditorViewController.swift in Sources */,
 				C8DF78CD1D4905810070D75A /* MockTextView.swift in Sources */,
 				C8DF78CC1D4905810070D75A /* MockTableView.swift in Sources */,
 			);
