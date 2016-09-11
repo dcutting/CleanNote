@@ -6,11 +6,11 @@ public class InMemoryNoteGateway: NoteGateway {
     self.notes = notes
   }
 
-  public func fetchNotes(completion: AsyncThrowable<[Note]>) {
+  public func fetchNotes(completion: @escaping AsyncThrowable<[Note]>) {
     completion { return notes }
   }
 
-  public func fetchNote(with id: NoteID, completion: AsyncThrowable<Note>) {
+  public func fetchNote(with id: NoteID, completion: @escaping AsyncThrowable<Note>) {
     if let note = findNote(with: id) {
       completion { return note }
     } else {
@@ -22,7 +22,7 @@ public class InMemoryNoteGateway: NoteGateway {
     return notes.filter { $0.id == id }.first
   }
 
-  public func makeNote(completion: AsyncThrowable<Note>) {
+  public func makeNote(completion: @escaping AsyncThrowable<Note>) {
     let nextNoteID = nextID()
     let note = Note(id: nextNoteID, text: "")
     notes.append(note)
@@ -34,7 +34,7 @@ public class InMemoryNoteGateway: NoteGateway {
     return NoteID("NID:\(noteIDCounter)")
   }
 
-  public func save(text: String, for id: NoteID, completion: AsyncThrowable<Void>) {
+  public func save(text: String, for id: NoteID, completion: @escaping AsyncThrowable<Void>) {
     if let index = indexFor(noteID: id) {
       var note = notes[index]
       note.text = text

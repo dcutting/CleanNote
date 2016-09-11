@@ -14,7 +14,7 @@ class MockNoteGateway: NoteGateway {
 
   var spiedSaveTextForNoteID: (String, NoteID, AsyncThrowable<Void>)?
 
-  func fetchNotes(completion: AsyncThrowable<[Note]>) {
+  func fetchNotes(completion: @escaping AsyncThrowable<[Note]>) {
     spiedFetchNotes = completion
     if let error = shouldThrowFetchNotesError {
       completion { throw error }
@@ -23,14 +23,14 @@ class MockNoteGateway: NoteGateway {
     }
   }
 
-  func fetchNote(with id: NoteID, completion: AsyncThrowable<Note>) {
+  func fetchNote(with id: NoteID, completion: @escaping AsyncThrowable<Note>) {
     spiedFetchNoteWithID = (id, completion)
     if let error = shouldThrowFetchNoteWithIDError {
       completion { throw error }
     }
   }
 
-  func makeNote(completion: AsyncThrowable<Note>) {
+  func makeNote(completion: @escaping AsyncThrowable<Note>) {
     spiedMakeNotes = completion
     if let error = shouldThrowMakeNoteError {
       completion { throw error }
@@ -39,7 +39,7 @@ class MockNoteGateway: NoteGateway {
     }
   }
 
-  func save(text: String, for id: NoteID, completion: AsyncThrowable<Void>) {
+  func save(text: String, for id: NoteID, completion: @escaping AsyncThrowable<Void>) {
     spiedSaveTextForNoteID = (text, id, completion)
   }
 

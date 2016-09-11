@@ -11,25 +11,25 @@ public class RandomlyFailingNoteGatewayDecorator: NoteGateway {
     self.errorGenerator = errorGenerator
   }
 
-  public func fetchNotes(completion: AsyncThrowable<[Note]>) {
+  public func fetchNotes(completion: @escaping AsyncThrowable<[Note]>) {
     run(completion: completion) {
       noteGateway.fetchNotes(completion: completion)
     }
   }
 
-  public func fetchNote(with id: NoteID, completion: AsyncThrowable<Note>) {
+  public func fetchNote(with id: NoteID, completion: @escaping AsyncThrowable<Note>) {
     run(completion: completion) {
       noteGateway.fetchNote(with: id, completion: completion)
     }
   }
 
-  public func makeNote(completion: AsyncThrowable<Note>) {
+  public func makeNote(completion: @escaping AsyncThrowable<Note>) {
     run(completion: completion) {
       noteGateway.makeNote(completion: completion)
     }
   }
 
-  public func save(text: String, for id: NoteID, completion: AsyncThrowable<Void>) {
+  public func save(text: String, for id: NoteID, completion: @escaping AsyncThrowable<Void>) {
     run(completion: completion) {
       noteGateway.save(text: text, for: id, completion: completion)
     }
