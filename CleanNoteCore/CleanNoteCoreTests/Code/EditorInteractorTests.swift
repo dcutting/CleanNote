@@ -43,26 +43,23 @@ class EditorInteractorTests: XCTestCase {
   }
 
 
-//  func test_saveText_existingNote_updatesNote() {
-//    // Arrange.
-//    let gateway = MockNoteGateway()
-//
-//    let sut = EditorInteractor(output: output, gateway: gateway, noteID: "one")
-//
-//    // Act.
-//    sut.save(text: "my note text")
-//
-//    // Assert.
-//    let expectedText = "my note text"
-//    let actualText = gateway.textForSaveNote
-//    XCTAssertEqual(expectedText, actualText)
-//    
-//    let expectedNoteID = "one"
-//    let actualNoteID = gateway.noteIDForSaveNote
-//    XCTAssertEqual(expectedNoteID, actualNoteID)
-//  }
-//
-//
+  func test_saveText_savesToGateway() {
+    // Arrange.
+    let gateway = MockNoteGateway()
+    let sut = EditorInteractor(output: output, gateway: gateway, noteID: "one")
+
+    // Act.
+    sut.save(text: "any text")
+
+    // Assert.
+    guard let (actualText, actualNoteID, _) = gateway.spiedSaveTextForNoteID else { XCTAssert(false); return }
+    let expectedText = "any text"
+    XCTAssertEqual(expectedText, actualText)
+    let expectedNoteID = "one"
+    XCTAssertEqual(expectedNoteID, actualNoteID)
+  }
+
+
 //  func test_saveText_existingNote_failsToSave_informsOutput() {
 //    // Arrange.
 //    let gateway = MockNoteGateway()
