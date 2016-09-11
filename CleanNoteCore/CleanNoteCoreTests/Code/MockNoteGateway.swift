@@ -1,21 +1,21 @@
 import CleanNoteCore
 
 class MockNoteGateway: NoteGateway {
-//  var noteIDForSaveNote: NoteID?
-//  var textForSaveNote: String?
+  var shouldThrowFetchNotesError: NoteGatewayError?
   var stubFetchNotes: [Note]?
-  var stubMakeNote: Note?
-  var shouldThrowFetchNotes: NoteGatewayError?
-  var shouldThrowSaveError: NoteGatewayError?
-  var shouldThrowCreateNoteError: NoteGatewayError?
   var spiedFetchNotes: AsyncThrowable<[Note]>?
+
   var spiedFetchNoteWithID: (NoteID, AsyncThrowable<Note>)?
+
+  var shouldThrowMakeNoteError: NoteGatewayError?
+  var stubMakeNote: Note?
   var spiedMakeNotes: AsyncThrowable<Note>?
+
   var spiedSaveTextForNoteID: (String, NoteID, AsyncThrowable<Void>)?
 
   func fetchNotes(completion: AsyncThrowable<[Note]>) {
     spiedFetchNotes = completion
-    if let error = shouldThrowFetchNotes {
+    if let error = shouldThrowFetchNotesError {
       completion { throw error }
     } else if let notes = stubFetchNotes {
       completion { return notes }
@@ -28,7 +28,9 @@ class MockNoteGateway: NoteGateway {
 
   func makeNote(completion: AsyncThrowable<Note>) {
     spiedMakeNotes = completion
-    if let note = stubMakeNote {
+    if let error = shouldThrowMakeNoteError {
+      completion { throw error }
+    } else if let note = stubMakeNote {
       completion { return note }
     }
   }
@@ -36,21 +38,6 @@ class MockNoteGateway: NoteGateway {
   func save(text: String, for id: NoteID, completion: AsyncThrowable<Void>) {
     spiedSaveTextForNoteID = (text, id, completion)
   }
-
-//  func createNote() throws -> Note {
-//    if let error = shouldThrowCreateNoteError {
-//      throw error
-//    }
-//    return Note(id: NoteID(), text: "")
-//  }
-//
-//  func save(text: String, for noteID: NoteID) throws {
-//    if let error = shouldThrowSaveError {
-//      throw error
-//    }
-//    noteIDForSaveNote = noteID
-//    textForSaveNote = text
-//  }
 
   func stub(fetchNotes notes: [Note]) {
     stubFetchNotes = notes
@@ -61,14 +48,10 @@ class MockNoteGateway: NoteGateway {
   }
 
   func stub(fetchNotesThrows error: NoteGatewayError) {
-    shouldThrowFetchNotes = error
+    shouldThrowFetchNotesError = error
   }
 
-  func stub(saveThrows error: NoteGatewayError) {
-    shouldThrowSaveError = error
-  }
-
-  func stub(createNoteThrows error: NoteGatewayError) {
-    shouldThrowCreateNoteError = error
+  func stub(makeNoteThrows error: NoteGatewayError) {
+    shouldThrowMakeNoteError = error
   }
 }

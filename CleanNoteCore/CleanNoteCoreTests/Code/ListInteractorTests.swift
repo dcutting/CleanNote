@@ -67,4 +67,21 @@ class ListInteractorTests: XCTestCase {
     // Assert.
     XCTAssert(output.assert())
   }
+
+
+  func test_makeNote_hasError_createsErrorForOutput() {
+    // Arrange.
+    let output = MockListInteractorOutput()
+    let gateway = MockNoteGateway()
+    gateway.stub(makeNoteThrows: NoteGatewayError.unknown)
+    let sut = ListInteractor(output: output, gateway: gateway)
+
+    // Act.
+    sut.makeNote()
+
+    // Assert.
+    guard let actualError = output.spiedDidFail else { XCTAssert(false); return }
+    XCTAssertEqual(ListError.failToMakeNote, actualError.code)
+    //TODO: this doesn't yet test that the recovery closure tries to make another note.
+  }
 }
