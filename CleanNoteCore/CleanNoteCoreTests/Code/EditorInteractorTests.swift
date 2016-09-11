@@ -40,6 +40,7 @@ class EditorInteractorTests: XCTestCase {
     // Assert.
     guard let actualError = output.spiedDidFail else { XCTAssert(false); return }
     XCTAssertEqual(EditorError.failToFetchNote, actualError.code)
+    //TODO: this doesn't yet test the recovery closure.
   }
 
 
@@ -87,5 +88,6 @@ class EditorInteractorTests: XCTestCase {
     // Assert.
     guard let actualError = output.spiedDidFail else { XCTAssert(false); return }
     XCTAssertEqual(EditorError.failToSaveNote, actualError.code)
+    //TODO: this doesn't yet test the recovery closure.
   }
 }
