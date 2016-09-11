@@ -41,6 +41,7 @@ class MockNoteGateway: NoteGateway {
 
   func save(text: String, for id: NoteID, completion: @escaping AsyncThrowable<Void>) {
     spiedSaveTextForNoteID = (text, id, completion)
+    completion {}
   }
 
   func stub(fetchNotes notes: [Note]) {

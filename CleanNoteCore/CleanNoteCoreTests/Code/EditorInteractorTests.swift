@@ -60,6 +60,21 @@ class EditorInteractorTests: XCTestCase {
   }
 
 
+  func test_saveText_succeeds_informsOutput() {
+    // Arrange.
+    let gateway = MockNoteGateway()
+    let sut = EditorInteractor(output: output, gateway: gateway, noteID: "one")
+
+    // Act.
+    sut.save(text: "any text")
+
+    // Assert.
+    guard let actualNoteID = output.spiedDidSaveTextForNoteID else { XCTAssert(false); return }
+    let expectedNoteID = "one"
+    XCTAssertEqual(expectedNoteID, actualNoteID)
+  }
+
+
 //  func test_saveText_existingNote_failsToSave_informsOutput() {
 //    // Arrange.
 //    let gateway = MockNoteGateway()
