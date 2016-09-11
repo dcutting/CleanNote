@@ -2,9 +2,13 @@ import XCTest
 @testable import CleanNoteCore
 
 class DummyError: LocalizedError {
-  let stubErrorDescription: String
+  let stubErrorDescription: String?
 
-  init(errorDescription: String) {
+  convenience init() {
+    self.init(errorDescription: nil)
+  }
+
+  init(errorDescription: String?) {
     stubErrorDescription = errorDescription
   }
 
@@ -14,6 +18,7 @@ class DummyError: LocalizedError {
 }
 
 class RetryableErrorTests: XCTestCase {
+  
   func test_errorDescription_readsFromWrappedError() {
     // Arrange.
     let wrappedError = DummyError(errorDescription: "wrapped error description")
@@ -25,5 +30,22 @@ class RetryableErrorTests: XCTestCase {
     // Assert.
     let expectedErrorDescription = "wrapped error description"
     XCTAssertEqual(expectedErrorDescription, actualErrorDescription)
+  }
+
+
+  func test_attemptRecovery_cancelled_doesNotCallRecovery() {
+    // Arrange.
+    let wrappedError = DummyError()
+    var didCallRecovery = false
+    let sut = RetryableError(code: wrappedError) {
+      didCallRecovery = true
+    }
+
+    // Act.
+    let actualResult = sut.attemptRecovery(optionIndex: 1)
+
+    // Assert.
+    XCTAssertFalse(actualResult)
+    XCTAssertFalse(didCallRecovery)
   }
 }
