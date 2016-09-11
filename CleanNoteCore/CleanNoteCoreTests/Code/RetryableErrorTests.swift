@@ -33,6 +33,20 @@ class RetryableErrorTests: XCTestCase {
   }
 
 
+  func test_recoveryOptions() {
+    // Arrange.
+    let wrappedError = DummyError()
+    let sut = RetryableError(code: wrappedError) {}
+
+    // Act.
+    let actualOptions = sut.recoveryOptions
+
+    // Assert.
+    let expectedOptions = ["Try again", "Cancel"]
+    XCTAssertEqual(expectedOptions, actualOptions)
+  }
+
+
   func test_attemptRecovery_cancelled_doesNotCallRecovery() {
     // Arrange.
     let wrappedError = DummyError()
@@ -47,5 +61,22 @@ class RetryableErrorTests: XCTestCase {
     // Assert.
     XCTAssertFalse(actualResult)
     XCTAssertFalse(didCallRecovery)
+  }
+
+
+  func test_attemptRecovery_confirmed_callsRecovery() {
+    // Arrange.
+    let wrappedError = DummyError()
+    var didCallRecovery = false
+    let sut = RetryableError(code: wrappedError) {
+      didCallRecovery = true
+    }
+
+    // Act.
+    let actualResult = sut.attemptRecovery(optionIndex: 0)
+
+    // Assert.
+    XCTAssertTrue(actualResult)
+    XCTAssertTrue(didCallRecovery)
   }
 }
