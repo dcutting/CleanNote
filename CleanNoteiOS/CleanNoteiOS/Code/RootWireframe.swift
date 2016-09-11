@@ -6,8 +6,10 @@ class RootWireframe {
     let sampleNotes = makeSampleNotes()
     let inMemoryNoteGateway = InMemoryNoteGateway(notes: sampleNotes)
 
-    let failureRate = 20
-    let randomlyFailingGateway = RandomlyFailingNoteGatewayDecorator(noteGateway: inMemoryNoteGateway, failOneIn: failureRate)
+    let failureRate = UInt32(20)
+    let randomNumberGenerator = UniformRandomNumberGenerator()
+    let errorGenerator = RandomErrorGenerator(failOneIn: failureRate, randomNumberGenerator: randomNumberGenerator)
+    let randomlyFailingGateway = RandomlyFailingNoteGatewayDecorator(noteGateway: inMemoryNoteGateway, errorGenerator: errorGenerator)
 
     let noteGateway = randomlyFailingGateway
 
