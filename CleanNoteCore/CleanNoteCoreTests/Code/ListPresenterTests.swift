@@ -18,16 +18,19 @@ class ListPresenterTests: XCTestCase {
       Note(id: "1", text: "sample note"),
       Note(id: "2", text: "another sample note")
     ]
+    let list = List(notes: notes, selected: "1")
 
     // Act.
-    sut.didFetch(notes: notes)
+    sut.update(list: list)
 
     // Assert.
     let expectedNotes = [
       ListViewNote(id: "1", summary: "sample note"),
       ListViewNote(id: "2", summary: "another sample note")
     ]
-    XCTAssert(areEqual(expectedNotes, interface.actualNotes))
+    let expectedList = ListViewList(notes: expectedNotes, selected: "1")
+    let actualList = interface.spiedUpdateList
+    XCTAssert(areEqual(expectedList, actualList))
   }
 
 
@@ -36,15 +39,18 @@ class ListPresenterTests: XCTestCase {
     let notes = [
       Note(id: "1", text: "")
     ]
+    let list = List(notes: notes, selected: nil)
 
     // Act.
-    sut.didFetch(notes: notes)
+    sut.update(list: list)
 
     // Assert.
     let expectedNotes = [
       ListViewNote(id: "1", summary: "<empty>")
     ]
-    XCTAssert(areEqual(expectedNotes, interface.actualNotes))
+    let expectedList = ListViewList(notes: expectedNotes, selected: nil)
+    let actualList = interface.spiedUpdateList
+    XCTAssert(areEqual(expectedList, actualList))
   }
 
 
@@ -53,20 +59,23 @@ class ListPresenterTests: XCTestCase {
     let notes = [
       Note(id: "1", text: "sample\nnote")
     ]
+    let list = List(notes: notes, selected: nil)
 
     // Act.
-    sut.didFetch(notes: notes)
+    sut.update(list: list)
 
     // Assert.
     let expectedNotes = [
       ListViewNote(id: "1", summary: "sample note")
     ]
-    XCTAssert(areEqual(expectedNotes, interface.actualNotes))
+    let expectedList = ListViewList(notes: expectedNotes, selected: nil)
+    let actualList = interface.spiedUpdateList
+    XCTAssert(areEqual(expectedList, actualList))
   }
 
 
-  func areEqual(_ expectedNotes: [ListViewNote], _ actualNotes: [ListViewNote]?) -> Bool {
-    guard let actualNotes = actualNotes else { return false }
-    return expectedNotes == actualNotes
+  func areEqual(_ expectedList: ListViewList, _ actualList: ListViewList?) -> Bool {
+    guard let actualList = actualList else { return false }
+    return expectedList == actualList
   }
 }

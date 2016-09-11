@@ -1,10 +1,12 @@
-class MockListInterface: ListInterface {
-  var actualNotes: [ListViewNote]?
+import CleanNoteCore
 
-  func update(notes: [ListViewNote]) {
-    actualNotes = notes
+class MockListInterface: ListInterface {
+  var spiedUpdateList: ListViewList?
+
+  func update(list: ListViewList) {
+    spiedUpdateList = list
   }
 
-  func update(note: ListViewNote) {
+  public func present(error: RetryableError<ListError>) {
   }
 }

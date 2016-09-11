@@ -14,6 +14,12 @@ public func ==(lhs: ListViewNote, rhs: ListViewNote) -> Bool {
   return lhs.id == rhs.id && lhs.summary == rhs.summary
 }
 
+extension ListViewList: Equatable {}
+
+public func ==(lhs: ListViewList, rhs: ListViewList) -> Bool {
+  return lhs.notes == rhs.notes && lhs.selected == rhs.selected
+}
+
 public protocol ListInterface {
   func update(list: ListViewList)
   func present(error: RetryableError<ListError>)
