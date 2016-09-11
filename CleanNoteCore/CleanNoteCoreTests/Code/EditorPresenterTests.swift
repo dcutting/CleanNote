@@ -12,24 +12,29 @@ class EditorPresenterTests: XCTestCase {
   }
 
 
-  func test_didFetchText_updatesInterfaceWithText() {
+  func test_updateText_updatesInterfaceWithText() {
     // Act.
-    sut.didFetch(text: "my note text")
+    sut.update(text: "my note text")
 
     // Assert.
     let expectedText = "my note text"
-    XCTAssertEqual(expectedText, interface.actualUpdateText)
+    XCTAssertEqual(expectedText, interface.spiedUpdateText)
   }
 
 
   func test_didFailToSave_showsError() {
     // Arrange.
-    interface.expectError()
+    var didPassSameError = false
+    let error = RetryableError(code: EditorError.failToSaveNote) {
+      didPassSameError = true
+    }
 
     // Act.
-    sut.didFailToSaveText()
+    sut.didFail(error: error)
 
     // Assert.
-    XCTAssertTrue(interface.assert())
+    guard let actualError = interface.spiedPresentError else { XCTAssert(false); return }
+    let _ = actualError.attemptRecovery(optionIndex: 0)
+    XCTAssert(didPassSameError)
   }
 }

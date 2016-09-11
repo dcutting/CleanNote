@@ -1,21 +1,17 @@
-class MockEditorInterface: EditorInterface {
-  var actualUpdateText: String?
-  var shouldExpectError = false
-  var didCallError = false
+import CleanNoteCore
 
-  func expectError() {
-    shouldExpectError = true
-  }
+class MockEditorInterface: EditorInterface {
+  var spiedUpdateText: String?
+  var spiedPresentError: RetryableError<EditorError>?
 
   func update(text: String) {
-    actualUpdateText = text
+    spiedUpdateText = text
   }
 
-  func show(error: String) {
-    didCallError = true
+  func present(error: RetryableError<EditorError>) {
+    spiedPresentError = error
   }
 
-  func assert() -> Bool {
-    return shouldExpectError && didCallError
+  public func didSaveText(for noteID: NoteID) {
   }
 }

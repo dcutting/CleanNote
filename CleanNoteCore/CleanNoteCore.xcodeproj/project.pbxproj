@@ -33,6 +33,8 @@
 		C8F8BC021D857E1F00465509 /* MockListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A41D4905130070D75A /* MockListInteractorOutput.swift */; };
 		C8F8BC031D85DF7B00465509 /* ListPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF789F1D4905130070D75A /* ListPresenterTests.swift */; };
 		C8F8BC041D85DF8F00465509 /* MockListInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A51D4905130070D75A /* MockListInterface.swift */; };
+		C8F8BC051D85E69A00465509 /* EditorPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF789C1D4905130070D75A /* EditorPresenterTests.swift */; };
+		C8F8BC061D85E6AB00465509 /* MockEditorInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A21D4905130070D75A /* MockEditorInterface.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -234,11 +236,11 @@
 		C8F8BC001D857D9B00465509 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C8DF789B1D4905130070D75A /* EditorInteractorTests.swift */,
 				C8DF78A01D4905130070D75A /* MockEditorInteractorInput.swift */,
 				C8DF78A11D4905130070D75A /* MockEditorInteractorOutput.swift */,
-				C8DF789C1D4905130070D75A /* EditorPresenterTests.swift */,
 				C8DF78A21D4905130070D75A /* MockEditorInterface.swift */,
+				C8DF789B1D4905130070D75A /* EditorInteractorTests.swift */,
+				C8DF789C1D4905130070D75A /* EditorPresenterTests.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -382,11 +384,13 @@
 				C822151F1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift in Sources */,
 				C822151D1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift in Sources */,
 				C8F8BC021D857E1F00465509 /* MockListInteractorOutput.swift in Sources */,
+				C8F8BC061D85E6AB00465509 /* MockEditorInterface.swift in Sources */,
 				C8AC07301D796DC8008DA49A /* InMemoryNoteGatewayTests.swift in Sources */,
 				C8F8BC041D85DF8F00465509 /* MockListInterface.swift in Sources */,
 				C8F8BC031D85DF7B00465509 /* ListPresenterTests.swift in Sources */,
 				C8DF78B41D4905130070D75A /* NoteTests.swift in Sources */,
 				C8AC072F1D781E52008DA49A /* ListTests.swift in Sources */,
+				C8F8BC051D85E69A00465509 /* EditorPresenterTests.swift in Sources */,
 				C84B242B1D79E6E40041BD0E /* RandomlyFailingNoteGatewayDecoratorTests.swift in Sources */,
 				C8F8BC011D857E0200465509 /* ListInteractorTests.swift in Sources */,
 				C8DC55081D7AF941002CC948 /* StubErrorGenerator.swift in Sources */,
