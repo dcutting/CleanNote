@@ -1,5 +1,3 @@
-import CleanNoteCore
-
 class MockNoteGateway: NoteGateway {
   var shouldThrowFetchNotesError: NoteGatewayError?
   var stubFetchNotes: [Note]?
