@@ -1,12 +1,20 @@
+import CleanNoteCore
+
 class MockEditorInteractorOutput: EditorInteractorOutput {
-  var actualText: String?
+  var spiedUpdateText: String?
   var shouldExpectDidFailToFetchText = false
   var shouldExpectDidFailToSaveText = false
   var didCallDidFailToFetchText = false
   var didCallDidFailToSaveText = false
 
-  func didFetch(text: String) {
-    actualText = text
+  func update(text: String) {
+    spiedUpdateText = text
+  }
+
+  func didSaveText(for noteID: NoteID) {
+  }
+
+  func didFail(error: RetryableError<EditorError>) {
   }
 
   func expectDidFailToFetchText() {
@@ -15,14 +23,6 @@ class MockEditorInteractorOutput: EditorInteractorOutput {
 
   func expectDidFailToSaveText() {
     shouldExpectDidFailToSaveText = true
-  }
-
-  func didFailToFetchText() {
-    didCallDidFailToFetchText = true
-  }
-
-  func didFailToSaveText() {
-    didCallDidFailToSaveText = true
   }
 
   func assert() -> Bool {
