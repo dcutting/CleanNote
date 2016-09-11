@@ -3,7 +3,7 @@ import XCTest
 
 class ListInteractorTests: XCTestCase {
 
-  func test_fetchNotes_passesNotesFromGatewayToOutput() {
+  func test_fetchNotes_succeeds_passesNotesFromGatewayToOutput() {
     // Arrange.
     let notes = [
       Note(id: "1", text: "sample note"),
@@ -40,5 +40,31 @@ class ListInteractorTests: XCTestCase {
     guard let actualError = output.spiedDidFail else { XCTAssert(false); return }
     XCTAssertEqual(ListError.failToFetchNotes, actualError.code)
     //TODO: this doesn't yet test that the recovery closure calls the SUT again.
+  }
+
+
+  func test_makeNote_succeeds_passesNotesFromGatewayToOutput() {
+    // Arrange.
+    let notes = [
+      Note(id: "1", text: "sample note"),
+      Note(id: "2", text: "just created note")
+    ]
+    let list = List(notes: notes, selected: "2")
+
+    let output = MockListInteractorOutput()
+    output.expect(update: list)
+
+    let gateway = MockNoteGateway()
+    let newNote = Note(id: "2", text: "just created note")
+    gateway.stub(fetchNotes: notes)
+    gateway.stub(makeNote: newNote)
+
+    let sut = ListInteractor(output: output, gateway: gateway)
+
+    // Act.
+    sut.makeNote()
+
+    // Assert.
+    XCTAssert(output.assert())
   }
 }
