@@ -12,6 +12,7 @@ class MockNoteGateway: NoteGateway {
   var stubMakeNote: Note?
   var spiedMakeNotes: AsyncThrowable<Note>?
 
+  var shouldThrowSaveTextForNoteIDError: NoteGatewayError?
   var spiedSaveTextForNoteID: (String, NoteID, AsyncThrowable<Void>)?
 
   func fetchNotes(completion: @escaping AsyncThrowable<[Note]>) {
@@ -41,7 +42,11 @@ class MockNoteGateway: NoteGateway {
 
   func save(text: String, for id: NoteID, completion: @escaping AsyncThrowable<Void>) {
     spiedSaveTextForNoteID = (text, id, completion)
-    completion {}
+    if let error = shouldThrowSaveTextForNoteIDError {
+      completion { throw error }
+    } else {
+      completion {}
+    }
   }
 
   func stub(fetchNotes notes: [Note]) {
@@ -62,5 +67,9 @@ class MockNoteGateway: NoteGateway {
 
   func stub(makeNoteThrows error: NoteGatewayError) {
     shouldThrowMakeNoteError = error
+  }
+
+  func stub(saveTextForNoteIDThrows error: NoteGatewayError) {
+    shouldThrowSaveTextForNoteIDError = error
   }
 }
