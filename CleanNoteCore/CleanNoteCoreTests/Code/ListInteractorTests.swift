@@ -9,16 +9,17 @@ class ListInteractorTests: XCTestCase {
       Note(id: "1", text: "sample note"),
       Note(id: "2", text: "another sample note")
     ]
+    let list = List(notes: notes, selected: "1")
 
     let output = MockListInteractorOutput()
-    output.expect(didFetch: notes)
+    output.expect(update: list)
 
     let gateway = InMemoryNoteGateway(notes: notes)
 
     let sut = ListInteractor(output: output, gateway: gateway)
 
     // Act.
-    sut.fetchNotes()
+    sut.fetchNotesAndSelect(noteID: "1")
 
     // Assert.
     XCTAssert(output.assert())

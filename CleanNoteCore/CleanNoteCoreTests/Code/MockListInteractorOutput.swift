@@ -1,20 +1,22 @@
-class MockListInteractorOutput: ListInteractorOutput {
-  var expectedNotes = [Note]()
-  var actualNotes: [Note]?
+import CleanNoteCore
 
-  func expect(didFetch notes: [Note]) {
-    expectedNotes = notes
+class MockListInteractorOutput: ListInteractorOutput {
+  var expectedList: List?
+  var actualList: List?
+
+  func expect(update list: List) {
+    expectedList = list
   }
 
   func assert() -> Bool {
-    guard let actualNotes = actualNotes else { return false }
-    return expectedNotes == actualNotes
+    guard let actualList = actualList else { return false }
+    return expectedList == actualList
   }
 
-  func didFetch(notes: [Note]) {
-    actualNotes = notes
+  func update(list: List) {
+    actualList = list
   }
 
-  func didFetch(note: Note) {
+  func didFail(error: RetryableError<ListError>) {
   }
 }

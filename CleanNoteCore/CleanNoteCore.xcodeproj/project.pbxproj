@@ -29,6 +29,8 @@
 		C8DF78981D4904DA0070D75A /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78911D4904DA0070D75A /* Note.swift */; };
 		C8DF78991D4904DA0070D75A /* NoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78921D4904DA0070D75A /* NoteGateway.swift */; };
 		C8DF78B41D4905130070D75A /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A71D4905130070D75A /* NoteTests.swift */; };
+		C8F8BC011D857E0200465509 /* ListInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF789E1D4905130070D75A /* ListInteractorTests.swift */; };
+		C8F8BC021D857E1F00465509 /* MockListInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A41D4905130070D75A /* MockListInteractorOutput.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -377,10 +379,12 @@
 				C8DC55091D7AF9D5002CC948 /* MockNoteGateway.swift in Sources */,
 				C822151F1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift in Sources */,
 				C822151D1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift in Sources */,
+				C8F8BC021D857E1F00465509 /* MockListInteractorOutput.swift in Sources */,
 				C8AC07301D796DC8008DA49A /* InMemoryNoteGatewayTests.swift in Sources */,
 				C8DF78B41D4905130070D75A /* NoteTests.swift in Sources */,
 				C8AC072F1D781E52008DA49A /* ListTests.swift in Sources */,
 				C84B242B1D79E6E40041BD0E /* RandomlyFailingNoteGatewayDecoratorTests.swift in Sources */,
+				C8F8BC011D857E0200465509 /* ListInteractorTests.swift in Sources */,
 				C8DC55081D7AF941002CC948 /* StubErrorGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
