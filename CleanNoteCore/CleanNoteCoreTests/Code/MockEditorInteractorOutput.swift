@@ -2,6 +2,7 @@ import CleanNoteCore
 
 class MockEditorInteractorOutput: EditorInteractorOutput {
   var spiedUpdateText: String?
+  var spiedDidFail: RetryableError<EditorError>?
   var shouldExpectDidFailToFetchText = false
   var shouldExpectDidFailToSaveText = false
   var didCallDidFailToFetchText = false
@@ -15,6 +16,7 @@ class MockEditorInteractorOutput: EditorInteractorOutput {
   }
 
   func didFail(error: RetryableError<EditorError>) {
+    spiedDidFail = error
   }
 
   func expectDidFailToFetchText() {

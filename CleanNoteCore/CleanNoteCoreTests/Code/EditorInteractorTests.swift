@@ -27,21 +27,20 @@ class EditorInteractorTests: XCTestCase {
   }
 
 
-//  func test_fetchText_noteNotFound_failsToFetch_informsOutput() {
-//    // Arrange.
-//    let note = Note(id: "one", text: "sample text")
-//    let gateway = InMemoryNoteGateway(notes: [note])
-//
-//    let sut = EditorInteractor(output: output, gateway: gateway, noteID: "zilch")
-//
-//    output.expectDidFailToFetchText()
-//
-//    // Act.
-//    sut.fetchText()
-//
-//    // Assert.
-//    XCTAssert(output.assert())
-//  }
+  func test_fetchText_noteNotFound_failsToFetch_informsOutput() {
+    // Arrange.
+    let gateway = MockNoteGateway()
+    gateway.stub(fetchNoteWithIDThrows: NoteGatewayError.unknown)
+
+    let sut = EditorInteractor(output: output, gateway: gateway, noteID: "any")
+
+    // Act.
+    sut.fetchText()
+
+    // Assert.
+    guard let actualError = output.spiedDidFail else { XCTAssert(false); return }
+    XCTAssertEqual(EditorError.failToFetchNote, actualError.code)
+  }
 
 
 //  func test_saveText_existingNote_updatesNote() {
