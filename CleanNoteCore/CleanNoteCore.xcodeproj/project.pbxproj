@@ -110,12 +110,12 @@
 		C82215231D81D16500AB5A68 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				C8DF789D1D4905130070D75A /* InMemoryNoteGatewayTests.swift */,
 				C8DF78A61D4905130070D75A /* MockNoteGateway.swift */,
-				C84B242A1D79E6E40041BD0E /* RandomlyFailingNoteGatewayDecoratorTests.swift */,
 				C8DC55061D7AF439002CC948 /* StubErrorGenerator.swift */,
-				C822151C1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift */,
 				C822151E1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift */,
+				C8DF789D1D4905130070D75A /* InMemoryNoteGatewayTests.swift */,
+				C84B242A1D79E6E40041BD0E /* RandomlyFailingNoteGatewayDecoratorTests.swift */,
+				C822151C1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -153,12 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				C8DF788C1D4904DA0070D75A /* EditorInteractor.swift */,
-				C8DF789B1D4905130070D75A /* EditorInteractorTests.swift */,
-				C8DF78A01D4905130070D75A /* MockEditorInteractorInput.swift */,
-				C8DF78A11D4905130070D75A /* MockEditorInteractorOutput.swift */,
 				C8DF788D1D4904DA0070D75A /* EditorPresenter.swift */,
-				C8DF789C1D4905130070D75A /* EditorPresenterTests.swift */,
-				C8DF78A21D4905130070D75A /* MockEditorInterface.swift */,
+				C8F8BC001D857D9B00465509 /* Tests */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -167,12 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				C8DF788F1D4904DA0070D75A /* ListInteractor.swift */,
-				C8DF789E1D4905130070D75A /* ListInteractorTests.swift */,
-				C8DF78A31D4905130070D75A /* MockListInteractorInput.swift */,
-				C8DF78A41D4905130070D75A /* MockListInteractorOutput.swift */,
 				C8DF78901D4904DA0070D75A /* ListPresenter.swift */,
-				C8DF789F1D4905130070D75A /* ListPresenterTests.swift */,
-				C8DF78A51D4905130070D75A /* MockListInterface.swift */,
+				C8F8BBFF1D857D8C00465509 /* Tests */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -221,6 +213,30 @@
 			);
 			name = Boilerplate;
 			path = CleanNoteCore;
+			sourceTree = "<group>";
+		};
+		C8F8BBFF1D857D8C00465509 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C8DF789E1D4905130070D75A /* ListInteractorTests.swift */,
+				C8DF78A31D4905130070D75A /* MockListInteractorInput.swift */,
+				C8DF78A41D4905130070D75A /* MockListInteractorOutput.swift */,
+				C8DF789F1D4905130070D75A /* ListPresenterTests.swift */,
+				C8DF78A51D4905130070D75A /* MockListInterface.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		C8F8BC001D857D9B00465509 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C8DF789B1D4905130070D75A /* EditorInteractorTests.swift */,
+				C8DF78A01D4905130070D75A /* MockEditorInteractorInput.swift */,
+				C8DF78A11D4905130070D75A /* MockEditorInteractorOutput.swift */,
+				C8DF789C1D4905130070D75A /* EditorPresenterTests.swift */,
+				C8DF78A21D4905130070D75A /* MockEditorInterface.swift */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -10,12 +10,14 @@ class NoteTests: XCTestCase {
     XCTAssertEqual(note1, note2)
   }
 
+
   func test_differentIDs_unequal() {
     let note1 = Note(id: "myID", text: "some text")
     let note2 = Note(id: "yourID", text: "some text")
 
     XCTAssertNotEqual(note1, note2)
   }
+
 
   func test_differentText_unequal() {
     let note1 = Note(id: "myID", text: "some text")
@@ -24,6 +26,7 @@ class NoteTests: XCTestCase {
     XCTAssertNotEqual(note1, note2)
   }
 
+  
   func test_nullNote() {
     let actualNote = Note.null
 

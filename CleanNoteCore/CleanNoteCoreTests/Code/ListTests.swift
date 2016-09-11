@@ -21,6 +21,7 @@ class ListTests: XCTestCase {
     XCTAssertEqual(list1, list2)
   }
 
+
   func test_differentNotes_unequal() {
     let notes1 = [
       Note(id: "myID", text: "some text"),
@@ -37,6 +38,7 @@ class ListTests: XCTestCase {
     XCTAssertNotEqual(list1, list2)
   }
 
+  
   func test_differentSelection_unequal() {
     let notes1 = [
       Note(id: "myID", text: "some text"),
