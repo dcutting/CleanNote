@@ -22,7 +22,18 @@ class EditorPresenterTests: XCTestCase {
   }
 
 
-  func test_didFailToSave_showsError() {
+  func test_didSaveTextForNoteID_passesMessageToInterface() {
+    // Act.
+    sut.didSaveText(for: "1")
+
+    // Assert.
+    guard let actualDidSaveTextForNoteID = interface.spiedDidSaveTextForNoteID else { XCTAssert(false); return }
+    let expectedDidSaveTextForNoteID = "1"
+    XCTAssertEqual(expectedDidSaveTextForNoteID, actualDidSaveTextForNoteID)
+  }
+
+
+  func test_didFail_passesErrorToInterface() {
     // Arrange.
     var didPassSameError = false
     let error = RetryableError(code: EditorError.failToSaveNote) {
