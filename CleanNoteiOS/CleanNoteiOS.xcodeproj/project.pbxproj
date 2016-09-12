@@ -143,6 +143,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		C88DE6441D8692C2008BC81B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C8DF78C41D4905810070D75A /* ListViewControllerTests.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		C8DE88371D49186600D8D8AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,7 +219,7 @@
 			children = (
 				C8DF78B91D4905770070D75A /* ListViewController.swift */,
 				C8DF78BA1D4905770070D75A /* ListWireframe.swift */,
-				C8DF78C41D4905810070D75A /* ListViewControllerTests.swift */,
+				C88DE6441D8692C2008BC81B /* Tests */,
 			);
 			name = List;
 			sourceTree = "<group>";

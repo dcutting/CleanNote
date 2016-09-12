@@ -24,15 +24,18 @@ class ListViewControllerTests: XCTestCase {
   }
 
 
-  func test_viewWillAppear_fetchesNotes() {
-    // Arrange.
-    interactor.expectFetchNotes()
-
+  func test_viewWillAppear_fetchesNotesWithNoneSelected() {
     // Act.
     sut.viewWillAppear(false)
 
     // Assert.
-    XCTAssert(interactor.assert())
+    let actualNoteID = interactor.spiedFetchNotesAndSelectNoteID
+    switch actualNoteID {
+    case let .some(value):
+      XCTAssertNil(value)
+    case .none:
+      XCTAssert(false)
+    }
   }
 
 

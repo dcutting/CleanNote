@@ -29,7 +29,7 @@ class ListViewController: UIViewController {
     editorWireframe.configure(editorViewController: editorViewController, noteID: noteID)
   }
 
-  fileprivate func noteIDFrom(object: Any?) -> NoteID? {
+  private func noteIDFrom(object: Any?) -> NoteID? {
     guard let noteIDWrapperObject = object as? NoteIDWrapperObject else { return nil }
     return noteIDWrapperObject.id
   }
