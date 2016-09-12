@@ -151,6 +151,14 @@
 			name = List;
 			sourceTree = "<group>";
 		};
+		C88DE6451D87158D008BC81B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
 		C8DE88431D4918AB00D8D8AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,7 +194,7 @@
 				C84547001D48FB750051BD61 /* AppDelegate.swift */,
 				C86478E61D51426800023881 /* NotesViewController.swift */,
 				C86F85791D4BB90F009EEBCC /* NotesWireframe.swift */,
-				C84547121D48FB760051BD61 /* CleanNoteMacTests.swift */,
+				C88DE6451D87158D008BC81B /* Tests */,
 			);
 			name = Root;
 			sourceTree = "<group>";

@@ -6,13 +6,13 @@ class EditorViewControllerTests: XCTestCase {
 
   var textView: MockTextView!
   var interactor: MockEditorInteractorInput!
-  var sut: TestableEditorViewController!
+  var sut: EditorViewController!
 
   override func setUp() {
     textView = MockTextView()
     interactor = MockEditorInteractorInput(noteID: NoteID())
 
-    sut = TestableEditorViewController()
+    sut = EditorViewController()
     sut.textView = textView
     sut.interactor = interactor
   }
@@ -51,15 +51,4 @@ class EditorViewControllerTests: XCTestCase {
     let actualText = textView.text
     XCTAssertEqual(expectedText, actualText)
   }
-
-
-//  func test_errorText_presentsAlert() {
-//    // Act.
-//    sut.show(error: "sample error")
-//
-//    // Assert.
-//    let expectedText = "sample error"
-//    let actualText = sut.spiedAlertController?.message
-//    XCTAssertEqual(expectedText, actualText)
-//  }
 }

@@ -30,12 +30,7 @@ class ListViewControllerTests: XCTestCase {
 
     // Assert.
     let actualNoteID = interactor.spiedFetchNotesAndSelectNoteID
-    switch actualNoteID {
-    case let .some(value):
-      XCTAssertNil(value)
-    case .none:
-      XCTAssert(false)
-    }
+    XCTAssert(isSetButIsNil(actualNoteID))
   }
 
 
@@ -114,5 +109,15 @@ class ListViewControllerTests: XCTestCase {
 
     // Assert.
     XCTAssert(editorWireframe.assert())
+  }
+
+
+  func isSetButIsNil<T>(_ wrapper: T??) -> Bool {
+    switch wrapper {
+    case let .some(value):
+      return value == nil
+    case .none:
+      return false
+    }
   }
 }

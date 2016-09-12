@@ -4,6 +4,6 @@ import XCTest
 class CleanNoteMacTests: XCTestCase {
     
     func testExample() {
-      XCTAssertTrue(false)
+      XCTAssert(true)
     }
 }
