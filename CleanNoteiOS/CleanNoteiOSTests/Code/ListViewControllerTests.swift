@@ -38,10 +38,11 @@ class ListViewControllerTests: XCTestCase {
 
   func test_update_reloadsTableView() {
     // Arrange.
+    let notes = ListViewList(notes: [], selected: nil)
     tableView.expectReloadData()
 
     // Act.
-    sut.update(notes: [])
+    sut.update(list: notes)
 
     // Assert.
     XCTAssert(tableView.assert())
@@ -54,9 +55,10 @@ class ListViewControllerTests: XCTestCase {
       ListViewNote(id: "1", summary: "sample note"),
       ListViewNote(id: "2", summary: "another sample note")
     ]
+    let list = ListViewList(notes: notes, selected: nil)
 
     // Act.
-    sut.update(notes: notes)
+    sut.update(list: list)
 
     // Assert.
     let expectedRows = 2
@@ -71,9 +73,10 @@ class ListViewControllerTests: XCTestCase {
       ListViewNote(id: "1", summary: "sample note"),
       ListViewNote(id: "2", summary: "another sample note")
     ]
-
+    let list = ListViewList(notes: notes, selected: nil)
+    
     // Act.
-    sut.update(notes: notes)
+    sut.update(list: list)
 
     // Assert.
     for row in (0..<notes.count) {
@@ -92,7 +95,8 @@ class ListViewControllerTests: XCTestCase {
       ListViewNote(id: "zero", summary: "sample note"),
       ListViewNote(id: "one", summary: "another sample note")
     ]
-    sut.update(notes: notes)
+    let list = ListViewList(notes: notes, selected: nil)
+    sut.update(list: list)
 
     let indexPath = IndexPath(row: 1, section: 0)
     tableView.stub(indexPath: indexPath, forSelectedRow: 1)

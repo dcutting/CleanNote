@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8CC323B61D996E6800CF1557 /* MockListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A31D4905130070D75A /* MockListInteractorInput.swift */; };
+		8CC323B71D996FC400CF1557 /* MockEditorInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A01D4905130070D75A /* MockEditorInteractorInput.swift */; };
+		8CC323BB1D99779300CF1557 /* MockNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A61D4905130070D75A /* MockNoteGateway.swift */; };
 		C822151D1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C822151C1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift */; };
 		C822151F1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C822151E1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift */; };
 		C82215211D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82215201D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift */; };
@@ -23,7 +26,6 @@
 		C8AC07301D796DC8008DA49A /* InMemoryNoteGatewayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF789D1D4905130070D75A /* InMemoryNoteGatewayTests.swift */; };
 		C8DC55051D7AF25A002CC948 /* RandomErrorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DC55041D7AF25A002CC948 /* RandomErrorGenerator.swift */; };
 		C8DC55081D7AF941002CC948 /* StubErrorGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DC55061D7AF439002CC948 /* StubErrorGenerator.swift */; };
-		C8DC55091D7AF9D5002CC948 /* MockNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A61D4905130070D75A /* MockNoteGateway.swift */; };
 		C8DF78931D4904DA0070D75A /* EditorInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF788C1D4904DA0070D75A /* EditorInteractor.swift */; };
 		C8DF78941D4904DA0070D75A /* EditorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF788D1D4904DA0070D75A /* EditorPresenter.swift */; };
 		C8DF78951D4904DA0070D75A /* InMemoryNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF788E1D4904DA0070D75A /* InMemoryNoteGateway.swift */; };
@@ -320,7 +322,6 @@
 				TargetAttributes = {
 					C83BAD1D1D48E9A200180193 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 59GEB226V7;
 						DevelopmentTeamName = "Dan Cutting (Personal Team)";
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
@@ -375,14 +376,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8DF78971D4904DA0070D75A /* ListPresenter.swift in Sources */,
+				8CC323B61D996E6800CF1557 /* MockListInteractorInput.swift in Sources */,
 				C89356921D5A10DB001752A5 /* List.swift in Sources */,
 				C8DF78931D4904DA0070D75A /* EditorInteractor.swift in Sources */,
 				C8DF78951D4904DA0070D75A /* InMemoryNoteGateway.swift in Sources */,
 				C88E03471D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift in Sources */,
+				8CC323BB1D99779300CF1557 /* MockNoteGateway.swift in Sources */,
 				C8DF78961D4904DA0070D75A /* ListInteractor.swift in Sources */,
 				C82215211D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift in Sources */,
 				C8DF78941D4904DA0070D75A /* EditorPresenter.swift in Sources */,
 				C82687D91D7468900071D2A6 /* RetryableError.swift in Sources */,
+				8CC323B71D996FC400CF1557 /* MockEditorInteractorInput.swift in Sources */,
 				C8DF78991D4904DA0070D75A /* NoteGateway.swift in Sources */,
 				C8DF78981D4904DA0070D75A /* Note.swift in Sources */,
 				C8DC55051D7AF25A002CC948 /* RandomErrorGenerator.swift in Sources */,
@@ -394,7 +398,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C832AD8B1D85EA10002085C3 /* MockEditorInteractorOutput.swift in Sources */,
-				C8DC55091D7AF9D5002CC948 /* MockNoteGateway.swift in Sources */,
 				C822151F1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift in Sources */,
 				C822151D1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift in Sources */,
 				C8F8BC021D857E1F00465509 /* MockListInteractorOutput.swift in Sources */,
@@ -531,6 +534,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -551,6 +555,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

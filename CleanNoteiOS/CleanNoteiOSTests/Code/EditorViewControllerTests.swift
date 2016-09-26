@@ -42,19 +42,6 @@ class EditorViewControllerTests: XCTestCase {
   }
 
 
-  func test_viewWillDisappear_savesText() {
-    // Arrange.
-    textView.text = "my edited text"
-    interactor.expect(save: "my edited text")
-
-    // Act.
-    sut.viewWillDisappear(false)
-
-    // Assert.
-    XCTAssert(interactor.assert())
-  }
-
-
   func test_updateText_setsTextView() {
     // Act.
     sut.update(text: "sample text")
@@ -66,13 +53,14 @@ class EditorViewControllerTests: XCTestCase {
   }
 
 
-  func test_errorText_presentsAlert() {
+  func test_presentError_presentsAlert() {
     // Act.
-    sut.show(error: "sample error")
-
+    let error = RetryableError(code: EditorError.failToSaveNote) {}
+    sut.present(error: error)
+    
     // Assert.
-    let expectedText = "sample error"
-    let actualText = sut.spiedAlertController?.message
+    let expectedText = error.localizedDescription
+    let actualText = sut.alertHelperSpy.spiedText
     XCTAssertEqual(expectedText, actualText)
   }
 }
