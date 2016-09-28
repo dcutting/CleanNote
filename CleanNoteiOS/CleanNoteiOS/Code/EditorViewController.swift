@@ -3,6 +3,10 @@ import CleanNoteCore
 
 class EditorViewController: UIViewController {
   var interactor: EditorInteractorInput!
+  lazy var alertHelper: AlertHelper = {
+    return AlertHelper()
+  }()
+    
   @IBOutlet weak var textView: UITextView!
 
   override func viewDidLoad() {
@@ -22,7 +26,7 @@ extension EditorViewController: EditorInterface {
     if EditorError.failToFetchNote == error.code {
       controller.popViewController(animated: true)
     }
-    AlertHelper().show(title: "Error", text: error.localizedDescription, controller: controller)
+    alertHelper.show(title: "Error", text: error.localizedDescription, controller: controller)
   }
 
   func didSaveText(for noteID: NoteID) {

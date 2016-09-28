@@ -1,4 +1,5 @@
 class MockListInteractorInput: ListInteractorInput {
+
   var spiedFetchNotesAndSelectNoteID: NoteID??
 
   func fetchNotesAndSelect(noteID: NoteID?) {
@@ -7,4 +8,5 @@ class MockListInteractorInput: ListInteractorInput {
 
   func makeNote() {
   }
+    
 }

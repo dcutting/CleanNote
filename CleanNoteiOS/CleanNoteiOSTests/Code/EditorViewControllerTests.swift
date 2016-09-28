@@ -6,13 +6,13 @@ class EditorViewControllerTests: XCTestCase {
 
   var textView: MockTextView!
   var interactor: MockEditorInteractorInput!
-  var sut: EditorViewController!
+  var sut: TestableEditorViewController!
 
   override func setUp() {
     textView = MockTextView()
     interactor = MockEditorInteractorInput(noteID: NoteID())
 
-    sut = EditorViewController()
+    sut = TestableEditorViewController()
     sut.textView = textView
     sut.interactor = interactor
   }
@@ -49,6 +49,17 @@ class EditorViewControllerTests: XCTestCase {
     // Assert.
     let expectedText = "sample text"
     let actualText = textView.text
+    XCTAssertEqual(expectedText, actualText)
+  }
+
+  func test_presentError_presentsAlert() {
+    // Act.
+    let error = RetryableError(code: EditorError.failToSaveNote) {}
+    sut.present(error: error)
+    
+    // Assert.
+    let expectedText = error.localizedDescription
+    let actualText = sut.alertHelperSpy.spiedText
     XCTAssertEqual(expectedText, actualText)
   }
 }

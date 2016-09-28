@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C089E9F1D9BE8BA00077828 /* TestableEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C089E9E1D9BE8BA00077828 /* TestableEditorViewController.swift */; };
+		8CC323B91D99755400CF1557 /* TestableAlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC323B81D99755400CF1557 /* TestableAlertHelper.swift */; };
 		C8296D4A1D665FE800E5DA44 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8296D491D665FE800E5DA44 /* AlertHelper.swift */; };
 		C83BAD4A1D48E9CA00180193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD481D48E9CA00180193 /* Main.storyboard */; };
 		C83BAD4C1D48E9CA00180193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD4B1D48E9CA00180193 /* Assets.xcassets */; };
@@ -71,6 +73,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C089E9E1D9BE8BA00077828 /* TestableEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestableEditorViewController.swift; path = CleanNoteiOSTests/Code/TestableEditorViewController.swift; sourceTree = SOURCE_ROOT; };
+		8CC323B81D99755400CF1557 /* TestableAlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableAlertHelper.swift; sourceTree = "<group>"; };
 		C8296D491D665FE800E5DA44 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		C83BAD411D48E9CA00180193 /* CleanNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD491D48E9CA00180193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				C8296D491D665FE800E5DA44 /* AlertHelper.swift */,
+				8CC323B81D99755400CF1557 /* TestableAlertHelper.swift */,
 			);
 			name = Common;
 			path = CleanNoteiOS/Code;
@@ -204,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				C8DF78B71D4905770070D75A /* EditorViewController.swift */,
+				8C089E9E1D9BE8BA00077828 /* TestableEditorViewController.swift */,
 				C8DF78B81D4905770070D75A /* EditorWireframe.swift */,
 				C8DF78C51D4905810070D75A /* MockEditorWireframe.swift */,
 				C8DF78C31D4905810070D75A /* EditorViewControllerTests.swift */,
@@ -282,7 +288,6 @@
 				TargetAttributes = {
 					C83BAD401D48E9CA00180193 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 59GEB226V7;
 						DevelopmentTeamName = "Dan Cutting (Personal Team)";
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
@@ -379,6 +384,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8DF78CA1D4905810070D75A /* ListViewControllerTests.swift in Sources */,
+				8CC323B91D99755400CF1557 /* TestableAlertHelper.swift in Sources */,
+				8C089E9F1D9BE8BA00077828 /* TestableEditorViewController.swift in Sources */,
 				C8DF78C91D4905810070D75A /* EditorViewControllerTests.swift in Sources */,
 				C8DF78CB1D4905810070D75A /* MockEditorWireframe.swift in Sources */,
 				C8DF78CD1D4905810070D75A /* MockTextView.swift in Sources */,
@@ -515,6 +522,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CleanNoteiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteiOS;
@@ -528,6 +536,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = CleanNoteiOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.cutting.CleanNoteiOS;
