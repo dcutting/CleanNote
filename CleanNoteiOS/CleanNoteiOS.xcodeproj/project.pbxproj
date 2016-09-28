@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C089E9F1D9BE8BA00077828 /* TestableEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C089E9E1D9BE8BA00077828 /* TestableEditorViewController.swift */; };
 		8CC323B91D99755400CF1557 /* TestableAlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC323B81D99755400CF1557 /* TestableAlertHelper.swift */; };
 		C8296D4A1D665FE800E5DA44 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8296D491D665FE800E5DA44 /* AlertHelper.swift */; };
 		C83BAD4A1D48E9CA00180193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD481D48E9CA00180193 /* Main.storyboard */; };
@@ -24,7 +25,6 @@
 		C8DF78CB1D4905810070D75A /* MockEditorWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C51D4905810070D75A /* MockEditorWireframe.swift */; };
 		C8DF78CC1D4905810070D75A /* MockTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C61D4905810070D75A /* MockTableView.swift */; };
 		C8DF78CD1D4905810070D75A /* MockTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C71D4905810070D75A /* MockTextView.swift */; };
-		C8DF78CE1D4905810070D75A /* TestableEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78C81D4905810070D75A /* TestableEditorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +73,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C089E9E1D9BE8BA00077828 /* TestableEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestableEditorViewController.swift; path = CleanNoteiOSTests/Code/TestableEditorViewController.swift; sourceTree = SOURCE_ROOT; };
 		8CC323B81D99755400CF1557 /* TestableAlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableAlertHelper.swift; sourceTree = "<group>"; };
 		C8296D491D665FE800E5DA44 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		C83BAD411D48E9CA00180193 /* CleanNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +95,6 @@
 		C8DF78C51D4905810070D75A /* MockEditorWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MockEditorWireframe.swift; path = ../../CleanNoteiOSTests/Code/MockEditorWireframe.swift; sourceTree = "<group>"; };
 		C8DF78C61D4905810070D75A /* MockTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTableView.swift; sourceTree = "<group>"; };
 		C8DF78C71D4905810070D75A /* MockTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTextView.swift; sourceTree = "<group>"; };
-		C8DF78C81D4905810070D75A /* TestableEditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TestableEditorViewController.swift; path = ../../CleanNoteiOSTests/Code/TestableEditorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +144,14 @@
 				C83BAD551D48E9CA00180193 /* CleanNoteiOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		C88DE6441D8692C2008BC81B /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C8DF78C41D4905810070D75A /* ListViewControllerTests.swift */,
+			);
+			name = Tests;
 			sourceTree = "<group>";
 		};
 		C8DE88371D49186600D8D8AE /* Products */ = {
@@ -201,10 +209,10 @@
 			isa = PBXGroup;
 			children = (
 				C8DF78B71D4905770070D75A /* EditorViewController.swift */,
+				8C089E9E1D9BE8BA00077828 /* TestableEditorViewController.swift */,
 				C8DF78B81D4905770070D75A /* EditorWireframe.swift */,
 				C8DF78C51D4905810070D75A /* MockEditorWireframe.swift */,
 				C8DF78C31D4905810070D75A /* EditorViewControllerTests.swift */,
-				C8DF78C81D4905810070D75A /* TestableEditorViewController.swift */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -214,7 +222,7 @@
 			children = (
 				C8DF78B91D4905770070D75A /* ListViewController.swift */,
 				C8DF78BA1D4905770070D75A /* ListWireframe.swift */,
-				C8DF78C41D4905810070D75A /* ListViewControllerTests.swift */,
+				C88DE6441D8692C2008BC81B /* Tests */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -377,9 +385,9 @@
 			files = (
 				C8DF78CA1D4905810070D75A /* ListViewControllerTests.swift in Sources */,
 				8CC323B91D99755400CF1557 /* TestableAlertHelper.swift in Sources */,
+				8C089E9F1D9BE8BA00077828 /* TestableEditorViewController.swift in Sources */,
 				C8DF78C91D4905810070D75A /* EditorViewControllerTests.swift in Sources */,
 				C8DF78CB1D4905810070D75A /* MockEditorWireframe.swift in Sources */,
-				C8DF78CE1D4905810070D75A /* TestableEditorViewController.swift in Sources */,
 				C8DF78CD1D4905810070D75A /* MockTextView.swift in Sources */,
 				C8DF78CC1D4905810070D75A /* MockTableView.swift in Sources */,
 			);

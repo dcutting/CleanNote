@@ -24,25 +24,23 @@ class ListViewControllerTests: XCTestCase {
   }
 
 
-  func test_viewWillAppear_fetchesNotes() {
-    // Arrange.
-    interactor.expectFetchNotes()
-
+  func test_viewWillAppear_fetchesNotesWithNoneSelected() {
     // Act.
     sut.viewWillAppear(false)
 
     // Assert.
-    XCTAssert(interactor.assert())
+    let actualNoteID = interactor.spiedFetchNotesAndSelectNoteID
+    XCTAssert(isSetButIsNil(actualNoteID))
   }
 
 
   func test_update_reloadsTableView() {
     // Arrange.
-    let notes = ListViewList(notes: [], selected: nil)
     tableView.expectReloadData()
+    let list = ListViewList(notes: [], selected: nil)
 
     // Act.
-    sut.update(list: notes)
+    sut.update(list: list)
 
     // Assert.
     XCTAssert(tableView.assert())
@@ -74,7 +72,7 @@ class ListViewControllerTests: XCTestCase {
       ListViewNote(id: "2", summary: "another sample note")
     ]
     let list = ListViewList(notes: notes, selected: nil)
-    
+
     // Act.
     sut.update(list: list)
 
@@ -111,5 +109,15 @@ class ListViewControllerTests: XCTestCase {
 
     // Assert.
     XCTAssert(editorWireframe.assert())
+  }
+
+
+  func isSetButIsNil<T>(_ wrapper: T??) -> Bool {
+    switch wrapper {
+    case let .some(value):
+      return value == nil
+    case .none:
+      return false
+    }
   }
 }
