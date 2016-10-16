@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C089EA51D9EC06C00077828 /* StoryboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C089EA41D9EC06C00077828 /* StoryboardViewController.swift */; };
+		8C95575F1DB33D1000E7FBE7 /* EditorSegueConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95575E1DB33D1000E7FBE7 /* EditorSegueConfiguration.swift */; };
 		8CC323B91D99755400CF1557 /* TestableAlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC323B81D99755400CF1557 /* TestableAlertHelper.swift */; };
+		8CC323C51D998CDF00CF1557 /* StoryboardSegueCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CC323C41D998CDF00CF1557 /* StoryboardSegueCoordinator.swift */; };
 		C8296D4A1D665FE800E5DA44 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8296D491D665FE800E5DA44 /* AlertHelper.swift */; };
 		C83BAD4A1D48E9CA00180193 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD481D48E9CA00180193 /* Main.storyboard */; };
 		C83BAD4C1D48E9CA00180193 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C83BAD4B1D48E9CA00180193 /* Assets.xcassets */; };
@@ -73,7 +76,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8C089EA41D9EC06C00077828 /* StoryboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryboardViewController.swift; path = CleanNoteiOS/Code/StoryboardViewController.swift; sourceTree = "<group>"; };
+		8C95575E1DB33D1000E7FBE7 /* EditorSegueConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EditorSegueConfiguration.swift; path = CleanNoteiOS/Code/EditorSegueConfiguration.swift; sourceTree = "<group>"; };
 		8CC323B81D99755400CF1557 /* TestableAlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestableAlertHelper.swift; sourceTree = "<group>"; };
+		8CC323C41D998CDF00CF1557 /* StoryboardSegueCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StoryboardSegueCoordinator.swift; path = CleanNoteiOS/Code/StoryboardSegueCoordinator.swift; sourceTree = "<group>"; };
 		C8296D491D665FE800E5DA44 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		C83BAD411D48E9CA00180193 /* CleanNote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanNote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C83BAD491D48E9CA00180193 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -115,6 +121,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8C9557601DB33DB400E7FBE7 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				8C089EA41D9EC06C00077828 /* StoryboardViewController.swift */,
+				8CC323C41D998CDF00CF1557 /* StoryboardSegueCoordinator.swift */,
+				8C95575E1DB33D1000E7FBE7 /* EditorSegueConfiguration.swift */,
+			);
+			name = Flow;
+			sourceTree = "<group>";
+		};
 		C8296D4C1D6660E500E5DA44 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +146,7 @@
 			children = (
 				C8DF78E11D490A1B0070D75A /* Boilerplate */,
 				C8DF78E21D490A3D0070D75A /* UI */,
+				8C9557601DB33DB400E7FBE7 /* Flow */,
 				C8DF78B51D4905770070D75A /* Modules */,
 				C8296D4C1D6660E500E5DA44 /* Common */,
 				C8DF78C21D4905810070D75A /* Mocks */,
@@ -364,8 +381,11 @@
 				C8DF78C01D4905770070D75A /* ListWireframe.swift in Sources */,
 				C8DF78BC1D4905770070D75A /* AppDelegate.swift in Sources */,
 				C8DF78C11D4905770070D75A /* RootWireframe.swift in Sources */,
+				8C089EA51D9EC06C00077828 /* StoryboardViewController.swift in Sources */,
 				C8DF78BD1D4905770070D75A /* EditorViewController.swift in Sources */,
+				8C95575F1DB33D1000E7FBE7 /* EditorSegueConfiguration.swift in Sources */,
 				C8296D4A1D665FE800E5DA44 /* AlertHelper.swift in Sources */,
+				8CC323C51D998CDF00CF1557 /* StoryboardSegueCoordinator.swift in Sources */,
 				C8DF78BF1D4905770070D75A /* ListViewController.swift in Sources */,
 				C8DF78BE1D4905770070D75A /* EditorWireframe.swift in Sources */,
 			);
