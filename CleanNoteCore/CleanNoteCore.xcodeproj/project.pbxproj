@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CC323B61D996E6800CF1557 /* MockListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A31D4905130070D75A /* MockListInteractorInput.swift */; };
-		8CC323B71D996FC400CF1557 /* MockEditorInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A01D4905130070D75A /* MockEditorInteractorInput.swift */; };
-		8CC323BB1D99779300CF1557 /* MockNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A61D4905130070D75A /* MockNoteGateway.swift */; };
 		C822151D1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C822151C1D8080BD00AB5A68 /* RandomErrorGeneratorTests.swift */; };
 		C822151F1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C822151E1D81CE5600AB5A68 /* StubRandomNumberGenerator.swift */; };
 		C82215211D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82215201D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift */; };
 		C82687D91D7468900071D2A6 /* RetryableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82687D81D7468900071D2A6 /* RetryableError.swift */; };
 		C83266941D8605930009F4F5 /* RetryableErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C83266931D8605930009F4F5 /* RetryableErrorTests.swift */; };
+		C83266961D860D7B0009F4F5 /* MockNoteGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A61D4905130070D75A /* MockNoteGateway.swift */; };
+		C83266971D860D990009F4F5 /* MockListInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A31D4905130070D75A /* MockListInteractorInput.swift */; };
+		C83266981D860E6A0009F4F5 /* MockEditorInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A01D4905130070D75A /* MockEditorInteractorInput.swift */; };
 		C832AD8A1D85E9F9002085C3 /* EditorInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF789B1D4905130070D75A /* EditorInteractorTests.swift */; };
 		C832AD8B1D85EA10002085C3 /* MockEditorInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DF78A11D4905130070D75A /* MockEditorInteractorOutput.swift */; };
 		C83BAD281D48E9A200180193 /* CleanNoteCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C83BAD1E1D48E9A200180193 /* CleanNoteCore.framework */; };
@@ -376,20 +376,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8DF78971D4904DA0070D75A /* ListPresenter.swift in Sources */,
-				8CC323B61D996E6800CF1557 /* MockListInteractorInput.swift in Sources */,
+				C83266971D860D990009F4F5 /* MockListInteractorInput.swift in Sources */,
 				C89356921D5A10DB001752A5 /* List.swift in Sources */,
 				C8DF78931D4904DA0070D75A /* EditorInteractor.swift in Sources */,
 				C8DF78951D4904DA0070D75A /* InMemoryNoteGateway.swift in Sources */,
 				C88E03471D730E21000859D0 /* RandomlyFailingNoteGatewayDecorator.swift in Sources */,
-				8CC323BB1D99779300CF1557 /* MockNoteGateway.swift in Sources */,
+				C83266981D860E6A0009F4F5 /* MockEditorInteractorInput.swift in Sources */,
 				C8DF78961D4904DA0070D75A /* ListInteractor.swift in Sources */,
 				C82215211D81CF4B00AB5A68 /* UniformRandomNumberGenerator.swift in Sources */,
 				C8DF78941D4904DA0070D75A /* EditorPresenter.swift in Sources */,
 				C82687D91D7468900071D2A6 /* RetryableError.swift in Sources */,
-				8CC323B71D996FC400CF1557 /* MockEditorInteractorInput.swift in Sources */,
 				C8DF78991D4904DA0070D75A /* NoteGateway.swift in Sources */,
 				C8DF78981D4904DA0070D75A /* Note.swift in Sources */,
 				C8DC55051D7AF25A002CC948 /* RandomErrorGenerator.swift in Sources */,
+				C83266961D860D7B0009F4F5 /* MockNoteGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

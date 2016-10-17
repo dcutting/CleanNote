@@ -52,7 +52,6 @@ class EditorViewControllerTests: XCTestCase {
     XCTAssertEqual(expectedText, actualText)
   }
 
-
   func test_presentError_presentsAlert() {
     // Act.
     let error = RetryableError(code: EditorError.failToSaveNote) {}
