@@ -11,9 +11,13 @@ class EditorViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    interactor.fetchText()
     textView.becomeFirstResponder()
   }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        interactor.fetchText()
+    }
+    
 }
 
 extension EditorViewController: EditorInterface {
